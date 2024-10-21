@@ -8,11 +8,20 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
       - uses: actions/checkout@v2
+
       - name: Install dependencies
         run: npm install
+
       - name: Build project
         run: npm run build
+
       - name: Deploy to GitHub Pages
         run: npm run deploy

@@ -22,7 +22,7 @@
     {
         "\ufeffPaper ID": "25",
         "Paper Title": "Versatile Music-for-Music Modeling via Function Alignment",
-        "Authors": "Junyan Jiang (New York University Shanghai)*; Daniel Chin (New York University Shanghai); Xuanjie Liu (MBZUAI); Liwei Lin (MBZUAI); Gus Xia (MBZUAI)"
+        "Authors": "Junyan Jiang (New York University Shanghai)*; Daniel Chin (New York University Shanghai); Liwei Lin (MBZUAI); Xuanjie Liu (MBZUAI); Gus Xia (MBZUAI)"
     },
     {
         "\ufeffPaper ID": "26",
@@ -86,7 +86,7 @@
     },
     {
         "\ufeffPaper ID": "67",
-        "Paper Title": "AN EVALUATION STRATEGY FOR LOCAL KEY ESTIMATION: EXPLOITING CROSS-VERSION CONSISTENCY",
+        "Paper Title": "An Evaluation Strategy for Local Key Estimation: Exploiting Cross-Version Consistency",
         "Authors": "Yiwei Ding (University of W\u00fcrzburg)*; Yannik Venohr (University of W\u00fcrzburg); Christof Weiss (University of W\u00fcrzburg)"
     },
     {
@@ -171,13 +171,13 @@
     },
     {
         "\ufeffPaper ID": "122",
-        "Paper Title": "TOWARDS ROBUST AUTOMATIC MUSIC TRANSCRIPTION BY MEASURING CROSS-VERSION CONSISTENCY",
+        "Paper Title": "Towards Robust Automatic Music Transcription by Measuring Cross-Version Consistency",
         "Authors": "Yannik Venohr (University of W\u00fcrzburg)*; Yiwei Ding (University of W\u00fcrzburg); Christof Weiss (University of W\u00fcrzburg)"
     },
     {
         "\ufeffPaper ID": "125",
         "Paper Title": "A Multidimensional Approach to Opera Analysis: Harmony, Tempo, and Dramatic Interaction in Wagner's Siegfried Act III",
-        "Authors": "Pascal Schmolenzky (Universit\u00e4t des Saarlands)*; Stephanie Klauk (Institut f\u00fcr Musikwissenschaft, Universit\u00e4t des Saarlandes); Rainer Kleinertz (Institut f\u00fcr Musikwissenschaft, Universit\u00e4t des Saarlandes); Christof Wei\u00df (Center for Artificial Intelligence and Data Science, Universit\u00e4t W\u00fcrzburg); Meinard M\u00fcller (International Audio Laboratories Erlangen)"
+        "Authors": "Pascal Schmolenzky (Universit\u00e4t des Saarlands)*; Stephanie Klauk (Institut f\u00fcr Musikwissenschaft, Universit\u00e4t des Saarlandes); Rainer Kleinertz (Institut f\u00fcr Musikwissenschaft, Universit\u00e4t des Saarlandes); Christof Weiss (Center for Artificial Intelligence and Data Science, Universit\u00e4t W\u00fcrzburg); Meinard M\u00fcller (International Audio Laboratories Erlangen)"
     },
     {
         "\ufeffPaper ID": "127",
@@ -346,7 +346,7 @@
     },
     {
         "\ufeffPaper ID": "238",
-        "Paper Title": "PLAYABILITY PREDICTION IN DIGITAL GUITAR LEARNING USING INTERPRETABLE STUDENT AND SONG REPRESENTATIONS",
+        "Paper Title": "Playability Prediction in Digital Guitar Learning Using Interpretable Student and Song Representations",
         "Authors": "Manuel M\u00fcllersch\u00f6n (Yousician)*; Anssi Klapuri (Yousician); Marcelo Rodriguez (Yousician); Christian Cardin (Yousician)"
     },
     {
@@ -396,7 +396,7 @@
     },
     {
         "\ufeffPaper ID": "266",
-        "Paper Title": "FRETBOARDFLOW: A DUAL-MODEL APPROACH TO OPTIMIZE CHORD VOICINGS ON THE GUITAR FRETBOARD",
+        "Paper Title": "Fretboardflow: A Dual-Model Approach to Optimize Chord Voicings on the Guitar Fretboard",
         "Authors": "Marcel V\u00e9lez V\u00e1squez (University of Amsterdam)*; Mari\u00eblle Baelemans (University of Amsterdam); Jonathan Driedger (Chordify); John Ashley Burgoyne (University of Amsterdam)"
     },
     {
@@ -406,7 +406,7 @@
     },
     {
         "\ufeffPaper ID": "269",
-        "Paper Title": "STAGE: Stemmed Accompaniment Generation through Prefix-Based Conditioning",
+        "Paper Title": "STAGE: Stemmed Accompaniment Generation Through Prefix-Based Conditioning",
         "Authors": "Giorgio Strano (Sapienza University of Rome); Chiara Ballanti (Sapienza University of Rome); Donato Crisostomi (Sapienza, University of Rome)*; Michele Mancusi (Sapienza University of Rome); Luca Cosmo (Ca' Foscari University of venice); Emanuele Rodol\u00e0 (Sapienza University of Rome)"
     },
     {

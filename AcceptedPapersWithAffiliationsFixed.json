@@ -1,0 +1,492 @@
+[
+    {
+        "Paper ID": "4",
+        "Paper Title": "Reformulating Soft Dynamic Time Warping: Insights into Target Artifacts and Prediction Quality",
+        "Authors": "Johannes Zeitler(International Audio Laboratories Erlangen);Meinard Müller(International Audio Laboratories Erlangen)"
+    },
+    {
+        "Paper ID": "7",
+        "Paper Title": "Audio Synthesizer Inversion in Symmetric Parameter Spaces with Approximately Equivariant Flow Matching",
+        "Authors": "Ben Hayes(Queen Mary University of London);Charalampos Saitis(Queen Mary University of London);György Fazekas(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "10",
+        "Paper Title": "Count the Notes: Histogram Based Supervision for Automatic Music Transcription",
+        "Authors": "Jonathan Yaffe(Tel Aviv University);Ben Maman(International Audio Laboratories Erlangen);Meinard Müller(International Audio Laboratories Erlangen);Amit H. Bermano(Tel Aviv University)"
+    },
+    {
+        "Paper ID": "14",
+        "Paper Title": "Video Guided Text to Music Generation Using Public Domain Movie Collections",
+        "Authors": "Haven Kim(University of California San Diego);Zachary Novack(University of California San Diego);Weihan Xu(Duke University);Julian Mcauley(University of California, San Diego);Hao Wen Dong(University of Michigan)"
+    },
+    {
+        "Paper ID": "25",
+        "Paper Title": "VERSATILE Symbolic Music for Music Modeling via Function Alignment",
+        "Authors": "Junyan Jiang(New York University Shanghai);Daniel Chin(New York University Shanghai);Liwei Lin(MBZUAI);Xuanjie Liu(MBZUAI);Gus Xia(MBZUAI)"
+    },
+    {
+        "Paper ID": "26",
+        "Paper Title": "Joint Object Detection and Sound Source Separation",
+        "Authors": "Sunyoo Kim(Seoul National University);Yunjeong Choi(Seoul National University);Doyeon Lee(Seoul National University);Seoyoung Lee(The University of Texas at Austin);Eunyi Lyou(Seoul National University);Seungju Kim(Sookmyung Women's University);Junhyug Noh(Ewha Women's University);Joonseok Lee(Seoul National University)"
+    },
+    {
+        "Paper ID": "32",
+        "Paper Title": "Generating Symbolic Music from Natural Language Prompts Using an Llm Enhanced Dataset",
+        "Authors": "Weihan Xu(Duke University);Julian Mcauley(University of California, San Diego);Taylor Berg Kirkpatrick(University of California, San Diego);Shlomo Dubnov(University of California, San Diego);Hao Wen Dong(University of Michigan)"
+    },
+    {
+        "Paper ID": "33",
+        "Paper Title": "Musgo: a Community Driven Framework for Assessing Openness in Music Generative AI",
+        "Authors": "Roser Batlle Roca(Universitat Pompeu Fabra);Laura Ibáñez Martínez(Universitat Pompeu Fabra);Xavier Serra(Universitat Pompeu Fabra);Emilia Gómez(Joint Research Centre, European Commission & Universitat Pompeu Fabra);Martín Rocamora(Universitat Pompeu Fabra)"
+    },
+    {
+        "Paper ID": "38",
+        "Paper Title": "A Survey on Vision to Music Generation: Methods, Datasets, Evaluation, and Challenges",
+        "Authors": "Zhaokai Wang(Shanghai Jiao Tong University);Chenxi Bao(DynamiX);Le Zhuo(Shanghai AI Laboratory);Jingrui Han(Beijing Film Academy);Yang Yue(Tsinghua University);Yihong Tang(McGill University);Victor Shea Jay Huang(DynamiX);Yue Liao(The Chinese University of Hong Kong)"
+    },
+    {
+        "Paper ID": "46",
+        "Paper Title": "Measuring Sensory Dissonance in Multi Track Music Recordings: a Case Study with Wind Quartets",
+        "Authors": "Simon Schwär(International Audio Laboratories Erlangen);Stefan Balke(International Audio Laboratories Erlangen);Meinard Müller(International Audio Laboratories Erlangen)"
+    },
+    {
+        "Paper ID": "47",
+        "Paper Title": "Slap: Siamese Language Audio Pretraining without Negative Samples for Music Understanding",
+        "Authors": "Julien Guinot(Queen Mary University of London);Alain Riou(LTCI, Télécom-Paris, Institut Polytechnique de Paris);Elio Quinton(Universal Music Group);György Fazekas(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "48",
+        "Paper Title": "Gd Retriever: Controllable Generative Text Music Retrieval with Diffusion Models",
+        "Authors": "Julien Guinot(Queen Mary University of London);Elio Quinton(Universal Music Group);György Fazekas(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "50",
+        "Paper Title": "Quantifying Regularity in Music Structure Analysis",
+        "Authors": "Brian Mcfee(New York University)"
+    },
+    {
+        "Paper ID": "53",
+        "Paper Title": "Lilac: a Lightweight Latent Controlnet for Musical Audio Generation",
+        "Authors": "Tom Baker(University of Manchester);Javier Nistal(Sony Computer Science Laboratories, Paris)"
+    },
+    {
+        "Paper ID": "59",
+        "Paper Title": "Ito Master: Inference Time Optimization for Audio Effects Modeling of Music Mastering Processors",
+        "Authors": "Junghyun Koo(Sony AI);Marco A. Martínez Ramírez(Sony AI);Wei Hsiang Liao(Sony AI);Giorgio Fabbro(Sony Europe B.V.);Michele Mancusi(Sony Europe B.V.);Yuki Mitsufuji(Sony AI)"
+    },
+    {
+        "Paper ID": "64",
+        "Paper Title": "Instruct Musicgen: Unlocking Text to Music Editing for Music Language Models via Instruction Tuning",
+        "Authors": "Yixiao Zhang(ByteDance Inc);Yukara Ikemiya(Sony);Woosung Choi(Sony);Naoki Murata(Sony);Marco A. Martínez Ramírez(Sony AI);Liwei Lin(New York University);Gus Xia(MBZUAI);Wei Hsiang Liao(Sony AI);Yuki Mitsufuji(Sony AI);Simon Dixon(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "66",
+        "Paper Title": "Improving BERT for Symbolic Music Understanding Using Token Denoising and Pianoroll Prediction",
+        "Authors": "Jun You Wang(Academia Sinica);Li Su(Academia Sinica)"
+    },
+    {
+        "Paper ID": "67",
+        "Paper Title": "An Evaluation Strategy for Local Key Estimation: Exploiting Cross Version Consistency",
+        "Authors": "Yiwei Ding(University of Würzburg);Yannik Venohr(University of Würzburg);Christof Weiß(University of Würzburg)"
+    },
+    {
+        "Paper ID": "70",
+        "Paper Title": "Sheet Music Benchmark: Standardized Optical Music Recognition Evaluation",
+        "Authors": "Juan C. Martinez Sevilla(University of Alicante);Joan Cerveto Serrano(University of Alicante);Noelia Luna(University of Alicante);Greg Chapman(-);Craig Sapp(Stanford University);David Rizo(University of Alicante);Jorge Calvo Zaragoza(University of Alicante)"
+    },
+    {
+        "Paper ID": "74",
+        "Paper Title": "Peaknetfp: Peak Based Neural Audio Fingerprinting Robust to Extreme Time Stretching",
+        "Authors": "Guillem Cortès Sebastià(BMAT Licensing S.L.);Benjamin Martin(Deezer);Emilio Molina(BMAT Licensing S.L.);Xavier Serra(Universitat Pompeu Fabra);Romain Hennequin(Deezer)"
+    },
+    {
+        "Paper ID": "75",
+        "Paper Title": "Rise: Adaptive Music Playback for Realtime Intensity Synchronization with Exercise",
+        "Authors": "Alexander Wang(University of Michigan);Chris Donahue(Carnegie Mellon University);Dhruv Jain(University of Michigan)"
+    },
+    {
+        "Paper ID": "77",
+        "Paper Title": "Expanding the Haisp Dataset: Ai’s Impact on Songwriting across Two AI Song Contests",
+        "Authors": "Lidia Morris(University of Washington);Michele Newman(University of Washington);Xinya Tang(University of Washington);Renee Singh(University of Washington);Marcel Vélez Vásquez(University of Amsterdam);Rebecca Leger(Fraunhofer Institute for Integrated Circuits);Jin Ha Lee(University of Washington)"
+    },
+    {
+        "Paper ID": "79",
+        "Paper Title": "Simple and Effective Semantic Song Segmentation",
+        "Authors": "Filip Korzeniowski(Music.AI);Richard Vogl(Music.AI)"
+    },
+    {
+        "Paper ID": "87",
+        "Paper Title": "Pianovam: a Multimodal Piano Performance Dataset",
+        "Authors": "Yonghyun Kim(Georgia Institute of Technology);Junhyung Park(KAIST);Joonhyung Bae(KAIST);Kirak Kim(KAIST);Taegyun Kwon(KAIST);Alexander Lerch(Georgia Institute of Technology);Juhan Nam(KAIST)"
+    },
+    {
+        "Paper ID": "88",
+        "Paper Title": "Tomi: Transforming and Organizing Music Ideas for Multi Track Compositions with Full Song Structure",
+        "Authors": "Qi He(Music X Lab);Gus Xia(Machine Learning Department, MBZUAI);Ziyu Wang(Computer Science Department, NYU Shanghai)"
+    },
+    {
+        "Paper ID": "89",
+        "Paper Title": "Joint Transcription of Acoustic Guitar Strumming Directions and Chords",
+        "Authors": "Sebastian Murgul(Klangio GmbH);Johannes Schimper(Karlsruhe Institute of Technology);Michael Heizmann(Karlsruhe Institute of Technology)"
+    },
+    {
+        "Paper ID": "92",
+        "Paper Title": "Matchmaker: an Open Source Library for Real Time Piano Score Following and Systematic Evaluation",
+        "Authors": "Jiyun Park(KAIST);Carlos Cancino Chacón(JKU);Suhit Chiruthapudi(JKU);Juhan Nam(KAIST)"
+    },
+    {
+        "Paper ID": "101",
+        "Paper Title": "Exploring the Feasibility of Llms for Automated Music Emotion Annotation",
+        "Authors": "Meng Yang(Monash University);Jon Mccormack(Monash University);Maria Teresa Llano(University of Sussex);Wanchao Su(Monash University)"
+    },
+    {
+        "Paper ID": "103",
+        "Paper Title": "Enhancing Music Recommender Systems with Multimedia Content: a Context Aware Approach",
+        "Authors": "Oleg Lesota(Johannes Kepler University);Veronica Clavijo(Jönköping University);Attia Rizwani(Jönköping University);Markus Schedl(Johannes Kepler University);Bruce Ferwerda(Jönköping University)"
+    },
+    {
+        "Paper ID": "105",
+        "Paper Title": "Predicting Flutist Onset Timing in Duet Performance: a Multimodal Analysis of Gesture and Breath Cues",
+        "Authors": "Jaeran Choi(KAIST);Taegyun Kwon(KAIST);Juhan Nam(KAIST)"
+    },
+    {
+        "Paper ID": "111",
+        "Paper Title": "Scaling Self Supervised Representation Learning for Symbolic Piano Performance",
+        "Authors": "Louis Bradshaw(Queen Mary University of London);Honglu Fan(University of Geneva);Alexander Spangher(University of Southern California);Stella Biderman(EleutherAI);Simon Colton(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "112",
+        "Paper Title": "When Voices Interleave: Timing Deviations in Six Performances of Telemann's Fantasias for Solo Flute",
+        "Authors": "Patrice Thibaud(Univ. Lille, CNRS, Inria, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France);Mathieu Giraud(Univ. Lille, CNRS, Inria, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France);Yann Teytaut(Univ. Lille, CNRS, Inria, Centrale Lille, UMR 9189 CRIStAL, F-59000 Lille, France)"
+    },
+    {
+        "Paper ID": "113",
+        "Paper Title": "Optical Music Recognition of Jazz Lead Sheets",
+        "Authors": "Juan Carlos Martinez Sevilla;Francesco Foscarin(Johannes Kepler University Linz);Patricia Garcia Iasci(University of Alicante);David Rizo(University of Alicante);Jorge Calvo Zaragoza(University of Alicante);Gerhard Widmer(Johannes Kepler University Linz)"
+    },
+    {
+        "Paper ID": "116",
+        "Paper Title": "What Song Now? Personalized Rhythm Guitar Learning in Western Popular Music",
+        "Authors": "Zakaria Hassein Bey(Université de Lille);Yohann Abbou(Guitar Social Club);Alexandre D'hooge(Université de Lille);Mathieu Giraud(CNRS, Université de Lille);Gilles Guillemain(Guitar Social Club);Aurélien Jeanneau(Université de Lille)"
+    },
+    {
+        "Paper ID": "122",
+        "Paper Title": "Towards Robust Music Transcription by Measuring Cross Version Consistency in Western Classical Music",
+        "Authors": "Yannik Venohr(University of Würzburg);Yiwei Ding(University of Würzburg);Christof Weiss(University of Würzburg)"
+    },
+    {
+        "Paper ID": "125",
+        "Paper Title": "A Multidimensional Approach to Opera Analysis: Harmony, Tempo, and Dramatic Interaction in Wagner's Siegfried",
+        "Authors": "Pascal Schmolenzky(Universität des Saarlands);Stephanie Klauk(Institut für Musikwissenschaft, Universität des Saarlandes);Rainer Kleinertz(Institut für Musikwissenschaft, Universität des Saarlandes);Christof Weiß(University of Würzburg);Meinard Müller(International Audio Laboratories Erlangen)"
+    },
+    {
+        "Paper ID": "127",
+        "Paper Title": "Enabling Empirical Analysis of Piano Performance Rehearsal with the Rach3 MIDI Dataset",
+        "Authors": "Alia Morsi(MTG);Suhit Chiruthapudi(Johannes Kepler University Linz);Silvan Peter(Johannes Kepler University Linz);Ivan Pilkov(Johannes Kepler University Linz);Laura Bishop(University of Oslo);Akira Maezawa(Yamaha Corporation);Xavier Serra(Music Technology Group);Carlos Eduardo Cancino Chacón"
+    },
+    {
+        "Paper ID": "128",
+        "Paper Title": "Investigating Music Track Liking in the Halo of Album Covers",
+        "Authors": "Oleg Lesota(Johannes Kepler University);Anna Hausberger(Johannes Kepler University);Ivanna Pshenychna(Johannes Kepler University);Oleksandr Shvydanenko(Johannes Kepler University);Olha Yehorova(Johannes Kepler University);Markus Schedl(Johannes Kepler University)"
+    },
+    {
+        "Paper ID": "129",
+        "Paper Title": "Pianobind: a Multimodal Joint Embedding Model for Pop Piano Music",
+        "Authors": "Hayeon Bang(KAIST);Eunjin Choi(KAIST);Seungheon Doh(KAIST);Juhan Nam(KAIST)"
+    },
+    {
+        "Paper ID": "130",
+        "Paper Title": "Understanding Performance Limitations in Automatic Drum Transcription",
+        "Authors": "Philipp Weyers(Fraunhofer IIS);Christian Uhle(Fraunhofer IIS);Meinard Müller(International Audio Laboratories Erlangen/Fraunhofer IIS);Matthias Lang(Fraunhofer IIS)"
+    },
+    {
+        "Paper ID": "133",
+        "Paper Title": "Conditional Diffusion As Latent Constraints for Controllable Symbolic Music Generation",
+        "Authors": "Matteo Pettenò(Politecnico di Milano);Alessandro Ilic Mezza(Politecnico di Milano);Alberto Bernardini(Politecnico di Milano)"
+    },
+    {
+        "Paper ID": "135",
+        "Paper Title": "Dplp: a Differentiable Version of Predominant Local Pulse Estimation",
+        "Authors": "Ching Yu Chiu(International Audio Laboratories Erlangen, Germany);Sebastian Strahl(International Audio Laboratories Erlangen, Germany);Meinard Müller(International Audio Laboratories Erlangen, Germany)"
+    },
+    {
+        "Paper ID": "137",
+        "Paper Title": "Coloring Music: Bridging Music and Color Palettes for Graphic Design",
+        "Authors": "Takayuki Nakatsuka(National Institute of Advanced Industrial Science and Technology (AIST);Masahiro Hamasaki(National Institute of Advanced Industrial Science and Technology (AIST);Masataka Goto(National Institute of Advanced Industrial Science and Technology (AIST)"
+    },
+    {
+        "Paper ID": "138",
+        "Paper Title": "Radif Corpus: a Symbolic Dataset for Non Metric Iranian Classical Music",
+        "Authors": "Maziar Kanani(University of Galway);Sean O'leary(TU Dublin);James Mcdermott(University of Galway)"
+    },
+    {
+        "Paper ID": "140",
+        "Paper Title": "Beyond Notation: a Digital Platform for Transcribing and Analyzing Oral Melodic Traditions",
+        "Authors": "Jonathan Myers(UC Santa Cruz);Dard Neuman(UC Santa Cruz)"
+    },
+    {
+        "Paper ID": "141",
+        "Paper Title": "Codicodec: Unifying Continuous and Discrete Compressed Representations of Audio",
+        "Authors": "Marco Pasini(Queen Mary University of London);Stefan Lattner(Sony);György Fazekas(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "147",
+        "Paper Title": "User Guided Generative Source Separation",
+        "Authors": "Yutong Wen(University of Illinois Urbana-Champaign);Minje Kim(University of Illinois Urbana-Champaign);Paris Smaragdis(University of Illinois Urbana-Champaign)"
+    },
+    {
+        "Paper ID": "148",
+        "Paper Title": "Fx Encoder++: Extracting Instrument Wise Audio Effects Representations from Mixtures",
+        "Authors": "Yen Tung Yeh(National Taiwan University);Junghyun Koo(Sony AI);Marco A. Martínez Ramírez(Sony AI);Wei Hsiang Liao(Sony AI);Yi Hsuan Yang(National Taiwan University);Yuki Mitsufuji(Sony AI)"
+    },
+    {
+        "Paper ID": "150",
+        "Paper Title": "Automatic Melody Reduction via Shortest Path Finding",
+        "Authors": "Ziyu Wang(NYU Shanghai);Yuxuan Wu(MBZUAI);Roger B. Dannenberg(Carnegie Mellon University);Gus Xia(MBZUAI)"
+    },
+    {
+        "Paper ID": "159",
+        "Paper Title": "Idolsongsjp Corpus: a Multi Singer Song Corpus in the Style of Japanese Idol Groups",
+        "Authors": "Hitoshi Suda(National Institute of Advanced Industrial Science and Technology (AIST);Junya Koguchi(Meiji University);Shunsuke Yoshida(The University of Tokyo);Tomohiko Nakamura(National Institute of Advanced Industrial Science and Technology (AIST);Satoru Fukayama(National Institute of Advanced Industrial Science and Technology (AIST);Jun Ogata(National Institute of Advanced Industrial Science and Technology (AIST)"
+    },
+    {
+        "Paper ID": "163",
+        "Paper Title": "Melodic and Metrical Elements of Expressiveness in Hindustani Vocal Music",
+        "Authors": "Yash Bhake(IIT Bombay);Ankit Anand(IIT Bombay);Preeti Rao(Indian Institute of Technology Bombay)"
+    },
+    {
+        "Paper ID": "167",
+        "Paper Title": "Lose the Frames: Event Based Metrics for Efficient Music Structure Analysis Evaluations",
+        "Authors": "Qingyang (Tom) Xi(NYU);Brian Mcfee(New York University)"
+    },
+    {
+        "Paper ID": "177",
+        "Paper Title": "Human Vs. Machine: Comparing Selection Strategies in Active Learning for Optical Music Recognition",
+        "Authors": "Juan P. Martinez Esteso(Universidad de Alicante);Alejandro Galan Cuenca(Universidad de Alicante);Carlos Pérez Sancho(Universidad de Alicante);Francisco J. Castellanos(Universidad de Alicante);Antonio Javier Gallego(Universidad de Alicante)"
+    },
+    {
+        "Paper ID": "186",
+        "Paper Title": "Enhancing Neural Audio Fingerprint Robustness to Audio Degradation for Music Identification",
+        "Authors": "R. Oguz Araz(Universitat Pompeu Fabra);Guillem Cortès Sebastià(BMAT Licensing S.L.);Emilio Molina(BMAT Licensing S.L.);Joan Serrà(Sony AI);Xavier Serra(Universitat Pompeu Fabra);Yuki Mitsufuji(Sony AI);Dmitry Bogdanov(Universitat Pompeu Fabra)"
+    },
+    {
+        "Paper ID": "188",
+        "Paper Title": "On the De Duplication of the Lakh MIDI Dataset",
+        "Authors": "Eunjin Choi(KAIST);Hyerin Kim(Sogang University);Jiwoo Ryu(Sogang University);Juhan Nam(KAIST);Dasaem Jeong(Sogang University)"
+    },
+    {
+        "Paper ID": "191",
+        "Paper Title": "Leveraging Carnatic Live Recordings for Singing Voice Separation Using Regression Guided Latent Diffusion",
+        "Authors": "Genís Plaja Roglans(Music Technology Group);Xavier Serra(Music Technology Group);Martín Rocamora(Music Technology Group)"
+    },
+    {
+        "Paper ID": "199",
+        "Paper Title": "Tuning Matters: Analyzing Musical Tuning Bias in Neural Vocoders",
+        "Authors": "Hans Ulrich Berendes(International Audio Laboratories Erlangen);Ben Maman(International Audio Laboratories Erlangen);Meinard Müller(International Audio Laboratories Erlangen)"
+    },
+    {
+        "Paper ID": "208",
+        "Paper Title": "MIDI Valle: Improving Expressive Piano Performance Synthesis through Neural Codec Language Modelling",
+        "Authors": "Jingjing Tang(Queen Mary University of London);Xin Wang(National Institute of Informatics);Zhe Zhang(National Institute of Informatics);Junichi Yamagishi(National Institute of Informatics);Geraint Wiggins(Queen Mary University of London);György Fazekas(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "210",
+        "Paper Title": "Culturemert: Continual Pre Training for Cross Cultural Music Representation Learning",
+        "Authors": "Angelos Nikolaos Kanatas(School of ECE, National Technical University of Athens);Charilaos Papaioannou(School of ECE, National Technical University of Athens);Alexandros Potamianos(School of ECE, National Technical University of Athens)"
+    },
+    {
+        "Paper ID": "211",
+        "Paper Title": "Towards Human in the Loop Onset Detection: a Transfer Learning Approach for Maracatu",
+        "Authors": "António Sá Pinto"
+    },
+    {
+        "Paper ID": "212",
+        "Paper Title": "Phylo Analysis of Folk Traditions: a Methodology for the Hierarchical Musical Similarity Analysis",
+        "Authors": "Hilda Romero Velo(Universidade da Coruña);Gilberto Bernardes(INESC TEC, Faculty of Engineering, University of Porto);Susana Ladra(Universidade da Coruña);José R. Paramá(Universidade da Coruña);Fernando Silva Coira(Universidade da Coruña)"
+    },
+    {
+        "Paper ID": "213",
+        "Paper Title": "Universal Music Representations? Evaluating Foundation Models on World Music Corpora",
+        "Authors": "Charilaos Papaioannou(School of ECE, National Technical University of Athens);Emmanouil Benetos(Queen Mary University of London);Alexandros Potamianos(National Technical University of Athens)"
+    },
+    {
+        "Paper ID": "216",
+        "Paper Title": "Emergent Musical Properties of a Transformer under Contrastive Self Supervised Learning",
+        "Authors": "Yuexuan Kong(Deezer);Gabriel Meseguer Brocal(Deezer);Vincent Lostanlen(LS2N);Mathieu Lagrange(LS2N);Romain Hennequin(Deezer)"
+    },
+    {
+        "Paper ID": "219",
+        "Paper Title": "AI Generated Song Detection via Lyrics Transcripts",
+        "Authors": "Markus Frohmann(JKU);Elena V. Epure(Deezer);Gabriel Meseguer Brocal(Deezer);Markus Schedl(JKU);Romain Hennequin(Deezer)"
+    },
+    {
+        "Paper ID": "220",
+        "Paper Title": "Beyond Genre: Diagnosing Bias in Music Embeddings Using Concept Activation Vectors",
+        "Authors": "Roman B. Gebhardt(Cyanite / Audio Communication Group, TU Berlin);Arne Kuhle(Cyanite);Eylül Bektur(TU Berlin / Cyanite)"
+    },
+    {
+        "Paper ID": "221",
+        "Paper Title": "Perceptual Errors in Music Source Separation: Looking Beyond Sdr Averages",
+        "Authors": "Saurjya Sarkar(Queen Mary University of London);Victoria Moomjian(Queen Mary University of London);Basil Woods(AudioStrip);Emmanouil Benetos(Queen Mary University of London);Mark Sandler(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "227",
+        "Paper Title": "Adaptive Path of Prediction: an Unsupervised Method for Modeling Note Level Informational Hierarchy of Polyphony",
+        "Authors": "Xiaoxuan Wang(EPFL);Martin Rohrmeier(École Polytechnique Fédérale de Lausanne)"
+    },
+    {
+        "Paper ID": "229",
+        "Paper Title": "A Fourier Explanation of AI Music Artifacts",
+        "Authors": "Darius Afchar(Deezer);Gabriel Meseguer Brocal(Deezer);Kamil Akesbi(Deezer);Romain Hennequin(Deezer)"
+    },
+    {
+        "Paper ID": "233",
+        "Paper Title": "High Resolution Sustain Pedal Depth Estimation from Piano Audio across Room Acoustics",
+        "Authors": "Kun Fang(McGill University);Hanwen Zhang(McGill University);Ziyu Wang(New York University);Ichiro Fujinaga(McGill University)"
+    },
+    {
+        "Paper ID": "238",
+        "Paper Title": "Playability Prediction in Digital Guitar Learning Using Interpretable Student and Song Representations",
+        "Authors": "Manuel Müllerschön(Yousician);Anssi Klapuri(Yousician);Marcelo Rodríguez(Yousician);Christian Cardin(Yousician)"
+    },
+    {
+        "Paper ID": "244",
+        "Paper Title": "Estimating Musical Surprisal from Audio in Autoregressive Diffusion Model Noise Spaces",
+        "Authors": "Mathias Rose Bjare(Johannes Kepler University Linz);Stefan Lattner(Sony CSL Paris);Gerhard Widmer(Johannes Kepler University Linz)"
+    },
+    {
+        "Paper ID": "245",
+        "Paper Title": "Goat: a Large Dataset of Paired Guitar Audio Recordings and Tablatures",
+        "Authors": "Jackson Loth(Queen Mary University of London);Pedro Sarmento(Queen Mary University of London);Saurjya Sarkar(Queen Mary University of London);Zixun Guo(Queen Mary University of London);Mathieu Barthet(Queen Mary University of London);Mark Sandler(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "246",
+        "Paper Title": "Cmi Bench: a Comprehensive Benchmark for Evaluating Music Instruction Following",
+        "Authors": "Yinghao Ma(Queen Mary University of London);Siyou Li(Queen Mary University of London);Juntao Yu(Queen Mary University of London);Emmanouil Benetos(Queen Mary University of London);Akira Maezawa(Yamaha Corporation)"
+    },
+    {
+        "Paper ID": "247",
+        "Paper Title": "Quantize & Factorize: a Fast yet Effective Unsupervised Audio Representation without Deep Learning",
+        "Authors": "Jaehun Kim(Pandora / SiriusXM);Matthew C. Mccallum(Pandora / SiriusXM);Andreas F. Ehmann(Pandora / SiriusXM)"
+    },
+    {
+        "Paper ID": "248",
+        "Paper Title": "Loopgen: Training Free Loopable Music Generation",
+        "Authors": "Davide Marincione(Sapienza University of Rome);Giorgio Strano(Sapienza University of Rome);Donato Crisostomi(Sapienza, University of Rome);Roberto Ribuoli(Sapienza University of Rome);Emanuele Rodolà(Sapienza University of Rome)"
+    },
+    {
+        "Paper ID": "256",
+        "Paper Title": "Identification and Clustering of Unseen Ragas in Indian Art Music",
+        "Authors": "Parampreet Singh(IIT Kanpur);Adwik Gupta(IIT Kanpur);Aakarsh Mishra(IIT Kanpur);Vipul Arora(IIT Kanpur)"
+    },
+    {
+        "Paper ID": "259",
+        "Paper Title": "Barwise Section Boundary Detection in Symbolic Music Using Convolutional Neural Networks",
+        "Authors": "Omar Eldeeb(Technical University of Munich);Martin E. Malandro(Sam Houston State University)"
+    },
+    {
+        "Paper ID": "261",
+        "Paper Title": "Investigating an Overfitting and Degeneration Phenomenon in Self Supervised Multi Pitch Estimation",
+        "Authors": "Frank Cwitkowitz(University of Rochester);Zhiyao Duan(University of Rochester)"
+    },
+    {
+        "Paper ID": "264",
+        "Paper Title": "A Theoretical Model of Musical Form",
+        "Authors": "Martin Rohrmeier(École Polytechnique Fédérale de Lausanne);Markus Neuwirth(Anton Bruckner Privatuniversität Linz)"
+    },
+    {
+        "Paper ID": "266",
+        "Paper Title": "Fretboardflow: a Dual Model Approach to Optimize Chord Voicings on the Guitar Fretboard",
+        "Authors": "Marcel A. Vélez Vásquez;Mariëlle Baelemans(University of Amsterdam);Jonathan Driedger(Chordify);John Ashley Burgoyne(University of Amsterdam)"
+    },
+    {
+        "Paper ID": "268",
+        "Paper Title": "From Discord to Harmony: Decomposed Consonance Based Training for Improved Audio Chord Estimation",
+        "Authors": "Andrea Poltronieri(Music Technology Group - Universitat Pompeu Fabra);Xavier Serra(Music Technology Group - Universitat Pompeu Fabra);Martín Rocamora(Music Technology Group - Universitat Pompeu Fabra)"
+    },
+    {
+        "Paper ID": "269",
+        "Paper Title": "Stage: Stemmed Accompaniment Generation through Prefix Based Conditioning",
+        "Authors": "Giorgio Strano(Sapienza University of Rome);Chiara Ballanti(Sapienza University of Rome);Donato Crisostomi(Sapienza, University of Rome);Michele Mancusi(Sapienza University of Rome);Luca Cosmo(Ca' Foscari University of venice);Emanuele Rodolà(Sapienza University of Rome)"
+    },
+    {
+        "Paper ID": "274",
+        "Paper Title": "Adding Temporal Musical Controls on Top of Pretrained Generative Models",
+        "Authors": "Sarah Nabi(IRCAM);Nils Demerlé(IRCAM);Geoffroy Peeters(Telecom Paris);Frédéric Bevilacqua;Philippe Esling(IRCAM)"
+    },
+    {
+        "Paper ID": "278",
+        "Paper Title": "Keyboard Temperament Estimation from Symbolic Data: a Case Study on Bach's Well Tempered Clavier",
+        "Authors": "Peter Van Kranenburg(Utrecht University; Meertens Institute);Gerben Bisschop(Utrecht University)"
+    },
+    {
+        "Paper ID": "280",
+        "Paper Title": "Expotion: Facial Expression and Motion Control for Multimodal Music Generation",
+        "Authors": "Fathinah Izzati(MBZUAI);Xinyue Li(MBZUAI);Gus Xia(MBZUAI)"
+    },
+    {
+        "Paper ID": "281",
+        "Paper Title": "The Florence Price Art Song Dataset and Piano Accompaniment Generator",
+        "Authors": "Tao Tao He(Vanderbilt University);Martin E. Malandro(Sam Houston State University);Douglas Shadle(Vanderbilt University)"
+    },
+    {
+        "Paper ID": "283",
+        "Paper Title": "Assessing the Alignment of Audio Representations with Timbre Similarity Ratings",
+        "Authors": "Haokun Tian(Queen Mary University of London);Stefan Lattner(Sony CSL Paris);Charalampos Saitis(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "284",
+        "Paper Title": "Gregorian Melody, Modality, and Memory: Segmenting Chant with Bayesian Nonparametrics",
+        "Authors": "Vojtěch Lanz(Charles Unviersity);Jan Hajič Jr.(Charles University)"
+    },
+    {
+        "Paper ID": "286",
+        "Paper Title": "Globalmood: a Cross Cultural Benchmark for Music Emotion Recognition",
+        "Authors": "Harin Lee(Max Planck Institute for Human Cognitive and Brain Sciences);Elif Çelen(Max Planck Institute for Empirical Aesthetics);Peter Harrison(University of Cambridge);Manuel Anglada Tort(Goldsmiths, University of London);Pol Van Rijn(Max Planck Institute for Empirical Aesthetics);Minsu Park(NYU Abu Dhabi);Marc Schönwiesner(Leipzig University);Nori Jacoby(Cornell University)"
+    },
+    {
+        "Paper ID": "293",
+        "Paper Title": "Modeling the Difficulty of Saxophone Music",
+        "Authors": "Šimon Libˇrický(Charles University);Jan Hajiˇc Jr.(Charles University)"
+    },
+    {
+        "Paper ID": "298",
+        "Paper Title": "Improving Neural Pitch Estimation with SWIPE Kernels",
+        "Authors": "David Marttila(Queen Mary University of London);Joshua D. Reiss(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "300",
+        "Paper Title": "Do Music Source Separation Models Preserve Spatial Information in Binaural Audio?",
+        "Authors": "Richa Namballa(New York University);Agnieszka Roginska(New York University);Magdalena Fuentes(New York University)"
+    },
+    {
+        "Paper ID": "308",
+        "Paper Title": "Are You Really Listening? Boosting Perceptual Awareness in Music QA Benchmarks",
+        "Authors": "Yongyi Zang(Independent Researcher);Sean O'brien(University of California, San Diego);Taylor Berg Kirkpatrick(University of California, San Diego);Julian Mcauley(University of California, San Diego);Zachary Novack(University of California, San Diego)"
+    },
+    {
+        "Paper ID": "312",
+        "Paper Title": "Refining Music Sample Identification with a Self Supervised Graph Neural Network",
+        "Authors": "Aditya Bhattacharjee(Queen Mary University of London);Ivan Meresman Higgs(Queen Mary University of London);Mark Sandler(Queen Mary University of London);Emmanouil Benetos(Queen Mary University of London)"
+    },
+    {
+        "Paper ID": "314",
+        "Paper Title": "Aligning Text to Music Evaluation with Human Preferences",
+        "Authors": "Yichen Huang(Carnegie Mellon University);Zachary Novack(University of California, San Diego);Koichi Saito(Sony AI);Jiatong Shi(Carnegie Mellon University);Shinji Watanabe(Carnegie Mellon University);Yuki Mitsufuji(Sony AI);John Thickstun(Cornell University);Chris Donahue(Carnegie Mellon University)"
+    },
+    {
+        "Paper ID": "316",
+        "Paper Title": "The Rhythm in Anything: Audio Prompted Drums Generation with Masked Language Modeling",
+        "Authors": "Patrick O'reilly(Northwestern University);Julia Barnett(NorthwesternUniversity);Hugo Flores Garcia(Northwestern University);Annie Chu(Northwestern University);Nathan Pruyne(Northwestern University);Prem Seetharaman(Adobe Research);Bryan Pardo(Northwestern University)"
+    },
+    {
+        "Paper ID": "321",
+        "Paper Title": "The Jam Bot, a Real Time System for Collaborative Free Improvisation with Music Language Models",
+        "Authors": "Lancelot Blanchard(MIT Media Lab);Perry Naseck(MIT Media Lab);Stephen Brade(Massachusetts Institute of Technology);Kimaya Lecamwasam(MIT Media Lab);Jordan Rudess(MIT Media Lab);Cheng Zhi Anna Huang(Massachusetts Institute of Technology);Joseph Paradiso(MIT Media Lab)"
+    },
+    {
+        "Paper ID": "339",
+        "Paper Title": "Exploring System Adaptations for Minimum Latency Real Time Piano Transcription",
+        "Authors": "Patricia Hu(Johannes Kepler University);Silvan David Peter(Johannes Kepler University);Jan Schlüter(Johannes Kepler University);Gerhard Widmer(Johannes Kepler University)"
+    }
+]

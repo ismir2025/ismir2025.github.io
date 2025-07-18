@@ -488,5 +488,10 @@
         "Paper ID": "339",
         "Paper Title": "Exploring System Adaptations for Minimum Latency Real Time Piano Transcription",
         "Authors": "Patricia Hu(Johannes Kepler University);Silvan David Peter(Johannes Kepler University);Jan Schlüter(Johannes Kepler University);Gerhard Widmer(Johannes Kepler University)"
+    },
+    {
+        "Paper ID": "360",
+        "Paper Title": "MAIA: An Inpainting-Based Approach for Music Adversarial Attacks",
+        "Authors": "Yuxuan Liu(Xi'an Jiaotong-Liverpool University);Peihong Zhang(Xi'an Jiaotong-Liverpool University);Rui Sang(Xi'an Jiaotong-Liverpool University);Zhixin Li(Xi'an Jiaotong-Liverpool University);Shengchen Li(Xi'an Jiaotong-Liverpool University)"
     }
 ]

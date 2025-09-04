@@ -1,0 +1,63 @@
+@use 'vuetify/settings' with (
+
+  $body-font-family : ('Noto Sans', sans-serif),
+  $heading-font-family: ('Noto Sans', sans-serif),
+  
+  $typography: (
+    'h1': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+      'weight': 900
+    ),
+    'h2': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+      'weight': 800
+    ),
+    'h3': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+      'weight': 700
+    ),
+    'h4': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+      'weight': 700
+    ),
+    'h5': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+      'weight': 600
+    ),
+    'h6': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+      'size': 1rem,
+      'weight': 600
+    ),
+    'subtitle-1': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+    ),
+    'subtitle-2': (
+      'font-family': ('Noto Sans', sans-serif),
+      'letter-spacing': 0.1875rem,
+    ),
+    'body-1': (
+      'font-family': ('Noto Sans', sans-serif),
+      'size': .9375rem,
+    ),
+    'body-2': (
+      'font-family': ('Noto Sans', sans-serif),
+    ),
+    'button': (
+      'font-family': ('Noto Sans', sans-serif),
+    ),
+    'caption': (
+      'font-family': ('Noto Sans', sans-serif),
+    ),
+    'overline': (
+      'font-family': ('Noto Sans', sans-serif),
+    )
+  )
+) 

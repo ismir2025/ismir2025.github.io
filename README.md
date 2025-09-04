@@ -1,4 +1,4 @@
-# ismir2025-website
+# ismir2025
 
 ## Project setup
 ```

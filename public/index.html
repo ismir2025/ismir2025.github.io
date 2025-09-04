@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="favicon.png" sizes="32x32" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>ISMIR 2025</title>
+    <script type="text/javascript">
+      // 쿼리 문자열에서 경로를 추출하여 히스토리를 업데이트
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var redirectedPath = params.get('p');
+        if (redirectedPath) {
+          window.history.replaceState(null, null, redirectedPath);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>

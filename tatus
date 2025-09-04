@@ -1,0 +1,10 @@
+[33m6a391400[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32m250603[m[33m, [m[1;31morigin/250603[m[33m)[m 스폰서 정보 업데이트: Moises, Neutune, AlphaTheta의 설명을 최신 정보로 수정하여 각 회사의 비전과 기술력을 반영했습니다.
+[33m5fb94fed[m .
+[33m9a543aa1[m 스폰서 정보 업데이트: Gaudio Lab의 설명을 최신 정보로 수정하여 AI 오디오 기술 회사로서의 비전과 성과를 반영했습니다.
+[33m5a5e6a7c[m 스폰서 정보 업데이트: Adobe, Google DeepMind, Steinberg, Cochl, MIPPIA의 설명을 수정하여 최신 정보를 반영했습니다.
+[33m74b4f8a8[m AppbarPage.vue에 'Call for MIREX' 항목을 추가하고, 해당 항목 클릭 시 MIREX 홈페이지를 새 창에서 열도록 기능을 구현했습니다.
+[33mbc10744b[m yarn.lock에서 @parcel/watcher-darwin-arm64 및 fsevents 패키지를 추가하고, SectionHomeAboutDates.vue에서 주석을 정리하여 로고 임포트를 활성화했습니다.
+[33m82aa0f18[m SectionKeynote.vue에서 발표자의 이름을 'Lee Soo-man'에서 'Soo-man Lee'로 변경하여 이름 순서를 일관되게 조정했습니다.
+[33maa4b5df4[m SectionKeynote.vue에서 발표자의 이름을 'Kim Hey-Jung'에서 'Hey-Jung Kim'으로 변경하고, 관련 이미지의 alt 텍스트도 수정했습니다. 또한, 전기 부분에서 이름 순서를 일관되게 조정했습니다.
+[33m1ddc2199[m yarn.lock에서 불필요한 패키지를 제거하고, SponsorCard.vue 및 SectionKeynote.vue에서 코드 정리 및 스타일 개선을 진행했습니다.
+[33m5044ddfe[m 2025.08.27

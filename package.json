@@ -1,16 +1,24 @@
 {
-  "name": "ismir2025-website",
+  "name": "ismir2025",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "@mdi/font": "^5.9.55",
+    "@vueuse/core": "^11.2.0",
+    "axios": "^1.11.0",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "googleapis": "^154.0.0",
+    "roboto-fontface": "*",
+    "vue": "^3.2.13",
+    "vue-router": "^4.4.5",
+    "vuetify": "^3.7.6",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -20,7 +28,12 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "sass": "^1.80.5",
+    "sass-loader": "^16.0.2",
+    "unplugin-auto-import": "^0.18.3",
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
   "eslintConfig": {
     "root": true,

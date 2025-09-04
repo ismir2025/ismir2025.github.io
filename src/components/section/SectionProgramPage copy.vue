@@ -132,48 +132,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
-
-// ISMIR 2025 프로그램 스케줄 데이터 - CSV 파일 내용 완전 하드코딩
-// 원본 program.csv의 모든 데이터를 JavaScript 배열로 변환
-const hardcodedProgramData = [
-  // 헤더 정보 (행 0-3)
-  ["", "9/20", "9/21", "9/22", "9/23", "9/24", "9/25", "9/26"],
-  ["", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
-  ["", "Satelite event", "Tutorial", "Conference", "Conference", "Conference", "Conference", "Satelite event"],
-  ["Starting at (KST)", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@Sogang Univ., Seoul"],
-
-  // 실제 스케줄 데이터 (행 4-79)
-  ["07:00 - 07:30", "Registration", "Registration", "", "", "", "", ""],
-  ["07:30 - 08:00", "", "", "Registration", "", "", "", ""],
-  ["08:00 - 08:30", "", "", "End", "Registration", "Registration", "", ""],
-  ["08:30 - 09:00", "End", "End", "Opening", "End", "End", "", ""],
-  ["09:00 - 09:30", "", "Tutorial \n(T1, T2, T3)", "Oral \nSession 1", "Oral\nSession \n3", "Oral\nSession \n5", "Oral\nSession \n7", "LLM4MA", "DLfM"],
-  ["09:30 - 10:00", "", "", "", "", "", "", "", ""],
-  ["10:00 - 10:30", "", "", "End", "End", "End", "End", "", ""],
-  ["10:30 - 11:00", "", "", "coffee ☕️ \n+\nPoster \nSession 1", "coffee ☕️ \n+\nPoster\nSession \n3", "coffee ☕️ \n+\nPoster\nSession \n5", "coffee ☕️ \n+\nPoster\nSession \n7", "", ""],
-  ["11:00 - 11:30", "", "", "", "", "", "", "", ""],
-  ["11:30 - 12:00", "", "", "End", "End", "End", "End", "", ""],
-  ["12:00 - 12:30", "", "End", "Lunch 🥗", "Lunch 🍚", "Lunch 🍱", "Lunch 🥘", "", ""],
-  ["12:30 - 13:00", "", "", "End", "End", "End", "End", "", ""],
-  ["13:00 - 13:30", "", "", "Keynote 1", "Industry \nSession", "Keynote 2", "Society Meeting / Board Election", "", ""],
-  ["13:30 - 14:00", "", "", "End", "End", "End", "End", "", ""],
-  ["14:00 - 14:30", "HCMIR25", "Tutorial \n(T4, T5, T6)", "coffee ☕️", "coffee ☕️", "coffee ☕️", "Award and Test-of-Time Talks", "", ""],
-  ["14:30 - 15:00", "", "", "Oral \nSession 2", "Oral\nSession\n4", "Oral\nSession\n6", "Closing Remarks, ISMIR 2026", "", ""],
-  ["15:00 - 15:30", "", "", "", "", "", "Late-Breaking/Demo", "", ""],
-  ["15:30 - 16:00", "", "", "End", "End", "End", "", "", ""],
-  ["16:00 - 16:30", "", "", "Poster \nSession 2", "Poster \nSession\n4", "Poster \nSession\n6", "", "", ""],
-  ["16:30 - 17:00", "", "", "", "", "", "End", "End", ""],
-  ["17:00 - 17:30", "", "End", "End", "End", "End", "Unconference", "", ""],
-  ["17:30 - 18:00", "End", "", "Industry 🥪 \nMeetup 🍗", "WIMIR\nSession", "Special\nSession", "", "", "End"],
-  ["18:00 - 18:30", "", "", "", "End", "End", "End", "", ""],
-  ["18:30 - 19:00", "", "Welcome \nReception", "End", "K-Culture Evening", "", "", "", ""],
-  ["19:00 - 19:30", "", "", "", "End", "", "", "", ""],
-  ["19:30 - 20:00", "", "", "ISMIR\nMusic \nProgram", "Korean \nTraditional \nMusic Concert", "Banquet\n+\nJam session\n🥁🎸", "Rencon (TBD)", "", ""],
-  ["20:00 - 20:30", "", "", "End", "End", "", "End", "", ""],
-  ["20:30 - 21:00", "", "", "", "", "", "", "", ""],
-  ["21:00 - 21:30", "", "End", "", "", "", "", "", ""],
-  ["21:30 - 22:00", "", "", "", "", "End", "", "", ""]
-];
+import googleSheetsService from "@/services/googleSheetsService";
 
 // 반응형 데이터
 const loading = ref(false);
@@ -187,7 +146,7 @@ const tableData = computed(() => {
     return { headers: [], rows: [] };
   }
 
-  const formattedData = formatDataAsTable(sheetData.value);
+  const formattedData = googleSheetsService.formatDataAsTable(sheetData.value);
 
   // 8:30부터 22:00까지만 필터링 (Welcome Reception, Banquet 포함)
   if (formattedData.rows && formattedData.rows.length > 0) {
@@ -196,8 +155,8 @@ const tableData = computed(() => {
 
       const time = row[0].toString().trim();
 
-      // 시간 형식 확인 (예: "07:00 - 07:30", "09:00 - 09:30" 등)
-      const timeMatch = time.match(/^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/);
+      // 시간 형식 확인 (예: "9:00", "22:00", "9:30" 등)
+      const timeMatch = time.match(/^(\d{1,2}):(\d{2})$/);
       if (!timeMatch) return false;
 
       const hours = parseInt(timeMatch[1]);
@@ -240,7 +199,7 @@ const getColumnCount = computed(() => {
 // 동적 컬럼 너비 스타일
 const getColumnStyle = () => {
   const columnCount = getColumnCount.value;
-  const sessionColumnWidth = `calc((100% - 120px) / ${columnCount})`;
+  const sessionColumnWidth = `calc((100% - 80px) / ${columnCount})`;
   return {
     "--session-column-width": sessionColumnWidth,
   };
@@ -272,12 +231,8 @@ const getSessionClass = (session) => {
       `SESSION CLASSIFICATION: "${session}" → "${normalizedSession}"`
     );
 
-    // 1. Registration - 연한 초록색
-    if (normalizedSession.includes("registration")) {
-      classes.push("registration-session");
-    }
-    // 2. Tutorial, Oral Session, Keynote - 하늘색
-    else if (
+    // 1. Tutorial, Oral Session, Keynote - 하늘색
+    if (
       normalizedSession.includes("tutorial") ||
       normalizedSession.includes("keynote") ||
       normalizedSession.includes("oral session")
@@ -371,72 +326,201 @@ const getSessionClass = (session) => {
   return classes.join(" ");
 };
 
-// 하드코딩된 데이터 구조 분석 (간단한 버전)
-// eslint-disable-next-line no-unused-vars
+// 완전 다이나믹: 원본 Google Sheets 데이터에서 병합 패턴 분석
 const analyzeDataStructure = () => {
-  console.log("=== 하드코딩된 데이터 분석 ===");
-  console.log("하드코딩된 데이터에서는 병합 분석을 생략합니다.");
-  console.log("=== END ANALYSIS ===");
+  const allRows = tableData.value.rows;
+  if (!allRows || allRows.length === 0) return;
+
+  console.log("=== DYNAMIC MERGE ANALYSIS ===");
+
+  // 각 컬럼별로 내용이 있는 행들을 분석
+  const columnContentMap = {};
+
+  for (let rowIndex = 0; rowIndex < allRows.length; rowIndex++) {
+    const row = allRows[rowIndex];
+    const timeCell = row[0];
+
+    for (let colIndex = 1; colIndex < row.length; colIndex++) {
+      const cellValue = row[colIndex] ? row[colIndex].trim() : "";
+      if (cellValue) {
+        if (!columnContentMap[colIndex]) {
+          columnContentMap[colIndex] = [];
+        }
+        columnContentMap[colIndex].push({
+          rowIndex,
+          time: timeCell,
+          content: cellValue,
+        });
+      }
+    }
+  }
+
+  // 각 컬럼의 내용 출력 (End 마커 포함)
+  for (const [colIndex, contents] of Object.entries(columnContentMap)) {
+    console.log(`Column ${colIndex} contents:`);
+    contents.forEach((item, index) => {
+      const nextItem = contents[index + 1];
+      const duration = nextItem
+        ? `${item.time} → ${nextItem.time}`
+        : `${item.time} → END`;
+
+      // End 마커 확인
+      const isEndMarker = item.content.toLowerCase().trim() === "end";
+      const marker = isEndMarker ? " [END MARKER]" : "";
+
+      console.log(`  "${item.content}"${marker} at ${duration}`);
+    });
+  }
+
+  console.log("=== END DYNAMIC ANALYSIS ===");
 };
 
-// CSV 데이터의 세로 방향 블록을 인식하여 rowspan 계산
-// eslint-disable-next-line no-unused-vars
+// 동적으로 이벤트 범위를 인식하여 rowspan 계산
 const getSessionInfo = (cellValue, currentRowIndex, currentColIndex) => {
+  // 첫 번째 호출에서만 데이터 구조 분석
+  if (currentRowIndex === 0 && currentColIndex === 0) {
+    analyzeDataStructure();
+  }
+
   if (!cellValue || typeof cellValue !== "string") {
     return { rowspan: 1, isSpanned: false, sessionType: "" };
   }
 
   const trimmedValue = cellValue.trim();
-  if (!trimmedValue || trimmedValue.toLowerCase() === "end") {
+  if (!trimmedValue) {
     return { rowspan: 1, isSpanned: false, sessionType: "" };
   }
 
-  // 현재 컬럼에서 다음 "End" 또는 다른 이벤트까지의 rowspan 계산
   const allRows = tableData.value.rows;
-  const actualColIndex = currentColIndex + 1; // 시간 컬럼 제외
-  
-  let rowspan = 1;
-  for (let i = currentRowIndex + 1; i < allRows.length; i++) {
-    const nextCell = allRows[i] && allRows[i][actualColIndex] ? allRows[i][actualColIndex].trim() : "";
-    
-    if (nextCell === "" || nextCell === trimmedValue) {
-      // 빈 셀이거나 같은 이벤트이면 계속 확장
-      rowspan++;
-    } else if (nextCell.toLowerCase() === "end") {
-      // "End"를 만나면 해당 행까지 포함하고 종료
-      rowspan++;
-      break;
-    } else {
-      // 다른 이벤트를 만나면 이전 행까지만
-      break;
-    }
-  }
+  const currentTime = allRows[currentRowIndex]
+    ? allRows[currentRowIndex][0]
+    : "";
 
-  console.log(`ROWSPAN 계산: "${trimmedValue}" | Row ${currentRowIndex}, Col ${actualColIndex} | Rowspan: ${rowspan}`);
+  // 해당 컬럼에서 다음 이벤트가 나타나는 시점을 찾아 rowspan 계산
+  const rowspan = calculateDynamicRowspan(
+    currentRowIndex,
+    currentColIndex,
+    allRows
+  );
+
+  if (rowspan > 1) {
+    const endRowIndex = currentRowIndex + rowspan - 1;
+    const endTime =
+      endRowIndex < allRows.length ? allRows[endRowIndex][0] : "END";
+    console.log(
+      `AUTO-DETECTED ROWSPAN: "${trimmedValue}" | ${currentTime}→${endTime} | ${rowspan} slots`
+    );
+  }
 
   return {
     rowspan,
     isSpanned: false,
-    sessionType: rowspan > 1 ? "merged-block" : "single-cell",
+    sessionType: rowspan > 1 ? "auto-detected-merged" : "single-cell",
   };
 };
 
-// 하드코딩된 데이터에서는 간단한 rowspan 계산
-// eslint-disable-next-line no-unused-vars
+// 분석된 데이터를 기반으로 한 정확한 rowspan 계산
 const calculateDynamicRowspan = (currentRowIndex, currentColIndex, allRows) => {
-  // 하드코딩된 데이터에서는 기본적으로 1개의 행만 차지
+  const actualColIndex = currentColIndex + 1; // 시간 컬럼을 제외했으므로 +1
+  const currentTime = allRows[currentRowIndex]
+    ? allRows[currentRowIndex][0]
+    : "";
+
+  // 분석 결과에서 해당 컬럼의 이벤트 정보 찾기
+  const columnEvents = getColumnEvents(actualColIndex, allRows);
+  const currentEvent = columnEvents.find(
+    (event) => event.startTime === currentTime
+  );
+
+  if (currentEvent && currentEvent.endTime !== "END") {
+    // 종료 시간이 명시된 경우, 해당 시간까지의 rowspan 계산
+    const endRowIndex = findRowIndexByTime(currentEvent.endTime, allRows);
+    if (endRowIndex > currentRowIndex) {
+      let calculatedRowspan;
+      if (currentEvent.includesEndMarker) {
+        // "End" 마커가 있는 경우, 해당 행까지 포함
+        calculatedRowspan = endRowIndex - currentRowIndex + 1;
+        console.log(
+          `END-MARKER ROWSPAN: "${currentEvent.content}" | ${currentEvent.startTime}→${currentEvent.endTime}[End] | ${calculatedRowspan} slots`
+        );
+      } else {
+        // 다른 이벤트가 바로 시작하는 경우, 이전 행까지만
+        calculatedRowspan = endRowIndex - currentRowIndex;
+        console.log(
+          `ANALYSIS-BASED ROWSPAN: "${currentEvent.content}" | ${currentEvent.startTime}→${currentEvent.endTime} | ${calculatedRowspan} slots`
+        );
+      }
+      return calculatedRowspan;
+    }
+  } else if (currentEvent && currentEvent.endTime === "END") {
+    // END까지인 경우, 마지막 시간까지 계산
+    const lastRowIndex = allRows.length - 1;
+    const calculatedRowspan = lastRowIndex - currentRowIndex + 1;
+    console.log(
+      `END-BASED ROWSPAN: "${currentEvent.content}" | ${currentEvent.startTime}→END | ${calculatedRowspan} slots`
+    );
+    return calculatedRowspan;
+  }
+
+  // 기본적으로 다음 이벤트까지만 계산 (1개 행 이벤트)
   return 1;
 };
 
-// 하드코딩된 데이터에서는 간단한 이벤트 처리
-// eslint-disable-next-line no-unused-vars
+// 특정 컬럼의 모든 이벤트 정보 추출 ("End" 마커 포함)
 const getColumnEvents = (colIndex, allRows) => {
-  // 하드코딩된 데이터에서는 빈 배열 반환
-  return [];
+  const events = [];
+
+  for (let rowIndex = 0; rowIndex < allRows.length; rowIndex++) {
+    const row = allRows[rowIndex];
+    const time = row[0];
+    const cellValue = row[colIndex] ? row[colIndex].trim() : "";
+
+    // "End" 마커는 이벤트가 아니므로 건너뛰기
+    if (cellValue && cellValue.toLowerCase() === "end") {
+      continue;
+    }
+
+    if (cellValue && cellValue !== "") {
+      // "End" 마커를 포함한 이벤트 종료 시점 찾기
+      let nextEventTime = "END";
+      let endIncludesEndMarker = false;
+
+      for (
+        let nextRowIndex = rowIndex + 1;
+        nextRowIndex < allRows.length;
+        nextRowIndex++
+      ) {
+        const nextRow = allRows[nextRowIndex];
+        const nextCellValue = nextRow[colIndex] ? nextRow[colIndex].trim() : "";
+
+        if (nextCellValue && nextCellValue !== "") {
+          if (nextCellValue.toLowerCase() === "end") {
+            // "End" 마커를 찾았으면 해당 행의 시간을 종료 시간으로 설정
+            nextEventTime = nextRow[0];
+            endIncludesEndMarker = true;
+            break;
+          } else {
+            // 다른 이벤트를 찾았으면 해당 행의 시간을 종료 시간으로 설정
+            nextEventTime = nextRow[0];
+            break;
+          }
+        }
+      }
+
+      events.push({
+        content: cellValue,
+        startTime: time,
+        endTime: nextEventTime,
+        rowIndex: rowIndex,
+        includesEndMarker: endIncludesEndMarker,
+      });
+    }
+  }
+
+  return events;
 };
 
 // 특정 시간에 해당하는 행 인덱스 찾기
-// eslint-disable-next-line no-unused-vars
 const findRowIndexByTime = (targetTime, allRows) => {
   for (let i = 0; i < allRows.length; i++) {
     if (allRows[i] && allRows[i][0] === targetTime) {
@@ -479,7 +563,7 @@ const getProcessedRows = () => {
 
       const cellValue = originalRow[colIndex] || "";
 
-      // "End" 마커인 경우 숨김 처리 (rowspan에 포함되므로)
+      // "End" 마커인 경우 숨김 처리
       if (cellValue && cellValue.trim().toLowerCase() === "end") {
         processedRow.cells.push({
           value: "",
@@ -518,34 +602,59 @@ const getProcessedRows = () => {
   return rows;
 };
 
-// 하드코딩된 데이터 로드
+// 스프레드시트 데이터 로드
 const loadSheetData = async () => {
   loading.value = true;
   error.value = null;
 
   try {
-    // 하드코딩된 데이터 사용
-    sheetData.value = hardcodedProgramData;
+    // API 키가 있는지 확인
+    if (
+      !process.env.VUE_APP_GOOGLE_SHEETS_API_KEY ||
+      process.env.VUE_APP_GOOGLE_SHEETS_API_KEY ===
+        "your_google_sheets_api_key_here"
+    ) {
+      // API 키가 없으면 사용자에게 안내 메시지 표시
+      error.value = `Google Sheets API 키가 설정되지 않았습니다. 
+      
+해결 방법:
+1. 프로젝트 루트에 .env 파일을 생성하세요
+2. VUE_APP_GOOGLE_SHEETS_API_KEY=your_api_key_here 를 추가하세요
+3. Google Cloud Console에서 Sheets API를 활성화하고 API 키를 발급받으세요
+4. 스프레드시트를 공개로 설정하세요 (링크 있는 사용자 모두 - 뷰어 권한)`;
+      loading.value = false;
+      return;
+    }
 
-    // 병합된 셀 정보는 하드코딩된 데이터에서는 지원하지 않으므로 빈 객체 사용
-    mergedCellsInfo.value = {};
+    // 셀 데이터와 병합 정보를 함께 가져오기
+    const [data, metadata] = await Promise.all([
+      googleSheetsService.getSheetData("A1:Z100"),
+      googleSheetsService.getSheetMetadata(),
+    ]);
 
-    // 하드코딩된 데이터에서는 병합 정보가 없으므로 별도 처리하지 않음
-    // googleSheetsService.getMergedCellsInfo(metadata.sheets, "Program");
+    sheetData.value = data;
+
+    // 병합된 셀 정보 추출
+    if (metadata && metadata.sheets) {
+      mergedCellsInfo.value = googleSheetsService.getMergedCellsInfo(
+        metadata.sheets,
+        "Program"
+      );
+    }
 
     // 데이터 구조 디버깅
-    console.log("=== 하드코딩된 데이터 디버깅 ===");
-    console.log("전체 데이터:", hardcodedProgramData);
-    if (hardcodedProgramData && hardcodedProgramData.length > 0) {
-      console.log("첫 번째 행 (헤더):", hardcodedProgramData[0]);
-      console.log("두 번째 행:", hardcodedProgramData[1]);
-      console.log("세 번째 행:", hardcodedProgramData[2]);
-      console.log("네 번째 행 (장소):", hardcodedProgramData[3]);
-      console.log("다섯 번째 행:", hardcodedProgramData[4]);
-      console.log("첫 번째 데이터 행:", hardcodedProgramData[5]);
+    console.log("=== 데이터 디버깅 ===");
+    console.log("전체 데이터:", data);
+    if (data && data.length > 0) {
+      console.log("첫 번째 행 (헤더):", data[0]);
+      console.log("두 번째 행:", data[1]);
+      console.log("세 번째 행:", data[2]);
+      console.log("네 번째 행 (장소):", data[3]);
+      console.log("다섯 번째 행:", data[4]);
+      console.log("첫 번째 데이터 행:", data[5]);
     }
     console.log("=== 변환된 테이블 데이터 ===");
-    const formatted = formatDataAsTable(hardcodedProgramData);
+    const formatted = googleSheetsService.formatDataAsTable(data);
     console.log("헤더:", formatted.headers);
     console.log("행 개수:", formatted.rows.length);
     if (formatted.rows.length > 0) {
@@ -554,29 +663,23 @@ const loadSheetData = async () => {
     }
     console.log("===================");
   } catch (err) {
-    console.error("데이터 로드 오류:", err);
-    error.value = err.message || "데이터를 불러오는 중 오류가 발생했습니다.";
+    console.error("스프레드시트 데이터 로드 오류:", err);
+
+    // 403 오류 특별 처리
+    if (err.response && err.response.status === 403) {
+      error.value = `Google Sheets 접근 권한 오류 (403)
+       
+해결 방법:
+1. Google Sheets를 공개로 설정: "공유" → "링크 있는 사용자 모두" → "뷰어"
+2. Google Cloud Console에서 Sheets API가 활성화되어 있는지 확인
+3. API 키가 올바른지 확인
+4. API 키에 IP/도메인 제한이 있다면 해제`;
+    } else {
+      error.value = err.message || "데이터를 불러오는 중 오류가 발생했습니다.";
+    }
   } finally {
     loading.value = false;
   }
-};
-
-// 하드코딩된 데이터를 위한 테이블 형식 변환 함수
-const formatDataAsTable = (data) => {
-  if (!data || data.length === 0) {
-    return { headers: [], rows: [] };
-  }
-
-  // 헤더는 첫 번째 행(날짜)을 사용
-  const headers = data[0] || [];
-
-  // 실제 데이터는 4번째 행부터 시작 (0-based index로 3번째)
-  const rows = data.slice(4) || [];
-
-  return {
-    headers,
-    rows
-  };
 };
 
 // 컴포넌트 마운트 시 데이터 로드
@@ -623,7 +726,7 @@ onMounted(() => {
   background: white;
   font-size: 1rem;
   table-layout: fixed; /* 고정 테이블 레이아웃으로 컬럼 너비 일정하게 */
-  border: 1px solid #000000; /* 전체 표 바깥 테두리 */
+  border: 2px solid #e7e7e7; /* 전체 표 바깥 테두리 */
 }
 
 .program-table thead {
@@ -637,15 +740,15 @@ onMounted(() => {
 
 .time-header {
   padding: 16px 8px;
-  border-right: 1px solid #000000;
+  border-right: 2px solid #e7e7e7;
   background-color: #ffffff;
   text-align: center;
   font-size: 0.875rem;
   min-height: 120px; /* 4행 헤더에 맞게 높이 증가 */
   vertical-align: middle;
-  width: 120px; /* 시간 컬럼 고정 너비 */
+  width: 80px; /* 시간 컬럼 고정 너비 */
   font-weight: 700;
-  box-shadow: none;
+  box-shadow: inset -1px 0 0 0 #e7e7e7;
 }
 
 /* 4단계 헤더 스타일 - 회색 톤 계층 구조 */
@@ -658,11 +761,11 @@ onMounted(() => {
 
 .date-cell {
   padding: 8px 4px;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
   text-align: center;
   vertical-align: middle;
-  width: var(--session-column-width, calc((100% - 120px) / 8));
+  width: var(--session-column-width, calc((100% - 80px) / 8));
   font-size: 1rem;
   font-weight: 800;
   background-color: #d0d0d0;
@@ -678,11 +781,11 @@ onMounted(() => {
 
 .day-cell {
   padding: 6px 4px;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
   text-align: center;
   vertical-align: middle;
-  width: var(--session-column-width, calc((100% - 120px) / 8));
+  width: var(--session-column-width, calc((100% - 80px) / 8));
   font-size: 0.9rem;
   font-weight: 600;
   background-color: #e0e0e0;
@@ -698,11 +801,11 @@ onMounted(() => {
 
 .event-type-cell {
   padding: 6px 4px;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
   text-align: center;
   vertical-align: middle;
-  width: var(--session-column-width, calc((100% - 120px) / 8));
+  width: var(--session-column-width, calc((100% - 80px) / 8));
   font-size: 0.85rem;
   font-weight: 600;
   background-color: #e7e7e7;
@@ -717,11 +820,10 @@ onMounted(() => {
 
 .venue-cell {
   padding: 6px 4px;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-right: 1px solid #e7e7e7;
   text-align: center;
   vertical-align: middle;
-  width: var(--session-column-width, calc((100% - 120px) / 8));
+  width: var(--session-column-width, calc((100% - 80px) / 8));
   font-size: 0.8rem;
   font-weight: 500;
   background-color: #f5f5f5;
@@ -737,8 +839,7 @@ onMounted(() => {
 }
 
 .time-row {
-  border-bottom: 1px solid #000000;
-  border-top: 1px solid #000000;
+  border-bottom: 1px solid #e7e7e7;
   transition: background-color 0.2s;
   min-height: 33px;
 }
@@ -749,7 +850,7 @@ onMounted(() => {
 
 .time-cell {
   padding: 6px 8px;
-  border-right: 1px solid #000000;
+  border-right: 1px solid #e7e7e7;
   background-color: #e7e7e7;
   font-weight: 600;
   text-align: center;
@@ -757,13 +858,13 @@ onMounted(() => {
   vertical-align: middle;
   font-size: 0.9rem;
   white-space: nowrap;
-  width: 120px; /* 시간 컬럼 고정 너비 */
+  width: 80px; /* 시간 컬럼 고정 너비 */
 }
 
 .session-cell {
   padding: 4px 6px;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
   background-color: white;
   text-align: center;
   vertical-align: middle;
@@ -772,7 +873,7 @@ onMounted(() => {
   font-size: 0.85rem;
   position: relative;
   overflow: hidden; /* 긴 텍스트 숨김 */
-  width: var(--session-column-width, calc((100% - 120px) / 8));
+  width: var(--session-column-width, calc((100% - 80px) / 8));
 }
 
 .session-content {
@@ -790,14 +891,7 @@ onMounted(() => {
 
 /* 이벤트별 색상 정의 - 제공된 색상 스펙트럼 기반 */
 
-/* 1. Registration (등록) - 연한 초록색: 등록/접수 */
-.registration-session {
-  background-color: #e8f5e8 !important;
-  color: #000000 !important;
-  font-weight: 600 !important;
-}
-
-/* 2. Keynote, Tutorial, Oral Session (핵심 발표, 튜토리얼, 구두발표) - 하늘색: 학술적/정보 전달 */
+/* 1. Keynote, Tutorial, Oral Session (핵심 발표, 튜토리얼, 구두발표) - 하늘색: 학술적/정보 전달 */
 .keynote-session {
   background-color: #e6f2fd !important;
   color: #000000 !important;
@@ -935,25 +1029,25 @@ onMounted(() => {
     font-size: 0.8rem;
     padding: 5px 2px;
     line-height: 1.1;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .day-cell {
     font-size: 0.75rem;
     padding: 4px 2px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .event-type-cell {
     font-size: 0.75rem;
     padding: 4px 2px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .venue-cell {
     font-size: 0.7rem;
     padding: 4px 2px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .venue-cell.sogang-venue {
@@ -963,18 +1057,18 @@ onMounted(() => {
   .session-cell {
     font-size: 0.7rem;
     padding: 3px 2px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .time-cell {
     font-size: 0.8rem;
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
+    width: 40px; /* 모바일에서 시간 컬럼 너비 절반으로 줄임 */
   }
 
   .time-header {
     font-size: 0.9rem;
     min-height: 90px; /* 4행 헤더에 맞게 조정 */
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
+    width: 40px; /* 모바일에서 시간 컬럼 너비 절반으로 줄임 */
   }
 }
 
@@ -983,25 +1077,25 @@ onMounted(() => {
     font-size: 0.7rem;
     padding: 4px 1px;
     line-height: 1;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .day-cell {
     font-size: 0.65rem;
     padding: 3px 1px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .event-type-cell {
     font-size: 0.7rem;
     padding: 3px 1px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .venue-cell {
     font-size: 0.65rem;
     padding: 3px 1px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .venue-cell.sogang-venue {
@@ -1011,18 +1105,18 @@ onMounted(() => {
   .session-cell {
     font-size: 0.65rem;
     padding: 2px 1px;
-    width: calc((100% - 60px) / 8);
+    width: calc((100% - 40px) / 8);
   }
 
   .time-cell {
     font-size: 0.75rem;
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
+    width: 40px; /* 모바일에서 시간 컬럼 너비 절반으로 줄임 */
   }
 
   .time-header {
     font-size: 0.85rem;
     min-height: 75px; /* 4행 헤더에 맞게 조정 */
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
+    width: 40px; /* 모바일에서 시간 컬럼 너비 절반으로 줄임 */
   }
 }
 </style>

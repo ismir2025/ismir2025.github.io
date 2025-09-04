@@ -48,6 +48,22 @@
         </v-row>
       </div>
       <br /><br />
+      <!-- WiMIR Patrons -->
+      <div v-if="wimirPatrons.length > 0">
+        <h2 class="sponsor-tier-title wimir-title">WiMIR Patrons</h2>
+        <v-row align="stretch">
+          <v-col
+            v-for="sponsor in wimirPatrons"
+            :key="sponsor.id"
+            cols="12"
+            md="6"
+          >
+            <SponsorCard :sponsor="sponsor" />
+          </v-col>
+        </v-row>
+      </div>
+
+      <br /><br />
       <!-- WiMIR Contributors -->
       <div v-if="wimirContributors.length > 0">
         <h2 class="sponsor-tier-title wimir-contributor-title">
@@ -74,22 +90,6 @@
         <v-row align="stretch">
           <v-col
             v-for="sponsor in wimirSupporters"
-            :key="sponsor.id"
-            cols="12"
-            md="6"
-          >
-            <SponsorCard :sponsor="sponsor" />
-          </v-col>
-        </v-row>
-      </div>
-
-      <br /><br />
-      <!-- WiMIR Patrons -->
-      <div v-if="wimirPatrons.length > 0">
-        <h2 class="sponsor-tier-title wimir-title">WiMIR Patrons</h2>
-        <v-row align="stretch">
-          <v-col
-            v-for="sponsor in wimirPatrons"
             :key="sponsor.id"
             cols="12"
             md="6"

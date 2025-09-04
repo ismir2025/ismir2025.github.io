@@ -63,13 +63,14 @@
           <li>Host one or more in-person meetups</li>
         </ul>
 
-        <br />
-        <v-divider></v-divider>
         <br /><br />
-        <v-card-title class="text-h4 mb-3 font-weight-bold"
-          >Requirements:</v-card-title
+        <v-card-title
+          class="text-h5 mb-2 font-weight-regular"
+          style="font-size: 16px; color: #666"
         >
-        <v-card-text class="text-body">
+          Requirements:</v-card-title
+        >
+        <v-card-text class="text-body-small">
           Attend most of ISMIR2025 in South Korea + at least 2 past ISMIRs in
           person
         </v-card-text>
@@ -139,6 +140,13 @@ export default {
   line-height: 1.8; /* 가독성을 위한 줄 간격 조정 */
   white-space: normal; /* 줄바꿈을 허용 */
   overflow-wrap: break-word; /* 단어가 줄을 넘지 않도록 단어 단위로 줄바꿈 */
+}
+.text-body-small {
+  font-size: 14px; /* 작은 텍스트 폰트 크기 */
+  line-height: 1.6; /* 줄 간격 조정 */
+  white-space: normal; /* 줄바꿈을 허용 */
+  overflow-wrap: break-word; /* 단어가 줄을 넘지 않도록 단어 단위로 줄바꿈 */
+  color: #666; /* 회색 텍스트 */
 }
 .v-card-title {
   white-space: normal; /* 제목에서 줄바꿈을 허용 */

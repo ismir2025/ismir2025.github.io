@@ -36,22 +36,6 @@
 
       <!-- 웹사이트 및 비디오 링크 -->
       <div class="sponsor-links mt-auto pt-4">
-        <!-- 디버깅 정보 -->
-        <div
-          style="
-            background: #f0f0f0;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 12px;
-          "
-        >
-          <strong>Debug Info:</strong><br />
-          Name: {{ sponsor?.name || "N/A" }}<br />
-          Website: {{ sponsor?.website || "N/A" }}<br />
-          Has Website:
-          {{ !!(sponsor && sponsor.website && sponsor.website.trim()) }}
-        </div>
-
         <!-- 웹사이트 버튼 -->
         <div
           v-if="sponsor && sponsor.website && sponsor.website.trim()"
@@ -105,10 +89,6 @@ const props = defineProps({
     required: true,
   },
 });
-
-// 디버깅: 스폰서 데이터 확인
-console.log("SponsorCard - sponsor:", props.sponsor);
-console.log("SponsorCard - website:", props.sponsor?.website);
 
 // 로고 이미지 경로 계산
 const logoSrc = computed(() => {

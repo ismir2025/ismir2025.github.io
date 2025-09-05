@@ -135,7 +135,8 @@
                         :colspan="cell.colspan"
                         @click="
                           cell.isClickable
-                            ? handleSessionClick(
+                            ? showCalendarMenu(
+                                $event,
                                 cell.value,
                                 rowIndex,
                                 cellIndex
@@ -143,9 +144,7 @@
                             : null
                         "
                         :title="
-                          cell.isClickable
-                            ? 'Click to download calendar event (.ics)'
-                            : ''
+                          cell.isClickable ? 'Click to add to calendar 📅' : ''
                         "
                       >
                         <div class="session-content">
@@ -155,6 +154,42 @@
                     </tr>
                   </tbody>
                 </table>
+
+                <!-- 캘린더 선택 메뉴 -->
+                <v-menu
+                  v-model="calendarMenuOpen"
+                  :position-x="menuPosition.x"
+                  :position-y="menuPosition.y"
+                  absolute
+                  offset-y
+                  min-width="250"
+                >
+                  <v-list>
+                    <v-list-subheader class="text-subtitle-2 font-weight-bold">
+                      📅 캘린더에 추가
+                    </v-list-subheader>
+
+                    <v-list-item
+                      v-for="calendar in availableCalendars"
+                      :key="calendar.id"
+                      @click="handleCalendarSelection(calendar)"
+                      class="calendar-option"
+                    >
+                      <template v-slot:prepend>
+                        <span class="calendar-icon">{{ calendar.icon }}</span>
+                      </template>
+
+                      <v-list-item-title>{{ calendar.name }}</v-list-item-title>
+
+                      <template v-slot:append>
+                        <v-icon v-if="calendar.id === 'download'" size="small">
+                          mdi-download
+                        </v-icon>
+                        <v-icon v-else size="small"> mdi-open-in-new </v-icon>
+                      </template>
+                    </v-list-item>
+                  </v-list>
+                </v-menu>
               </div>
 
               <!-- 데이터 없음 -->
@@ -175,7 +210,14 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
-import { downloadICSFile, isValidEvent } from "../../services/icsService";
+import {
+  downloadICSFile,
+  isValidEvent,
+  getAvailableCalendarOptions,
+  generateGoogleCalendarUrl,
+  generateOutlookUrl,
+  generateAppleCalendarUrl,
+} from "../../services/icsService";
 
 // ISMIR 2025 프로그램 스케줄 데이터 - CSV 파일 내용 완전 하드코딩
 // 원본 program.csv의 모든 데이터를 JavaScript 배열로 변환
@@ -361,6 +403,12 @@ const loading = ref(false);
 const error = ref(null);
 const sheetData = ref([]);
 const mergedCellsInfo = ref({});
+
+// 캘린더 메뉴 관련 데이터
+const calendarMenuOpen = ref(false);
+const selectedEventData = ref(null);
+const availableCalendars = ref(getAvailableCalendarOptions());
+const menuPosition = ref({ x: 0, y: 0 });
 
 // 테이블 데이터 계산
 const tableData = computed(() => {
@@ -770,8 +818,8 @@ const formatDataAsTable = (data) => {
   };
 };
 
-// ICS 파일 다운로드 핸들러
-const handleSessionClick = (cellValue, rowIndex, cellIndex) => {
+// 캘린더 메뉴 표시 핸들러
+const showCalendarMenu = (event, cellValue, rowIndex, cellIndex) => {
   // 유효한 이벤트인지 확인
   if (!isValidEvent(cellValue)) {
     return;
@@ -794,10 +842,54 @@ const handleSessionClick = (cellValue, rowIndex, cellIndex) => {
     columnIndex: columnIndex,
   };
 
-  console.log("ICS 다운로드 요청:", eventData);
+  // 메뉴 위치 설정
+  menuPosition.value = {
+    x: event.clientX,
+    y: event.clientY,
+  };
 
-  // ICS 파일 다운로드
-  downloadICSFile(eventData);
+  // 선택된 이벤트 데이터 저장
+  selectedEventData.value = eventData;
+
+  // 메뉴 열기
+  calendarMenuOpen.value = true;
+
+  console.log("캘린더 메뉴 열기:", eventData);
+};
+
+// 캘린더 선택 핸들러
+const handleCalendarSelection = async (calendar) => {
+  calendarMenuOpen.value = false;
+
+  if (!selectedEventData.value) {
+    console.error("선택된 이벤트 데이터가 없습니다.");
+    return;
+  }
+
+  try {
+    console.log(`${calendar.name} 선택됨:`, selectedEventData.value);
+
+    if (calendar.id === "download") {
+      // ICS 파일 다운로드
+      downloadICSFile(selectedEventData.value);
+    } else if (calendar.id === "google") {
+      // Google Calendar 열기
+      const url = generateGoogleCalendarUrl(selectedEventData.value);
+      window.open(url, "_blank");
+    } else if (calendar.id === "outlook") {
+      // Outlook 열기
+      const url = generateOutlookUrl(selectedEventData.value);
+      window.open(url, "_blank");
+    } else if (calendar.id === "apple") {
+      // Apple Calendar (iOS)
+      const url = generateAppleCalendarUrl(selectedEventData.value);
+      window.location.href = url;
+    }
+  } catch (error) {
+    console.error(`${calendar.name} 추가 중 오류:`, error);
+    // 폴백: ICS 다운로드
+    downloadICSFile(selectedEventData.value);
+  }
 };
 
 // 컴포넌트 마운트 시 데이터 로드
@@ -1349,5 +1441,19 @@ onMounted(() => {
   .program-table {
     min-width: 700px;
   }
+}
+
+/* 캘린더 메뉴 스타일 */
+.calendar-option {
+  transition: all 0.2s ease !important;
+}
+
+.calendar-option:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.calendar-icon {
+  font-size: 1.2rem;
+  margin-right: 8px;
 }
 </style>

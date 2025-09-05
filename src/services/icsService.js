@@ -468,8 +468,150 @@ export function isValidEvent(cellValue) {
   return true;
 }
 
+/**
+ * Google Calendar URL 생성
+ * @param {Object} eventData - 이벤트 데이터
+ * @returns {string} Google Calendar URL
+ */
+export function generateGoogleCalendarUrl(eventData) {
+  const { title, timeString, columnIndex } = eventData;
+  
+  // 날짜 및 시간 정보 추출
+  const dateStr = COLUMN_TO_DATE[columnIndex];
+  const baseDate = DATE_MAPPING[dateStr];
+  const { startHour, startMinute, endHour, endMinute } = parseTimeString(timeString);
+  
+  const startDate = new Date(baseDate);
+  startDate.setHours(startHour, startMinute, 0, 0);
+  
+  const endDate = new Date(baseDate);
+  endDate.setHours(endHour, endMinute, 0, 0);
+  
+  // Google Calendar 형식으로 변환 (YYYYMMDDTHHMMSSZ)
+  const formatGoogleDate = (date) => {
+    return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  };
+  
+  // 장소 정보
+  const venueInfo = getEventSpecificVenue(title, columnIndex);
+  const location = venueInfo.location;
+  
+  // URL 파라미터 생성
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: cleanEventTitle(title),
+    dates: `${formatGoogleDate(startDate)}/${formatGoogleDate(endDate)}`,
+    details: `ISMIR 2025 Conference Event\n\nLocation: ${location}\nWebsite: https://ismir2025.github.io/`,
+    location: location,
+    ctz: 'Asia/Seoul'
+  });
+  
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
+/**
+ * Outlook Web URL 생성
+ * @param {Object} eventData - 이벤트 데이터
+ * @returns {string} Outlook Web URL
+ */
+export function generateOutlookUrl(eventData) {
+  const { title, timeString, columnIndex } = eventData;
+  
+  // 날짜 및 시간 정보 추출
+  const dateStr = COLUMN_TO_DATE[columnIndex];
+  const baseDate = DATE_MAPPING[dateStr];
+  const { startHour, startMinute, endHour, endMinute } = parseTimeString(timeString);
+  
+  const startDate = new Date(baseDate);
+  startDate.setHours(startHour, startMinute, 0, 0);
+  
+  const endDate = new Date(baseDate);
+  endDate.setHours(endHour, endMinute, 0, 0);
+  
+  // 장소 정보
+  const venueInfo = getEventSpecificVenue(title, columnIndex);
+  const location = venueInfo.location;
+  
+  // URL 파라미터 생성
+  const params = new URLSearchParams({
+    subject: cleanEventTitle(title),
+    startdt: startDate.toISOString(),
+    enddt: endDate.toISOString(),
+    body: `ISMIR 2025 Conference Event\n\nLocation: ${location}\nWebsite: https://ismir2025.github.io/`,
+    location: location
+  });
+  
+  return `https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`;
+}
+
+/**
+ * Apple Calendar URL 생성 (iOS Safari에서 작동)
+ * @param {Object} eventData - 이벤트 데이터
+ * @returns {string} Apple Calendar URL
+ */
+export function generateAppleCalendarUrl(eventData) {
+  // Apple Calendar는 ICS 파일을 data URL로 제공하는 방식 사용
+  const icsContent = generateICSContent(eventData);
+  const dataUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`;
+  return dataUrl;
+}
+
+/**
+ * 캘린더 옵션 목록 생성
+ * @returns {Array} 사용 가능한 캘린더 옵션들
+ */
+export function getAvailableCalendarOptions() {
+  const userAgent = navigator.userAgent;
+  const options = [
+    {
+      id: 'google',
+      name: 'Google Calendar',
+      icon: '📅',
+      color: '#4285f4',
+      supported: true,
+      handler: generateGoogleCalendarUrl
+    },
+    {
+      id: 'outlook',
+      name: 'Outlook',
+      icon: '📧',
+      color: '#0078d4',
+      supported: true,
+      handler: generateOutlookUrl
+    }
+  ];
+  
+  // iOS 사용자에게만 Apple Calendar 옵션 제공
+  if (/iPhone|iPad|iPod/.test(userAgent)) {
+    options.push({
+      id: 'apple',
+      name: 'Apple Calendar',
+      icon: '📱',
+      color: '#007aff',
+      supported: true,
+      handler: generateAppleCalendarUrl
+    });
+  }
+  
+  // 항상 ICS 다운로드 옵션 제공 (호환성 보장)
+  options.push({
+    id: 'download',
+    name: 'ICS 다운로드',
+    icon: '⬇️',
+    color: '#6c757d',
+    supported: true,
+    handler: downloadICSFile
+  });
+  
+  return options;
+}
+
 export default {
   generateICSContent,
   downloadICSFile,
+  generateGoogleCalendarUrl,
+  generateOutlookUrl,
+  generateAppleCalendarUrl,
+  getAvailableCalendarOptions,
   isValidEvent,
 };

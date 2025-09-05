@@ -253,6 +253,10 @@
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>
+                
+                <v-alert type="warning" class="mt-3">
+                  <strong>Note:</strong> We disrecommend using Google Map due to its incompatibility in Korea.
+                </v-alert>
               </v-card-text>
             </v-card>
           </v-col>

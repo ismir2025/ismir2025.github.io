@@ -143,10 +143,10 @@ const hardcodedProgramData = [
   ["Starting at (KST)", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@Sogang Univ., Seoul"],
 
   // 실제 스케줄 데이터 (행 4-79)
-  ["07:00 - 07:30", "Registration", "Registration", "", "", "", "", ""],
+  ["07:00 - 07:30", "", "Registration", "", "", "", "", ""],
   ["07:30 - 08:00", "", "", "Registration", "", "", "", ""],
-  ["08:00 - 08:30", "", "", "End", "Registration", "Registration", "", ""],
-  ["08:30 - 09:00", "End", "End", "Opening", "End", "End", "", ""],
+  ["08:00 - 08:30", "", "", "End", "Registration", "Registration", "Registration", ""],
+  ["08:30 - 09:00", "", "Registration", "Opening", "Registration", "Registration", "Registration", ""],
   ["09:00 - 09:30", "", "Tutorial \n(T1, T2, T3)", "Oral \nSession 1", "Oral\nSession \n3", "Oral\nSession \n5", "Oral\nSession \n7", "LLM4MA", "DLfM"],
   ["09:30 - 10:00", "", "", "", "", "", "", "", ""],
   ["10:00 - 10:30", "", "", "End", "End", "End", "End", "", ""],

@@ -134,14 +134,13 @@
                         :rowspan="cell.rowspan"
                         :colspan="cell.colspan"
                         @click="
-                          cell.isClickable
-                            ? showCalendarMenu(
-                                $event,
-                                cell.value,
-                                rowIndex,
-                                cellIndex
-                              )
-                            : null
+                          handleCellClick(
+                            $event,
+                            cell.value,
+                            rowIndex,
+                            cellIndex,
+                            cell.isClickable
+                          )
                         "
                         :title="
                           cell.isClickable ? 'Click to add to calendar 📅' : ''
@@ -156,40 +155,51 @@
                 </table>
 
                 <!-- 캘린더 선택 메뉴 -->
-                <v-menu
-                  v-model="calendarMenuOpen"
-                  :position-x="menuPosition.x"
-                  :position-y="menuPosition.y"
-                  absolute
-                  offset-y
-                  min-width="250"
+                <div
+                  v-if="calendarMenuOpen"
+                  class="calendar-menu-overlay"
+                  @click="calendarMenuOpen = false"
                 >
-                  <v-list>
-                    <v-list-subheader class="text-subtitle-2 font-weight-bold">
-                      📅 캘린더에 추가
-                    </v-list-subheader>
-
-                    <v-list-item
-                      v-for="calendar in availableCalendars"
-                      :key="calendar.id"
-                      @click="handleCalendarSelection(calendar)"
-                      class="calendar-option"
-                    >
-                      <template v-slot:prepend>
-                        <span class="calendar-icon">{{ calendar.icon }}</span>
-                      </template>
-
-                      <v-list-item-title>{{ calendar.name }}</v-list-item-title>
-
-                      <template v-slot:append>
-                        <v-icon v-if="calendar.id === 'download'" size="small">
-                          mdi-download
-                        </v-icon>
-                        <v-icon v-else size="small"> mdi-open-in-new </v-icon>
-                      </template>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
+                  <v-card
+                    class="calendar-menu-card"
+                    :style="{
+                      position: 'fixed',
+                      left: menuPosition.x + 'px',
+                      top: menuPosition.y + 'px',
+                      zIndex: 10000,
+                      minWidth: '250px',
+                      maxWidth: '300px',
+                    }"
+                    @click.stop
+                  >
+                    <v-card-title class="text-subtitle-1 font-weight-bold pa-3">
+                      📅 Add to Calendar
+                    </v-card-title>
+                    <v-divider></v-divider>
+                    <v-list density="compact">
+                      <v-list-item
+                        v-for="calendar in availableCalendars"
+                        :key="calendar.id"
+                        @click="handleCalendarSelection(calendar)"
+                        class="calendar-option"
+                        :prepend-icon="getCalendarIcon(calendar.id)"
+                      >
+                        <v-list-item-title>{{
+                          getCalendarName(calendar.id)
+                        }}</v-list-item-title>
+                        <template v-slot:append>
+                          <v-icon
+                            v-if="calendar.id === 'download'"
+                            size="small"
+                          >
+                            mdi-download
+                          </v-icon>
+                          <v-icon v-else size="small"> mdi-open-in-new </v-icon>
+                        </template>
+                      </v-list-item>
+                    </v-list>
+                  </v-card>
+                </div>
               </div>
 
               <!-- 데이터 없음 -->
@@ -818,6 +828,19 @@ const formatDataAsTable = (data) => {
   };
 };
 
+// 셀 클릭 핸들러
+const handleCellClick = (
+  event,
+  cellValue,
+  rowIndex,
+  cellIndex,
+  isClickable
+) => {
+  if (isClickable) {
+    showCalendarMenu(event, cellValue, rowIndex, cellIndex);
+  }
+};
+
 // 캘린더 메뉴 표시 핸들러
 const showCalendarMenu = (event, cellValue, rowIndex, cellIndex) => {
   // 유효한 이벤트인지 확인
@@ -828,7 +851,7 @@ const showCalendarMenu = (event, cellValue, rowIndex, cellIndex) => {
   // 해당 행의 시간 정보 가져오기
   const timeString = tableData.value.rows[rowIndex][0];
   if (!timeString) {
-    console.warn("시간 정보를 찾을 수 없습니다.");
+    console.warn("Time information not found");
     return;
   }
 
@@ -842,32 +865,72 @@ const showCalendarMenu = (event, cellValue, rowIndex, cellIndex) => {
     columnIndex: columnIndex,
   };
 
-  // 메뉴 위치 설정
-  menuPosition.value = {
-    x: event.clientX,
-    y: event.clientY,
-  };
+  // 메뉴 위치 설정 (클릭한 위치 기준, 화면 경계 고려)
+  const menuWidth = 300;
+  const menuHeight = 200;
+  const padding = 10;
+
+  let x = event.clientX;
+  let y = event.clientY;
+
+  // 화면 오른쪽 경계를 벗어나는 경우 왼쪽으로 이동
+  if (x + menuWidth > window.innerWidth) {
+    x = window.innerWidth - menuWidth - padding;
+  }
+
+  // 화면 아래쪽 경계를 벗어나는 경우 위로 이동
+  if (y + menuHeight > window.innerHeight) {
+    y = window.innerHeight - menuHeight - padding;
+  }
+
+  // 최소 위치 보장
+  x = Math.max(padding, x);
+  y = Math.max(padding, y);
+
+  menuPosition.value = { x, y };
 
   // 선택된 이벤트 데이터 저장
   selectedEventData.value = eventData;
 
   // 메뉴 열기
   calendarMenuOpen.value = true;
+};
 
-  console.log("캘린더 메뉴 열기:", eventData);
+// 캘린더 아이콘 반환
+const getCalendarIcon = (calendarId) => {
+  const icons = {
+    google: "mdi-google",
+    outlook: "mdi-microsoft-outlook",
+    apple: "mdi-apple",
+    download: "mdi-download-circle",
+  };
+  return icons[calendarId] || "mdi-calendar";
+};
+
+// 캘린더 이름 반환 (영어)
+const getCalendarName = (calendarId) => {
+  const names = {
+    google: "Google Calendar",
+    outlook: "Microsoft Outlook",
+    apple: "Apple Calendar",
+    download: "Download ICS File",
+  };
+  return names[calendarId] || "Calendar";
 };
 
 // 캘린더 선택 핸들러
 const handleCalendarSelection = async (calendar) => {
+  // 메뉴 닫기
   calendarMenuOpen.value = false;
 
   if (!selectedEventData.value) {
-    console.error("선택된 이벤트 데이터가 없습니다.");
+    console.error("No event data selected");
     return;
   }
 
   try {
-    console.log(`${calendar.name} 선택됨:`, selectedEventData.value);
+    const calendarName = getCalendarName(calendar.id);
+    console.log(`${calendarName} selected:`, selectedEventData.value);
 
     if (calendar.id === "download") {
       // ICS 파일 다운로드
@@ -886,7 +949,8 @@ const handleCalendarSelection = async (calendar) => {
       window.location.href = url;
     }
   } catch (error) {
-    console.error(`${calendar.name} 추가 중 오류:`, error);
+    const calendarName = getCalendarName(calendar.id);
+    console.error(`Error adding to ${calendarName}:`, error);
     // 폴백: ICS 다운로드
     downloadICSFile(selectedEventData.value);
   }
@@ -1444,12 +1508,43 @@ onMounted(() => {
 }
 
 /* 캘린더 메뉴 스타일 */
+.calendar-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  backdrop-filter: blur(1px);
+}
+
+.calendar-menu-card {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+  animation: menuFadeIn 0.2s ease-out;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .calendar-option {
   transition: all 0.2s ease !important;
+  border-radius: 4px !important;
+  margin: 2px 8px !important;
 }
 
 .calendar-option:hover {
-  background-color: rgba(0, 0, 0, 0.04) !important;
+  background-color: rgba(25, 118, 210, 0.08) !important;
+  transform: translateX(4px);
 }
 
 .calendar-icon {

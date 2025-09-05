@@ -370,7 +370,7 @@
 </template>
 
 <script setup>
-import LogoImg from "@/assets/logo.png";
+import LogoImg from "@/assets/Logo.png";
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useDisplay } from "vuetify";

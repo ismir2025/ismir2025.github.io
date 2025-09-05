@@ -5,16 +5,17 @@
         <v-card-title class="text-h4 mb-3 font-weight-bold">
           This is a preliminary schedule of the ISMIR 2025 program
         </v-card-title>
-        
-        <v-alert 
-          type="info" 
-          variant="tonal" 
+
+        <v-alert
+          type="info"
+          variant="tonal"
           class="mb-4"
           icon="mdi-calendar-plus"
         >
           <div class="text-body-2">
-            <strong>💡 Tip:</strong> Click on any session to download a calendar event (.ics file) 
-            that you can add to Google Calendar, Outlook, or any calendar app!
+            <strong>💡 Tip:</strong> Click on any session to download a calendar
+            event (.ics file) that you can add to Google Calendar, Outlook, or
+            any calendar app!
           </div>
         </v-alert>
 
@@ -47,6 +48,19 @@
                 v-else-if="tableData.headers && tableData.rows"
                 class="sheets-container"
               >
+                <!-- 모바일 스크롤 안내 메시지 -->
+                <v-alert
+                  v-if="$vuetify.display.mobile"
+                  type="info"
+                  variant="tonal"
+                  class="mb-3"
+                  icon="mdi-arrow-left-right"
+                >
+                  <div class="text-caption">
+                    📱 <strong>Mobile Tip:</strong> Scroll left or right to view
+                    the full program schedule!
+                  </div>
+                </v-alert>
                 <table class="program-table" :style="getColumnStyle()">
                   <!-- 3단계 헤더 -->
                   <thead>
@@ -115,12 +129,24 @@
                         class="session-cell"
                         :class="[
                           getSessionClass(cell.value),
-                          { 'clickable-session': cell.isClickable }
+                          { 'clickable-session': cell.isClickable },
                         ]"
                         :rowspan="cell.rowspan"
                         :colspan="cell.colspan"
-                        @click="cell.isClickable ? handleSessionClick(cell.value, rowIndex, cellIndex) : null"
-                        :title="cell.isClickable ? 'Click to download calendar event (.ics)' : ''"
+                        @click="
+                          cell.isClickable
+                            ? handleSessionClick(
+                                cell.value,
+                                rowIndex,
+                                cellIndex
+                              )
+                            : null
+                        "
+                        :title="
+                          cell.isClickable
+                            ? 'Click to download calendar event (.ics)'
+                            : ''
+                        "
                       >
                         <div class="session-content">
                           {{ cell.value || "" }}
@@ -157,40 +183,177 @@ const hardcodedProgramData = [
   // 헤더 정보 (행 0-3)
   ["", "9/20", "9/21", "9/22", "9/23", "9/24", "9/25", "9/26"],
   ["", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
-  ["", "Satelite event", "Tutorial", "Conference", "Conference", "Conference", "Conference", "Satelite event"],
-  ["Starting at (KST)", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@KAIST", "@Sogang Univ., Seoul"],
+  [
+    "",
+    "Satelite event",
+    "Tutorial",
+    "Conference",
+    "Conference",
+    "Conference",
+    "Conference",
+    "Satelite event",
+  ],
+  [
+    "Starting at (KST)",
+    "@KAIST",
+    "@KAIST",
+    "@KAIST",
+    "@KAIST",
+    "@KAIST",
+    "@KAIST",
+    "@KAIST",
+    "@Sogang Univ., Seoul",
+  ],
 
   // 실제 스케줄 데이터 (행 4-79)
   ["07:00 - 07:30", "", "Registration", "", "", "", "", ""],
   ["07:30 - 08:00", "", "", "Registration", "", "", "", ""],
-  ["08:00 - 08:30", "", "", "End", "Registration", "Registration", "Registration", ""],
-  ["08:30 - 09:00", "", "Registration", "Opening", "Registration", "Registration", "Registration", ""],
-  ["09:00 - 09:30", "", "Tutorial \n(T1, T2, T3)", "Oral \nSession 1", "Oral\nSession \n3", "Oral\nSession \n5", "Oral\nSession \n7", "LLM4MA", "DLfM"],
+  [
+    "08:00 - 08:30",
+    "",
+    "",
+    "End",
+    "Registration",
+    "Registration",
+    "Registration",
+    "",
+  ],
+  [
+    "08:30 - 09:00",
+    "",
+    "Registration",
+    "Opening",
+    "Registration",
+    "Registration",
+    "Registration",
+    "",
+  ],
+  [
+    "09:00 - 09:30",
+    "",
+    "Tutorial \n(T1, T2, T3)",
+    "Oral \nSession 1",
+    "Oral\nSession \n3",
+    "Oral\nSession \n5",
+    "Oral\nSession \n7",
+    "LLM4MA",
+    "DLfM",
+  ],
   ["09:30 - 10:00", "", "", "", "", "", "", "", ""],
   ["10:00 - 10:30", "", "", "End", "End", "End", "End", "", ""],
-  ["10:30 - 11:00", "", "", "coffee ☕️ \n+\nPoster \nSession 1", "coffee ☕️ \n+\nPoster\nSession \n3", "coffee ☕️ \n+\nPoster\nSession \n5", "coffee ☕️ \n+\nPoster\nSession \n7", "", ""],
+  [
+    "10:30 - 11:00",
+    "",
+    "",
+    "coffee ☕️ \n+\nPoster \nSession 1",
+    "coffee ☕️ \n+\nPoster\nSession \n3",
+    "coffee ☕️ \n+\nPoster\nSession \n5",
+    "coffee ☕️ \n+\nPoster\nSession \n7",
+    "",
+    "",
+  ],
   ["11:00 - 11:30", "", "", "", "", "", "", "", ""],
   ["11:30 - 12:00", "", "", "End", "End", "End", "End", "", ""],
-  ["12:00 - 12:30", "", "End", "Lunch 🥗", "Lunch 🍚", "Lunch 🍱", "Lunch 🥘", "", ""],
-  ["12:30 - 13:00", "", "", "End", "End", "End", "End", "", ""],
-  ["13:00 - 13:30", "", "", "Keynote 1", "Industry \nSession", "Keynote 2", "Society Meeting / Board Election", "", ""],
+  [
+    "12:00 - 12:30",
+    "",
+    "End",
+    "Lunch 🥗",
+    "Lunch 🍚",
+    "Lunch 🍱",
+    "Lunch 🥘",
+    "",
+    "",
+  ],
+  ["12:30 - 13:00", "", "Lunch 🍽️", "End", "End", "End", "End", "", ""],
+  [
+    "13:00 - 13:30",
+    "",
+    "Lunch 🍽️",
+    "Keynote 1",
+    "Industry \nSession",
+    "Keynote 2",
+    "Society Meeting / Board Election",
+    "",
+    "",
+  ],
   ["13:30 - 14:00", "", "", "End", "End", "End", "End", "", ""],
-  ["14:00 - 14:30", "HCMIR25", "Tutorial \n(T4, T5, T6)", "coffee ☕️", "coffee ☕️", "coffee ☕️", "Award and Test-of-Time Talks", "", ""],
-  ["14:30 - 15:00", "", "", "Oral \nSession 2", "Oral\nSession\n4", "Oral\nSession\n6", "Closing Remarks, ISMIR 2026", "", ""],
+  [
+    "14:00 - 14:30",
+    "HCMIR25",
+    "Tutorial \n(T4, T5, T6)",
+    "coffee ☕️",
+    "coffee ☕️",
+    "coffee ☕️",
+    "Award and Test-of-Time Talks",
+    "",
+    "",
+  ],
+  [
+    "14:30 - 15:00",
+    "",
+    "",
+    "Oral \nSession 2",
+    "Oral\nSession\n4",
+    "Oral\nSession\n6",
+    "Closing Remarks, ISMIR 2026",
+    "",
+    "",
+  ],
   ["15:00 - 15:30", "", "", "", "", "", "Late-Breaking/Demo", "", ""],
   ["15:30 - 16:00", "", "", "End", "End", "End", "", "", ""],
-  ["16:00 - 16:30", "", "", "Poster \nSession 2", "Poster \nSession\n4", "Poster \nSession\n6", "", "", ""],
+  [
+    "16:00 - 16:30",
+    "",
+    "",
+    "Poster \nSession 2",
+    "Poster \nSession\n4",
+    "Poster \nSession\n6",
+    "",
+    "",
+    "",
+  ],
   ["16:30 - 17:00", "", "", "", "", "", "End", "End", ""],
   ["17:00 - 17:30", "", "End", "End", "End", "End", "Unconference", "", ""],
-  ["17:30 - 18:00", "End", "", "Industry 🥪 \nMeetup 🍗", "WIMIR\nSession", "Special\nSession", "", "", "End"],
+  [
+    "17:30 - 18:00",
+    "End",
+    "",
+    "Industry 🥪 \nMeetup 🍗",
+    "WIMIR\nSession",
+    "Special\nSession",
+    "",
+    "",
+    "End",
+  ],
   ["18:00 - 18:30", "", "", "", "End", "End", "End", "", ""],
-  ["18:30 - 19:00", "", "Welcome \nReception", "End", "K-Culture Evening", "", "", "", ""],
+  [
+    "18:30 - 19:00",
+    "",
+    "Welcome \nReception",
+    "End",
+    "K-Culture Evening",
+    "",
+    "",
+    "",
+    "",
+  ],
   ["19:00 - 19:30", "", "", "", "End", "", "", "", ""],
-  ["19:30 - 20:00", "", "", "ISMIR\nMusic \nProgram", "Korean \nTraditional \nMusic Concert", "Banquet\n+\nJam session\n🥁🎸", "Rencon (TBD)", "", ""],
+  [
+    "19:30 - 20:00",
+    "",
+    "",
+    "ISMIR\nMusic \nProgram",
+    "Korean \nTraditional \nMusic Concert",
+    "Banquet\n+\nJam session\n🥁🎸",
+    "Rencon (TBD)",
+    "",
+    "",
+  ],
   ["20:00 - 20:30", "", "", "End", "End", "", "End", "", ""],
   ["20:30 - 21:00", "", "", "", "", "", "", "", ""],
   ["21:00 - 21:30", "", "End", "", "", "", "", "", ""],
-  ["21:30 - 22:00", "", "", "", "", "End", "", "", ""]
+  ["21:30 - 22:00", "", "", "", "", "End", "", "", ""],
 ];
 
 // 반응형 데이터
@@ -215,7 +378,9 @@ const tableData = computed(() => {
       const time = row[0].toString().trim();
 
       // 시간 형식 확인 (예: "07:00 - 07:30", "09:00 - 09:30" 등)
-      const timeMatch = time.match(/^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/);
+      const timeMatch = time.match(
+        /^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$/
+      );
       if (!timeMatch) return false;
 
       const hours = parseInt(timeMatch[1]);
@@ -412,11 +577,14 @@ const getSessionInfo = (cellValue, currentRowIndex, currentColIndex) => {
   // 현재 컬럼에서 다음 "End" 또는 다른 이벤트까지의 rowspan 계산
   const allRows = tableData.value.rows;
   const actualColIndex = currentColIndex + 1; // 시간 컬럼 제외
-  
+
   let rowspan = 1;
   for (let i = currentRowIndex + 1; i < allRows.length; i++) {
-    const nextCell = allRows[i] && allRows[i][actualColIndex] ? allRows[i][actualColIndex].trim() : "";
-    
+    const nextCell =
+      allRows[i] && allRows[i][actualColIndex]
+        ? allRows[i][actualColIndex].trim()
+        : "";
+
     if (nextCell === "" || nextCell === trimmedValue) {
       // 빈 셀이거나 같은 이벤트이면 계속 확장
       rowspan++;
@@ -430,7 +598,9 @@ const getSessionInfo = (cellValue, currentRowIndex, currentColIndex) => {
     }
   }
 
-  console.log(`ROWSPAN 계산: "${trimmedValue}" | Row ${currentRowIndex}, Col ${actualColIndex} | Rowspan: ${rowspan}`);
+  console.log(
+    `ROWSPAN 계산: "${trimmedValue}" | Row ${currentRowIndex}, Col ${actualColIndex} | Rowspan: ${rowspan}`
+  );
 
   return {
     rowspan,
@@ -596,7 +766,7 @@ const formatDataAsTable = (data) => {
 
   return {
     headers,
-    rows
+    rows,
   };
 };
 
@@ -610,7 +780,7 @@ const handleSessionClick = (cellValue, rowIndex, cellIndex) => {
   // 해당 행의 시간 정보 가져오기
   const timeString = tableData.value.rows[rowIndex][0];
   if (!timeString) {
-    console.warn('시간 정보를 찾을 수 없습니다.');
+    console.warn("시간 정보를 찾을 수 없습니다.");
     return;
   }
 
@@ -624,7 +794,7 @@ const handleSessionClick = (cellValue, rowIndex, cellIndex) => {
     columnIndex: columnIndex,
   };
 
-  console.log('ICS 다운로드 요청:', eventData);
+  console.log("ICS 다운로드 요청:", eventData);
 
   // ICS 파일 다운로드
   downloadICSFile(eventData);
@@ -665,6 +835,57 @@ onMounted(() => {
   padding: 0;
 }
 
+/* 모바일에서 가로 스크롤 활성화 */
+@media (max-width: 768px) {
+  .sheets-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f0f0f0;
+  }
+
+  .sheets-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .sheets-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+
+  .sheets-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+
+  .sheets-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
+  }
+
+  /* 스크롤 인디케이터 스타일 */
+  .sheets-container {
+    position: relative;
+  }
+
+  .sheets-container::after {
+    content: "← Scroll left or right →";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: #666;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2px 8px;
+    border-radius: 10px;
+    opacity: 0.8;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1;
+  }
+}
+
 /* 일일 프로그램 스케줄 테이블 스타일링 */
 .program-table {
   width: 100%;
@@ -675,6 +896,14 @@ onMounted(() => {
   font-size: 1rem;
   table-layout: fixed; /* 고정 테이블 레이아웃으로 컬럼 너비 일정하게 */
   border: 1px solid #000000; /* 전체 표 바깥 테두리 */
+}
+
+/* 모바일에서 테이블 최소 너비 설정 */
+@media (max-width: 768px) {
+  .program-table {
+    min-width: 800px; /* 모든 컬럼이 보이도록 최소 너비 설정 */
+    table-layout: auto; /* 모바일에서는 자동 레이아웃으로 변경 */
+  }
 }
 
 .program-table thead {
@@ -1015,28 +1244,80 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .date-cell {
+    font-size: 0.85rem;
+    padding: 6px 4px;
+    line-height: 1.2;
+    min-width: 80px; /* 최소 너비 보장 */
+  }
+
+  .day-cell {
     font-size: 0.8rem;
-    padding: 5px 2px;
+    padding: 5px 4px;
+    min-width: 80px;
+  }
+
+  .event-type-cell {
+    font-size: 0.8rem;
+    padding: 5px 4px;
+    min-width: 80px;
+  }
+
+  .venue-cell {
+    font-size: 0.75rem;
+    padding: 5px 4px;
+    min-width: 80px;
+  }
+
+  .venue-cell.sogang-venue {
+    font-size: 0.7rem;
+  }
+
+  .session-cell {
+    font-size: 0.75rem;
+    padding: 4px 3px;
+    min-width: 80px;
+    line-height: 1.3;
+  }
+
+  .time-cell {
+    font-size: 0.85rem;
+    width: 80px; /* 모바일에서 시간 컬럼 너비 증가 */
+    min-width: 80px;
+    padding: 6px 4px;
+  }
+
+  .time-header {
+    font-size: 0.9rem;
+    min-height: 100px; /* 4행 헤더에 맞게 조정 */
+    width: 80px; /* 모바일에서 시간 컬럼 너비 증가 */
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-cell {
+    font-size: 0.8rem;
+    padding: 5px 3px;
     line-height: 1.1;
-    width: calc((100% - 60px) / 8);
+    min-width: 75px;
   }
 
   .day-cell {
     font-size: 0.75rem;
-    padding: 4px 2px;
-    width: calc((100% - 60px) / 8);
+    padding: 4px 3px;
+    min-width: 75px;
   }
 
   .event-type-cell {
     font-size: 0.75rem;
-    padding: 4px 2px;
-    width: calc((100% - 60px) / 8);
+    padding: 4px 3px;
+    min-width: 75px;
   }
 
   .venue-cell {
     font-size: 0.7rem;
-    padding: 4px 2px;
-    width: calc((100% - 60px) / 8);
+    padding: 4px 3px;
+    min-width: 75px;
   }
 
   .venue-cell.sogang-venue {
@@ -1046,66 +1327,27 @@ onMounted(() => {
   .session-cell {
     font-size: 0.7rem;
     padding: 3px 2px;
-    width: calc((100% - 60px) / 8);
+    min-width: 75px;
+    line-height: 1.2;
   }
 
   .time-cell {
     font-size: 0.8rem;
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
-  }
-
-  .time-header {
-    font-size: 0.9rem;
-    min-height: 90px; /* 4행 헤더에 맞게 조정 */
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
-  }
-}
-
-@media (max-width: 480px) {
-  .date-cell {
-    font-size: 0.7rem;
-    padding: 4px 1px;
-    line-height: 1;
-    width: calc((100% - 60px) / 8);
-  }
-
-  .day-cell {
-    font-size: 0.65rem;
-    padding: 3px 1px;
-    width: calc((100% - 60px) / 8);
-  }
-
-  .event-type-cell {
-    font-size: 0.7rem;
-    padding: 3px 1px;
-    width: calc((100% - 60px) / 8);
-  }
-
-  .venue-cell {
-    font-size: 0.65rem;
-    padding: 3px 1px;
-    width: calc((100% - 60px) / 8);
-  }
-
-  .venue-cell.sogang-venue {
-    font-size: 0.6rem;
-  }
-
-  .session-cell {
-    font-size: 0.65rem;
-    padding: 2px 1px;
-    width: calc((100% - 60px) / 8);
-  }
-
-  .time-cell {
-    font-size: 0.75rem;
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
+    width: 75px; /* 모바일에서 시간 컬럼 너비 */
+    min-width: 75px;
+    padding: 5px 3px;
   }
 
   .time-header {
     font-size: 0.85rem;
-    min-height: 75px; /* 4행 헤더에 맞게 조정 */
-    width: 60px; /* 모바일에서 시간 컬럼 너비 */
+    min-height: 85px; /* 4행 헤더에 맞게 조정 */
+    width: 75px; /* 모바일에서 시간 컬럼 너비 */
+    min-width: 75px;
+  }
+
+  /* 매우 작은 화면에서 프로그램 테이블 최소 너비 */
+  .program-table {
+    min-width: 700px;
   }
 }
 </style>

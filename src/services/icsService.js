@@ -36,7 +36,7 @@ const COLUMN_TO_DATE = {
   8: '9/26', // Satellite (Sogang)
 };
 
-// 장소 정보 매핑 (SectionVenue.vue 기반)
+// 장소 정보 매핑 (SectionVenue.vue와 SectionCampusMapPage.vue 기반)
 const LOCATION_MAPPING = {
   1: 'KAIST, Daejeon, South Korea', // 9/20 Satellite
   2: 'KAIST Creative Learning Building E11, Daejeon, South Korea', // 9/21 Tutorial
@@ -48,16 +48,59 @@ const LOCATION_MAPPING = {
   8: 'Sogang University, Seoul, South Korea', // 9/26 Sogang Satellite
 };
 
-// Google Maps URL 매핑 (SectionVenue.vue의 실제 embed URL 기반)
+// 상세 장소 정보 매핑 (건물별 구체적인 룸 정보)
+const DETAILED_LOCATION_MAPPING = {
+  // Tutorial Sessions (9/21 @ E11)
+  'tutorial': {
+    building: 'KAIST Creative Learning Building E11',
+    rooms: ['E11 101A', 'E11 102A', 'E11 103A'],
+    address: 'KAIST, Daejeon, South Korea',
+    registration: 'E11 1F Lobby'
+  },
+  // Main Conference (9/22-25 @ E15)
+  'conference': {
+    building: 'KAIST Main Auditorium E15',
+    rooms: {
+      'oral': 'E15 Concert Hall',
+      'poster': 'E15 Seminar Room',
+      'keynote': 'E15 Concert Hall',
+      'registration': 'E15 1F Lobby'
+    },
+    address: 'KAIST, Daejeon, South Korea'
+  },
+  // Special Venues
+  'welcome_reception': {
+    venue: 'Golfzon Zoimaru',
+    address: 'Daejeon, South Korea',
+    date: '9/21',
+    time: '18:30 - 21:00'
+  },
+  'banquet': {
+    venue: 'ICC Hotel',
+    address: 'Daejeon, South Korea', 
+    date: '9/24',
+    time: '19:30 - 22:00'
+  }
+};
+
+// Google Maps URL 매핑 (SectionVenue.vue의 실제 사용 가능한 링크)
 const GOOGLE_MAPS_URLS = {
   1: 'https://maps.app.goo.gl/5RB8d6FcahjnnGgg9', // 9/20 KAIST 종합 지도
-  2: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3213.8!2d127.3625834!3d36.3703695!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654bc9c84e5adb%3A0xf0cf3620fc28fc1d!2sCreative%20Learning%20Building%20E11!5e0!3m2!1sen!2skr!4v1635000000000!5m2!1sen!2skr', // 9/21 E11
-  3: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.7!2d127.3629259!3d36.3720843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654bc98a6db1a1%3A0x8f5575e3fc5de4e7!2sKAIST%20E15%20%EB%8C%80%EA%B0%95%EB%8B%B9%2C%20%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9C%A0%EC%84%B1%EA%B5%AC%20%EC%98%A8%EC%B2%9C2%EB%8F%99!5e0!3m2!1sko!2skr!4v1735000000000!5m2!1sko!2skr', // 9/22-25 E15
-  4: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.7!2d127.3629259!3d36.3720843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654bc98a6db1a1%3A0x8f5575e3fc5de4e7!2sKAIST%20E15%20%EB%8C%80%EA%B0%95%EB%8B%B9%2C%20%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9C%A0%EC%84%B1%EA%B5%AC%20%EC%98%A8%EC%B2%9C2%EB%8F%99!5e0!3m2!1sko!2skr!4v1735000000000!5m2!1sko!2skr', // 9/23 E15
-  5: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.7!2d127.3629259!3d36.3720843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654bc98a6db1a1%3A0x8f5575e3fc5de4e7!2sKAIST%20E15%20%EB%8C%80%EA%B0%95%EB%8B%B9%2C%20%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9C%A0%EC%84%B1%EA%B5%AC%20%EC%98%A8%EC%B2%9C2%EB%8F%99!5e0!3m2!1sko!2skr!4v1735000000000!5m2!1sko!2skr', // 9/24 E15
-  6: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3213.7!2d127.3629259!3d36.3720843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35654bc98a6db1a1%3A0x8f5575e3fc5de4e7!2sKAIST%20E15%20%EB%8C%80%EA%B0%95%EB%8B%B9%2C%20%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9C%A0%EC%84%B1%EA%B5%AC%20%EC%98%A8%EC%B2%9C2%EB%8F%99!5e0!3m2!1sko!2skr!4v1735000000000!5m2!1sko!2skr', // 9/25 E15
+  2: 'https://maps.google.com/?q=KAIST+Creative+Learning+Building+E11,+Daejeon,+South+Korea', // 9/21 E11
+  3: 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구', // 9/22-25 E15
+  4: 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구', // 9/23 E15
+  5: 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구', // 9/24 E15
+  6: 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구', // 9/25 E15
   7: 'https://maps.app.goo.gl/5RB8d6FcahjnnGgg9', // 9/26 KAIST 종합 지도
   8: 'https://maps.google.com/?q=Sogang+University,+Seoul,+South+Korea', // 9/26 Sogang
+};
+
+// 특별 이벤트별 Google Maps URL
+const SPECIAL_EVENT_MAPS = {
+  'welcome_reception': 'https://maps.google.com/?q=골프존+조이마루,+대전',
+  'banquet': 'https://maps.google.com/?q=호텔ICC,+대전',
+  'k_culture': 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구',
+  'korean_concert': 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구'
 };
 
 /**
@@ -130,17 +173,32 @@ function cleanEventTitle(rawTitle) {
  * @param {string} eventTitle - 이벤트 제목
  * @param {string} location - 장소
  * @param {string} googleMapUrl - Google Maps URL
+ * @param {string} detailedLocation - 상세 장소 정보
  * @returns {string} 이벤트 설명
  */
-function generateEventDescription(eventTitle, location, googleMapUrl) {
+function generateEventDescription(eventTitle, location, googleMapUrl, detailedLocation) {
   const description = [
     `ISMIR 2025 Conference Event: ${eventTitle}`,
-    '',
+    ''
+  ];
+  
+  // 상세 장소 정보가 있으면 추가
+  if (detailedLocation) {
+    description.push(`Venue Details: ${detailedLocation}`);
+  }
+  
+  description.push(
     `Location: ${location}`,
     `Google Maps: ${googleMapUrl}`,
     '',
-    'International Society for Music Information Retrieval Conference 2025'
-  ];
+    '📍 KAIST Campus Map: https://maps.app.goo.gl/5RB8d6FcahjnnGgg9',
+    '',
+    '🎵 International Society for Music Information Retrieval Conference 2025',
+    'Website: https://ismir2025.github.io/',
+    '',
+    'Korea Advanced Institute of Science and Technology (KAIST)',
+    'Daejeon, South Korea'
+  );
 
   return description.join('\\n');
 }
@@ -176,10 +234,10 @@ function convertEmbedToUserUrl(embedUrl) {
 }
 
 /**
- * 이벤트 타입에 따른 특별한 장소 정보 가져오기
+ * 이벤트 타입에 따른 구체적인 장소 정보 가져오기
  * @param {string} eventTitle - 이벤트 제목
  * @param {number} columnIndex - 컬럼 인덱스
- * @returns {Object} {location, googleMapUrl}
+ * @returns {Object} {location, googleMapUrl, detailedLocation}
  */
 function getEventSpecificVenue(eventTitle, columnIndex) {
   const normalizedTitle = eventTitle.toLowerCase().trim();
@@ -188,7 +246,8 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
   if (normalizedTitle.includes('welcome') || normalizedTitle.includes('reception')) {
     return {
       location: 'Golfzon Zoimaru, Daejeon, South Korea',
-      googleMapUrl: 'https://maps.google.com/?q=골프존+조이마루,+대전'
+      googleMapUrl: SPECIAL_EVENT_MAPS.welcome_reception,
+      detailedLocation: 'Sep 21 (Sun) 18:30 - 21:00 @ Golfzon Zoimaru'
     };
   }
   
@@ -196,7 +255,17 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
   if (normalizedTitle.includes('banquet') || normalizedTitle.includes('jam')) {
     return {
       location: 'ICC Hotel, Daejeon, South Korea',
-      googleMapUrl: 'https://maps.google.com/?q=호텔ICC,+대전'
+      googleMapUrl: SPECIAL_EVENT_MAPS.banquet,
+      detailedLocation: 'Sep 24 (Wed) 19:30 - 22:00 @ ICC Hotel'
+    };
+  }
+  
+  // K-Culture Evening (9/23)
+  if (normalizedTitle.includes('k-culture') || normalizedTitle.includes('korean')) {
+    return {
+      location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
+      googleMapUrl: SPECIAL_EVENT_MAPS.k_culture,
+      detailedLocation: 'KAIST E15 Concert Hall'
     };
   }
   
@@ -204,15 +273,60 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
   if (normalizedTitle.includes('tutorial') && columnIndex === 2) {
     return {
       location: 'KAIST Creative Learning Building E11, Daejeon, South Korea',
-      googleMapUrl: 'https://maps.google.com/?q=KAIST+Creative+Learning+Building+E11,+Daejeon'
+      googleMapUrl: GOOGLE_MAPS_URLS[2],
+      detailedLocation: 'Tutorial Sessions @ E11 101A, 102A, 103A (Registration: E11 1F Lobby)'
     };
   }
   
-  // 기본값: 컬럼 기반 매핑 사용하되 사용자 친화적 URL로 변환
-  const baseUrl = GOOGLE_MAPS_URLS[columnIndex];
+  // Registration - 건물별 구분
+  if (normalizedTitle.includes('registration')) {
+    if (columnIndex === 2) { // 9/21 Tutorial day
+      return {
+        location: 'KAIST Creative Learning Building E11, Daejeon, South Korea',
+        googleMapUrl: GOOGLE_MAPS_URLS[2],
+        detailedLocation: 'Registration @ E11 1F Lobby'
+      };
+    } else { // 9/22-25 Conference days
+      return {
+        location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
+        googleMapUrl: GOOGLE_MAPS_URLS[columnIndex],
+        detailedLocation: 'Registration @ E15 1F Lobby'
+      };
+    }
+  }
+  
+  // Oral Sessions - E15 Concert Hall
+  if (normalizedTitle.includes('oral')) {
+    return {
+      location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
+      googleMapUrl: GOOGLE_MAPS_URLS[columnIndex],
+      detailedLocation: 'Oral Presentation Session @ E15 Concert Hall'
+    };
+  }
+  
+  // Poster Sessions - E15 Seminar Room
+  if (normalizedTitle.includes('poster')) {
+    return {
+      location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
+      googleMapUrl: GOOGLE_MAPS_URLS[columnIndex],
+      detailedLocation: 'Poster Session @ E15 Seminar Room'
+    };
+  }
+  
+  // Keynote - E15 Concert Hall
+  if (normalizedTitle.includes('keynote')) {
+    return {
+      location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
+      googleMapUrl: GOOGLE_MAPS_URLS[columnIndex],
+      detailedLocation: 'Keynote @ E15 Concert Hall'
+    };
+  }
+  
+  // 기본값: 컬럼 기반 매핑 사용
   return {
     location: LOCATION_MAPPING[columnIndex],
-    googleMapUrl: convertEmbedToUserUrl(baseUrl)
+    googleMapUrl: GOOGLE_MAPS_URLS[columnIndex],
+    detailedLocation: null
   };
 }
 
@@ -240,6 +354,7 @@ export function generateICSContent(eventData) {
   const venueInfo = getEventSpecificVenue(title, columnIndex);
   const location = venueInfo.location;
   const googleMapUrl = venueInfo.googleMapUrl;
+  const detailedLocation = venueInfo.detailedLocation;
 
   if (!baseDate) {
     throw new Error(`Invalid column index: ${columnIndex}`);
@@ -260,7 +375,7 @@ export function generateICSContent(eventData) {
 
   // 이벤트 정보 정리
   const cleanTitle = cleanEventTitle(title);
-  const description = generateEventDescription(title, location, googleMapUrl);
+  const description = generateEventDescription(title, location, googleMapUrl, detailedLocation);
   const uid = generateUID(title, dateStr, timeString);
 
   // ICS 내용 생성

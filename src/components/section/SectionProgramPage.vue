@@ -5,6 +5,18 @@
         <v-card-title class="text-h4 mb-3 font-weight-bold">
           This is a preliminary schedule of the ISMIR 2025 program
         </v-card-title>
+        
+        <v-alert 
+          type="info" 
+          variant="tonal" 
+          class="mb-4"
+          icon="mdi-calendar-plus"
+        >
+          <div class="text-body-2">
+            <strong>💡 Tip:</strong> Click on any session to download a calendar event (.ics file) 
+            that you can add to Google Calendar, Outlook, or any calendar app!
+          </div>
+        </v-alert>
 
         <v-container fluid class="pa-0">
           <v-row>
@@ -101,9 +113,14 @@
                         :key="cellIndex"
                         v-show="!cell.hidden"
                         class="session-cell"
-                        :class="getSessionClass(cell.value)"
+                        :class="[
+                          getSessionClass(cell.value),
+                          { 'clickable-session': cell.isClickable }
+                        ]"
                         :rowspan="cell.rowspan"
                         :colspan="cell.colspan"
+                        @click="cell.isClickable ? handleSessionClick(cell.value, rowIndex, cellIndex) : null"
+                        :title="cell.isClickable ? 'Click to download calendar event (.ics)' : ''"
                       >
                         <div class="session-content">
                           {{ cell.value || "" }}
@@ -132,6 +149,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
+import { downloadICSFile, isValidEvent } from "../../services/icsService";
 
 // ISMIR 2025 프로그램 스케줄 데이터 - CSV 파일 내용 완전 하드코딩
 // 원본 program.csv의 모든 데이터를 JavaScript 배열로 변환
@@ -473,6 +491,7 @@ const getProcessedRows = () => {
           hidden: true,
           rowspan: 1,
           colspan: 1,
+          isClickable: false,
         });
         continue;
       }
@@ -486,6 +505,7 @@ const getProcessedRows = () => {
           hidden: true,
           rowspan: 1,
           colspan: 1,
+          isClickable: false,
         });
         continue;
       }
@@ -509,6 +529,7 @@ const getProcessedRows = () => {
         hidden: false,
         rowspan: sessionInfo.rowspan,
         colspan: 1,
+        isClickable: isValidEvent(cellValue),
       });
     }
 
@@ -577,6 +598,36 @@ const formatDataAsTable = (data) => {
     headers,
     rows
   };
+};
+
+// ICS 파일 다운로드 핸들러
+const handleSessionClick = (cellValue, rowIndex, cellIndex) => {
+  // 유효한 이벤트인지 확인
+  if (!isValidEvent(cellValue)) {
+    return;
+  }
+
+  // 해당 행의 시간 정보 가져오기
+  const timeString = tableData.value.rows[rowIndex][0];
+  if (!timeString) {
+    console.warn('시간 정보를 찾을 수 없습니다.');
+    return;
+  }
+
+  // 컬럼 인덱스는 1부터 시작 (시간 컬럼 제외)
+  const columnIndex = cellIndex + 1;
+
+  // 이벤트 데이터 구성
+  const eventData = {
+    title: cellValue,
+    timeString: timeString,
+    columnIndex: columnIndex,
+  };
+
+  console.log('ICS 다운로드 요청:', eventData);
+
+  // ICS 파일 다운로드
+  downloadICSFile(eventData);
 };
 
 // 컴포넌트 마운트 시 데이터 로드
@@ -886,6 +937,38 @@ onMounted(() => {
 /* 긴 세션 스타일 */
 .session-cell {
   position: relative;
+}
+
+/* 클릭 가능한 세션 스타일 */
+.clickable-session {
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+}
+
+.clickable-session:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  z-index: 5 !important;
+}
+
+.clickable-session:active {
+  transform: scale(0.98) !important;
+}
+
+/* 클릭 가능한 세션에 다운로드 아이콘 힌트 추가 */
+.clickable-session::after {
+  content: "📅";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.clickable-session:hover::after {
+  opacity: 0.7;
 }
 
 /* 반응형 디자인 */

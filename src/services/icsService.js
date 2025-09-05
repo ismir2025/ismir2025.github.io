@@ -48,7 +48,8 @@ const LOCATION_MAPPING = {
   8: 'Sogang University, Seoul, South Korea', // 9/26 Sogang Satellite
 };
 
-// 상세 장소 정보 매핑 (건물별 구체적인 룸 정보)
+// 상세 장소 정보 매핑 (건물별 구체적인 룸 정보) - 향후 확장을 위한 준비
+// eslint-disable-next-line no-unused-vars
 const DETAILED_LOCATION_MAPPING = {
   // Tutorial Sessions (9/21 @ E11)
   'tutorial': {
@@ -77,7 +78,7 @@ const DETAILED_LOCATION_MAPPING = {
   },
   'banquet': {
     venue: 'ICC Hotel',
-    address: 'Daejeon, South Korea', 
+    address: 'Daejeon, South Korea',
     date: '9/24',
     time: '19:30 - 22:00'
   }
@@ -208,6 +209,7 @@ function generateEventDescription(eventTitle, location, googleMapUrl, detailedLo
  * @param {string} embedUrl - embed URL
  * @returns {string} 사용자가 클릭할 수 있는 URL
  */
+// eslint-disable-next-line no-unused-vars
 function convertEmbedToUserUrl(embedUrl) {
   // 이미 일반 URL인 경우 그대로 반환
   if (!embedUrl.includes('/embed')) {

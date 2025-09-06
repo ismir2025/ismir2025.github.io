@@ -172,7 +172,7 @@
             class="d-flex justify-center pa-3 my-2"
           >
             <div class="logo-container">
-              <img :src="udioLogo" alt="Udio" class="logo-image" />
+              <img :src="udioLogo" alt="Udio" class="logo-image" style="transform: scale(0.7);" />
             </div>
           </v-col>
           <v-col
@@ -198,7 +198,6 @@
             </div>
           </v-col>
           <!-- In progress sponsors - commented out -->
-          <!--
           <v-col
             cols="6"
             sm="4"
@@ -210,7 +209,6 @@
               <img :src="spotifyLogo" alt="Spotify" class="logo-image" />
             </div>
           </v-col>
-          -->
         </v-row>
 
         <!-- Silver Sponsors -->
@@ -521,11 +519,6 @@
             ismir2025@ismir.net
           </a>
         </v-card-text>
-        <v-card-actions>
-          <v-btn color="primary" href="mailto:ismir2025@ismir.net"
-            >Mail to</v-btn
-          >
-        </v-card-actions>
       </v-card>
       <br /><br /><br />
     </v-col>
@@ -546,7 +539,7 @@ import moisesLogo from "@/assets/logo/Moises.png";
 import udioLogo from "@/assets/logo/Udio.png";
 import algoriddimLogo from "@/assets/logo/algoriddim.png";
 import googleDeepmindLogo from "@/assets/logo/GoogleDeepmind.png";
-// import spotifyLogo from "@/assets/logo/Spotify.png"; // In progress
+import spotifyLogo from "@/assets/logo/Spotify.png";
 
 // Silver Sponsors (4,000)
 import yamahaLogo from "@/assets/logo/yamaha.png";

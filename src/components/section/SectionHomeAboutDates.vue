@@ -172,7 +172,12 @@
             class="d-flex justify-center pa-3 my-2"
           >
             <div class="logo-container">
-              <img :src="udioLogo" alt="Udio" class="logo-image" style="transform: scale(0.7);" />
+              <img
+                :src="udioLogo"
+                alt="Udio"
+                class="logo-image"
+                style="transform: scale(0.7)"
+              />
             </div>
           </v-col>
           <v-col
@@ -194,7 +199,11 @@
             class="d-flex justify-center pa-3 my-2"
           >
             <div class="logo-container">
-              <img :src="googleDeepmindLogo" alt="Google Deepmind" class="logo-image" />
+              <img
+                :src="googleDeepmindLogo"
+                alt="Google Deepmind"
+                class="logo-image"
+              />
             </div>
           </v-col>
           <!-- In progress sponsors - commented out -->
@@ -501,6 +510,21 @@
               <img :src="ksmiLogo" alt="KSMI" class="logo-image" />
             </div>
           </v-col>
+          <v-col
+            cols="6"
+            sm="4"
+            md="3"
+            lg="2"
+            class="d-flex justify-center pa-3 my-2"
+          >
+            <div class="logo-container">
+              <img
+                :src="sogangFutureLabLogo"
+                alt="Sogang Future Lab"
+                class="logo-image"
+              />
+            </div>
+          </v-col>
         </v-row>
         <br />
         <v-divider></v-divider>
@@ -532,6 +556,7 @@ import sogangLogo from "@/assets/sponserLogos/fhd/sogang.webp";
 import dtoLogo from "@/assets/sponserLogos/fhd/daejeonTourismOrganization.webp";
 import ktLogo from "@/assets/sponserLogos/fhd/KTO.webp";
 import ksmiLogo from "@/assets/logo/KSMI.png";
+import sogangFutureLabLogo from "@/assets/logo/fhd/SogangFutureLab.webp";
 
 // Platinum Sponsors (10,000)
 import adobeLogo from "@/assets/logo/Adobe.png";

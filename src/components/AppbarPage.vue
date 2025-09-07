@@ -186,25 +186,25 @@
         </v-list>
       </v-menu>
 
-      <v-menu offset-y v-model="isSateliteMenuOpen" close-on-content-click>
+      <v-menu offset-y v-model="isSatelliteMenuOpen" close-on-content-click>
         <template v-slot:activator="{ props }">
           <v-btn
             class="menu-button call-button"
-            :class="{ 'call-active': isSateliteMenuOpen }"
+            :class="{ 'call-active': isSatelliteMenuOpen }"
             v-bind="props"
             height="100%"
             variant="text"
             text-color="black"
           >
-            Satelite<br />Events
+            Satellite<br />Events
             <v-icon icon="mdi-menu-down" end></v-icon>
           </v-btn>
         </template>
         <v-list>
           <v-list-item
-            v-for="(submenu, index) in SateliteSubItems"
+            v-for="(submenu, index) in SatelliteSubItems"
             :key="index"
-            @click="handleSubItemClickSatelite(submenu)"
+            @click="handleSubItemClickSatellite(submenu)"
           >
             <v-list-item-title>{{ submenu }}</v-list-item-title>
           </v-list-item>
@@ -342,16 +342,16 @@
         </v-list-item>
       </v-list-group>
 
-      <!-- Satelite Events 드롭다운 메뉴 -->
+      <!-- Satellite Events 드롭다운 메뉴 -->
       <v-list-group value="satelite">
         <template v-slot:activator="{ props }">
-          <v-list-item v-bind="props" title="Satelite Events"></v-list-item>
+          <v-list-item v-bind="props" title="Satellite Events"></v-list-item>
         </template>
         <v-list-item
-          v-for="(item, i) in SateliteSubItems"
+          v-for="(item, i) in SatelliteSubItems"
           :key="i"
           @click="
-            handleSubItemClickSatelite(item);
+            handleSubItemClickSatellite(item);
             drawer = false;
           "
         >
@@ -390,7 +390,7 @@ const callSubItems = ref([
   "Call For Volunteers",
 ]);
 
-const SateliteSubItems = ref(["HCMIR", "DLfM", "LLM4MA"]);
+const SatelliteSubItems = ref(["HCMIR", "DLfM", "LLM4MA"]);
 
 const IPSubItems = ref(["Author Guidelines", "Presenter Guidelines"]);
 
@@ -423,7 +423,7 @@ const programSubItems = ref([
 const isCallMenuOpen = ref(false);
 const isIPMenuOpen = ref(false);
 const isAttendMenuOpen = ref(false);
-const isSateliteMenuOpen = ref(false);
+const isSatelliteMenuOpen = ref(false);
 const isDiversityMenuOpen = ref(false);
 const isSponsorsMenuOpen = ref(false);
 const isProgramMenuOpen = ref(false);
@@ -516,7 +516,7 @@ const handleSubItemClickDiversity = (submenu) => {
   }
 };
 
-const handleSubItemClickSatelite = (submenu) => {
+const handleSubItemClickSatellite = (submenu) => {
   switch (submenu) {
     case "HCMIR":
       router.push({ name: "HCMIR25Page" });

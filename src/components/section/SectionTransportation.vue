@@ -1614,13 +1614,13 @@
                     around the KAIST campus, including one near the west
                     entrance of E11 (the Tutorial Session venue).
                   </p>
-                  <v-alert type="info" class="mb-3">
+                  <p class="mb-3">
                     <strong>Please note:</strong> If you don't have a Korean
                     bank account, you'll only be able to use the free first hour
                     of Tashu. To continue using a bicycle beyond this, you'll
                     need to park it within the hour and then unlock it again to
                     start a new free hour session.
-                  </v-alert>
+                  </p>
                   <p>
                     <strong>Tashu Link:</strong>
                     <a

@@ -54,7 +54,10 @@ const DETAILED_LOCATION_MAPPING = {
   // Tutorial Sessions (9/21 @ E11)
   'tutorial': {
     building: 'KAIST Creative Learning Building E11',
-    rooms: ['E11 101A', 'E11 102A', 'E11 103A'],
+    rooms: {
+      'morning': ['T1@E11-101A', 'T2@E11-102A', 'T3@E11-103A'], // 09:00-12:30
+      'afternoon': ['T4@E11-101A', 'T5@E11-102A', 'T6@E11-103A'] // 14:00-17:30
+    },
     address: 'KAIST, Daejeon, South Korea',
     registration: 'E11 1F Lobby'
   },
@@ -101,8 +104,526 @@ const SPECIAL_EVENT_MAPS = {
   'welcome_reception': 'https://maps.google.com/?q=골프존+조이마루,+대전',
   'banquet': 'https://maps.google.com/?q=호텔ICC,+대전',
   'k_culture': 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구',
-  'korean_concert': 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구'
+  'korean_concert': 'https://maps.google.com/?q=KAIST+E15+대강당,+대전광역시+유성구',
+  'hcmir25': 'https://maps.app.goo.gl/btnbicuVZpe12Cd49'
 };
+
+// 특별 이벤트 실제 시간 매핑 (30분 단위 스케줄의 한계 극복)
+const SPECIAL_EVENT_TIMES = {
+  'hcmir25': {
+    date: '9/20',
+    startTime: '14:00',
+    endTime: '18:00',
+    location: 'Room #3229, Paik Nam June Hall (백남준 Hall), N25 Building, Industrial Design Department, KAIST',
+    googleMapUrl: 'https://maps.app.goo.gl/btnbicuVZpe12Cd49'
+  },
+  'tutorial_morning': {
+    date: '9/21',
+    startTime: '09:00',
+    endTime: '12:30',
+    location: 'KAIST Creative Learning Building E11, Daejeon, South Korea'
+  },
+  'tutorial_afternoon': {
+    date: '9/21', 
+    startTime: '14:00',
+    endTime: '17:30',
+    location: 'KAIST Creative Learning Building E11, Daejeon, South Korea'
+  },
+  'welcome_reception': {
+    date: '9/21',
+    startTime: '18:30',
+    endTime: '21:30',
+    location: 'Golfzon Zoimaru, Daejeon, South Korea',
+    googleMapUrl: 'https://maps.google.com/?q=골프존+조이마루,+대전'
+  },
+  'registration_921': {
+    date: '9/21',
+    startTime: '07:00',
+    endTime: '09:00',
+    location: 'KAIST Creative Learning Building E11, Daejeon, South Korea'
+  },
+  'lunch_921': {
+    date: '9/21',
+    startTime: '12:30',
+    endTime: '14:00',
+    location: 'KAIST Creative Learning Building E11, Daejeon, South Korea'
+  },
+  // 9/22 Conference Day 1 이벤트들
+  'registration_922': {
+    date: '9/22',
+    startTime: '07:30',
+    endTime: '08:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'opening_922': {
+    date: '9/22',
+    startTime: '08:30',
+    endTime: '09:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_1_922': {
+    date: '9/22',
+    startTime: '09:00',
+    endTime: '10:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'coffee_poster_1_922': {
+    date: '9/22',
+    startTime: '10:30',
+    endTime: '12:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'lunch_922': {
+    date: '9/22',
+    startTime: '12:00',
+    endTime: '13:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'keynote_1_922': {
+    date: '9/22',
+    startTime: '13:00',
+    endTime: '14:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_2_922': {
+    date: '9/22',
+    startTime: '14:30',
+    endTime: '16:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'poster_session_2_922': {
+    date: '9/22',
+    startTime: '16:00',
+    endTime: '17:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'industry_meetup_922': {
+    date: '9/22',
+    startTime: '17:30',
+    endTime: '18:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'music_program_922': {
+    date: '9/22',
+    startTime: '19:30',
+    endTime: '20:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  // 9/23 Conference Day 2 이벤트들
+  'registration_923': {
+    date: '9/23',
+    startTime: '08:00',
+    endTime: '09:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_3_923': {
+    date: '9/23',
+    startTime: '09:00',
+    endTime: '10:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'coffee_poster_3_923': {
+    date: '9/23',
+    startTime: '10:30',
+    endTime: '12:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'lunch_923': {
+    date: '9/23',
+    startTime: '12:00',
+    endTime: '13:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'industry_session_923': {
+    date: '9/23',
+    startTime: '13:00',
+    endTime: '14:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_4_923': {
+    date: '9/23',
+    startTime: '14:30',
+    endTime: '16:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'poster_session_4_923': {
+    date: '9/23',
+    startTime: '16:00',
+    endTime: '17:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'wimir_session_923': {
+    date: '9/23',
+    startTime: '17:30',
+    endTime: '18:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'k_culture_evening_923': {
+    date: '9/23',
+    startTime: '18:30',
+    endTime: '19:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'korean_traditional_music_923': {
+    date: '9/23',
+    startTime: '19:30',
+    endTime: '20:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  // 9/24 Conference Day 3 이벤트들
+  'registration_924': {
+    date: '9/24',
+    startTime: '08:00',
+    endTime: '09:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_5_924': {
+    date: '9/24',
+    startTime: '09:00',
+    endTime: '10:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'coffee_poster_5_924': {
+    date: '9/24',
+    startTime: '10:30',
+    endTime: '12:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'lunch_924': {
+    date: '9/24',
+    startTime: '12:00',
+    endTime: '13:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'keynote_2_924': {
+    date: '9/24',
+    startTime: '13:00',
+    endTime: '14:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_6_924': {
+    date: '9/24',
+    startTime: '14:30',
+    endTime: '16:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'poster_session_6_924': {
+    date: '9/24',
+    startTime: '16:00',
+    endTime: '17:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'special_session_924': {
+    date: '9/24',
+    startTime: '17:30',
+    endTime: '18:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  // 9/25 Conference Day 4 이벤트들
+  'registration_925': {
+    date: '9/25',
+    startTime: '08:00',
+    endTime: '09:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'oral_session_7_925': {
+    date: '9/25',
+    startTime: '09:00',
+    endTime: '10:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'coffee_poster_7_925': {
+    date: '9/25',
+    startTime: '10:30',
+    endTime: '12:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'lunch_925': {
+    date: '9/25',
+    startTime: '12:00',
+    endTime: '13:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'society_meeting_925': {
+    date: '9/25',
+    startTime: '13:00',
+    endTime: '14:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'award_talks_925': {
+    date: '9/25',
+    startTime: '14:00',
+    endTime: '14:30',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'closing_remarks_925': {
+    date: '9/25',
+    startTime: '14:30',
+    endTime: '15:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'late_breaking_demo_925': {
+    date: '9/25',
+    startTime: '15:00',
+    endTime: '17:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'unconference_925': {
+    date: '9/25',
+    startTime: '17:00',
+    endTime: '18:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  // 9/26 Workshop Day 이벤트들
+  'llm4ma_workshop_926': {
+    date: '9/26',
+    startTime: '09:00',
+    endTime: '17:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'dlfm_workshop_926': {
+    date: '9/26',
+    startTime: '09:00',
+    endTime: '17:00',
+    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+  },
+  'banquet': {
+    date: '9/24',
+    startTime: '19:30', 
+    endTime: '22:00',
+    location: 'ICC Hotel, Daejeon, South Korea',
+    googleMapUrl: 'https://maps.google.com/?q=호텔ICC,+대전'
+  }
+};
+
+/**
+ * 특별 이벤트 감지 및 실제 시간 정보 반환
+ * @param {string} eventTitle - 이벤트 제목
+ * @param {number} columnIndex - 컬럼 인덱스
+ * @returns {Object|null} 특별 이벤트 정보 또는 null
+ */
+function getSpecialEventTime(eventTitle, columnIndex) {
+  // 윗첨자 제거 (¹²³⁴⁵⁶⁷⁸⁹⁰) 후 정규화
+  const normalizedTitle = eventTitle
+    .toLowerCase()
+    .replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰]/g, '') // 윗첨자 제거
+    .replace(/\n/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  
+  // HCMIR25 이벤트
+  if (normalizedTitle.includes('hcmir') && columnIndex === 1) {
+    console.log('HCMIR25 특별 이벤트 감지됨:', eventTitle, 'columnIndex:', columnIndex);
+    return SPECIAL_EVENT_TIMES.hcmir25;
+  }
+  
+  // Tutorial 세션들
+  if (normalizedTitle.includes('tutorial') && columnIndex === 2) {
+    if (normalizedTitle.includes('t1') || normalizedTitle.includes('t2') || normalizedTitle.includes('t3')) {
+      return SPECIAL_EVENT_TIMES.tutorial_morning;
+    } else if (normalizedTitle.includes('t4') || normalizedTitle.includes('t5') || normalizedTitle.includes('t6')) {
+      return SPECIAL_EVENT_TIMES.tutorial_afternoon;
+    }
+  }
+  
+  // 9/21 Registration 이벤트 (07:00-09:00 통합)
+  if (normalizedTitle.includes('registration') && columnIndex === 2) {
+    return SPECIAL_EVENT_TIMES.registration_921;
+  }
+  
+  // 9/21 Lunch 이벤트
+  if (normalizedTitle.includes('lunch') && columnIndex === 2) {
+    return SPECIAL_EVENT_TIMES.lunch_921;
+  }
+  
+  // 9/22 Conference Day 1 이벤트들
+  if (columnIndex === 3) {
+    // Registration
+    if (normalizedTitle.includes('registration')) {
+      return SPECIAL_EVENT_TIMES.registration_922;
+    }
+    // Opening
+    if (normalizedTitle.includes('opening')) {
+      return SPECIAL_EVENT_TIMES.opening_922;
+    }
+    // Oral Session 1
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('1')) {
+      return SPECIAL_EVENT_TIMES.oral_session_1_922;
+    }
+    // Coffee + Poster Session 1
+    if ((normalizedTitle.includes('coffee') && normalizedTitle.includes('poster')) && normalizedTitle.includes('1')) {
+      return SPECIAL_EVENT_TIMES.coffee_poster_1_922;
+    }
+    // Lunch
+    if (normalizedTitle.includes('lunch')) {
+      return SPECIAL_EVENT_TIMES.lunch_922;
+    }
+    // Keynote 1
+    if (normalizedTitle.includes('keynote') && normalizedTitle.includes('1')) {
+      return SPECIAL_EVENT_TIMES.keynote_1_922;
+    }
+    // Oral Session 2
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('2')) {
+      return SPECIAL_EVENT_TIMES.oral_session_2_922;
+    }
+    // Poster Session 2
+    if (normalizedTitle.includes('poster') && normalizedTitle.includes('session') && normalizedTitle.includes('2')) {
+      return SPECIAL_EVENT_TIMES.poster_session_2_922;
+    }
+    // Industry Meetup
+    if (normalizedTitle.includes('industry') && normalizedTitle.includes('meetup')) {
+      return SPECIAL_EVENT_TIMES.industry_meetup_922;
+    }
+    // ISMIR Music Program
+    if (normalizedTitle.includes('ismir') && normalizedTitle.includes('music')) {
+      return SPECIAL_EVENT_TIMES.music_program_922;
+    }
+  }
+  
+  // 9/23 Conference Day 2 이벤트들
+  if (columnIndex === 4) {
+    // Registration
+    if (normalizedTitle.includes('registration')) {
+      return SPECIAL_EVENT_TIMES.registration_923;
+    }
+    // Oral Session 3
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('3')) {
+      return SPECIAL_EVENT_TIMES.oral_session_3_923;
+    }
+    // Coffee + Poster Session 3
+    if ((normalizedTitle.includes('coffee') && normalizedTitle.includes('poster')) && normalizedTitle.includes('3')) {
+      return SPECIAL_EVENT_TIMES.coffee_poster_3_923;
+    }
+    // Lunch
+    if (normalizedTitle.includes('lunch')) {
+      return SPECIAL_EVENT_TIMES.lunch_923;
+    }
+    // Industry Session
+    if (normalizedTitle.includes('industry') && normalizedTitle.includes('session')) {
+      return SPECIAL_EVENT_TIMES.industry_session_923;
+    }
+    // Oral Session 4
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('4')) {
+      return SPECIAL_EVENT_TIMES.oral_session_4_923;
+    }
+    // Poster Session 4
+    if (normalizedTitle.includes('poster') && normalizedTitle.includes('session') && normalizedTitle.includes('4')) {
+      return SPECIAL_EVENT_TIMES.poster_session_4_923;
+    }
+    // WIMIR Session
+    if (normalizedTitle.includes('wimir')) {
+      return SPECIAL_EVENT_TIMES.wimir_session_923;
+    }
+    // K-Culture Evening
+    if (normalizedTitle.includes('k-culture') || normalizedTitle.includes('culture')) {
+      return SPECIAL_EVENT_TIMES.k_culture_evening_923;
+    }
+    // Korean Traditional Music Concert
+    if (normalizedTitle.includes('korean') && normalizedTitle.includes('traditional') && normalizedTitle.includes('music')) {
+      return SPECIAL_EVENT_TIMES.korean_traditional_music_923;
+    }
+  }
+  
+  // 9/24 Conference Day 3 이벤트들
+  if (columnIndex === 5) {
+    // Registration
+    if (normalizedTitle.includes('registration')) {
+      return SPECIAL_EVENT_TIMES.registration_924;
+    }
+    // Oral Session 5
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('5')) {
+      return SPECIAL_EVENT_TIMES.oral_session_5_924;
+    }
+    // Coffee + Poster Session 5
+    if ((normalizedTitle.includes('coffee') && normalizedTitle.includes('poster')) && normalizedTitle.includes('5')) {
+      return SPECIAL_EVENT_TIMES.coffee_poster_5_924;
+    }
+    // Lunch
+    if (normalizedTitle.includes('lunch')) {
+      return SPECIAL_EVENT_TIMES.lunch_924;
+    }
+    // Keynote 2
+    if (normalizedTitle.includes('keynote') && normalizedTitle.includes('2')) {
+      return SPECIAL_EVENT_TIMES.keynote_2_924;
+    }
+    // Oral Session 6
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('6')) {
+      return SPECIAL_EVENT_TIMES.oral_session_6_924;
+    }
+    // Poster Session 6
+    if (normalizedTitle.includes('poster') && normalizedTitle.includes('session') && normalizedTitle.includes('6')) {
+      return SPECIAL_EVENT_TIMES.poster_session_6_924;
+    }
+    // Special Session
+    if (normalizedTitle.includes('special') && normalizedTitle.includes('session')) {
+      return SPECIAL_EVENT_TIMES.special_session_924;
+    }
+  }
+  
+  // 9/25 Conference Day 4 이벤트들
+  if (columnIndex === 6) {
+    // Registration
+    if (normalizedTitle.includes('registration')) {
+      return SPECIAL_EVENT_TIMES.registration_925;
+    }
+    // Oral Session 7
+    if (normalizedTitle.includes('oral') && normalizedTitle.includes('session') && normalizedTitle.includes('7')) {
+      return SPECIAL_EVENT_TIMES.oral_session_7_925;
+    }
+    // Coffee + Poster Session 7
+    if ((normalizedTitle.includes('coffee') && normalizedTitle.includes('poster')) && normalizedTitle.includes('7')) {
+      return SPECIAL_EVENT_TIMES.coffee_poster_7_925;
+    }
+    // Lunch
+    if (normalizedTitle.includes('lunch')) {
+      return SPECIAL_EVENT_TIMES.lunch_925;
+    }
+    // Society Meeting / Board Election
+    if (normalizedTitle.includes('society') || normalizedTitle.includes('board') || normalizedTitle.includes('meeting')) {
+      return SPECIAL_EVENT_TIMES.society_meeting_925;
+    }
+    // Award and Test-of-Time Talks
+    if (normalizedTitle.includes('award') || normalizedTitle.includes('test-of-time')) {
+      return SPECIAL_EVENT_TIMES.award_talks_925;
+    }
+    // Closing Remarks, ISMIR 2026
+    if (normalizedTitle.includes('closing') || normalizedTitle.includes('remarks') || normalizedTitle.includes('2026')) {
+      return SPECIAL_EVENT_TIMES.closing_remarks_925;
+    }
+    // Late-Breaking/Demo
+    if (normalizedTitle.includes('late-breaking') || normalizedTitle.includes('demo')) {
+      return SPECIAL_EVENT_TIMES.late_breaking_demo_925;
+    }
+    // Unconference
+    if (normalizedTitle.includes('unconference')) {
+      return SPECIAL_EVENT_TIMES.unconference_925;
+    }
+  }
+  
+  // 9/26 Workshop Day 이벤트들
+  if (columnIndex === 7) {
+    // LLM4MA Workshop
+    if (normalizedTitle.includes('llm4ma')) {
+      return SPECIAL_EVENT_TIMES.llm4ma_workshop_926;
+    }
+    // DLfM Workshop
+    if (normalizedTitle.includes('dlfm')) {
+      return SPECIAL_EVENT_TIMES.dlfm_workshop_926;
+    }
+  }
+  
+  // Welcome Reception
+  if (normalizedTitle.includes('welcome') || normalizedTitle.includes('reception')) {
+    return SPECIAL_EVENT_TIMES.welcome_reception;
+  }
+  
+  // Banquet
+  if (normalizedTitle.includes('banquet') || normalizedTitle.includes('jam')) {
+    return SPECIAL_EVENT_TIMES.banquet;
+  }
+  
+  return null;
+}
 
 /**
  * 시간 문자열을 파싱하여 시작/종료 시간을 반환
@@ -195,7 +716,7 @@ function generateEventDescription(eventTitle, location, googleMapUrl, detailedLo
     '📍 KAIST Campus Map: https://maps.app.goo.gl/5RB8d6FcahjnnGgg9',
     '',
     '🎵 International Society for Music Information Retrieval Conference 2025',
-    'Website: https://ismir2025.github.io/',
+    'Website: https://ismir2025.ismir.net/',
     '',
     'Korea Advanced Institute of Science and Technology (KAIST)',
     'Daejeon, South Korea'
@@ -242,7 +763,16 @@ function convertEmbedToUserUrl(embedUrl) {
  * @returns {Object} {location, googleMapUrl, detailedLocation}
  */
 function getEventSpecificVenue(eventTitle, columnIndex) {
-  const normalizedTitle = eventTitle.toLowerCase().trim();
+  const normalizedTitle = eventTitle.toLowerCase().replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+  
+  // HCMIR25 - N25 Paik Nam June Hall (9/20)
+  if (normalizedTitle.includes('hcmir') && columnIndex === 1) {
+    return {
+      location: 'Room #3229, Paik Nam June Hall (백남준 Hall), N25 Building, Industrial Design Department, KAIST',
+      googleMapUrl: SPECIAL_EVENT_MAPS.hcmir25,
+      detailedLocation: 'Sep 20 (Sat) 14:00 - 18:00 @ Room #3229, Paik Nam June Hall, N25 Building, KAIST'
+    };
+  }
   
   // Welcome Reception - Golfzon Zoimaru (9/21)
   if (normalizedTitle.includes('welcome') || normalizedTitle.includes('reception')) {
@@ -273,10 +803,20 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
   
   // Tutorial Sessions - E11 (9/21)
   if (normalizedTitle.includes('tutorial') && columnIndex === 2) {
+    // 시간대별 튜토리얼 세션 구분
+    let sessionDetails = 'Tutorial Sessions @ E11';
+    if (normalizedTitle.includes('t1') || normalizedTitle.includes('t2') || normalizedTitle.includes('t3')) {
+      sessionDetails = 'Morning Tutorial Sessions (T1@101A, T2@102A, T3@103A) @ E11';
+    } else if (normalizedTitle.includes('t4') || normalizedTitle.includes('t5') || normalizedTitle.includes('t6')) {
+      sessionDetails = 'Afternoon Tutorial Sessions (T4@101A, T5@102A, T6@103A) @ E11';
+    } else {
+      sessionDetails = 'Tutorial Sessions (101A, 102A, 103A) @ E11';
+    }
+    
     return {
       location: 'KAIST Creative Learning Building E11, Daejeon, South Korea',
       googleMapUrl: GOOGLE_MAPS_URLS[2],
-      detailedLocation: 'Tutorial Sessions @ E11 101A, 102A, 103A (Registration: E11 1F Lobby)'
+      detailedLocation: `${sessionDetails} (Registration: E11 1F Lobby)`
     };
   }
   
@@ -348,15 +888,31 @@ export function generateICSContent(eventData) {
     throw new Error('Missing required event data');
   }
 
-  // 날짜 및 시간 정보 추출
+  // 특별 이벤트 시간 확인 (실제 시간 범위 사용)
+  const specialEventTime = getSpecialEventTime(title, columnIndex);
+  console.log('ICS 생성:', title, 'columnIndex:', columnIndex, 'timeString:', timeString, 'specialEventTime:', specialEventTime);
+  
+  let startDate, endDate, location, googleMapUrl, detailedLocation;
+  
+  if (specialEventTime) {
+    console.log('특별 이벤트 시간 사용:', specialEventTime.startTime, '-', specialEventTime.endTime);
+    // 특별 이벤트의 경우 실제 시간 사용
+    const baseDate = DATE_MAPPING[specialEventTime.date];
+    const { startHour, startMinute, endHour, endMinute } = parseTimeString(`${specialEventTime.startTime} - ${specialEventTime.endTime}`);
+    
+    startDate = new Date(baseDate);
+    startDate.setHours(startHour, startMinute, 0, 0);
+    
+    endDate = new Date(baseDate);
+    endDate.setHours(endHour, endMinute, 0, 0);
+    
+    location = specialEventTime.location;
+    googleMapUrl = specialEventTime.googleMapUrl || GOOGLE_MAPS_URLS[columnIndex];
+    detailedLocation = `${specialEventTime.startTime} - ${specialEventTime.endTime}`;
+  } else {
+    // 일반 이벤트의 경우 기존 로직 사용
   const dateStr = COLUMN_TO_DATE[columnIndex];
   const baseDate = DATE_MAPPING[dateStr];
-  
-  // 이벤트별 특별한 장소 정보 가져오기
-  const venueInfo = getEventSpecificVenue(title, columnIndex);
-  const location = venueInfo.location;
-  const googleMapUrl = venueInfo.googleMapUrl;
-  const detailedLocation = venueInfo.detailedLocation;
 
   if (!baseDate) {
     throw new Error(`Invalid column index: ${columnIndex}`);
@@ -366,11 +922,18 @@ export function generateICSContent(eventData) {
   const { startHour, startMinute, endHour, endMinute } = parseTimeString(timeString);
 
   // 시작/종료 시간 생성 (KST 기준)
-  const startDate = new Date(baseDate);
+    startDate = new Date(baseDate);
   startDate.setHours(startHour, startMinute, 0, 0);
 
-  const endDate = new Date(baseDate);
+    endDate = new Date(baseDate);
   endDate.setHours(endHour, endMinute, 0, 0);
+    
+    // 이벤트별 특별한 장소 정보 가져오기
+    const venueInfo = getEventSpecificVenue(title, columnIndex);
+    location = venueInfo.location;
+    googleMapUrl = venueInfo.googleMapUrl;
+    detailedLocation = venueInfo.detailedLocation;
+  }
 
   // ICS 형식으로 변환
   const dtStamp = formatICSDate(new Date());
@@ -378,6 +941,7 @@ export function generateICSContent(eventData) {
   // 이벤트 정보 정리
   const cleanTitle = cleanEventTitle(title);
   const description = generateEventDescription(title, location, googleMapUrl, detailedLocation);
+  const dateStr = specialEventTime ? specialEventTime.date : COLUMN_TO_DATE[columnIndex];
   const uid = generateUID(title, dateStr, timeString);
 
   // ICS 내용 생성
@@ -476,32 +1040,53 @@ export function isValidEvent(cellValue) {
 export function generateGoogleCalendarUrl(eventData) {
   const { title, timeString, columnIndex } = eventData;
   
-  // 날짜 및 시간 정보 추출
+  // 특별 이벤트 시간 확인 (실제 시간 범위 사용)
+  const specialEventTime = getSpecialEventTime(title, columnIndex);
+  console.log('Google Calendar URL 생성:', title, 'columnIndex:', columnIndex, 'timeString:', timeString, 'specialEventTime:', specialEventTime);
+  
+  let startDate, endDate, location;
+  
+  if (specialEventTime) {
+    console.log('특별 이벤트 시간 사용 (Google Calendar):', specialEventTime.startTime, '-', specialEventTime.endTime);
+    // 특별 이벤트의 경우 실제 시간 사용
+    const baseDate = DATE_MAPPING[specialEventTime.date];
+    const { startHour, startMinute, endHour, endMinute } = parseTimeString(`${specialEventTime.startTime} - ${specialEventTime.endTime}`);
+    
+    startDate = new Date(baseDate);
+    startDate.setHours(startHour, startMinute, 0, 0);
+    
+    endDate = new Date(baseDate);
+    endDate.setHours(endHour, endMinute, 0, 0);
+    
+    location = specialEventTime.location;
+  } else {
+    // 일반 이벤트의 경우 기존 로직 사용
   const dateStr = COLUMN_TO_DATE[columnIndex];
   const baseDate = DATE_MAPPING[dateStr];
   const { startHour, startMinute, endHour, endMinute } = parseTimeString(timeString);
   
-  const startDate = new Date(baseDate);
+    startDate = new Date(baseDate);
   startDate.setHours(startHour, startMinute, 0, 0);
   
-  const endDate = new Date(baseDate);
+    endDate = new Date(baseDate);
   endDate.setHours(endHour, endMinute, 0, 0);
+    
+    // 장소 정보
+    const venueInfo = getEventSpecificVenue(title, columnIndex);
+    location = venueInfo.location;
+  }
   
   // Google Calendar 형식으로 변환 (YYYYMMDDTHHMMSSZ)
   const formatGoogleDate = (date) => {
     return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
   };
   
-  // 장소 정보
-  const venueInfo = getEventSpecificVenue(title, columnIndex);
-  const location = venueInfo.location;
-  
   // URL 파라미터 생성
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: cleanEventTitle(title),
     dates: `${formatGoogleDate(startDate)}/${formatGoogleDate(endDate)}`,
-    details: `ISMIR 2025 Conference Event\n\nLocation: ${location}\nWebsite: https://ismir2025.github.io/`,
+    details: `ISMIR 2025 Conference Event\n\nLocation: ${location}\nWebsite: https://ismir2025.ismir.net/`,
     location: location,
     ctz: 'Asia/Seoul'
   });
@@ -517,27 +1102,48 @@ export function generateGoogleCalendarUrl(eventData) {
 export function generateOutlookUrl(eventData) {
   const { title, timeString, columnIndex } = eventData;
   
-  // 날짜 및 시간 정보 추출
+  // 특별 이벤트 시간 확인 (실제 시간 범위 사용)
+  const specialEventTime = getSpecialEventTime(title, columnIndex);
+  console.log('Outlook URL 생성:', title, 'columnIndex:', columnIndex, 'timeString:', timeString, 'specialEventTime:', specialEventTime);
+  
+  let startDate, endDate, location;
+  
+  if (specialEventTime) {
+    console.log('특별 이벤트 시간 사용 (Outlook):', specialEventTime.startTime, '-', specialEventTime.endTime);
+    // 특별 이벤트의 경우 실제 시간 사용
+    const baseDate = DATE_MAPPING[specialEventTime.date];
+    const { startHour, startMinute, endHour, endMinute } = parseTimeString(`${specialEventTime.startTime} - ${specialEventTime.endTime}`);
+    
+    startDate = new Date(baseDate);
+    startDate.setHours(startHour, startMinute, 0, 0);
+    
+    endDate = new Date(baseDate);
+    endDate.setHours(endHour, endMinute, 0, 0);
+    
+    location = specialEventTime.location;
+  } else {
+    // 일반 이벤트의 경우 기존 로직 사용
   const dateStr = COLUMN_TO_DATE[columnIndex];
   const baseDate = DATE_MAPPING[dateStr];
   const { startHour, startMinute, endHour, endMinute } = parseTimeString(timeString);
   
-  const startDate = new Date(baseDate);
+    startDate = new Date(baseDate);
   startDate.setHours(startHour, startMinute, 0, 0);
   
-  const endDate = new Date(baseDate);
+    endDate = new Date(baseDate);
   endDate.setHours(endHour, endMinute, 0, 0);
   
   // 장소 정보
   const venueInfo = getEventSpecificVenue(title, columnIndex);
-  const location = venueInfo.location;
+    location = venueInfo.location;
+  }
   
   // URL 파라미터 생성
   const params = new URLSearchParams({
     subject: cleanEventTitle(title),
     startdt: startDate.toISOString(),
     enddt: endDate.toISOString(),
-    body: `ISMIR 2025 Conference Event\n\nLocation: ${location}\nWebsite: https://ismir2025.github.io/`,
+    body: `ISMIR 2025 Conference Event\n\nLocation: ${location}\nWebsite: https://ismir2025.ismir.net/`,
     location: location
   });
   

@@ -61,98 +61,138 @@
                     the full program schedule!
                   </div>
                 </v-alert>
-                <table class="program-table" :style="getColumnStyle()">
-                  <!-- 3단계 헤더 -->
-                  <thead>
-                    <!-- 첫 번째 행: 날짜 -->
-                    <tr class="date-row">
-                      <th rowspan="4" class="time-header"></th>
-                      <th class="date-cell">9/20</th>
-                      <th class="date-cell">9/21</th>
-                      <th class="date-cell">9/22</th>
-                      <th class="date-cell">9/23</th>
-                      <th class="date-cell">9/24</th>
-                      <th class="date-cell">9/25</th>
-                      <th class="date-cell" colspan="2">9/26</th>
-                    </tr>
 
-                    <!-- 두 번째 행: 요일 -->
-                    <tr class="day-row">
-                      <th class="day-cell">Sat</th>
-                      <th class="day-cell">Sun</th>
-                      <th class="day-cell">Mon</th>
-                      <th class="day-cell">Tue</th>
-                      <th class="day-cell">Wed</th>
-                      <th class="day-cell">Thu</th>
-                      <th class="day-cell" colspan="2">Fri</th>
-                    </tr>
-
-                    <!-- 세 번째 행: 이벤트 타입 -->
-                    <tr class="event-type-row">
-                      <th class="event-type-cell satellite">Satellite</th>
-                      <th class="event-type-cell tutorial">Tutorial</th>
-                      <th class="event-type-cell conference" colspan="4">
-                        Conference
-                      </th>
-                      <th class="event-type-cell satellite" colspan="2">
-                        Satellite
-                      </th>
-                    </tr>
-
-                    <!-- 네 번째 행: 장소 -->
-                    <tr class="venue-row">
-                      <th colspan="7" class="venue-cell main-venue">KAIST</th>
-                      <th class="venue-cell sogang-venue">
-                        Sogang Univ., Seoul
-                      </th>
-                    </tr>
-                  </thead>
-
-                  <!-- 테이블 바디 -->
-                  <tbody>
-                    <tr
-                      v-for="(row, rowIndex) in getProcessedRows()"
-                      :key="rowIndex"
-                      class="time-row"
-                      :class="getTimeRowClass()"
-                    >
-                      <!-- 시간 컬럼 -->
-                      <td class="time-cell" :class="getTimeClass()">
-                        {{ row.originalRow[0] || "" }}
-                      </td>
-
-                      <!-- 세션 컬럼들 -->
-                      <td
-                        v-for="(cell, cellIndex) in row.cells"
-                        :key="cellIndex"
-                        v-show="!cell.hidden"
-                        class="session-cell"
-                        :class="[
-                          getSessionClass(cell.value),
-                          { 'clickable-session': cell.isClickable },
-                        ]"
-                        :rowspan="cell.rowspan"
-                        :colspan="cell.colspan"
-                        @click="
-                          handleCellClick(
-                            $event,
-                            cell.value,
-                            rowIndex,
-                            cellIndex,
-                            cell.isClickable
-                          )
-                        "
-                        :title="
-                          cell.isClickable ? 'Click to add to calendar 📅' : ''
-                        "
+                <!-- Venue Legend (표 위에 배치) -->
+                <div class="venue-legend-top" v-if="!$vuetify.display.mobile">
+                  <v-card class="legend-card" elevation="2">
+                    <v-card-title class="legend-title">
+                      <v-icon class="mr-2" color="primary"
+                        >mdi-map-marker</v-icon
                       >
-                        <div class="session-content">
-                          {{ cell.value || "" }}
+                      Venues
+                    </v-card-title>
+                    <v-card-text class="legend-content">
+                      <div class="legend-items-row">
+                        <div
+                          v-for="(venue, key) in VENUE_LEGEND"
+                          :key="key"
+                          class="legend-item-compact"
+                        >
+                          <span class="legend-symbol">{{ venue.symbol }}</span>
+                          <div class="legend-info-compact">
+                            <div class="legend-name">{{ venue.name }}</div>
+                            <a
+                              v-if="venue.mapUrl"
+                              :href="venue.mapUrl"
+                              target="_blank"
+                              class="legend-map-link"
+                            >
+                              <v-icon size="small">mdi-map</v-icon> Map
+                            </a>
+                          </div>
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </div>
+
+                <!-- 메인 테이블 -->
+                <div class="table-container">
+                  <table class="program-table" :style="getColumnStyle()">
+                    <!-- 3단계 헤더 -->
+                    <thead>
+                      <!-- 첫 번째 행: 날짜 -->
+                      <tr class="date-row">
+                        <th rowspan="4" class="time-header"></th>
+                        <th class="date-cell">9/20</th>
+                        <th class="date-cell">9/21</th>
+                        <th class="date-cell">9/22</th>
+                        <th class="date-cell">9/23</th>
+                        <th class="date-cell">9/24</th>
+                        <th class="date-cell">9/25</th>
+                        <th class="date-cell" colspan="2">9/26</th>
+                      </tr>
+
+                      <!-- 두 번째 행: 요일 -->
+                      <tr class="day-row">
+                        <th class="day-cell">Sat</th>
+                        <th class="day-cell">Sun</th>
+                        <th class="day-cell">Mon</th>
+                        <th class="day-cell">Tue</th>
+                        <th class="day-cell">Wed</th>
+                        <th class="day-cell">Thu</th>
+                        <th class="day-cell" colspan="2">Fri</th>
+                      </tr>
+
+                      <!-- 세 번째 행: 이벤트 타입 -->
+                      <tr class="event-type-row">
+                        <th class="event-type-cell satellite">Satellite</th>
+                        <th class="event-type-cell tutorial">Tutorial</th>
+                        <th class="event-type-cell conference" colspan="4">
+                          Conference
+                        </th>
+                        <th class="event-type-cell satellite" colspan="2">
+                          Satellite
+                        </th>
+                      </tr>
+
+                      <!-- 네 번째 행: 장소 -->
+                      <tr class="venue-row">
+                        <th colspan="7" class="venue-cell main-venue">KAIST</th>
+                        <th class="venue-cell sogang-venue">
+                          Sogang Univ., Seoul
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <!-- 테이블 바디 -->
+                    <tbody>
+                      <tr
+                        v-for="(row, rowIndex) in getProcessedRows()"
+                        :key="rowIndex"
+                        class="time-row"
+                        :class="getTimeRowClass()"
+                      >
+                        <!-- 시간 컬럼 -->
+                        <td class="time-cell" :class="getTimeClass()">
+                          {{ row.originalRow[0] || "" }}
+                        </td>
+
+                        <!-- 세션 컬럼들 -->
+                        <td
+                          v-for="(cell, cellIndex) in row.cells"
+                          :key="cellIndex"
+                          v-show="!cell.hidden"
+                          class="session-cell"
+                          :class="[
+                            getSessionClass(cell.value),
+                            { 'clickable-session': cell.isClickable },
+                          ]"
+                          :rowspan="cell.rowspan"
+                          :colspan="cell.colspan"
+                          @click="
+                            handleCellClick(
+                              $event,
+                              cell.value,
+                              rowIndex,
+                              cellIndex,
+                              cell.isClickable
+                            )
+                          "
+                          :title="
+                            cell.isClickable
+                              ? 'Click to add to calendar 📅'
+                              : ''
+                          "
+                        >
+                          <div class="session-content">
+                            {{ cell.value || "" }}
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
                 <!-- 캘린더 선택 메뉴 -->
                 <div
@@ -230,6 +270,39 @@ import {
 } from "../../services/icsService";
 
 // ISMIR 2025 프로그램 스케줄 데이터 - CSV 파일 내용 완전 하드코딩
+// 장소 정보 Legend 매핑
+const VENUE_LEGEND = {
+  1: {
+    symbol: "¹",
+    name: "N25 Paik Nam June Hall",
+    fullName:
+      "Room #3229, Paik Nam June Hall (백남준 Hall), N25 Building, Industrial Design Department, KAIST",
+    mapUrl: "https://maps.app.goo.gl/btnbicuVZpe12Cd49",
+  },
+  2: {
+    symbol: "²",
+    name: "Golfzon Zoimaru",
+    fullName: "Golfzon Zoimaru, Daejeon, South Korea",
+    mapUrl: "https://maps.google.com/?q=골프존+조이마루,+대전",
+  },
+  3: {
+    symbol: "³",
+    name: "ICC Hotel",
+    fullName: "ICC Hotel, Daejeon, South Korea",
+    mapUrl: "https://maps.google.com/?q=호텔ICC,+대전",
+  },
+  4: {
+    symbol: "⁴",
+    name: "E11 Creative Learning Building",
+    fullName: "KAIST Creative Learning Building E11, Daejeon, South Korea",
+  },
+  5: {
+    symbol: "⁵",
+    name: "E15 Main Auditorium",
+    fullName: "KAIST Main Auditorium E15, Daejeon, South Korea",
+  },
+};
+
 // 원본 program.csv의 모든 데이터를 JavaScript 배열로 변환
 const hardcodedProgramData = [
   // 헤더 정보 (행 0-3)
@@ -237,13 +310,13 @@ const hardcodedProgramData = [
   ["", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
   [
     "",
-    "Satelite event",
+    "Satellite event",
     "Tutorial",
     "Conference",
     "Conference",
     "Conference",
     "Conference",
-    "Satelite event",
+    "Satellite event",
   ],
   [
     "Starting at (KST)",
@@ -258,38 +331,38 @@ const hardcodedProgramData = [
   ],
 
   // 실제 스케줄 데이터 (행 4-79)
-  ["07:00 - 07:30", "", "Registration", "", "", "", "", ""],
-  ["07:30 - 08:00", "", "", "Registration", "", "", "", ""],
+  ["07:00 - 07:30", "", "Registration⁴", "", "", "", "", ""],
+  ["07:30 - 08:00", "", "", "Registration⁵", "", "", "", ""],
   [
     "08:00 - 08:30",
     "",
     "",
     "End",
-    "Registration",
-    "Registration",
-    "Registration",
+    "Registration⁵",
+    "Registration⁵",
+    "Registration⁵",
     "",
   ],
   [
     "08:30 - 09:00",
     "",
-    "Registration",
-    "Opening",
-    "Registration",
-    "Registration",
-    "Registration",
+    "Registration⁴",
+    "Opening⁵",
+    "Registration⁵",
+    "Registration⁵",
+    "Registration⁵",
     "",
   ],
   [
     "09:00 - 09:30",
     "",
-    "Tutorial \n(T1, T2, T3)",
-    "Oral \nSession 1",
-    "Oral\nSession \n3",
-    "Oral\nSession \n5",
-    "Oral\nSession \n7",
-    "LLM4MA",
-    "DLfM",
+    "Tutorial \n(T1, T2, T3)⁴",
+    "Oral \nSession 1⁵",
+    "Oral\nSession 3⁵",
+    "Oral\nSession 5⁵",
+    "Oral\nSession 7⁵",
+    "LLM4MA⁵",
+    "DLfM⁵",
   ],
   ["09:30 - 10:00", "", "", "", "", "", "", "", ""],
   ["10:00 - 10:30", "", "", "End", "End", "End", "End", "", ""],
@@ -297,10 +370,10 @@ const hardcodedProgramData = [
     "10:30 - 11:00",
     "",
     "",
-    "coffee ☕️ \n+\nPoster \nSession 1",
-    "coffee ☕️ \n+\nPoster\nSession \n3",
-    "coffee ☕️ \n+\nPoster\nSession \n5",
-    "coffee ☕️ \n+\nPoster\nSession \n7",
+    "coffee ☕️ \n+\nPoster \nSession 1⁵",
+    "coffee ☕️ \n+\nPoster\nSession 3⁵",
+    "coffee ☕️ \n+\nPoster\nSession 5⁵",
+    "coffee ☕️ \n+\nPoster\nSession 7⁵",
     "",
     "",
   ],
@@ -310,34 +383,34 @@ const hardcodedProgramData = [
     "12:00 - 12:30",
     "",
     "End",
-    "Lunch 🥗",
-    "Lunch 🍚",
-    "Lunch 🍱",
-    "Lunch 🥘",
+    "Lunch 🥗⁵",
+    "Lunch 🍚⁵",
+    "Lunch 🍱⁵",
+    "Lunch 🥘⁵",
     "",
     "",
   ],
-  ["12:30 - 13:00", "", "Lunch 🍽️", "End", "End", "End", "End", "", ""],
+  ["12:30 - 13:00", "", "Lunch 🍽️⁴", "End", "End", "End", "End", "", ""],
   [
     "13:00 - 13:30",
     "",
-    "Lunch 🍽️",
-    "Keynote 1",
-    "Industry \nSession",
-    "Keynote 2",
-    "Society Meeting / Board Election",
+    "Lunch 🍽️⁴",
+    "Keynote 1⁵",
+    "Industry \nSession⁵",
+    "Keynote 2⁵",
+    "Society Meeting / Board Election⁵",
     "",
     "",
   ],
   ["13:30 - 14:00", "", "", "End", "End", "End", "End", "", ""],
   [
     "14:00 - 14:30",
-    "HCMIR25",
-    "Tutorial \n(T4, T5, T6)",
-    "coffee ☕️",
-    "coffee ☕️",
-    "coffee ☕️",
-    "Award and Test-of-Time Talks",
+    "HCMIR25¹",
+    "Tutorial \n(T4, T5, T6)⁴",
+    "coffee ☕️⁵",
+    "coffee ☕️⁵",
+    "coffee ☕️⁵",
+    "Award and Test-of-Time Talks⁵",
     "",
     "",
   ],
@@ -345,46 +418,47 @@ const hardcodedProgramData = [
     "14:30 - 15:00",
     "",
     "",
-    "Oral \nSession 2",
-    "Oral\nSession\n4",
-    "Oral\nSession\n6",
-    "Closing Remarks, ISMIR 2026",
+    "Oral \nSession 2⁵",
+    "Oral\nSession 4⁵",
+    "Oral\nSession 6⁵",
+    "Closing Remarks, ISMIR 2026⁵",
     "",
     "",
   ],
-  ["15:00 - 15:30", "", "", "", "", "", "Late-Breaking/Demo", "", ""],
+  ["15:00 - 15:30", "", "", "", "", "", "Late-Breaking/Demo⁵", "", ""],
   ["15:30 - 16:00", "", "", "End", "End", "End", "", "", ""],
   [
     "16:00 - 16:30",
     "",
     "",
-    "Poster \nSession 2",
-    "Poster \nSession\n4",
-    "Poster \nSession\n6",
+    "Poster \nSession 2⁵",
+    "Poster \nSession 4⁵",
+    "Poster \nSession 6⁵",
     "",
     "",
     "",
   ],
   ["16:30 - 17:00", "", "", "", "", "", "End", "End", ""],
-  ["17:00 - 17:30", "", "End", "End", "End", "End", "Unconference", "", ""],
+  ["17:00 - 17:30", "", "End", "End", "End", "End", "Unconference⁵", "", ""],
   [
     "17:30 - 18:00",
     "End",
     "",
-    "Industry 🥪 \nMeetup 🍗",
-    "WIMIR\nSession",
-    "Special\nSession",
+    "Industry 🥪 \nMeetup 🍗⁵",
+    "WIMIR\nSession⁵",
+    "Special\nSession⁵",
     "",
     "",
     "End",
   ],
   ["18:00 - 18:30", "", "", "", "End", "End", "End", "", ""],
+  ["18:00 - 18:30", "", "", "", "End", "End", "End", "", ""],
   [
     "18:30 - 19:00",
     "",
-    "Welcome \nReception",
+    "Welcome \nReception²",
     "End",
-    "K-Culture Evening",
+    "K-Culture Evening⁵",
     "",
     "",
     "",
@@ -395,14 +469,14 @@ const hardcodedProgramData = [
     "19:30 - 20:00",
     "",
     "",
-    "ISMIR\nMusic \nProgram",
-    "Korean \nTraditional \nMusic Concert",
-    "Banquet\n+\nJam session\n🥁🎸",
+    "ISMIR\nMusic \nProgram⁵",
+    "Korean \nTraditional \nMusic Concert⁵",
+    "Banquet\n+\nJam session\n🥁🎸³",
     "Rencon (TBD)",
     "",
     "",
   ],
-  ["20:00 - 20:30", "", "", "End", "End", "", "End", "", ""],
+  ["20:00 - 20:30", "", "", "End", "End", "", "", "", ""],
   ["20:30 - 21:00", "", "", "", "", "", "", "", ""],
   ["21:00 - 21:30", "", "End", "", "", "", "", "", ""],
   ["21:30 - 22:00", "", "", "", "", "End", "", "", ""],
@@ -858,6 +932,14 @@ const showCalendarMenu = (event, cellValue, rowIndex, cellIndex) => {
   // 컬럼 인덱스는 1부터 시작 (시간 컬럼 제외)
   const columnIndex = cellIndex + 1;
 
+  console.log("셀 클릭 디버깅:", {
+    cellValue,
+    cellIndex,
+    columnIndex,
+    timeString,
+    rowIndex,
+  });
+
   // 이벤트 데이터 구성
   const eventData = {
     title: cellValue,
@@ -991,6 +1073,118 @@ onMounted(() => {
   padding: 0;
 }
 
+/* 테이블 컨테이너 */
+.table-container {
+  width: 100%;
+}
+
+/* Venue Legend (표 위) 스타일링 */
+.venue-legend-top {
+  margin-bottom: 20px;
+}
+
+.legend-card {
+  width: 100%;
+  max-width: none;
+}
+
+/* 가로 배치 Legend 스타일 */
+.legend-items-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.legend-item-compact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: background-color 0.2s;
+  min-width: 200px;
+}
+
+.legend-item-compact:hover {
+  background: #f0f0f0;
+}
+
+.legend-info-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.legend-title {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  padding: 12px 16px 8px 16px !important;
+  background: linear-gradient(45deg, #f5f5f5, #fafafa);
+}
+
+.legend-content {
+  padding: 8px 16px 12px 16px !important;
+}
+
+.legend-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: background-color 0.2s;
+}
+
+.legend-item:hover {
+  background: #f0f0f0;
+}
+
+.legend-symbol {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1976d2;
+  margin-right: 12px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  flex: 1;
+}
+
+.legend-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.legend-full-name {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.legend-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #1976d2;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: color 0.2s;
+}
+
+.legend-map-link:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
 /* 모바일에서 가로 스크롤 활성화 */
 @media (max-width: 768px) {
   .sheets-container {
@@ -999,6 +1193,16 @@ onMounted(() => {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: #ccc #f0f0f0;
+  }
+
+  .legend-items-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .legend-item-compact {
+    min-width: auto;
+    width: 100%;
   }
 
   .sheets-container::-webkit-scrollbar {

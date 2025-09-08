@@ -385,7 +385,7 @@ const SPECIAL_EVENT_TIMES = {
     date: '9/26',
     startTime: '09:00',
     endTime: '17:00',
-    location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
+    location: 'Sogang University, Seoul, South Korea'
   },
   'banquet': {
     date: '9/24',
@@ -861,6 +861,15 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
       location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
       googleMapUrl: GOOGLE_MAPS_URLS[columnIndex],
       detailedLocation: 'Keynote @ E15 Concert Hall'
+    };
+  }
+  
+  // DLfM Workshop - Sogang University (9/26)
+  if (normalizedTitle.includes('dlfm') && columnIndex === 7) {
+    return {
+      location: 'Sogang University, Seoul, South Korea',
+      googleMapUrl: 'https://maps.app.goo.gl/wXu9FhD28N1Fj1nj6',
+      detailedLocation: 'Sep 26 (Fri) 09:00 - 17:00 @ Sogang University, Seoul'
     };
   }
   

@@ -23,10 +23,10 @@
         <br />
       </v-card>
 
-      <!-- Tips for a Smooth Journey -->
+      <!-- Route from Airport to KAIST -->
       <v-card outlined elevation="0" class="pa-4 my-4">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
-          >Tips for a Smooth Journey</v-card-title
+          >Route from Airport to KAIST</v-card-title
         >
         <v-row class="my-4">
           <v-col cols="12">
@@ -69,29 +69,62 @@
                   <!-- Routes Overview - Table of Contents -->
                   <v-card
                     outlined
-                    elevation="0"
-                    class="pa-4 my-4"
-                    style="background-color: #f8f9fa"
+                    elevation="2"
+                    class="pa-6 my-4 routes-overview-card"
+                    style="
+                      background: linear-gradient(
+                        135deg,
+                        #f8f9fa 0%,
+                        #e9ecef 100%
+                      );
+                    "
                   >
-                    <v-card-title class="text-h4 mb-3 font-weight-bold"
-                      >Routes Overview</v-card-title
+                    <v-card-title
+                      class="text-h4 mb-4 font-weight-bold text-center"
                     >
-                    <v-container class="table-container mt-4">
+                      <v-icon left size="32" color="#004191"
+                        >mdi-map-marker-path</v-icon
+                      >
+                      Routes Overview
+                    </v-card-title>
+
+                    <!-- Arrival Routes Section -->
+                    <v-container class="routes-section mb-5">
+                      <v-row class="mb-3">
+                        <v-col cols="12">
+                          <v-card-subtitle
+                            class="text-h5 mb-3 font-weight-bold d-flex align-center"
+                          >
+                            <v-icon left color="#28a745" size="24"
+                              >mdi-airplane-landing</v-icon
+                            >
+                            <span class="section-title"
+                              >Arrival Routes (Airport → KAIST)</span
+                            >
+                          </v-card-subtitle>
+                        </v-col>
+                      </v-row>
+
                       <!-- Route 1 -->
                       <v-row
-                        class="table-row styled-row"
+                        class="table-row styled-row mb-2"
                         style="cursor: pointer"
                         @click="scrollToSection('route-1')"
                       >
                         <v-col
-                          cols="5"
+                          cols="3"
                           md="2"
-                          class="text-center font-weight-bold highlight-text"
-                          >Route 1</v-col
+                          class="text-center font-weight-bold d-flex align-center justify-center"
                         >
+                          <v-chip small color="primary" text-color="white">
+                            <v-icon small left>mdi-star</v-icon>
+                            Route 1
+                          </v-chip>
+                        </v-col>
                         <v-col
-                          cols="7"
+                          cols="9"
                           md="10"
+                          class="d-flex align-center"
                           style="color: #000000; text-decoration: underline"
                         >
                           Incheon International Airport → Daejeon Government
@@ -101,45 +134,151 @@
 
                       <!-- Route 2 -->
                       <v-row
-                        class="table-row styled-row"
+                        class="table-row styled-row mb-2"
                         style="cursor: pointer"
                         @click="scrollToSection('route-2')"
                       >
                         <v-col
-                          cols="5"
+                          cols="3"
                           md="2"
-                          class="text-center font-weight-bold"
-                          >Route 2</v-col
+                          class="text-center font-weight-bold d-flex align-center justify-center"
                         >
+                          <v-chip small outlined>Route 2</v-chip>
+                        </v-col>
                         <v-col
-                          cols="7"
+                          cols="9"
                           md="10"
+                          class="d-flex align-center"
                           style="color: #000000; text-decoration: underline"
                         >
-                          Incheon International Airport → Seoul (Railway)
-                          Station → Daejeon (Railway) Station → KAIST
+                          Incheon International Airport → Seoul Station →
+                          Daejeon Station → KAIST
                         </v-col>
                       </v-row>
 
                       <!-- Route 3 -->
                       <v-row
-                        class="table-row styled-row"
+                        class="table-row styled-row mb-2"
                         style="cursor: pointer"
                         @click="scrollToSection('route-3')"
                       >
                         <v-col
-                          cols="5"
+                          cols="3"
                           md="2"
-                          class="text-center font-weight-bold"
-                          >Route 3</v-col
+                          class="text-center font-weight-bold d-flex align-center justify-center"
                         >
+                          <v-chip small outlined>Route 3</v-chip>
+                        </v-col>
                         <v-col
-                          cols="7"
+                          cols="9"
                           md="10"
+                          class="d-flex align-center"
                           style="color: #000000; text-decoration: underline"
                         >
-                          Gimpo International Airport → Seoul (Railway) Station
-                          → Daejeon (Railway) Station → KAIST
+                          Gimpo International Airport → Seoul Station → Daejeon
+                          Station → KAIST
+                        </v-col>
+                      </v-row>
+                    </v-container>
+
+                    <!-- Divider -->
+                    <v-divider class="my-4"></v-divider>
+
+                    <!-- Return Routes Section -->
+                    <v-container class="routes-section">
+                      <v-row class="mb-3">
+                        <v-col cols="12">
+                          <v-card-subtitle
+                            class="text-h5 mb-3 font-weight-bold d-flex align-center"
+                          >
+                            <v-icon left color="#dc3545" size="24"
+                              >mdi-airplane-takeoff</v-icon
+                            >
+                            <span class="section-title"
+                              >Return Routes (KAIST → Airport)</span
+                            >
+                          </v-card-subtitle>
+                        </v-col>
+                      </v-row>
+
+                      <!-- Route 1 Return -->
+                      <v-row
+                        class="table-row styled-row mb-2"
+                        style="cursor: pointer"
+                        @click="scrollToSection('route-1-return')"
+                      >
+                        <v-col
+                          cols="3"
+                          md="2"
+                          class="text-center font-weight-bold d-flex align-center justify-center"
+                        >
+                          <v-chip small color="warning" text-color="white">
+                            <v-icon small left>mdi-alert</v-icon>
+                            Route 1
+                          </v-chip>
+                        </v-col>
+                        <v-col
+                          cols="9"
+                          md="10"
+                          class="d-flex align-center"
+                          style="color: #000000; text-decoration: underline"
+                        >
+                          KAIST → Daejeon Government Complex → Incheon
+                          International Airport
+                        </v-col>
+                      </v-row>
+
+                      <!-- Route 2 Return -->
+                      <v-row
+                        class="table-row styled-row mb-2"
+                        style="cursor: pointer"
+                        @click="scrollToSection('route-2-return')"
+                      >
+                        <v-col
+                          cols="3"
+                          md="2"
+                          class="text-center font-weight-bold d-flex align-center justify-center"
+                        >
+                          <v-chip small color="success" text-color="white">
+                            <v-icon small left>mdi-check</v-icon>
+                            Route 2
+                          </v-chip>
+                        </v-col>
+                        <v-col
+                          cols="9"
+                          md="10"
+                          class="d-flex align-center"
+                          style="color: #000000; text-decoration: underline"
+                        >
+                          KAIST → Daejeon Station → Seoul Station → Incheon
+                          International Airport
+                        </v-col>
+                      </v-row>
+
+                      <!-- Route 3 Return -->
+                      <v-row
+                        class="table-row styled-row mb-2"
+                        style="cursor: pointer"
+                        @click="scrollToSection('route-3-return')"
+                      >
+                        <v-col
+                          cols="3"
+                          md="2"
+                          class="text-center font-weight-bold d-flex align-center justify-center"
+                        >
+                          <v-chip small color="success" text-color="white">
+                            <v-icon small left>mdi-check</v-icon>
+                            Route 3
+                          </v-chip>
+                        </v-col>
+                        <v-col
+                          cols="9"
+                          md="10"
+                          class="d-flex align-center"
+                          style="color: #000000; text-decoration: underline"
+                        >
+                          KAIST → Daejeon Station → Seoul Station → Gimpo
+                          International Airport
                         </v-col>
                       </v-row>
                     </v-container>
@@ -253,9 +392,10 @@
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>
-                
+
                 <v-alert type="warning" class="mt-3">
-                  <strong>Note:</strong> We disrecommend using Google Map due to its incompatibility in Korea.
+                  <strong>Note:</strong> We disrecommend using Google Map due to
+                  its incompatibility in Korea.
                 </v-alert>
               </v-card-text>
             </v-card>
@@ -1581,6 +1721,703 @@
         <br />
       </v-card>
 
+      <!-- Return Route (KAIST to Airport) -->
+      <v-card outlined elevation="0" class="pa-4 my-4" id="return-routes">
+        <v-card-title class="text-h4 mb-3 font-weight-bold highlight-text">
+          Return Route (KAIST to Airport)
+        </v-card-title>
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col cols="12">
+                <v-alert type="info" class="mb-4">
+                  <v-icon left>mdi-information</v-icon>
+                  <strong
+                    >For routes 2 and 3, you can simply take the reverse
+                    route.</strong
+                  >
+                  (no further explanation needed)
+                  <br />
+                  However, for route 1, you must first go to the Daejeon
+                  Government Complex Bus Terminal to go to the Airport. (Details
+                  right below)
+                </v-alert>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
+      <!-- Route 1 Return -->
+      <v-card outlined elevation="0" class="pa-4 my-4" id="route-1-return">
+        <v-card-title class="text-h4 mb-3 font-weight-bold highlight-text">
+          Route 1 Return
+          <v-card-subtitle class="text-h6 mb-2 pa-0">
+            Daejeon Government Complex Bus Terminal → Incheon International
+            Airport
+          </v-card-subtitle>
+        </v-card-title>
+
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col cols="12" class="pl-6">
+                <!-- Step 1 - Taxi to Bus Terminal -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-taxi</v-icon>
+                    <span class="step-title-text"
+                      >Step 1 - Taxi to Daejeon Government Complex Bus
+                      Terminal</span
+                    >
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container class="taxi-instruction" fluid>
+                      <v-card-subtitle class="text-h6 mb-2 pa-0"
+                        >To take a taxi to Daejeon Government Complex Bus
+                        Terminal, show the following korean instructions to the
+                        taxi driver:</v-card-subtitle
+                      >
+                      <v-card class="code-block pa-3">
+                        <v-card-text class="korean-text pa-0"
+                          >"대전청사 시외버스 터미널로 가주세요. (대전광역시
+                          서구 청사로 189 정부대전청사 시외버스정류장(선사유적지
+                          맞은편))"</v-card-text
+                        >
+                        <v-card-text class="translation-text pa-0"
+                          >(Translation: Please go to Daejeon Government Complex
+                          Bus Terminal.)</v-card-text
+                        >
+                      </v-card>
+                    </v-container>
+                  </v-card-text>
+                </v-card>
+
+                <!-- Step 2 - Bus to Airport -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-bus</v-icon>
+                    <span class="step-title-text"
+                      >Step 2 - Bus to Incheon Airport</span
+                    >
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container class="bus-info mb-3" fluid>
+                      <v-card-subtitle class="text-h6 mb-2 pa-0"
+                        >Bus Route Information</v-card-subtitle
+                      >
+                      <v-card-text class="pa-0">
+                        <!-- Bus Route Information Image -->
+                        <div class="mb-3 d-flex justify-center">
+                          <v-img
+                            :src="
+                              require('@/assets/Transportation/Bus Route Information.png')
+                            "
+                            alt="Bus Route Information"
+                            max-width="400px"
+                            contain
+                            class="mb-3"
+                          ></v-img>
+                        </div>
+                        <p>
+                          Daejeon → Daejeon Cheongsa (Destination) → Daedeok
+                          Community Center → North Daejeon IC → Incheon Airport
+                          (Terminal 1) → Incheon Airport (Terminal 2)
+                        </p>
+                      </v-card-text>
+                    </v-container>
+
+                    <v-container class="ticket-info mb-3" fluid>
+                      <v-card-subtitle class="text-h6 mb-2 pa-0"
+                        >How to purchase a ticket:</v-card-subtitle
+                      >
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              ><strong>Online Reservation Website:</strong>
+                              <a
+                                href="https://intercitybuse.tmoney.co.kr/"
+                                target="_blank"
+                                >https://intercitybuse.tmoney.co.kr/</a
+                              ></v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              ><strong>Departure:</strong> Daejeon Gov Complex
+                              (airport route)</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              ><strong>Destination:</strong> Incheon Airport T1
+                              or T2</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-wrap">
+                              <strong>Recommendation:</strong> It is recommended
+                              to make a reservation a few days earlier,
+                              considering the lack of seats.
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-container>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
+      <!-- Route 2 & 3 Return -->
+      <v-card outlined elevation="0" class="pa-4 my-4" id="route-2-return">
+        <v-card-title class="text-h4 mb-3 font-weight-bold">
+          Route 2 & 3 Return
+        </v-card-title>
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col cols="12">
+                <v-alert type="success" class="mb-4">
+                  <div class="text-h6 mb-2">
+                    <strong>Simple Instructions</strong>
+                  </div>
+                  <div class="text-body-1">
+                    <strong>Route 2 Return:</strong> KAIST → Daejeon Station →
+                    Seoul Station → Incheon International Airport <br /><br />
+                    <strong>Route 3 Return:</strong> KAIST → Daejeon Station →
+                    Seoul Station → Gimpo International Airport <br /><br />
+                    For these routes, simply follow the reverse path of the
+                    arrival routes. All transportation methods and schedules
+                    work in both directions.
+                  </div>
+                </v-alert>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
+      <!-- K.ride Taxi Service -->
+      <v-card outlined elevation="0" class="pa-4 my-4" id="kride-guide">
+        <v-card-title class="text-h4 mb-3 font-weight-bold">
+          <v-icon left color="#004191">mdi-taxi</v-icon>
+          K.ride for Taxi use in Korea
+        </v-card-title>
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col cols="12">
+                <v-card class="pa-4 mb-4" color="#E6F2FD" elevation="1">
+                  <v-card-text class="text-body-1">
+                    K.ride is a taxi service designed for foreigners in Korea.
+                    You can easily register a payment method and use it much
+                    like Uber. Since Uber is not widely used in Korea, we
+                    recommend using K.ride instead.
+                  </v-card-text>
+                </v-card>
+
+                <!-- K.ride Image and QR Code -->
+                <div class="mb-4 d-flex justify-center">
+                  <v-img
+                    :src="require('@/assets/Transportation/kride.png')"
+                    alt="K.ride App Logo and QR Code"
+                    max-width="400px"
+                    contain
+                    class="mb-3"
+                  ></v-img>
+                </div>
+
+                <v-container class="mt-4" fluid>
+                  <v-btn
+                    color="primary"
+                    href="https://kride.kakaomobility.com/"
+                    target="_blank"
+                    large
+                    class="mt-2"
+                  >
+                    <v-icon left>mdi-open-in-new</v-icon>
+                    Visit K.ride Website
+                  </v-btn>
+                </v-container>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
+      <!-- T-Money Guide -->
+      <v-card outlined elevation="0" class="pa-4 my-4" id="tmoney-guide">
+        <v-card-title class="text-h4 mb-3 font-weight-bold">
+          <v-icon left color="#004191">mdi-credit-card-outline</v-icon>
+          T-Money guide for bus and taxi (Phone use)
+        </v-card-title>
+        <v-card-text>
+          <v-container fluid>
+            <v-row>
+              <v-col cols="12">
+                <v-card class="pa-4 mb-4" color="#E6F2FD" elevation="1">
+                  <v-card-text class="text-body-1">
+                    T-money is a rechargeable transportation card widely used in
+                    South Korea for subways, buses, and some taxis. It also
+                    works at many convenience stores. You don't need a physical
+                    card anymore—foreigners can now add T-money directly to
+                    their smartphone (Apple Pay or Samsung Pay).
+                  </v-card-text>
+                </v-card>
+
+                <!-- T-money Mobile App Image -->
+                <div class="mb-4 d-flex justify-center">
+                  <v-img
+                    :src="require('@/assets/Transportation/tMoney.jpg')"
+                    alt="T-money Mobile App Interface"
+                    max-width="400px"
+                    contain
+                    class="mb-3"
+                  ></v-img>
+                </div>
+
+                <!-- Getting Started -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-play-circle</v-icon>
+                    <span class="step-title-text">1. Getting Started</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-row>
+                      <v-col cols="12" md="6">
+                        <v-card class="pa-3 mb-3" outlined>
+                          <v-card-subtitle
+                            class="text-h6 mb-2 pa-0 font-weight-bold"
+                          >
+                            <v-icon left small>mdi-apple</v-icon>iPhone (Apple
+                            Pay)
+                          </v-card-subtitle>
+                          <v-list dense>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Download the Mobile T-money app from the App
+                                  Store.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Open the app → tap Browsing(둘러보기)
+                                  (instead of "Start").</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Select the option to add a T-money card to
+                                  Apple Wallet.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >The card will be created in about a
+                                  minute.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                          </v-list>
+                        </v-card>
+                      </v-col>
+                      <v-col cols="12" md="6">
+                        <v-card class="pa-3 mb-3" outlined>
+                          <v-card-subtitle
+                            class="text-h6 mb-2 pa-0 font-weight-bold"
+                          >
+                            <v-icon left small>mdi-android</v-icon>Android
+                            (Samsung Pay)
+                          </v-card-subtitle>
+                          <v-list dense>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Download the T-money GO app from the Google
+                                  Play Store.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Follow the prompts to create your digital
+                                  T-money card.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Add it to Samsung Pay.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                          </v-list>
+                        </v-card>
+                      </v-col>
+                    </v-row>
+                  </v-card-text>
+                </v-card>
+
+                <!-- Adding Money -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-cash-plus</v-icon>
+                    <span class="step-title-text"
+                      >2. Adding Money (Top-Up)</span
+                    >
+                  </v-card-title>
+                  <v-card-text>
+                    <v-list dense>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title class="font-weight-bold"
+                            >Credit Card (Visa/MasterCard):</v-list-item-title
+                          >
+                          <v-list-item-subtitle class="text-wrap"
+                            >Can be used inside the T-money app (sometimes
+                            limited for foreigners; success
+                            varies).</v-list-item-subtitle
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title class="font-weight-bold"
+                            >Cash at Subway Stations:</v-list-item-title
+                          >
+                          <v-list-item-subtitle class="text-wrap">
+                            Put your phone in Service Mode:
+                            <br />iPhone → Settings → Wallet & Apple Pay →
+                            T-money → enable Service Mode. <br />At a top-up
+                            machine in a subway station, place your phone flat
+                            on the card reader area. <br />Insert cash, choose
+                            the amount, and wait for the machine to finish
+                            reloading. <br />Your balance will update
+                            automatically (sometimes with a short delay).
+                          </v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+
+                    <!-- Adding Money Image -->
+                    <div class="mb-3 d-flex justify-center">
+                      <v-img
+                        :src="
+                          require('@/assets/Transportation/Adding Money.png')
+                        "
+                        alt="T-money Top-up Machines at Subway Station"
+                        max-width="500px"
+                        contain
+                        class="mb-3"
+                      ></v-img>
+                    </div>
+
+                    <v-alert type="warning" class="mt-3">
+                      <v-icon left>mdi-alert</v-icon>
+                      Convenience stores (GS25, CU, 7-Eleven) may not yet
+                      support phone reloading smoothly—best to use subway
+                      stations.
+                    </v-alert>
+                  </v-card-text>
+                </v-card>
+
+                <!-- Using T-money -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191"
+                      >mdi-contactless-payment</v-icon
+                    >
+                    <span class="step-title-text">3. Using T-money</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <!-- 🚍 On the Bus -->
+                    <v-card class="pa-4 mb-4" outlined>
+                      <v-card-subtitle
+                        class="text-h6 mb-3 pa-0 font-weight-bold"
+                      >
+                        🚍 On the Bus
+                      </v-card-subtitle>
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Tap your phone on the card reader when
+                              boarding.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Tap again when exiting (important for transfer
+                              discounts).</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >You can transfer up to 4 times a day at a
+                              discount.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-card>
+
+                    <!-- 🚇 On the Subway -->
+                    <v-card class="pa-4 mb-4" outlined>
+                      <v-card-subtitle
+                        class="text-h6 mb-3 pa-0 font-weight-bold"
+                      >
+                        🚇 On the Subway
+                      </v-card-subtitle>
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Tap at the gate when entering.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Tap again when exiting.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >If you're transferring within the system, the
+                              reader will show 0 KRW charge at
+                              entry.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-card>
+
+                    <!-- 🚖 In a Taxi -->
+                    <v-card class="pa-4 mb-4" outlined>
+                      <v-card-subtitle
+                        class="text-h6 mb-3 pa-0 font-weight-bold"
+                      >
+                        🚖 In a Taxi
+                      </v-card-subtitle>
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Only some taxis accept T-money (Taxi with the
+                              T-money logo).</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Tell the driver you'll pay by
+                              T-money.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Tap your phone at the card reader when the trip
+                              ends.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              >Make sure your balance covers the full fare in
+                              advance.</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+
+                      <!-- T-money Taxi Card Image -->
+                      <div class="mt-3 d-flex justify-center">
+                        <v-img
+                          :src="
+                            require('@/assets/Transportation/t-money-taxi-card.jpg')
+                          "
+                          alt="T-money Logo on Taxi and Card Reader"
+                          max-width="400px"
+                          contain
+                          class="mb-2"
+                        ></v-img>
+                      </div>
+                    </v-card>
+                  </v-card-text>
+                </v-card>
+
+                <!-- Tips & Things to Know -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-lightbulb</v-icon>
+                    <span class="step-title-text"
+                      >4. Tips & Things to Know</span
+                    >
+                  </v-card-title>
+                  <v-card-text>
+                    <v-list dense>
+                      <v-list-item>
+                        <v-list-item-icon>
+                          <v-icon small color="primary">mdi-check</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >Express Mode (on iPhone) means you don't need to
+                            open Wallet—just tap your phone, even if another app
+                            is on screen.</v-list-item-title
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-icon>
+                          <v-icon small color="primary">mdi-check</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >Always wait for the beep sound when tapping.
+                            Missing a tap may charge you
+                            extra.</v-list-item-title
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-icon>
+                          <v-icon small color="primary">mdi-check</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >If an error occurs in the subway, press the Help
+                            (red) button at the gate for staff
+                            assistance.</v-list-item-title
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-icon>
+                          <v-icon small color="primary">mdi-check</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >Keep your phone flat and steady on the top-up
+                            machine when reloading.</v-list-item-title
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                      <v-list-item>
+                        <v-list-item-icon>
+                          <v-icon small color="primary">mdi-check</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >Transfers only work if you tap both when boarding
+                            and exiting buses or subways.</v-list-item-title
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+
+                    <v-container class="mt-3" fluid>
+                      <v-card-subtitle class="text-body-1 pa-0">
+                        For more info, please check this website (mostly info on
+                        cards, but can be equally applied to mobile apps):
+                      </v-card-subtitle>
+                      <v-btn
+                        color="info"
+                        href="https://blog.trazy.com/korea-subway-t-money-card-guide/"
+                        target="_blank"
+                        outlined
+                        class="mt-2"
+                      >
+                        <v-icon left>mdi-open-in-new</v-icon>
+                        T-money Card Guide
+                      </v-btn>
+                    </v-container>
+                  </v-card-text>
+                </v-card>
+
+                <!-- Frequent FAQs -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191"
+                      >mdi-frequently-asked-questions</v-icon
+                    >
+                    <span class="step-title-text">5. Frequent FAQs</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-expansion-panels>
+                      <v-expansion-panel>
+                        <v-expansion-panel-header>
+                          <strong>🌏 Is T-money valid outside Seoul?</strong>
+                        </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                          Yes. Works in cities like Busan, Jeju, Daegu, Incheon
+                          and more.
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                      <v-expansion-panel>
+                        <v-expansion-panel-header>
+                          <strong>🚍 What if I don't tap out?</strong>
+                        </v-expansion-panel-header>
+                        <v-expansion-panel-content>
+                          You'll lose transfer discounts and may be charged the
+                          maximum fare.
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                    </v-expansion-panels>
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
       <!-- Using Bicycle -->
       <v-card outlined elevation="0" class="pa-4 my-4">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
@@ -2132,6 +2969,28 @@ a:hover {
   border-left: 4px solid #ff9800;
 }
 
+/* Routes Overview Card Styles */
+.routes-overview-card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.routes-section {
+  padding: 0 8px;
+}
+
+/* Mobile responsive adjustments for route overview */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
+
 /* Map container styling */
 .map-container-large {
   position: relative;
@@ -2144,6 +3003,82 @@ a:hover {
 .google-map-embed-large {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Global text wrapping for better mobile experience */
+.text-body {
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.v-list-item-title {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.v-list-item-subtitle {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* 카드 제목 줄바꿈 */
+.v-card-title {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+.v-card-subtitle {
+  white-space: normal !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+/* 일반 텍스트 요소들 */
+.v-card-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+.step-title-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* 링크 텍스트 줄바꿈 */
+a {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* Alert 텍스트 줄바꿈 */
+.v-alert .v-alert__content {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+/* 한국어 텍스트 특별 처리 */
+.korean-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+.translation-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.5;
 }
 
 /* Responsive adjustments */
@@ -2173,34 +3108,8 @@ a:hover {
     font-size: 0.9rem;
   }
 
-  /* 긴 문장 줄바꿈 처리 */
   .text-body {
-    font-size: 16px;
-    line-height: 1.5;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-  }
-
-  .v-list-item-title {
-    white-space: normal !important;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    line-height: 1.4;
-  }
-
-  /* 카드 제목 줄바꿈 */
-  .v-card-title {
-    white-space: normal !important;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    line-height: 1.3;
-  }
-
-  .v-card-subtitle {
-    white-space: normal !important;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    line-height: 1.3;
+    font-size: 14px;
   }
 
   /* 테이블 셀 내용 줄바꿈 */
@@ -2214,6 +3123,15 @@ a:hover {
     height: auto;
     min-height: 24px;
     padding: 2px 8px;
+  }
+
+  /* 모바일에서 더 작은 폰트 크기 */
+  .v-card-title {
+    font-size: 1.3rem;
+  }
+
+  .v-card-subtitle {
+    font-size: 1rem;
   }
 }
 </style>

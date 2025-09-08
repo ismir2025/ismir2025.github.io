@@ -1,0 +1,81 @@
+Return Route (KAIST to Airport)
+For routes 2 and 3, you can simply take the reverse route. (no further explanation needed)
+However, for route 1, you must first go to the Daejeon Government Complex Bus Terminal to go to the Airport. (Details right below)
+
+Route 1 Return: Daejeon Government Complex Bus Terminal → Incheon International Airport
+To take a taxi to Daejeon Government Complex Bus Terminal, show the following korean instructions to the taxi driver.
+“대전청사 시외버스 터미널로 가주세요. (대전광역시 서구 청사로 189 정부대전청사 시외버스정류장(선사유적지 맞은편))”
+(Translation: Please go to Daejeon Government Complex Bus Terminal.)
+The picture of Daejeon Goverment Complex Bus Terminal is provided below.
+
+Bus Route Information
+Daejeon → Daejeon Cheongsa (Destination) → Daedeok Community Center → North Daejeon IC → Incheon Airport (Terminal 1) → Incheon Airport (Terminal 2)
+How to purchase a ticket:
+Online Reservation Website : https://intercitybuse.tmoney.co.kr/.
+Departure : Daejeon Gov Complex (airport route)
+Destination : Incheon Airport T1 or T2
+It is recommended to make a reservation a few days earlier, considering the lack of seats.
+
+
+K.ride for Taxi use in Korea
+K.ride is a taxi service designed for foreigners in Korea. You can easily register a payment method and use it much like Uber. Since Uber is not widely used in Korea, we recommend using K.ride instead.
+
+K.ride link : https://kride.kakaomobility.com/
+
+
+T-Money guide for bus and taxi (Phone use)
+T-money is a rechargeable transportation card widely used in South Korea for subways, buses, and some taxis. It also works at many convenience stores. You don’t need a physical card anymore—foreigners can now add T-money directly to their smartphone (Apple Pay or Samsung Pay).
+
+
+1. Getting Started
+iPhone (Apple Pay)
+Download the Mobile T-money app from the App Store.
+Open the app → tap Browsing(둘러보기) (instead of “Start”).
+Select the option to add a T-money card to Apple Wallet.
+The card will be created in about a minute.
+Android (Samsung Pay)
+Download the T-money GO app from the Google Play Store.
+Follow the prompts to create your digital T-money card.
+Add it to Samsung Pay.
+
+2. Adding Money (Top-Up)
+Credit Card (Visa/MasterCard): Can be used inside the T-money app (sometimes limited for foreigners; success varies).
+Cash at Subway Stations:
+Put your phone in Service Mode:
+iPhone → Settings → Wallet & Apple Pay → T-money → enable Service Mode.
+At a top-up machine in a subway station, place your phone flat on the card reader area.
+Insert cash, choose the amount, and wait for the machine to finish reloading.
+Your balance will update automatically (sometimes with a short delay).
+
+⚠️ Convenience stores (GS25, CU, 7-Eleven) may not yet support phone reloading smoothly—best to use subway stations.
+
+3. Using T-money
+🚍 On the Bus
+Tap your phone on the card reader when boarding.
+Tap again when exiting (important for transfer discounts).
+You can transfer up to 4 times a day at a discount.
+🚇 On the Subway
+Tap at the gate when entering.
+Tap again when exiting.
+If you’re transferring within the system, the reader will show 0 KRW charge at entry.
+🚖 In a Taxi
+Only some taxis accept T-money (Taxi with the T-money logo).
+Tell the driver you’ll pay by T-money.
+Tap your phone at the card reader when the trip ends.
+Make sure your balance covers the full fare in advance
+.
+
+4. Tips & Things to Know
+Express Mode (on iPhone) means you don’t need to open Wallet—just tap your phone, even if another app is on screen.
+Always wait for the beep sound when tapping. Missing a tap may charge you extra.
+If an error occurs in the subway, press the Help (red) button at the gate for staff assistance.
+Keep your phone flat and steady on the top-up machine when reloading.
+Transfers only work if you tap both when boarding and exiting buses or subways.
+For more info, please check this website (mostly info on cards, but can be equally applied to mobile apps) : https://blog.trazy.com/korea-subway-t-money-card-guide/
+
+5. Frequent FAQs
+🌏 Is T-money valid outside Seoul?
+Yes. Works in cities like Busan, Jeju, Daegu, Incheon and more.
+🚍 What if I don’t tap out?
+You’ll lose transfer discounts and may be charged the maximum fare.
+

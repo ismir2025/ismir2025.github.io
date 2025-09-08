@@ -283,23 +283,35 @@ const VENUE_LEGEND = {
     symbol: "²",
     name: "Golfzon Zoimaru",
     fullName: "Golfzon Zoimaru, Daejeon, South Korea",
-    mapUrl: "https://maps.google.com/?q=골프존+조이마루,+대전",
+    mapUrl:
+      "https://www.google.com/maps/place/%EA%B3%A8%ED%94%84%EC%A1%B4+%EC%A1%B0%EC%9D%B4%EB%A7%88%EB%A3%A8/@36.374282,127.3866818,17z/data=!3m1!4b1!4m6!3m5!1s0x3565498f9d9e5fc7:0xee322d1ac4eefeb5!8m2!3d36.374282!4d127.3866818!16s%2Fg%2F11c5r8x8qy",
   },
   3: {
     symbol: "³",
     name: "ICC Hotel",
     fullName: "ICC Hotel, Daejeon, South Korea",
-    mapUrl: "https://maps.google.com/?q=호텔ICC,+대전",
+    mapUrl:
+      "https://www.google.com/maps/place/%ED%98%B8%ED%85%94ICC/@36.3769613,127.3926565,17z/data=!3m1!4b1!4m6!3m5!1s0x3565498fe8b3e435:0x4601bcf4eb4f2181!8m2!3d36.3769613!4d127.3926565!16s%2Fg%2F1hc1qx8qy",
   },
   4: {
     symbol: "⁴",
     name: "E11 Creative Learning Building",
     fullName: "KAIST Creative Learning Building E11, Daejeon, South Korea",
+    mapUrl:
+      "https://www.google.com/maps/place/Creative+Learning+Building+E11/@36.3703695,127.3625834,17z/data=!3m1!4b1!4m6!3m5!1s0x35654bc9c84e5adb:0xf0cf3620fc28fc1d!8m2!3d36.3703695!4d127.3625834!16s%2Fg%2F11c5r8x8qy",
   },
   5: {
     symbol: "⁵",
     name: "E15 Main Auditorium",
     fullName: "KAIST Main Auditorium E15, Daejeon, South Korea",
+    mapUrl:
+      "https://www.google.com/maps/place/KAIST+E15+%EB%8C%80%EA%B0%95%EB%8B%B9/@36.3720843,127.3629259,17z/data=!3m1!4b1!4m6!3m5!1s0x35654bc98a6db1a1:0x8f5575e3fc5de4e7!8m2!3d36.3720843!4d127.3629259!16s%2Fg%2F11c5r8x8qy",
+  },
+  6: {
+    symbol: "⁶",
+    name: "Sogang University",
+    fullName: "Sogang University, Seoul, South Korea",
+    mapUrl: "https://maps.app.goo.gl/wXu9FhD28N1Fj1nj6",
   },
 };
 
@@ -362,7 +374,7 @@ const hardcodedProgramData = [
     "Oral\nSession 5⁵",
     "Oral\nSession 7⁵",
     "LLM4MA⁵",
-    "DLfM⁵",
+    "DLfM⁶",
   ],
   ["09:30 - 10:00", "", "", "", "", "", "", "", ""],
   ["10:00 - 10:30", "", "", "End", "End", "End", "End", "", ""],
@@ -1086,29 +1098,34 @@ onMounted(() => {
 .legend-card {
   width: 100%;
   max-width: none;
+  border: 2px solid #e0e0e0 !important;
+  overflow: hidden;
 }
 
 /* 가로 배치 Legend 스타일 */
 .legend-items-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
   justify-content: flex-start;
+  align-items: stretch;
 }
 
 .legend-item-compact {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: #fafafa;
-  transition: background-color 0.2s;
-  min-width: 200px;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+  min-width: 220px;
 }
 
 .legend-item-compact:hover {
-  background: #f0f0f0;
+  background: #f8f9fa;
+  border-color: #1976d2;
 }
 
 .legend-info-compact {
@@ -1118,14 +1135,17 @@ onMounted(() => {
 }
 
 .legend-title {
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  padding: 12px 16px 8px 16px !important;
-  background: linear-gradient(45deg, #f5f5f5, #fafafa);
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  padding: 16px 20px 12px 20px !important;
+  background: #f5f5f5;
+  color: #1565c0 !important;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .legend-content {
-  padding: 8px 16px 12px 16px !important;
+  padding: 16px 20px 16px 20px !important;
+  background: #fafafa;
 }
 
 .legend-item {
@@ -1143,11 +1163,16 @@ onMounted(() => {
 }
 
 .legend-symbol {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #1976d2;
-  margin-right: 12px;
-  margin-top: 2px;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  background: #1976d2;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -1156,10 +1181,10 @@ onMounted(() => {
 }
 
 .legend-name {
-  font-weight: 600;
-  color: #333;
-  font-size: 0.9rem;
-  line-height: 1.3;
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .legend-full-name {
@@ -1173,16 +1198,21 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: #1976d2;
   text-decoration: none;
-  margin-top: 4px;
-  transition: color 0.2s;
+  margin-top: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(25, 118, 210, 0.1);
+  transition: all 0.2s ease;
 }
 
 .legend-map-link:hover {
-  color: #1565c0;
-  text-decoration: underline;
+  color: #ffffff;
+  background: #1976d2;
+  text-decoration: none;
 }
 
 /* 모바일에서 가로 스크롤 활성화 */

@@ -2090,68 +2090,140 @@
                   </v-card-text>
                 </v-card>
 
-                <!-- Adding Money -->
-                <v-card class="route-step-card mb-4" elevation="2">
-                  <v-card-title class="text-h6 step-title">
-                    <v-icon left color="#004191">mdi-cash-plus</v-icon>
-                    <span class="step-title-text"
-                      >2. Adding Money (Top-Up)</span
-                    >
-                  </v-card-title>
-                  <v-card-text>
-                    <v-list dense>
-                      <v-list-item>
-                        <v-list-item-content>
-                          <v-list-item-title class="font-weight-bold"
-                            >Credit Card (Visa/MasterCard):</v-list-item-title
-                          >
-                          <v-list-item-subtitle class="text-wrap"
-                            >Can be used inside the T-money app (sometimes
-                            limited for foreigners; success
-                            varies).</v-list-item-subtitle
-                          >
-                        </v-list-item-content>
-                      </v-list-item>
-                      <v-list-item>
-                        <v-list-item-content>
-                          <v-list-item-title class="font-weight-bold"
-                            >Cash at Subway Stations:</v-list-item-title
-                          >
-                          <v-list-item-subtitle class="text-wrap">
-                            Put your phone in Service Mode:
-                            <br />iPhone → Settings → Wallet & Apple Pay →
-                            T-money → enable Service Mode. <br />At a top-up
-                            machine in a subway station, place your phone flat
-                            on the card reader area. <br />Insert cash, choose
-                            the amount, and wait for the machine to finish
-                            reloading. <br />Your balance will update
-                            automatically (sometimes with a short delay).
-                          </v-list-item-subtitle>
-                        </v-list-item-content>
-                      </v-list-item>
-                    </v-list>
+                <!-- NUCLEAR OPTION: COMPLETELY ISOLATED STRUCTURE -->
+                <div
+                  style="
+                    position: relative;
+                    z-index: 1000;
+                    background: white;
+                    border: 3px solid red;
+                    margin: 30px 0;
+                    padding: 0;
+                    overflow: visible;
+                    width: 100%;
+                    max-width: none;
+                    min-height: 400px;
+                  "
+                >
+                  <!-- Title -->
+                  <div
+                    style="
+                      background: #004191;
+                      color: white;
+                      padding: 20px;
+                      font-size: 20px;
+                      font-weight: bold;
+                      margin: 0;
+                    "
+                  >
+                    💳 2. Adding Money (Top-Up)
+                  </div>
 
-                    <!-- Adding Money Image -->
-                    <div class="mb-3 d-flex justify-center">
-                      <v-img
-                        :src="
-                          require('@/assets/Transportation/Adding Money.png')
-                        "
-                        alt="T-money Top-up Machines at Subway Station"
-                        max-width="500px"
-                        contain
-                        class="mb-3"
-                      ></v-img>
+                  <!-- Credit Card -->
+                  <div
+                    style="
+                      background: #f0f0f0;
+                      padding: 20px;
+                      margin: 20px;
+                      border: 1px solid #ccc;
+                    "
+                  >
+                    <div
+                      style="
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                        font-size: 16px;
+                      "
+                    >
+                      💳 Credit Card (Visa/MasterCard):
+                    </div>
+                    <div style="color: #666; font-size: 14px; line-height: 1.6">
+                      Can be used inside the T-money app (sometimes limited for
+                      foreigners; success varies).
+                    </div>
+                  </div>
+
+                  <!-- Cash Instructions - COMPLETELY ISOLATED -->
+                  <div
+                    style="
+                      background: #f0f0f0;
+                      padding: 20px;
+                      margin: 20px;
+                      border: 1px solid #ccc;
+                      position: relative;
+                      z-index: 1001;
+                    "
+                  >
+                    <div
+                      style="
+                        font-weight: bold;
+                        margin-bottom: 15px;
+                        font-size: 16px;
+                      "
+                    >
+                      💰 Cash at Subway Stations:
                     </div>
 
-                    <v-alert type="warning" class="mt-3">
-                      <v-icon left>mdi-alert</v-icon>
+                    <div
+                      style="
+                        color: #666;
+                        font-size: 14px;
+                        line-height: 1.6;
+                        margin-top: 10px;
+                      "
+                    >
+                      <strong>Put your phone in Service Mode:</strong><br />
+                      iPhone → Settings → Wallet & Apple Pay → T-money → enable
+                      Service Mode<br /><br />
+
+                      <strong>At a top-up machine in a subway station:</strong
+                      ><br />
+                      Place your phone flat on the card reader area<br /><br />
+
+                      <strong>Complete the transaction:</strong><br />
+                      Insert cash, choose the amount, and wait for the machine
+                      to finish reloading. Your balance will update
+                      automatically (sometimes with a short delay).
+                    </div>
+                  </div>
+
+                  <!-- Image -->
+                  <div style="text-align: center; padding: 20px">
+                    <img
+                      :src="require('@/assets/Transportation/Adding Money.png')"
+                      alt="T-money Top-up Machines at Subway Station"
+                      style="
+                        max-width: 500px;
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                      "
+                    />
+                  </div>
+
+                  <!-- Warning -->
+                  <div
+                    style="
+                      background: #fff3cd;
+                      border: 1px solid #ffeaa7;
+                      padding: 15px;
+                      margin: 20px;
+                      border-radius: 8px;
+                      display: flex;
+                      align-items: flex-start;
+                      gap: 10px;
+                    "
+                  >
+                    <span style="font-size: 20px">⚠️</span>
+                    <span
+                      style="color: #856404; font-size: 14px; line-height: 1.6"
+                    >
                       Convenience stores (GS25, CU, 7-Eleven) may not yet
                       support phone reloading smoothly—best to use subway
                       stations.
-                    </v-alert>
-                  </v-card-text>
-                </v-card>
+                    </span>
+                  </div>
+                </div>
 
                 <!-- Using T-money -->
                 <v-card class="route-step-card mb-4" elevation="2">
@@ -2908,6 +2980,320 @@ export default {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
   line-height: 1.5;
+}
+
+/* Adding Money Content Styling */
+.adding-money-content {
+  padding: 0;
+  margin: 0;
+}
+
+.payment-method {
+  margin-bottom: 16px;
+}
+
+.method-title {
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  margin-bottom: 8px !important;
+}
+
+.method-description {
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Service Mode Full Instructions - Complete override of any text truncation */
+.service-mode-full-instructions {
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  display: block !important;
+  max-height: none !important;
+  height: auto !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  /* Additional overrides for stubborn ellipsis */
+  text-overflow: clip !important;
+  -o-text-overflow: clip !important;
+  -ms-text-overflow: clip !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  min-width: 0 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+/* Force override for any parent containers that might cause truncation */
+.adding-money-content,
+.adding-money-content *,
+.payment-method,
+.payment-method * {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  -webkit-line-clamp: unset !important;
+  white-space: normal !important;
+  max-width: none !important;
+}
+
+/* Specific override for the service mode instructions and all its children */
+.service-mode-full-instructions,
+.service-mode-full-instructions * {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  -webkit-line-clamp: unset !important;
+  white-space: normal !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Nuclear option - Override any Vuetify classes that might interfere */
+.v-card-text .service-mode-full-instructions {
+  overflow: visible !important;
+  text-overflow: unset !important;
+  white-space: normal !important;
+  -webkit-line-clamp: unset !important;
+  display: block !important;
+  max-height: none !important;
+  height: auto !important;
+}
+
+/* Override for flex containers that might shrink the text */
+.v-card-text .adding-money-content,
+.v-card-text .payment-method {
+  flex-shrink: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+/* Adding Money Card - Completely Redesigned Styles */
+.adding-money-card-redesigned {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 24px 0;
+  overflow: visible;
+  border: 2px solid #e0e0e0;
+}
+
+.adding-money-title {
+  background: linear-gradient(135deg, #004191 0%, #0066cc 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.title-text {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.adding-money-content-redesigned {
+  padding: 24px;
+  overflow: visible;
+}
+
+.payment-method-redesigned {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: visible;
+}
+
+.method-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.method-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.method-title-redesigned {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.method-description-redesigned {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
+  text-overflow: unset;
+  max-width: none;
+  width: 100%;
+  height: auto;
+}
+
+.cash-instructions-redesigned {
+  overflow: visible;
+  margin-top: 8px;
+}
+
+.instruction-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 8px 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.step-number {
+  background: #004191;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-text {
+  font-size: 16px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.instruction-details {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-left: 36px;
+  margin-bottom: 12px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
+  text-overflow: unset;
+  max-width: none;
+  width: 100%;
+  height: auto;
+  padding: 8px 12px;
+  background: #ffffff;
+  border-left: 3px solid #004191;
+  border-radius: 0 4px 4px 0;
+}
+
+.adding-money-image-section {
+  text-align: center;
+  margin: 24px 0;
+  overflow: visible;
+}
+
+.adding-money-image {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.adding-money-warning {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
+  overflow: visible;
+}
+
+.warning-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.warning-text {
+  color: #856404;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: visible;
+  text-overflow: unset;
+  max-width: none;
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .adding-money-title {
+    padding: 16px;
+  }
+
+  .title-text {
+    font-size: 18px;
+  }
+
+  .adding-money-content-redesigned {
+    padding: 16px;
+  }
+
+  .method-title-redesigned {
+    font-size: 16px;
+  }
+
+  .instruction-details {
+    margin-left: 24px;
+    font-size: 13px;
+  }
 }
 
 /* Simple QR code styling */

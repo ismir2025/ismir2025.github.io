@@ -469,7 +469,7 @@ const hardcodedProgramData = [
     "",
     "Welcome \nReception²",
     "End",
-    "K-Culture Evening⁵",
+    "Korean \nTraditional \nMusic Concert⁵",
     "",
     "",
     "",
@@ -481,13 +481,15 @@ const hardcodedProgramData = [
     "",
     "",
     "ISMIR\nMusic \nProgram⁵",
-    "Korean \nTraditional \nMusic Concert⁵",
+    "K-Culture\nNight⁵",
     "Banquet\n+\nJam session\n🥁🎸³",
     "Rencon (TBD)",
     "",
     "",
   ],
-  ["20:00 - 20:30", "", "", "End", "End", "", "", "", ""],
+  ["20:00 - 20:30", "", "", "End", "", "", "", "", ""],
+  ["20:30 - 21:00", "", "", "", "", "", "", "", ""],
+  ["21:00 - 21:30", "", "End", "", "End", "", "", "", ""],
   ["20:30 - 21:00", "", "", "", "", "", "", "", ""],
   ["21:00 - 21:30", "", "End", "", "", "", "", "", ""],
   ["21:30 - 22:00", "", "", "", "", "End", "", "", ""],
@@ -653,6 +655,7 @@ const getSessionClass = (session) => {
       normalizedSession.includes("rencon") ||
       normalizedSession.includes("music program") ||
       normalizedSession.includes("k-culture") ||
+      normalizedSession.includes("culture night") ||
       normalizedSession.includes("korean") ||
       normalizedSession.includes("traditional music") ||
       normalizedSession.includes("concert") ||

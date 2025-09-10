@@ -258,16 +258,16 @@ const SPECIAL_EVENT_TIMES = {
     endTime: '18:30',
     location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
   },
-  'k_culture_evening_923': {
+  'korean_traditional_music_923': {
     date: '9/23',
     startTime: '18:30',
     endTime: '19:30',
     location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
   },
-  'korean_traditional_music_923': {
+  'k_culture_night_923': {
     date: '9/23',
     startTime: '19:30',
-    endTime: '20:30',
+    endTime: '21:30',
     location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
   },
   // 9/24 Conference Day 3 이벤트들
@@ -514,13 +514,13 @@ function getSpecialEventTime(eventTitle, columnIndex) {
     if (normalizedTitle.includes('wimir')) {
       return SPECIAL_EVENT_TIMES.wimir_session_923;
     }
-    // K-Culture Evening
-    if (normalizedTitle.includes('k-culture') || normalizedTitle.includes('culture')) {
-      return SPECIAL_EVENT_TIMES.k_culture_evening_923;
-    }
     // Korean Traditional Music Concert
     if (normalizedTitle.includes('korean') && normalizedTitle.includes('traditional') && normalizedTitle.includes('music')) {
       return SPECIAL_EVENT_TIMES.korean_traditional_music_923;
+    }
+    // K-Culture Night
+    if (normalizedTitle.includes('k-culture') || normalizedTitle.includes('culture')) {
+      return SPECIAL_EVENT_TIMES.k_culture_night_923;
     }
   }
   
@@ -792,8 +792,15 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
     };
   }
   
-  // K-Culture Evening (9/23)
-  if (normalizedTitle.includes('k-culture') || normalizedTitle.includes('korean')) {
+  // Korean Traditional Music Concert & K-Culture Night (9/23)
+  if (normalizedTitle.includes('korean') && normalizedTitle.includes('traditional')) {
+    return {
+      location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
+      googleMapUrl: SPECIAL_EVENT_MAPS.korean_concert,
+      detailedLocation: 'KAIST E15 Concert Hall'
+    };
+  }
+  if (normalizedTitle.includes('k-culture') || normalizedTitle.includes('culture')) {
     return {
       location: 'KAIST Main Auditorium E15, Daejeon, South Korea',
       googleMapUrl: SPECIAL_EVENT_MAPS.k_culture,

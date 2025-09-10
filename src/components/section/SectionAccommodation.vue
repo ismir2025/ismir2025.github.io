@@ -305,7 +305,11 @@
         </v-card-title>
 
         <v-card-text class="text-body">
-          The following hotels offer special conference room blocks with
+          <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+            <strong style="color: #856404;">⚠️ Important Update:</strong><br/>
+            <span style="color: #856404;">Most conference room blocks are now SOLD OUT. Only Hotel Interciti still has availability with negotiated rates. Other hotels may be contacted directly for standard rates.</span>
+          </div>
+          The following hotels offered special conference room blocks with
           negotiated rates. Please follow the specific reservation methods for
           each hotel to secure your accommodation.
         </v-card-text>

@@ -151,7 +151,7 @@ const SPECIAL_EVENT_TIMES = {
   // 9/22 Conference Day 1 이벤트들
   'registration_922': {
     date: '9/22',
-    startTime: '07:30',
+    startTime: '07:00',
     endTime: '08:30',
     location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
   },

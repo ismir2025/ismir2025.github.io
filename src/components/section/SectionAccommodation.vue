@@ -124,7 +124,7 @@
               </v-col>
               <v-col md="2" class="text-center d-none d-md-flex">10 min</v-col>
               <v-col md="2" class="text-center d-none d-md-flex"
-                ><span class="check-icon">✓</span></v-col
+                ><span class="cross-icon">✗</span></v-col
               >
             </v-row>
 
@@ -144,7 +144,7 @@
               </v-col>
               <v-col md="2" class="text-center d-none d-md-flex">13 min</v-col>
               <v-col md="2" class="text-center d-none d-md-flex"
-                ><span class="check-icon">✓</span></v-col
+                ><span class="cross-icon">✗</span></v-col
               >
             </v-row>
 
@@ -164,7 +164,7 @@
               </v-col>
               <v-col md="2" class="text-center d-none d-md-flex">15 min</v-col>
               <v-col md="2" class="text-center d-none d-md-flex"
-                ><span class="check-icon">✓</span></v-col
+                ><span class="cross-icon">✗</span></v-col
               >
             </v-row>
 
@@ -361,28 +361,16 @@
             <v-row class="info-row">
               <v-col cols="3" class="info-label">Reservation method</v-col>
               <v-col cols="9" class="info-value">
-                Via E-mail :
-                <a
-                  href="mailto:jde047@naver.com"
-                  style="color: #1487c8; text-decoration: underline"
-                  >jde047@naver.com</a
+                <span style="color: red; font-weight: bold"
+                  >Please note that the room block is now SOLD OUT.</span
                 ><br />
-                <v-btn
-                  class="mt-2 mr-2"
-                  color="primary"
-                  rounded
-                  href="/Ramada_Reservation Form(En).docx"
-                  download
-                  >Reservation Form (EN)</v-btn
-                >
-                <v-btn
-                  class="mt-2"
-                  color="primary"
-                  outlined
-                  rounded
-                  href="/Ramada_Reservation Form(Kr).docx"
-                  download
-                  >Reservation Form (KR)</v-btn
+                <span style="color: red"
+                  >Discounted rates are no longer available through the
+                  conference.</span
+                ><br />
+                <span style="color: red"
+                  >If you wish to make a reservation, please contact the hotel
+                  directly for availability and rates.</span
                 >
               </v-col>
             </v-row>
@@ -450,19 +438,16 @@
             <v-row class="info-row">
               <v-col cols="3" class="info-label">Reservation method</v-col>
               <v-col cols="9" class="info-value">
-                Via E-mail :
-                <a
-                  href="mailto:sm@deditionhotel.com"
-                  style="color: #1487c8; text-decoration: underline"
-                  >sm@deditionhotel.com</a
+                <span style="color: red; font-weight: bold"
+                  >Please note that the room block is now SOLD OUT.</span
                 ><br />
-                <v-btn
-                  class="mt-2"
-                  color="primary"
-                  rounded
-                  href="/D.EDITION_Reservation Form.pdf"
-                  download
-                  >Reservation Form</v-btn
+                <span style="color: red"
+                  >Discounted rates are no longer available through the
+                  conference.</span
+                ><br />
+                <span style="color: red"
+                  >If you wish to make a reservation, please contact the hotel
+                  directly for availability and rates.</span
                 >
               </v-col>
             </v-row>
@@ -530,19 +515,16 @@
             <v-row class="info-row">
               <v-col cols="3" class="info-label">Reservation method</v-col>
               <v-col cols="9" class="info-value">
-                Via E-mail :
-                <a
-                  href="mailto:reservation@hotelmeteor.co.kr"
-                  style="color: #1487c8; text-decoration: underline"
-                  >reservation@hotelmeteor.co.kr</a
+                <span style="color: red; font-weight: bold"
+                  >Please note that the room block is now SOLD OUT.</span
                 ><br />
-                <v-btn
-                  class="mt-2"
-                  color="primary"
-                  rounded
-                  href="/Hotel Meteor_Reservation Form.pdf"
-                  download
-                  >Reservation Form</v-btn
+                <span style="color: red"
+                  >Discounted rates are no longer available through the
+                  conference.</span
+                ><br />
+                <span style="color: red"
+                  >If you wish to make a reservation, please contact the hotel
+                  directly for availability and rates.</span
                 >
               </v-col>
             </v-row>

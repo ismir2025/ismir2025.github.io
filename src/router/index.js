@@ -5,6 +5,7 @@ import CallForMusicPage from '../views/CallForMusicPage.vue';
 //import ProgramAtGlancePage from '../views/ProgramAtGlancePage.vue';
 //import KeynotePresentationsPage from '../views/ProgramKeynotePresentationsPage.vue';
 import ProgramTutorialsPage from '../views/ProgramTutorialsPage.vue';
+import RenconPage from '../views/RenconPage.vue';
 import HCMIR25Page from '../views/HCMIR25Page.vue';
 import DLfM12thPage from '../views/DLfM12thPage.vue';
 import LLM4MAPage from '../views/LLM4MAPage.vue';
@@ -54,6 +55,11 @@ const routes = [
     path: '/program-tutorials',
     name: 'ProgramTutorialsPage',
     component: ProgramTutorialsPage,
+  },
+  {
+    path: '/rencon',
+    name: 'RenconPage',
+    component: RenconPage,
   },
   
   {

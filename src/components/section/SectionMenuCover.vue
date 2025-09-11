@@ -84,6 +84,7 @@ const titleList = ref([
   { path: "LLM4MAPage", title: "LLM4MA", src: "k1.webp" },
   { path: "accepted-papers", title: "Accepted Papers", src: "k1.webp" },
   { path: "program-tutorials", title: "Tutorials", src: "k1.webp" },
+  { path: "rencon", title: "RenCon", src: "k1.webp" },
   { path: "satelite-events", title: "Satelite Events", src: "k1.webp" },
   { path: "code-of-conduct", title: "Code of Conduct", src: "k1.webp" },
   {

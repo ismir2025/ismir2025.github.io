@@ -200,7 +200,7 @@ const SPECIAL_EVENT_TIMES = {
   'industry_meetup_922': {
     date: '9/22',
     startTime: '17:30',
-    endTime: '18:30',
+    endTime: '19:00',
     location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
   },
   'music_program_922': {
@@ -371,7 +371,7 @@ const SPECIAL_EVENT_TIMES = {
   'unconference_925': {
     date: '9/25',
     startTime: '17:00',
-    endTime: '18:00',
+    endTime: '18:30',
     location: 'KAIST Main Auditorium E15, Daejeon, South Korea'
   },
   // 9/26 Workshop Day 이벤트들
@@ -384,7 +384,7 @@ const SPECIAL_EVENT_TIMES = {
   'dlfm_workshop_926': {
     date: '9/26',
     startTime: '09:00',
-    endTime: '17:00',
+    endTime: '18:00',
     location: 'Sogang University, Seoul, South Korea'
   },
   'banquet': {
@@ -397,7 +397,7 @@ const SPECIAL_EVENT_TIMES = {
   'rencon_925': {
     date: '9/25',
     startTime: '19:30',
-    endTime: '20:30',
+    endTime: '21:00',
     location: 'KAIST, Daejeon, South Korea'
   }
 };
@@ -612,6 +612,9 @@ function getSpecialEventTime(eventTitle, columnIndex) {
     if (normalizedTitle.includes('llm4ma')) {
       return SPECIAL_EVENT_TIMES.llm4ma_workshop_926;
     }
+  }
+  
+  if (columnIndex === 8) {
     // DLfM Workshop
     if (normalizedTitle.includes('dlfm')) {
       return SPECIAL_EVENT_TIMES.dlfm_workshop_926;
@@ -656,12 +659,28 @@ function parseTimeString(timeString) {
 }
 
 /**
- * Date 객체를 ICS 형식의 날짜 문자열로 변환
+ * Date 객체를 ICS 형식의 날짜 문자열로 변환 (UTC)
  * @param {Date} date - 변환할 Date 객체
  * @returns {string} YYYYMMDDTHHMMSSZ 형식의 문자열
  */
 function formatICSDate(date) {
   return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+}
+
+/**
+ * Date 객체를 ICS 형식의 로컬 날짜 문자열로 변환 (시간대 정보 없음)
+ * @param {Date} date - 변환할 Date 객체
+ * @returns {string} YYYYMMDDTHHMMSS 형식의 문자열 (Z 없음)
+ */
+function formatICSLocalDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+  
+  return `${year}${month}${day}T${hours}${minutes}${seconds}`;
 }
 
 /**
@@ -883,11 +902,11 @@ function getEventSpecificVenue(eventTitle, columnIndex) {
   }
   
   // DLfM Workshop - Sogang University (9/26)
-  if (normalizedTitle.includes('dlfm') && columnIndex === 7) {
+  if (normalizedTitle.includes('dlfm') && columnIndex === 8) {
     return {
       location: 'Sogang University, Seoul, South Korea',
       googleMapUrl: 'https://maps.app.goo.gl/wXu9FhD28N1Fj1nj6',
-      detailedLocation: 'Sep 26 (Fri) 09:00 - 17:00 @ Sogang University, Seoul'
+      detailedLocation: 'Sep 26 (Fri) 09:00 - 18:00 @ Sogang University, Seoul'
     };
   }
   
@@ -990,8 +1009,8 @@ export function generateICSContent(eventData) {
     'BEGIN:VEVENT',
     `UID:${uid}`,
     `DTSTAMP:${dtStamp}`,
-    `DTSTART;TZID=Asia/Seoul:${formatICSDate(startDate).replace('Z', '')}`,
-    `DTEND;TZID=Asia/Seoul:${formatICSDate(endDate).replace('Z', '')}`,
+    `DTSTART;TZID=Asia/Seoul:${formatICSLocalDate(startDate)}`,
+    `DTEND;TZID=Asia/Seoul:${formatICSLocalDate(endDate)}`,
     `SUMMARY:${cleanTitle}`,
     `DESCRIPTION:${description}`,
     `LOCATION:${location}`,
@@ -1034,8 +1053,8 @@ export function downloadICSFile(eventData) {
 
     console.log(`ICS file downloaded: ${filename}`);
   } catch (error) {
-    console.error('ICS 파일 생성 중 오류 발생:', error);
-    alert('일정 파일을 생성하는 중 오류가 발생했습니다. 다시 시도해주세요.');
+    console.error('Error generating ICS file:', error);
+    alert('An error occurred while generating the calendar file. Please try again.');
   }
 }
 
@@ -1239,9 +1258,153 @@ export function getAvailableCalendarOptions() {
   return options;
 }
 
+/**
+ * 여러 이벤트를 하나의 ICS 파일로 병합
+ * @param {Array} eventDataArray - 이벤트 데이터 배열
+ * @returns {string} 병합된 ICS 파일 내용
+ */
+export function generateMergedICSContent(eventDataArray) {
+  if (!eventDataArray || eventDataArray.length === 0) {
+    throw new Error('No events provided for merging');
+  }
+
+  const dtStamp = formatICSDate(new Date());
+  
+  // ICS 헤더
+  const icsHeader = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//ISMIR 2025//Conference Schedule//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:ISMIR 2025 Complete Schedule',
+    'X-WR-CALDESC:Complete schedule for ISMIR 2025 Conference',
+    'BEGIN:VTIMEZONE',
+    'TZID:Asia/Seoul',
+    'BEGIN:STANDARD',
+    'DTSTART:19700101T000000',
+    'TZOFFSETFROM:+0900',
+    'TZOFFSETTO:+0900',
+    'TZNAME:KST',
+    'END:STANDARD',
+    'END:VTIMEZONE'
+  ];
+
+  // 모든 이벤트 처리
+  const events = [];
+  
+  eventDataArray.forEach((eventData, index) => {
+    try {
+      const { title, timeString, columnIndex } = eventData;
+
+      // 특별 이벤트 시간 확인
+      const specialEventTime = getSpecialEventTime(title, columnIndex);
+      
+      let startDate, endDate, location, googleMapUrl, detailedLocation;
+      
+      if (specialEventTime) {
+        // 특별 이벤트의 경우 실제 시간 사용
+        const baseDate = DATE_MAPPING[specialEventTime.date];
+        const { startHour, startMinute, endHour, endMinute } = parseTimeString(`${specialEventTime.startTime} - ${specialEventTime.endTime}`);
+        
+        startDate = new Date(baseDate);
+        startDate.setHours(startHour, startMinute, 0, 0);
+        
+        endDate = new Date(baseDate);
+        endDate.setHours(endHour, endMinute, 0, 0);
+        
+        location = specialEventTime.location;
+        googleMapUrl = specialEventTime.googleMapUrl || GOOGLE_MAPS_URLS[columnIndex];
+        detailedLocation = `${specialEventTime.startTime} - ${specialEventTime.endTime}`;
+      } else {
+        // 일반 이벤트의 경우 기존 로직 사용
+        const dateStr = COLUMN_TO_DATE[columnIndex];
+        const baseDate = DATE_MAPPING[dateStr];
+        const { startHour, startMinute, endHour, endMinute } = parseTimeString(timeString);
+
+        startDate = new Date(baseDate);
+        startDate.setHours(startHour, startMinute, 0, 0);
+
+        endDate = new Date(baseDate);
+        endDate.setHours(endHour, endMinute, 0, 0);
+        
+        // 이벤트별 특별한 장소 정보 가져오기
+        const venueInfo = getEventSpecificVenue(title, columnIndex);
+        location = venueInfo.location;
+        googleMapUrl = venueInfo.googleMapUrl;
+        detailedLocation = venueInfo.detailedLocation;
+      }
+
+      // 이벤트 정보 정리
+      const cleanTitle = cleanEventTitle(title);
+      const description = generateEventDescription(title, location, googleMapUrl, detailedLocation);
+      const dateStr = specialEventTime ? specialEventTime.date : COLUMN_TO_DATE[columnIndex];
+      const uid = generateUID(title, dateStr, timeString) + `-${index}`; // 인덱스 추가로 고유성 보장
+
+      // 개별 이벤트 생성
+      const eventLines = [
+        'BEGIN:VEVENT',
+        `UID:${uid}`,
+        `DTSTAMP:${dtStamp}`,
+        `DTSTART;TZID=Asia/Seoul:${formatICSLocalDate(startDate)}`,
+        `DTEND;TZID=Asia/Seoul:${formatICSLocalDate(endDate)}`,
+        `SUMMARY:${cleanTitle}`,
+        `DESCRIPTION:${description}`,
+        `LOCATION:${location}`,
+        'STATUS:CONFIRMED',
+        'TRANSP:OPAQUE',
+        'CATEGORIES:CONFERENCE,ACADEMIC,MUSIC,TECHNOLOGY',
+        'END:VEVENT'
+      ];
+
+      events.push(...eventLines);
+    } catch (error) {
+      console.warn(`Failed to process event: ${eventData.title}`, error);
+      // 실패한 이벤트는 건너뛰고 계속 진행
+    }
+  });
+
+  // ICS 푸터
+  const icsFooter = ['END:VCALENDAR'];
+
+  // 모든 부분 결합
+  const fullICS = [...icsHeader, ...events, ...icsFooter];
+  
+  return fullICS.join('\r\n');
+}
+
+/**
+ * 병합된 ICS 파일 다운로드
+ * @param {Array} eventDataArray - 이벤트 데이터 배열
+ * @param {string} filename - 파일명 (선택사항)
+ */
+export function downloadMergedICSFile(eventDataArray, filename = 'ismir2025_complete_schedule.ics') {
+  try {
+    const icsContent = generateMergedICSContent(eventDataArray);
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    
+    // 다운로드 실행
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    console.log(`Merged ICS file downloaded: ${filename} (${eventDataArray.length} events)`);
+  } catch (error) {
+    console.error('Error generating merged ICS file:', error);
+    alert('An error occurred while generating the complete schedule file. Please try again.');
+  }
+}
+
 export default {
   generateICSContent,
   downloadICSFile,
+  generateMergedICSContent,
+  downloadMergedICSFile,
   generateGoogleCalendarUrl,
   generateOutlookUrl,
   generateAppleCalendarUrl,

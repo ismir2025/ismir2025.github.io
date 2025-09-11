@@ -483,7 +483,7 @@ const hardcodedProgramData = [
     "ISMIR\nMusic \nProgram⁵",
     "K-Culture\nNight⁵",
     "Banquet\n+\nJam session\n🥁🎸³",
-    "Rencon (TBD)",
+    "Rencon",
     "",
     "",
   ],

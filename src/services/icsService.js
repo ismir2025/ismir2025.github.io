@@ -393,6 +393,12 @@ const SPECIAL_EVENT_TIMES = {
     endTime: '22:00',
     location: 'ICC Hotel, Daejeon, South Korea',
     googleMapUrl: 'https://maps.google.com/?q=호텔ICC,+대전'
+  },
+  'rencon_925': {
+    date: '9/25',
+    startTime: '19:30',
+    endTime: '20:30',
+    location: 'KAIST, Daejeon, South Korea'
   }
 };
 
@@ -620,6 +626,11 @@ function getSpecialEventTime(eventTitle, columnIndex) {
   // Banquet
   if (normalizedTitle.includes('banquet') || normalizedTitle.includes('jam')) {
     return SPECIAL_EVENT_TIMES.banquet;
+  }
+  
+  // Rencon (9/25)
+  if (normalizedTitle.includes('rencon') && columnIndex === 6) {
+    return SPECIAL_EVENT_TIMES.rencon_925;
   }
   
   return null;

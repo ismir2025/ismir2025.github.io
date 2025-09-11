@@ -282,8 +282,6 @@
               <img :src="sunoLogo" alt="Suno" class="logo-image" />
             </div>
           </v-col>
-          <!-- In progress sponsors - commented out -->
-          <!--
           <v-col
             cols="6"
             sm="4"
@@ -295,7 +293,6 @@
               <img :src="umgLogo" alt="Universal Music" class="logo-image" />
             </div>
           </v-col>
-          -->
         </v-row>
 
         <!-- Bronze Sponsors -->
@@ -351,6 +348,17 @@
             class="d-flex justify-center pa-3 my-2"
           >
             <div class="logo-container">
+              <img :src="deezerLogo" alt="Deezer" class="logo-image" />
+            </div>
+          </v-col>
+          <v-col
+            cols="6"
+            sm="4"
+            md="3"
+            lg="2"
+            class="d-flex justify-center pa-3 my-2"
+          >
+            <div class="logo-container">
               <img :src="gaudioLogo" alt="Gaudio" class="logo-image" />
             </div>
           </v-col>
@@ -373,35 +381,9 @@
             class="d-flex justify-center pa-3 my-2"
           >
             <div class="logo-container">
-              <img :src="audaiLogo" alt="AudAI" class="logo-image" />
-            </div>
-          </v-col>
-          <!-- In progress sponsors - commented out -->
-          <!--
-          <v-col
-            cols="6"
-            sm="4"
-            md="3"
-            lg="2"
-            class="d-flex justify-center pa-3 my-2"
-          >
-            <div class="logo-container">
-              <img :src="deezerLogo" alt="Deezer" class="logo-image" />
-            </div>
-          </v-col>
-          -->
-          <v-col
-            cols="6"
-            sm="4"
-            md="3"
-            lg="2"
-            class="d-flex justify-center pa-3 my-2"
-          >
-            <div class="logo-container">
               <img :src="rolandLogo" alt="Roland" class="logo-image" />
             </div>
           </v-col>
-          <!-- In progress sponsors - commented out -->
           <v-col
             cols="6"
             sm="4"
@@ -410,7 +392,7 @@
             class="d-flex justify-center pa-3 my-2"
           >
             <div class="logo-container">
-              <img :src="neutoneLogo" alt="Neutone" class="logo-image" />
+              <img :src="audaiLogo" alt="AudAI" class="logo-image" />
             </div>
           </v-col>
           <!-- Piascore -->
@@ -423,6 +405,17 @@
           >
             <div class="logo-container">
               <img :src="piascoreLogo" alt="Piascore" class="logo-image" />
+            </div>
+          </v-col>
+          <v-col
+            cols="6"
+            sm="4"
+            md="3"
+            lg="2"
+            class="d-flex justify-center pa-3 my-2"
+          >
+            <div class="logo-container">
+              <img :src="neutoneLogo" alt="Neutone" class="logo-image" />
             </div>
           </v-col>
         </v-row>
@@ -572,13 +565,13 @@ import neutuneLogo from "@/assets/logo/neutune.png";
 import steinbergLogo from "@/assets/logo/Steinberg.png";
 import alphaThetaLogo from "@/assets/logo/AlphaTheta.png";
 import sunoLogo from "@/assets/logo/SUNO.png";
-// import umgLogo from "@/assets/logo/UMG.png"; // In progress
+import umgLogo from "@/assets/logo/UMG.png";
 
 // Bronze Sponsors (2,000)
 import cochlLogo from "@/assets/logo/Cochl.png";
 import audibleMagicLogo from "@/assets/logo/Audible Magic.png";
 import bmatLogo from "@/assets/logo/bmat.png";
-// import deezerLogo from "@/assets/logo/Deezer.png"; // In progress
+import deezerLogo from "@/assets/logo/Deezer.png";
 import gaudioLogo from "@/assets/logo/Gaudio.png";
 import mippiaLogo from "@/assets/logo/MIPPIA.png";
 import rolandLogo from "@/assets/logo/Roland.png";

@@ -64,8 +64,8 @@
             <v-col cols="5" sm="8"><s>August 4, 2025</s></v-col>
           </v-row>
           <v-row class="table-row styled-row">
-            <v-col cols="7" sm="4">Regular Registration deadline</v-col>
-            <v-col cols="5" sm="8">September 10, 2025</v-col>
+            <v-col cols="7" sm="4"><s>Regular Registration deadline</s></v-col>
+            <v-col cols="5" sm="8"><s>September 10, 2025</s></v-col>
           </v-row>
         </v-container>
         <br />
@@ -119,12 +119,22 @@
           >Submission Portal</v-card-title
         >
         <v-card-text class="text-body">
-          <a
+          <v-btn
             href="https://cmt3.research.microsoft.com/ISMIR2025/"
             target="_blank"
-            style="color: #1487c8"
-            >https://cmt3.research.microsoft.com/ISMIR2025/
-          </a>
+            color="primary"
+            variant="outlined"
+            size="large"
+            prepend-icon="mdi-upload"
+            class="mb-3"
+          >
+            Submit Your Paper via Microsoft CMT
+          </v-btn>
+          <br />
+          <div class="text-caption mt-2" style="color: #666">
+            Microsoft Conference Management Toolkit (CMT) - Official submission
+            portal for ISMIR 2025
+          </div>
         </v-card-text>
       </v-card>
 

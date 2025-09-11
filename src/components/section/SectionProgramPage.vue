@@ -3,7 +3,7 @@
     <v-col cols="12" md="10">
       <v-card outlined elevation="0" class="pa-4 my-4">
         <v-card-title class="text-h4 mb-3 font-weight-bold">
-          This is a preliminary schedule of the ISMIR 2025 program
+          The schedule of the ISMIR 2025 program
         </v-card-title>
 
         <v-alert
@@ -17,6 +17,17 @@
             event (.ics file) that you can add to Google Calendar, Outlook, or
             any calendar app!
           </div>
+          <v-btn
+            color="primary"
+            variant="outlined"
+            size="small"
+            class="mt-3"
+            prepend-icon="mdi-download-multiple"
+            @click="downloadAllEvents"
+            :loading="downloadingAll"
+          >
+            Download Complete Schedule (.ics)
+          </v-btn>
         </v-alert>
 
         <v-container fluid class="pa-0">
@@ -262,6 +273,7 @@
 import { ref, onMounted, computed } from "vue";
 import {
   downloadICSFile,
+  downloadMergedICSFile,
   isValidEvent,
   getAvailableCalendarOptions,
   generateGoogleCalendarUrl,
@@ -382,10 +394,10 @@ const hardcodedProgramData = [
     "10:30 - 11:00",
     "",
     "",
-    "coffee ☕️ \n+\nPoster \nSession 1⁵",
-    "coffee ☕️ \n+\nPoster\nSession 3⁵",
-    "coffee ☕️ \n+\nPoster\nSession 5⁵",
-    "coffee ☕️ \n+\nPoster\nSession 7⁵",
+    "Coffee ☕️ \n+\nPoster \nSession 1⁵",
+    "Coffee ☕️ \n+\nPoster\nSession 3⁵",
+    "Coffee ☕️ \n+\nPoster\nSession 5⁵",
+    "Coffee ☕️ \n+\nPoster\nSession 7⁵",
     "",
     "",
   ],
@@ -419,9 +431,9 @@ const hardcodedProgramData = [
     "14:00 - 14:30",
     "HCMIR25¹",
     "Tutorial \n(T4, T5, T6)⁴",
-    "coffee ☕️⁵",
-    "coffee ☕️⁵",
-    "coffee ☕️⁵",
+    "Coffee ☕️⁵",
+    "Coffee ☕️⁵",
+    "Coffee ☕️⁵",
     "Award and Test-of-Time Talks⁵",
     "",
     "",
@@ -487,8 +499,8 @@ const hardcodedProgramData = [
     "",
     "",
   ],
-  ["20:00 - 20:30", "", "", "End", "", "", "End", "", ""],
-  ["20:30 - 21:00", "", "", "", "", "", "", "", ""],
+  ["20:00 - 20:30", "", "", "End", "", "", "", "", ""],
+  ["20:30 - 21:00", "", "", "", "", "", "End", "", ""],
   ["21:00 - 21:30", "", "End", "", "End", "", "", "", ""],
   ["21:30 - 22:00", "", "", "", "", "End", "", "", ""],
 ];
@@ -498,6 +510,7 @@ const loading = ref(false);
 const error = ref(null);
 const sheetData = ref([]);
 const mergedCellsInfo = ref({});
+const downloadingAll = ref(false);
 
 // 캘린더 메뉴 관련 데이터
 const calendarMenuOpen = ref(false);
@@ -587,10 +600,11 @@ const getSessionClass = (session) => {
   const classes = [];
 
   if (session && typeof session === "string") {
-    // 줄바꿈 문자를 공백으로 정규화
+    // 줄바꿈 문자를 공백으로 정규화하고 윗첨자 제거
     const normalizedSession = session
       .replace(/\n/g, " ")
       .replace(/\s+/g, " ")
+      .replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰]/g, "") // 윗첨자 제거
       .toLowerCase()
       .trim();
 
@@ -635,7 +649,7 @@ const getSessionClass = (session) => {
       normalizedSession.includes("coffee") &&
       !normalizedSession.includes("poster")
     ) {
-      classes.push("coffee-session");
+      classes.push("Coffee-session");
     }
     // 7. Coffee + Poster (커피 + 포스터) - 라벤더 (포스터와 통일)
     else if (
@@ -691,6 +705,10 @@ const getSessionClass = (session) => {
       normalizedSession.includes("demo")
     ) {
       classes.push("poster-session");
+    }
+    // 13. Unconference - 특별 이벤트 (민트)
+    else if (normalizedSession.includes("unconference")) {
+      classes.push("special-event-session");
     }
     // 기본값은 세션 컬럼 스타일 유지
   }
@@ -1050,6 +1068,106 @@ const handleCalendarSelection = async (calendar) => {
   }
 };
 
+// 모든 유효한 이벤트 수집 (중복 제거)
+const getAllValidEvents = () => {
+  const allEvents = [];
+  const seenEvents = new Set(); // 중복 제거를 위한 Set
+
+  if (!tableData.value.rows || tableData.value.rows.length === 0) {
+    return allEvents;
+  }
+
+  // 모든 행과 컬럼을 순회하여 유효한 이벤트 찾기
+  for (let rowIndex = 0; rowIndex < tableData.value.rows.length; rowIndex++) {
+    const row = tableData.value.rows[rowIndex];
+    if (!row) continue;
+
+    const timeString = row[0]; // 시간 정보
+    if (!timeString) continue;
+
+    // 시간 컬럼을 제외한 세션 컬럼들 확인 (1부터 시작)
+    for (let colIndex = 1; colIndex < row.length; colIndex++) {
+      const cellValue = row[colIndex];
+
+      if (isValidEvent(cellValue)) {
+        // 윗첨자 제거하여 이벤트 타입 정규화
+        const normalizedTitle = cellValue
+          .replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰]/g, "")
+          .replace(/\n/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+
+        // 날짜 정보 가져오기 (컬럼 기반)
+        const dateStr = getDateFromColumnIndex(colIndex);
+
+        // 중복 체크를 위한 고유 키 생성
+        const eventKey = `${normalizedTitle}-${dateStr}`;
+
+        // 이미 처리된 이벤트인지 확인
+        if (!seenEvents.has(eventKey)) {
+          seenEvents.add(eventKey);
+
+          const eventData = {
+            title: cellValue,
+            timeString: timeString,
+            columnIndex: colIndex, // 1-based index
+          };
+
+          allEvents.push(eventData);
+        }
+      }
+    }
+  }
+
+  return allEvents;
+};
+
+// 컬럼 인덱스에서 날짜 정보 가져오기
+const getDateFromColumnIndex = (columnIndex) => {
+  const COLUMN_TO_DATE = {
+    1: "9/20", // Satellite
+    2: "9/21", // Tutorial
+    3: "9/22", // Conference Day 1
+    4: "9/23", // Conference Day 2
+    5: "9/24", // Conference Day 3
+    6: "9/25", // Conference Day 4
+    7: "9/26", // Satellite (KAIST)
+    8: "9/26", // Satellite (Sogang)
+  };
+  return COLUMN_TO_DATE[columnIndex] || "unknown";
+};
+
+// 전체 일정 다운로드
+const downloadAllEvents = async () => {
+  downloadingAll.value = true;
+
+  try {
+    const allEvents = getAllValidEvents();
+
+    if (allEvents.length === 0) {
+      alert("No events available for download.");
+      return;
+    }
+
+    console.log(`Starting download of ${allEvents.length} events`);
+
+    // Download merged ICS file
+    await downloadMergedICSFile(allEvents, "ISMIR2025_Complete_Schedule.ics");
+
+    // Success message
+    alert(
+      `ISMIR 2025 complete schedule has been downloaded! (${allEvents.length} events total)`
+    );
+  } catch (error) {
+    console.error("Error downloading complete schedule:", error);
+    alert(
+      "An error occurred while downloading the complete schedule. Please try again."
+    );
+  } finally {
+    downloadingAll.value = false;
+  }
+};
+
 // 컴포넌트 마운트 시 데이터 로드
 onMounted(() => {
   loadSheetData();
@@ -1105,22 +1223,24 @@ onMounted(() => {
 /* 가로 배치 Legend 스타일 */
 .legend-items-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-wrap: nowrap;
+  gap: 12px;
   justify-content: flex-start;
   align-items: stretch;
+  overflow-x: auto;
 }
 
 .legend-item-compact {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  border-radius: 10px;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
   background: #ffffff;
   border: 2px solid #e0e0e0;
   transition: all 0.3s ease;
-  min-width: 220px;
+  min-width: 180px;
+  flex-shrink: 0;
 }
 
 .legend-item-compact:hover {
@@ -1403,7 +1523,8 @@ onMounted(() => {
 }
 
 .venue-cell.sogang-venue {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .time-row {
@@ -1494,15 +1615,15 @@ onMounted(() => {
 .lunch-session {
   background-color: #fff8dc !important;
   color: #000000 !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-style: italic !important;
 }
 
-/* 6. Coffee (커피) - 연갈색: 휴식/카페 */
-.coffee-session {
-  background-color: #e6d0a3 !important;
+/* 6. Coffee (커피) - 연한 갈색: 휴식/카페 */
+.Coffee-session {
+  background-color: #f5e6d3 !important;
   color: #000000 !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   font-style: italic !important;
 }
 
@@ -1614,7 +1735,8 @@ onMounted(() => {
   }
 
   .venue-cell.sogang-venue {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 600;
   }
 
   .session-cell {
@@ -1659,7 +1781,8 @@ onMounted(() => {
   }
 
   .venue-cell.sogang-venue {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
   }
 
   .session-cell {
@@ -1711,7 +1834,8 @@ onMounted(() => {
   }
 
   .venue-cell.sogang-venue {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
+    font-weight: 600;
   }
 
   .session-cell {

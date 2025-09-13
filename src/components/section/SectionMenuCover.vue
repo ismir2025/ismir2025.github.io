@@ -130,6 +130,7 @@ const titleList = ref([
   { path: "important-dates", title: "Important Dates", src: "k1.webp" },
   { path: "campus-map", title: "Campus Map", src: "k1.webp" },
   { path: "detailed-schedule", title: "Detailed Schedule", src: "k1.webp" },
+  { path: "korean-traditional-music-concert", title: "Korean Traditional Music Concert", src: "k1.webp" },
 ]);
 
 onMounted(async () => {

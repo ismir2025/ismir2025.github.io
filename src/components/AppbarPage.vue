@@ -418,6 +418,7 @@ const programSubItems = ref([
   "Accepted Papers",
   "Tutorials",
   "RenCon",
+  "BARAJI Concert",
 ]);
 
 // Track if Call menu is open
@@ -567,6 +568,9 @@ const handleSubItemClickProgram = (submenu) => {
       break;
     case "RenCon":
       router.push({ name: "RenconPage" });
+      break;
+    case "BARAJI Concert":
+      router.push({ name: "KoreanTraditionalMusicConcertPage" });
       break;
     default:
       break;

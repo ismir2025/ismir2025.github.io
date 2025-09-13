@@ -483,7 +483,7 @@
                         <p>
                           Incheon Airport T2 (Terminal 2) → Incheon Airport
                           (Terminal 1) → North Daejeon IC → Daedeok Community
-                          Center → Daejeon Government Complex (Daejeon Cheongsa)
+                          Center → Daejeon Government Complex (Destination)
                           → Daejeon
                         </p>
                         <v-list dense>
@@ -583,35 +583,63 @@
                       <v-card-subtitle class="text-h6 mb-2 pa-0"
                         >How to purchase a ticket:</v-card-subtitle
                       >
-                      <v-list dense>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title
-                              ><strong>Online Reservation Website:</strong>
-                              <a
-                                href="https://intercitybuse.tmoney.co.kr/"
-                                target="_blank"
-                                >https://intercitybuse.tmoney.co.kr/</a
-                              ></v-list-item-title
+                      <div class="mb-4">
+                        <div class="mb-3">
+                          <strong>Online Reservation Website:</strong>
+                          <div class="mt-2">
+                            <v-btn
+                              href="https://intercitybuse.tmoney.co.kr/"
+                              target="_blank"
+                              color="primary"
+                              outlined
+                              small
+                              class="ml-2"
                             >
-                          </v-list-item-content>
-                        </v-list-item>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title
-                              ><strong
-                                >Offline Reservation Guide (Ticket Counter/Kiosk
-                                Location):</strong
-                              >
-                              <a
-                                href="https://www.airport.kr/ap_en/1502/subview.do"
-                                target="_blank"
-                                >https://www.airport.kr/ap_en/1502/subview.do</a
-                              ></v-list-item-title
+                              <v-icon left small>mdi-web</v-icon>
+                              T-money Bus Reservation
+                            </v-btn>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <strong>Offline(On-site) Reservation Guide:</strong>
+                          <div class="mt-2">
+                            <v-btn
+                              href="https://www.airport.kr/ap_en/6636/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGYXBfZW4lMkY5MzclMkYxMzgyMzMlMkZhcnRjbFZpZXcuZG8lM0Y%3D"
+                              target="_blank"
+                              color="secondary"
+                              outlined
+                              small
+                              class="ml-2"
                             >
-                          </v-list-item-content>
-                        </v-list-item>
-                      </v-list>
+                              <v-icon left small>mdi-information-outline</v-icon>
+                              Incheon Airport Bus Information
+                            </v-btn>
+                          </div>
+                        </div>
+                      </div>
+                    </v-container>
+
+                    <!-- Payment Information -->
+                    <v-container class="payment-info mb-3" fluid>
+                      <v-alert
+                        type="info"
+                        outlined
+                        class="mb-3"
+                        style="background-color: #2196f3; border-color: #2196f3;"
+                      >
+                        <div style="color: white; line-height: 1.5;">
+                          If paying with your foreign card is not possible on the online reservation website, you will need to purchase your bus ticket at the ticket booth or a kiosk at the airport instead. For more details, please refer to the on-site reservation guide webpage above.
+                        </div>
+                      </v-alert>
+                      
+                      <div class="text-center">
+                        <v-img
+                          src="@/assets/Transportation/BusTicket.png"
+                          alt="Bus Ticket Purchase at Airport"
+                          width="500"
+                          class="mx-auto"
+                        ></v-img>
+                      </div>
                     </v-container>
 
                     <v-container class="bus-stop-info" fluid>
@@ -1823,7 +1851,7 @@
                           ></v-img>
                         </div>
                         <p>
-                          Daejeon → Daejeon Cheongsa (Destination) → Daedeok
+                          Daejeon → Daejeon Government Complex (Departure) → Daedeok
                           Community Center → North Daejeon IC → Incheon Airport
                           (Terminal 1) → Incheon Airport (Terminal 2)
                         </p>
@@ -1834,45 +1862,28 @@
                       <v-card-subtitle class="text-h6 mb-2 pa-0"
                         >How to purchase a ticket:</v-card-subtitle
                       >
-                      <v-list dense>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title
-                              ><strong>Online Reservation Website:</strong>
-                              <a
-                                href="https://intercitybuse.tmoney.co.kr/"
-                                target="_blank"
-                                >https://intercitybuse.tmoney.co.kr/</a
-                              ></v-list-item-title
-                            >
-                          </v-list-item-content>
-                        </v-list-item>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title
-                              ><strong>Departure:</strong> Daejeon Gov Complex
-                              (airport route)</v-list-item-title
-                            >
-                          </v-list-item-content>
-                        </v-list-item>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title
-                              ><strong>Destination:</strong> Incheon Airport T1
-                              or T2</v-list-item-title
-                            >
-                          </v-list-item-content>
-                        </v-list-item>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title class="text-wrap">
-                              <strong>Recommendation:</strong> It is recommended
-                              to make a reservation a few days earlier,
-                              considering the lack of seats.
-                            </v-list-item-title>
-                          </v-list-item-content>
-                        </v-list-item>
-                      </v-list>
+                      <div class="ml-4">
+                        <p>• <strong>Online Reservation Website:</strong> 
+                          <a
+                            href="https://intercitybuse.tmoney.co.kr/"
+                            target="_blank"
+                            >https://intercitybuse.tmoney.co.kr/</a
+                          >
+                        </p>
+                        <p class="ml-4">- <strong>Departure:</strong> Daejeon Gov Complex (airport route)</p>
+                        <p class="ml-4">- <strong>Destination:</strong> Incheon Airport T1 or T2</p>
+                        <p>• <strong>Offline Reservation Kiosk</strong></p>
+                        <p class="ml-4">- You can reserve the ticket at the kiosk located inside the Bus Terminal as shown in the picture below.</p>
+                        <div class="mt-3 ml-4">
+                          <v-img
+                            src="@/assets/Transportation/Kiosk.jpg"
+                            alt="Kiosk at Bus Terminal"
+                            max-width="400"
+                            class="mx-auto"
+                          ></v-img>
+                        </div>
+                        <p class="ml-4 mt-3">It is recommended to make a reservation a few days earlier.</p>
+                      </div>
                     </v-container>
                   </v-card-text>
                 </v-card>
@@ -2090,36 +2101,16 @@
                   </v-card-text>
                 </v-card>
 
-                <!-- NUCLEAR OPTION: COMPLETELY ISOLATED STRUCTURE -->
-                <div
-                  style="
-                    position: relative;
-                    z-index: 1000;
-                    background: white;
-                    border: 3px solid red;
-                    margin: 30px 0;
-                    padding: 0;
-                    overflow: visible;
-                    width: 100%;
-                    max-width: none;
-                    min-height: 400px;
-                  "
-                >
-                  <!-- Title -->
-                  <div
-                    style="
-                      background: #004191;
-                      color: white;
-                      padding: 20px;
-                      font-size: 20px;
-                      font-weight: bold;
-                      margin: 0;
-                    "
-                  >
-                    💳 2. Adding Money (Top-Up)
-                  </div>
+                <!-- Adding Money (Top-Up) -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-credit-card-plus</v-icon>
+                    <span class="step-title-text">2. Adding Money (Top-Up)</span>
+                  </v-card-title>
+                  <v-card-text>
 
                   <!-- Credit Card -->
+                  <!-- Payment Methods -->
                   <div
                     style="
                       background: #f0f0f0;
@@ -2128,62 +2119,15 @@
                       border: 1px solid #ccc;
                     "
                   >
-                    <div
-                      style="
-                        font-weight: bold;
-                        margin-bottom: 10px;
-                        font-size: 16px;
-                      "
-                    >
-                      💳 Credit Card (Visa/MasterCard):
-                    </div>
-                    <div style="color: #666; font-size: 14px; line-height: 1.6">
-                      Can be used inside the T-money app (sometimes limited for
-                      foreigners; success varies).
-                    </div>
-                  </div>
-
-                  <!-- Cash Instructions - COMPLETELY ISOLATED -->
-                  <div
-                    style="
-                      background: #f0f0f0;
-                      padding: 20px;
-                      margin: 20px;
-                      border: 1px solid #ccc;
-                      position: relative;
-                      z-index: 1001;
-                    "
-                  >
-                    <div
-                      style="
-                        font-weight: bold;
-                        margin-bottom: 15px;
-                        font-size: 16px;
-                      "
-                    >
-                      💰 Cash at Subway Stations:
-                    </div>
-
-                    <div
-                      style="
-                        color: #666;
-                        font-size: 14px;
-                        line-height: 1.6;
-                        margin-top: 10px;
-                      "
-                    >
-                      <strong>Put your phone in Service Mode:</strong><br />
-                      iPhone → Settings → Wallet & Apple Pay → T-money → enable
-                      Service Mode<br /><br />
-
-                      <strong>At a top-up machine in a subway station:</strong
-                      ><br />
-                      Place your phone flat on the card reader area<br /><br />
-
-                      <strong>Complete the transaction:</strong><br />
-                      Insert cash, choose the amount, and wait for the machine
-                      to finish reloading. Your balance will update
-                      automatically (sometimes with a short delay).
+                    <div style="color: #333; font-size: 14px; line-height: 1.8">
+                      • <strong>Credit Card (Visa/MasterCard):</strong> Can be used inside the T-money app (sometimes limited for foreigners; success varies).<br /><br />
+                      
+                      • <strong>Cash at Subway Stations:</strong><br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;1. Put your phone in <strong>Service Mode</strong>:<br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■ iPhone → Settings → Wallet & Apple Pay → T-money → enable <em>Service Mode</em>.<br /><br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;2. At a top-up machine in a subway station, place your phone flat on the card reader area.<br /><br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;3. Insert cash, choose the amount, and wait for the machine to finish reloading.<br /><br />
+                      &nbsp;&nbsp;&nbsp;&nbsp;4. Your balance will update automatically (sometimes with a short delay).
                     </div>
                   </div>
 
@@ -2223,7 +2167,8 @@
                       stations.
                     </span>
                   </div>
-                </div>
+                  </v-card-text>
+                </v-card>
 
                 <!-- Using T-money -->
                 <v-card class="route-step-card mb-4" elevation="2">

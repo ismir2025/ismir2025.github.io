@@ -417,6 +417,7 @@ const programSubItems = ref([
   "Detailed Schedule",
   "Accepted Papers",
   "Tutorials",
+  "Music",
   "RenCon",
   "BARAJI Concert",
 ]);
@@ -571,6 +572,9 @@ const handleSubItemClickProgram = (submenu) => {
       break;
     case "BARAJI Concert":
       router.push({ name: "KoreanTraditionalMusicConcertPage" });
+      break;
+    case "Music":
+      router.push({ name: "ProgramMusic" });
       break;
     default:
       break;

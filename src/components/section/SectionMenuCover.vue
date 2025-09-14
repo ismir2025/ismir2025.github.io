@@ -131,6 +131,7 @@ const titleList = ref([
   { path: "campus-map", title: "Campus Map", src: "k1.webp" },
   { path: "detailed-schedule", title: "Detailed Schedule", src: "k1.webp" },
   { path: "korean-traditional-music-concert", title: "Korean Traditional Music Concert", src: "k1.webp" },
+  { path: "program-music", title: "Music", src: "k1.webp" },
 ]);
 
 onMounted(async () => {

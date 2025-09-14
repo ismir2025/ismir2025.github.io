@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/HomePage.vue';
 import CallForMusicPage from '../views/CallForMusicPage.vue';
 import KoreanTraditionalMusicConcertPage from '../views/KoreanTraditionalMusicConcertPage.vue';
+import ProgramMusic from '../views/ProgramMusic.vue';
 
 //import ProgramAtGlancePage from '../views/ProgramAtGlancePage.vue';
 //import KeynotePresentationsPage from '../views/ProgramKeynotePresentationsPage.vue';
@@ -155,6 +156,11 @@ const routes = [
     path: '/korean-traditional-music-concert',
     name: 'KoreanTraditionalMusicConcertPage',
     component: KoreanTraditionalMusicConcertPage,
+  },
+  {
+    path: '/program-music',
+    name: 'ProgramMusic',
+    component: ProgramMusic,
   },
   
   {

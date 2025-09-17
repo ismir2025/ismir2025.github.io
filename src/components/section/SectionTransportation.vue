@@ -743,6 +743,77 @@
                     </v-container>
                   </v-card-text>
                 </v-card>
+
+                <!-- Step 2 - Intra City Bus -->
+                <v-card class="route-step-card mb-4" elevation="2">
+                  <v-card-title class="text-h6 step-title">
+                    <v-icon left color="#004191">mdi-bus</v-icon>
+                    Step 2 - Intra City Bus: Daejeon Government Complex → KAIST
+                  </v-card-title>
+                  <v-card-text>
+                    <v-list dense class="mb-3">
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title
+                            >You can take the intra-city bus to come to KAIST (Route No. 604), after landing at Daejeon Government Complex. We recommend using the English version of Naver Map or Kakao Map to check the entire route, including walking directions.</v-list-item-title
+                          >
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                    <v-container fluid>
+                      <v-card-subtitle class="text-h6 mb-2 pa-0"
+                        >Bus Route Information</v-card-subtitle
+                      >
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              ><strong>Departure:</strong> Daejeon Government Building Intercity Bus Dunsan Bus Stop (Hacha)</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title
+                              ><strong>Destination:</strong> KAIST Main Campus</v-list-item-title
+                            >
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                      
+                      <!-- Bus Schedule Table -->
+                      <v-container class="table-container mt-4" fluid>
+                        <!-- 헤더 행 -->
+                        <v-row class="table-row styled-row table-header">
+                          <v-col cols="2" class="text-center">Duration</v-col>
+                          <v-col cols="2" class="text-center">First Departure</v-col>
+                          <v-col cols="3" class="text-center">Last Departure</v-col>
+                          <v-col cols="2" class="text-center">Interval</v-col>
+                          <v-col cols="3" class="text-center">Fare (KRW)</v-col>
+                        </v-row>
+
+                        <v-row class="table-row styled-row">
+                          <v-col cols="2" class="text-center">10min</v-col>
+                          <v-col cols="2" class="text-center">05:40</v-col>
+                          <v-col cols="3" class="text-center">22:30</v-col>
+                          <v-col cols="2" class="text-center">11 minutes</v-col>
+                          <v-col cols="3" class="text-center">1,500</v-col>
+                        </v-row>
+                      </v-container>
+                      
+                      <!-- Intra City Bus Image -->
+                      <v-container class="text-center mt-4" fluid>
+                        <v-img
+                          :src="require('@/assets/Transportation/IntraCityBus.png')"
+                          alt="Intra City Bus Route Map"
+                          contain
+                          max-width="80%"
+                          class="mx-auto"
+                        ></v-img>
+                      </v-container>
+                    </v-container>
+                  </v-card-text>
+                </v-card>
               </v-col>
             </v-row>
           </v-container>
@@ -1922,6 +1993,118 @@
               </v-col>
             </v-row>
           </v-container>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
+      <!-- Using Bus -->
+      <v-card outlined elevation="0" class="pa-4 my-4">
+        <v-card-title class="text-h4 mb-3 font-weight-bold"
+          >Using Bus</v-card-title
+        >
+        <v-card-text class="text-body">
+          <v-row class="my-4">
+            <v-col cols="12">
+              <v-card class="bus-info-card pa-4" elevation="2">
+                <v-card-title class="text-h6 highlight-text mb-3">
+                  <v-icon left color="#004191">mdi-bus</v-icon>
+                  Boarding and Paying the Fare
+                </v-card-title>
+                <v-card-text>
+                  <p class="mb-3">
+                    Buses in Daejeon are boarded through the front door and exited through the middle door.
+                  </p>
+                  <p class="mb-3">
+                    If you are using a travel card, tap it on the card reader when boarding and again when getting off.
+                  </p>
+                  <p class="mb-3">
+                    If you are paying with cash, pay the fare directly to the bus driver at the front door.
+                  </p>
+                  <p class="mb-3">
+                    The city of Daejeon operates an intelligent transportation system (ITS), which displays the estimated arrival time of upcoming buses on electronic screens installed at bus stops.
+                  </p>
+                  <p class="mb-3">
+                    Use Kakao map or Naver map to search for bus routes. These apps support English (go to Settings and change the app language).
+                  </p>
+                  
+                  <!-- Using Bus Image -->
+                  <div class="text-center mt-4">
+                    <v-img
+                      :src="require('@/assets/Transportation/Using Bus.png')"
+                      alt="Using Bus Guide"
+                      contain
+                      max-width="80%"
+                      class="mx-auto"
+                    ></v-img>
+                  </div>
+                  
+                  <!-- Bus Fare Table -->
+                  <v-container class="table-container mt-4" fluid>
+                    <!-- 헤더 행 -->
+                    <v-row class="table-row styled-row table-header">
+                      <v-col cols="3" class="text-center">Type</v-col>
+                      <v-col cols="3" class="text-center">Passengers</v-col>
+                      <v-col cols="3" class="text-center">Fare (won)</v-col>
+                      <v-col cols="3" class="text-center">Travel Card (won)</v-col>
+                    </v-row>
+
+                    <!-- City Bus 행들 -->
+                    <v-row class="table-row styled-row">
+                      <v-col cols="3" class="text-center" style="border-right: 1px solid #d3d3d3;">City Bus</v-col>
+                      <v-col cols="3" class="text-center">Adults (aged 19 and over)</v-col>
+                      <v-col cols="3" class="text-center">1,400</v-col>
+                      <v-col cols="3" class="text-center">1,250</v-col>
+                    </v-row>
+
+                    <v-row class="table-row styled-row">
+                      <v-col cols="3" class="text-center" style="border-right: 1px solid #d3d3d3;"></v-col>
+                      <v-col cols="3" class="text-center">Teenagers (aged 13-18)</v-col>
+                      <v-col cols="3" class="text-center">900</v-col>
+                      <v-col cols="3" class="text-center">750</v-col>
+                    </v-row>
+
+                    <v-row class="table-row styled-row">
+                      <v-col cols="3" class="text-center" style="border-right: 1px solid #d3d3d3;"></v-col>
+                      <v-col cols="3" class="text-center">Children (aged 6-12)</v-col>
+                      <v-col cols="3" class="text-center">400</v-col>
+                      <v-col cols="3" class="text-center">350</v-col>
+                    </v-row>
+                  </v-container>
+                  
+                  <!-- Free Transfer System -->
+                  <div class="mt-5">
+                    <v-card-subtitle class="text-h6 mb-2 pa-0 highlight-text">
+                      <v-icon left color="#004191">mdi-transfer</v-icon>
+                      Free (Discount) Transfer System
+                    </v-card-subtitle>
+                    <p class="mb-3">
+                      Daejeon operates a free transfer system that allows passengers to transfer up to three times between buses or other modes of public transportation (such as the urban railway) without paying an additional fare.
+                    </p>
+                    <p class="mb-3">
+                      This enables passengers to use up to four consecutive modes of transportation (e.g., bus → bus → bus → subway) for a single base fare.
+                    </p>
+                    
+                    <v-card-subtitle class="text-h6 mb-2 pa-0 mt-4">
+                      Conditions for Free Transfers:
+                    </v-card-subtitle>
+                    <ul class="transfer-conditions mb-3">
+                      <li class="mb-2">
+                        Transfers are allowed up to 3 times within 30 minutes (or 60 minutes on some routes) after getting off a vehicle.
+                      </li>
+                      <li class="mb-2">
+                        Transfers are not allowed on the same bus route.
+                      </li>
+                      <li class="mb-2">
+                        You must scan your travel card when getting off each vehicle for the transfer discount to apply.
+                      </li>
+                    </ul>
+                  </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-card-text>
         <br />
         <v-divider></v-divider>
@@ -3464,5 +3647,54 @@ a {
   .v-card-subtitle {
     font-size: 1rem;
   }
+}
+
+.styled-row {
+  border-bottom: 1px solid #d3d3d3; /* 행 하단 회색 선 */
+  padding-bottom: 8px;
+  align-items: center; /* 텍스트 수직 정렬 */
+}
+
+.table-header {
+  background-color: #f7f7f7; /* 헤더 행 배경색 */
+  font-weight: 600;
+}
+
+.table-container {
+  width: 100%;
+  margin: 0;
+}
+
+.table-container .table-row .v-col {
+  text-align: center;
+  font-size: 15px; /* 표 안의 텍스트 크기 조절 */
+}
+
+/* 모바일에서 표 텍스트 크기 조절 */
+@media (max-width: 768px) {
+  .table-container .table-row .v-col {
+    font-size: 12px; /* 모바일에서 조금 더 작게 */
+    padding-left: 6px !important; /* 모바일에서 좌우 간격만 줄이기 */
+    padding-right: 6px !important;
+  }
+  .table-header {
+    font-size: 13px !important; /* 모바일에서 헤더 폰트 크기도 조절 */
+  }
+  .table-container {
+    padding: 0 8px; /* 컨테이너의 좌우 패딩도 줄이기 */
+    margin-top: 24px !important; /* 모바일에서 표 전체의 위아래 여백 늘리기 */
+    margin-bottom: 24px !important;
+  }
+}
+
+.transfer-conditions {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.transfer-conditions li {
+  margin-bottom: 8px;
 }
 </style>

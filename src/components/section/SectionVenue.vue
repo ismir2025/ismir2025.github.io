@@ -218,23 +218,51 @@
       <!-- 종합 위치 안내 지도 -->
       <v-card outlined elevation="0" class="pa-4 my-4">
         <v-card-title class="text-h4 mb-3 font-weight-bold">
-          Comprehensive Location Map
+          Key Locations Map
         </v-card-title>
         <v-card-text class="text-body">
           You can view the locations of key conference venues and airport bus
-          stops on the map below.
+          stops on the maps linked below. For more details, please refer to the "Venue" section.
           <br /><br />
+          
+          <strong>Note that Google Maps and Naver Maps use different building names for KAIST, so check the list below to avoid confusion:</strong>
+          <ul class="dot-list mt-3 mb-4">
+            <li>KAIST Main Campus Changui Learning Center = Creative Learning Building (E11)</li>
+            <li>KAIST Main Campus Main Hall = KAIST Auditorium (E15)</li>
+          </ul>
+          
+          <div class="text-body mb-3">
+            <em>You should access Naver Map link via Naver Map App to view in english.</em>
+          </div>
 
-          <v-btn
-            color="primary"
-            href="https://maps.app.goo.gl/5RB8d6FcahjnnGgg9"
-            target="_blank"
-            large
-            class="mt-2"
-          >
-            <v-icon left>mdi-map</v-icon>
-            View Key Locations on Google Maps
-          </v-btn>
+          <v-row class="mt-4">
+            <v-col cols="12" sm="6">
+              <v-btn
+                color="success"
+                href="https://naver.me/5UTBVCqX"
+                target="_blank"
+                large
+                block
+                class="mb-2"
+              >
+                <v-icon left>mdi-map-marker</v-icon>
+                View Key Locations on Naver Maps
+              </v-btn>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <v-btn
+                color="primary"
+                href="https://maps.app.goo.gl/5RB8d6FcahjnnGgg9"
+                target="_blank"
+                large
+                block
+                class="mb-2"
+              >
+                <v-icon left>mdi-map</v-icon>
+                View Key Locations on Google Maps
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card-text>
         <br />
         <v-divider></v-divider>

@@ -9,7 +9,7 @@
           class="text-h5 mb-2 font-weight-bold"
           style="color: #004191"
         >
-          Soo-man Lee
+          Soo Man LEE
         </v-card-title>
         <v-card-subtitle class="text-h6 mb-3" style="color: #666">
           Key Producer & Visionary Leader at A2O Entertainment
@@ -19,7 +19,7 @@
             <v-col cols="4">
               <v-img
                 src="@/assets/soomanLee.jpg"
-                alt="Soo-man Lee"
+                alt="Soo Man LEE"
                 class="keynote-speaker-image"
                 aspect-ratio="1"
                 cover
@@ -67,7 +67,7 @@
           creativity and as the cornerstone of a culturally enriched future
           where culture and technology thrive in harmony. <br /><br />
           <span class="highlight-text">Biography:</span><br />
-          Born in 1952, Soo-man Lee made his musical debut as part of the duet
+          Born in 1952, Soo Man LEE made his musical debut as part of the duet
           April and May (4월과 5월) in 1971. He began his solo career in 1974
           and was honored with the MBC Top 10 Singer Award in 1977. In 1978, he
           earned his bachelor's degree from Seoul National University. In 1980,

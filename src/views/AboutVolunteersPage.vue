@@ -2,7 +2,7 @@
     <v-row no-gutters>
         <v-col cols="12">
             <SectionMenuCover />
-            <SectionOrganizingCommittee />
+            <SectionAboutVolunteers />
         </v-col>
     </v-row>
     
@@ -10,6 +10,6 @@
       
     <script setup>
     import SectionMenuCover from '../components/section/SectionMenuCover.vue';
-    import SectionOrganizingCommittee from '../components/section/SectionOrganizingCommittee.vue';
+    import SectionAboutVolunteers from '../components/section/SectionAboutVolunteers.vue';
     </script>
     

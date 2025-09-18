@@ -3,9 +3,9 @@ import Home from '../views/HomePage.vue';
 import CallForMusicPage from '../views/CallForMusicPage.vue';
 import KoreanTraditionalMusicConcertPage from '../views/KoreanTraditionalMusicConcertPage.vue';
 import ProgramMusic from '../views/ProgramMusic.vue';
+import ProgramKCultureNight from '../views/ProgramKCultureNight.vue';
+import ProgramSpecialSessionPage from '../views/ProgramSpecialSessionPage.vue';
 
-//import ProgramAtGlancePage from '../views/ProgramAtGlancePage.vue';
-//import KeynotePresentationsPage from '../views/ProgramKeynotePresentationsPage.vue';
 import ProgramTutorialsPage from '../views/ProgramTutorialsPage.vue';
 import RenconPage from '../views/RenconPage.vue';
 import HCMIR25Page from '../views/HCMIR25Page.vue';
@@ -18,7 +18,7 @@ import CallForPapersPage from '../views/CallForPapersPage.vue';
 import CallForLateBreakingDemoPage from '../views/CallForLateBreakingDemoPage.vue';
 import CallForTutorialsPage from '../views/CallForTutorialsPage.vue';
 import CallForVolunteersPage from '../views/CallForVolunteersPage.vue';
-import KeynotePage from '../views/KeynotePage.vue';
+import KeynotePage from '../views/ProgramKeynotePage.vue';
 import AuthorGuidelinesPage from '../views/AuthorGuidelinesPage.vue';
 import PresenterGuidelinesPage from '../views/PresenterGuidelinesPage.vue';
 import DetailedSchedulePage from '../views/DetailedSchedulePage.vue';
@@ -30,49 +30,53 @@ import MeetTheSponsorsPage from '../views/MeetTheSponsorsPage.vue';
 import CodeOfConductPage from '../views/CodeOfConduct.vue';
 import VisaEntryGuidePage from '../views/VisaEntryGuide.vue';
 import AttendVenuePage from '../views/AttendVenuePage.vue';
-//import ImportantDatesPage from '../views/ImportantDatesPage.vue';
 
 import AttendTransportationPage from '../views/AttendTransportationPage.vue';
 import CampusMapPage from '../views/CampusMapPage.vue';
 
-import OrganizingCommitteePage from '../views/OrganizingCommitteePage.vue';
+import OrganizingCommitteePage from '../views/AboutOrganizingCommitteePage.vue';
+import AboutVolunteersPage from '../views/AboutVolunteersPage.vue';
 
 import MentoringPage from '../views/MentoringPage.vue';
 import NewcomerSquadPage from '../views/NewcomerSquadPage.vue';
-//import AccessibilityPage from '../views/AccessibilityPage.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'HomePage',
+    name: 'home',
     component: Home,
   },
   {
     path: '/organizing-committee',
-    name: 'OrganizingCommitteePage',
+    name: 'about-organizing-committee',
     component: OrganizingCommitteePage,
+  },
+  {
+    path: '/volunteers',
+    name: 'about-volunteers',
+    component: AboutVolunteersPage,
   },
   
   {
     path: '/program-tutorials',
-    name: 'ProgramTutorialsPage',
+    name: 'program-tutorials',
     component: ProgramTutorialsPage,
   },
   {
     path: '/rencon',
-    name: 'RenconPage',
+    name: 'program-rencon',
     component: RenconPage,
   },
   
   {
     path: '/cfp',
-    name: 'cfp',
+    name: 'call-for-papers',
     component: CallForPapersPage,
   },
   
   {
     path: '/call-for-lbd',
-    name: 'CallForLateBreakingDemoPage',
+    name: 'call-for-late-breaking-demo',
     component: CallForLateBreakingDemoPage,
   },
   
@@ -88,174 +92,138 @@ const routes = [
   },
   {
     path: '/accommodation',
-    name: 'AccommodationPage',
+    name: 'attend-accommodation',
     component: AccommodationPage,
   },
   {
     path: '/Registration',
-    name: 'Registration',
+    name: 'attend-registration',
     component: RegistrationPage,
   },
   {
     path: '/financial-support',
-    name: 'GrantPage',
+    name: 'attend-financial-support',
     component: GrantPage,
   },
   {
     path: '/call-for-tutorials',
-    name: 'CallForTutorialsPage',
+    name: 'call-for-tutorials',
     component: CallForTutorialsPage,
   },
   {
     path: '/call-for-volunteers',
-    name: 'CallForVolunteersPage',
+    name: 'call-for-volunteers',
     component: CallForVolunteersPage,
   },
   
   {
     path: '/HCMIR25Page',
-    name: 'HCMIR25Page',
+    name: 'satellite-hcmir',
     component: HCMIR25Page,
   },
   {
     path: '/DLfM12thPage',
-    name: 'DLfM12thPage',
+    name: 'satellite-dlfm',
     component: DLfM12thPage,
   },
   {
     path: '/LLM4MAPage',
-    name: 'LLM4MAPage',
+    name: 'satellite-llm4ma',
     component: LLM4MAPage,
   },
   {
     path: '/new-to-ismir-mentoring-program-2025',
-    name: 'new-to-ismir-mentoring-program-2025',
+    name: 'diversity-mentoring',
     component: MentoringPage,
   },
   {
     path: '/newcomer-squad',
-    name: 'NewcomerSquadPage',
+    name: 'diversity-newcomer-squad',
     component: NewcomerSquadPage,
   },
   {
     path: '/sponsorship-opportunities',
-    name: 'SponsorshipOpportunitiesPage',
+    name: 'sponsor-opportunities',
     component: SponsorshipOpportunitiesPage,
   },
   {
     path: '/meet-the-sponsors',
-    name: 'MeetTheSponsorsPage',
+    name: 'sponsor-meet',
     component: MeetTheSponsorsPage,
   },
   {
     path: '/call-for-music',
-    name: 'CallForMusicPage',
+    name: 'call-for-music',
     component: CallForMusicPage,
   },
   {
     path: '/korean-traditional-music-concert',
-    name: 'KoreanTraditionalMusicConcertPage',
+    name: 'program-baraji-concert',
     component: KoreanTraditionalMusicConcertPage,
   },
   {
     path: '/program-music',
-    name: 'ProgramMusic',
+    name: 'program-music',
     component: ProgramMusic,
+  },
+  {
+    path: '/program-kculture-night',
+    name: 'program-kculture-night',
+    component: ProgramKCultureNight,
+  },
+  {
+    path: '/program-special-session',
+    name: 'program-special-session',
+    component: ProgramSpecialSessionPage,
   },
   
   {
     path: '/program',
-    name: 'ProgramPage',
+    name: 'program-overview',
     component: ProgramPage,
   },
   {
     path: '/keynote',
-    name: 'KeynotePage',
+    name: 'program-keynote',
     component: KeynotePage,
   },
   {
     path: '/accepted-papers',
-    name: 'ProgramAcceptedPapersPage',
+    name: 'program-accepted-papers',
     component: ProgramAcceptedPapersPage,
   },
   {
     path: '/detailed-schedule',
-    name: 'DetailedSchedulePage',
+    name: 'program-detailed-schedule',
     component: DetailedSchedulePage,
   },
   
   {
     path: '/code-of-conduct',
-    name: 'CodeOfConductPage',
+    name: 'attend-code-of-conduct',
     component: CodeOfConductPage,
   },
   {
     path: '/visa-entry-guide',
-    name: 'VisaEntryGuidePage',
+    name: 'attend-visa-guide',
     component: VisaEntryGuidePage,
   },
   {
     path: '/venue-page',
-    name: 'VenuePage',
+    name: 'attend-venue',
     component: AttendVenuePage,
   },
   {
     path: '/transportation-page',
-    name: 'TransportationPage',
+    name: 'attend-transportation',
     component: AttendTransportationPage,
   },
   {
     path: '/campus-map',
-    name: 'CampusMapPage',
+    name: 'attend-campus-map',
     component: CampusMapPage,
   },
   
-  /*
-  {
-    path: '/manuscript-accessibility',
-    name: 'AccessibilityPage',
-    component: AccessibilityPage,
-  },
-*/
-  /*
-  {
-    path: '/venue-page',
-    name: 'VenuePage',
-    component: AttendVenuePage,
-  },
-  {
-    path: '/accommodation-page',
-    name: 'AccommodationPage',
-    component: AttendAccommodationPage,
-  },
-  {
-    path: '/important-dates',
-    name: 'ImportantDatesPage',
-    component: ImportantDatesPage,
-  },
- 
-
-  {
-    path: '/program-at-glance',
-    name: 'ProgramAtGlancePage',
-    component: ProgramAtGlancePage,
-  },
-  {
-    path: '/keynote-presentations',
-    name: 'KeynotePresentationsPage',
-    component: KeynotePresentationsPage,
-  },
-  {
-    path: '/accepted-papers',
-    name: 'AcceptedPapersPage',
-    component: AcceptedPapersPage,
-  },
-  {
-    path: '/tutorials',
-    name: 'TutorialsPage',
-    component: TutorialsPage,
-  },
-  */
   
 ];
 

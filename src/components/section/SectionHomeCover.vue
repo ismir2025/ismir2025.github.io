@@ -1,6 +1,6 @@
 <template>
   <section id="hero" class="position-relative">
-    <!-- °íÁ¤µÈ ÄÜÅÙÃ÷ ¿µ¿ª -->
+    <!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -->
     <v-container class="fill-height px-4 py-12 position-absolute top-0 left-0">
       <v-responsive
         class="d-flex align-center mx-auto"
@@ -55,9 +55,9 @@
       </v-responsive>
     </v-container>
 
-    <!-- ³ôÀÌ Á¶Á¤ °¡´ÉÇÑ ½½¶óÀÌµå °¶·¯¸® -->
+    <!-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
     <div class="custom-image-slider" :style="{ height: carouselHeight }">
-      <!-- ÀÌ¹ÌÁö ÄÁÅ×ÀÌ³Ê -->
+      <!-- ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ -->
       <div class="image-container">
         <v-img
           v-for="(image, index) in images"
@@ -69,11 +69,11 @@
         >
         </v-img>
 
-        <!-- ¹ÝÅõ¸í ±×·¹ÀÌ ±×¶óµð¾ðÆ® ¿À¹ö·¹ÀÌ -->
+        <!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½×¶ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -->
         <div class="gradient-overlay"></div>
       </div>
 
-      <!-- ³×ºñ°ÔÀÌ¼Ç ¹öÆ° -->
+      <!-- ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½Æ° -->
       <v-btn icon class="nav-btn prev-btn" @click="prevImage">
         <v-icon>mdi-chevron-left</v-icon>
       </v-btn>
@@ -116,15 +116,15 @@ const images = [
   //{ src: s4 },
 ];
 
-// ³ôÀÌ¸¦ µ¿ÀûÀ¸·Î Á¶Á¤ÇÏ±â À§ÇÑ º¯¼ö
-const carouselHeight = ref("65vh"); // ±âº» ³ôÀÌ¸¦ '70vh'·Î ¼³Á¤
+// ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+const carouselHeight = ref("65vh"); // ï¿½âº» ï¿½ï¿½ï¿½Ì¸ï¿½ '70vh'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /*
-// vue-router »ç¿ë ¼³Á¤
+// vue-router ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 const router = useRouter()
 
-// Important Dates ÆäÀÌÁö·Î ÀÌµ¿ÇÏ´Â ÇÔ¼ö
+// Important Dates ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 const goToImportantDates = () => {
-  router.push({ name: 'ImportantDatesPage' }) // ÆäÀÌÁö ÀÌ¸§À» ÅëÇØ ÀÌµ¿
+  router.push({ name: 'important-dates' }) // ë¼ìš°í„° ì´ë¦„ì„ í†µí•œ ì´ë™
 }
 */
 
@@ -139,11 +139,11 @@ const nextImage = () => {
   currentImageIndex.value = (currentImageIndex.value + 1) % images.length;
 };
 
-// ÀÚµ¿ ÀüÈ¯ ±â´É
+// ï¿½Úµï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½
 let autoSlideInterval = null;
 
 const startAutoSlide = () => {
-  // ±âÁ¸ intervalÀÌ ÀÖ´Ù¸é Á¤¸®
+  // ï¿½ï¿½ï¿½ï¿½ intervalï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½
   if (autoSlideInterval) {
     clearInterval(autoSlideInterval);
   }
@@ -160,7 +160,7 @@ const stopAutoSlide = () => {
   }
 };
 
-// ÄÄÆ÷³ÍÆ® ¸¶¿îÆ® ½Ã ÀÚµ¿ ÀüÈ¯ ½ÃÀÛ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½
 onMounted(() => {
   startAutoSlide();
 });
@@ -184,7 +184,7 @@ onUnmounted(() => {
 .left-0 {
   left: 0;
 }
-/* ÀÌ¹ÌÁö ½½¶óÀÌ´õ ½ºÅ¸ÀÏ¸µ */
+/* ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½Å¸ï¿½Ï¸ï¿½ */
 .custom-image-slider {
   position: relative;
   overflow: hidden;
@@ -210,7 +210,7 @@ onUnmounted(() => {
   opacity: 1;
 }
 
-/* ±×¶óµð¾ðÆ® ¿À¹ö·¹ÀÌ ½ºÅ¸ÀÏ¸µ */
+/* ï¿½×¶ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½Ï¸ï¿½ */
 .gradient-overlay {
   position: absolute;
   top: 0;
@@ -228,7 +228,7 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-/* ³×ºñ°ÔÀÌ¼Ç ¹öÆ° ½ºÅ¸ÀÏ¸µ */
+/* ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½Å¸ï¿½Ï¸ï¿½ */
 .nav-btn {
   position: absolute;
   top: 50%;
@@ -250,13 +250,13 @@ onUnmounted(() => {
   right: 20px;
 }
 
-/* ÅØ½ºÆ® ±×¸²ÀÚ È¿°ú */
+/* ï¿½Ø½ï¿½Æ® ï¿½×¸ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ */
 .text-shadow-soft {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2),
     0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Ãß°¡: ¸ð¹ÙÀÏ(<=600px)¿¡¼­ ³×ºñ°ÔÀÌ¼Ç ¹öÆ° ¼û±â±â */
+/* ï¿½ß°ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½(<=600px)ï¿½ï¿½ï¿½ï¿½ ï¿½×ºï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ */
 @media (max-width: 600px) {
   .nav-btn {
     display: none !important;

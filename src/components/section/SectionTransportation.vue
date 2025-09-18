@@ -324,20 +324,6 @@
                               >Naver Map</v-chip
                             >
                           </a>
-                          <span class="mr-2 mb-2">or</span>
-                          <a
-                            href="https://maps.apple.com/"
-                            target="_blank"
-                            style="text-decoration: none"
-                          >
-                            <v-chip
-                              small
-                              class="mr-2 mb-2"
-                              color="primary"
-                              text-color="white"
-                              >Apple Maps</v-chip
-                            >
-                          </a>
                           <span class="text-wrap mb-2">for navigation</span>
                         </div>
                         <div class="mt-2 d-flex flex-wrap align-center">

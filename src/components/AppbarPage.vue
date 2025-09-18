@@ -28,7 +28,7 @@
       <v-btn
         exact
         :ripple="false"
-        :to="{ name: 'HomePage' }"
+        :to="{ name: 'home' }"
         class="menu-button"
         height="100%"
         variant="text"
@@ -60,6 +60,16 @@
           </v-list-item>
         </v-list>
       </v-menu>
+
+      <v-btn
+        :ripple="false"
+        class="menu-button"
+        height="100%"
+        variant="text"
+        @click="navigateToVirtualPlatform"
+      >
+        Virtual Platform
+      </v-btn>
 
       <v-menu offset-y v-model="isIPMenuOpen" close-on-content-click>
         <template v-slot:activator="{ props }">
@@ -211,15 +221,30 @@
         </v-list>
       </v-menu>
 
-      <v-btn
-        :ripple="false"
-        :to="{ name: 'OrganizingCommitteePage' }"
-        class="menu-button"
-        height="100%"
-        variant="text"
-      >
-        Organizing<br />Committee
-      </v-btn>
+      <v-menu offset-y v-model="isAboutMenuOpen" close-on-content-click>
+        <template v-slot:activator="{ props }">
+          <v-btn
+            class="menu-button call-button"
+            :class="{ 'call-active': isAboutMenuOpen }"
+            v-bind="props"
+            height="100%"
+            variant="text"
+            text-color="black"
+          >
+            About
+            <v-icon icon="mdi-menu-down" end></v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(submenu, index) in aboutSubItems"
+            :key="index"
+            @click="handleSubItemClickAbout(submenu)"
+          >
+            <v-list-item-title>{{ submenu }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </div>
 
     <!-- Hamburger Icon for Mobile -->
@@ -230,7 +255,7 @@
   <v-navigation-drawer v-model="drawer" app temporary left scrollable>
     <v-list>
       <!-- 일반 메뉴 항목 -->
-      <v-list-item :to="{ name: 'HomePage' }" @click="drawer = false">
+      <v-list-item :to="{ name: 'home' }" @click="drawer = false">
         <v-list-item-title>Home</v-list-item-title>
       </v-list-item>
 
@@ -250,6 +275,10 @@
           <v-list-item-title>{{ item }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
+
+      <v-list-item @click="navigateToVirtualPlatform(); drawer = false;">
+        <v-list-item-title>Virtual Platform</v-list-item-title>
+      </v-list-item>
 
       <!-- Author and Presenter Information 드롭다운 메뉴 -->
       <v-list-group value="ip">
@@ -359,12 +388,22 @@
         </v-list-item>
       </v-list-group>
 
-      <v-list-item
-        :to="{ name: 'OrganizingCommitteePage' }"
-        @click="drawer = false"
-      >
-        <v-list-item-title>Organizing Committee</v-list-item-title>
-      </v-list-item>
+      <!-- About 드롭다운 메뉴 -->
+      <v-list-group value="about">
+        <template v-slot:activator="{ props }">
+          <v-list-item v-bind="props" title="About"></v-list-item>
+        </template>
+        <v-list-item
+          v-for="(item, i) in aboutSubItems"
+          :key="i"
+          @click="
+            handleSubItemClickAbout(item);
+            drawer = false;
+          "
+        >
+          <v-list-item-title>{{ item }}</v-list-item-title>
+        </v-list-item>
+      </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -413,14 +452,18 @@ const SponsorsSubItems = ref([
 
 const programSubItems = ref([
   "Program",
-  "Keynote",
   "Detailed Schedule",
+  "Keynote",
   "Accepted Papers",
   "Tutorials",
+  "Special Session",
   "Music",
-  "RenCon",
+  "K-Culture Night",
   "BARAJI Concert",
+  "RenCon",
 ]);
+
+const aboutSubItems = ref(["Organizing Committee", "Volunteers"]);
 
 // Track if Call menu is open
 const isCallMenuOpen = ref(false);
@@ -430,31 +473,37 @@ const isSatelliteMenuOpen = ref(false);
 const isDiversityMenuOpen = ref(false);
 const isSponsorsMenuOpen = ref(false);
 const isProgramMenuOpen = ref(false);
+const isAboutMenuOpen = ref(false);
 
 // Navigate to Home page
 const navigateHome = () => {
-  router.push({ name: "HomePage" });
+  router.push({ name: "home" });
+};
+
+// Navigate to Virtual Platform
+const navigateToVirtualPlatform = () => {
+  window.open("https://ismir2025program.ismir.net/", "_blank");
 };
 
 const handleSubItemClickCall = (submenu) => {
   switch (submenu) {
     case "Call For Papers":
-      router.push({ name: "cfp" });
+      router.push({ name: "call-for-papers" });
       break;
     case "Call For Tutorials":
-      router.push({ name: "CallForTutorialsPage" });
+      router.push({ name: "call-for-tutorials" });
       break;
     case "Call For Music":
-      router.push({ name: "CallForMusicPage" });
+      router.push({ name: "call-for-music" });
       break;
     case "Call For Late-Breaking Demo":
-      router.push({ name: "CallForLateBreakingDemoPage" });
+      router.push({ name: "call-for-late-breaking-demo" });
       break;
     case "Call for MIREX":
       window.open("https://www.music-ir.org/mirex/wiki/MIREX_HOME", "_blank");
       break;
     case "Call For Volunteers":
-      router.push({ name: "CallForVolunteersPage" });
+      router.push({ name: "call-for-volunteers" });
       break;
     default:
       break;
@@ -477,28 +526,28 @@ const handleSubItemClickIP = (submenu) => {
 const handleSubItemClickAttend = (submenu) => {
   switch (submenu) {
     case "Registration":
-      router.push({ name: "Registration" });
+      router.push({ name: "attend-registration" });
       break;
     case "Accommodation":
-      router.push({ name: "AccommodationPage" });
+      router.push({ name: "attend-accommodation" });
       break;
     case "Financial Support":
-      router.push({ name: "GrantPage" });
+      router.push({ name: "attend-financial-support" });
       break;
     case "Visa & Entry Guide":
-      router.push({ name: "VisaEntryGuidePage" });
+      router.push({ name: "attend-visa-guide" });
       break;
     case "Code of Conduct":
-      router.push({ name: "CodeOfConductPage" });
+      router.push({ name: "attend-code-of-conduct" });
       break;
     case "Venue":
-      router.push({ name: "VenuePage" });
+      router.push({ name: "attend-venue" });
       break;
     case "Transportation":
-      router.push({ name: "TransportationPage" });
+      router.push({ name: "attend-transportation" });
       break;
     case "Campus Map":
-      router.push({ name: "CampusMapPage" });
+      router.push({ name: "attend-campus-map" });
       break;
     default:
       break;
@@ -508,10 +557,10 @@ const handleSubItemClickAttend = (submenu) => {
 const handleSubItemClickDiversity = (submenu) => {
   switch (submenu) {
     case "Mentoring":
-      router.push({ name: "new-to-ismir-mentoring-program-2025" });
+      router.push({ name: "diversity-mentoring" });
       break;
     case "Newcomer Squad":
-      router.push({ name: "NewcomerSquadPage" });
+      router.push({ name: "diversity-newcomer-squad" });
       break;
 
     default:
@@ -522,13 +571,13 @@ const handleSubItemClickDiversity = (submenu) => {
 const handleSubItemClickSatellite = (submenu) => {
   switch (submenu) {
     case "HCMIR":
-      router.push({ name: "HCMIR25Page" });
+      router.push({ name: "satellite-hcmir" });
       break;
     case "DLfM":
-      router.push({ name: "DLfM12thPage" });
+      router.push({ name: "satellite-dlfm" });
       break;
     case "LLM4MA":
-      router.push({ name: "LLM4MAPage" });
+      router.push({ name: "satellite-llm4ma" });
       break;
 
     default:
@@ -539,10 +588,10 @@ const handleSubItemClickSatellite = (submenu) => {
 const handleSubItemClickSponsors = (submenu) => {
   switch (submenu) {
     case "Sponsorship Opportunities":
-      router.push({ name: "SponsorshipOpportunitiesPage" });
+      router.push({ name: "sponsor-opportunities" });
       break;
     case "Meet the Sponsors":
-      router.push({ name: "MeetTheSponsorsPage" });
+      router.push({ name: "sponsor-meet" });
       break;
 
     default:
@@ -553,28 +602,47 @@ const handleSubItemClickSponsors = (submenu) => {
 const handleSubItemClickProgram = (submenu) => {
   switch (submenu) {
     case "Program":
-      router.push({ name: "ProgramPage" });
+      router.push({ name: "program-overview" });
       break;
     case "Keynote":
-      router.push({ name: "KeynotePage" });
+      router.push({ name: "program-keynote" });
       break;
     case "Detailed Schedule":
-      router.push({ name: "DetailedSchedulePage" });
+      router.push({ name: "program-detailed-schedule" });
       break;
     case "Accepted Papers":
-      router.push({ name: "ProgramAcceptedPapersPage" });
+      router.push({ name: "program-accepted-papers" });
       break;
     case "Tutorials":
-      router.push({ name: "ProgramTutorialsPage" });
+      router.push({ name: "program-tutorials" });
       break;
     case "RenCon":
-      router.push({ name: "RenconPage" });
+      router.push({ name: "program-rencon" });
       break;
     case "BARAJI Concert":
-      router.push({ name: "KoreanTraditionalMusicConcertPage" });
+      router.push({ name: "program-baraji-concert" });
       break;
     case "Music":
-      router.push({ name: "ProgramMusic" });
+      router.push({ name: "program-music" });
+      break;
+    case "K-Culture Night":
+      router.push({ name: "program-kculture-night" });
+      break;
+    case "Special Session":
+      router.push({ name: "program-special-session" });
+      break;
+    default:
+      break;
+  }
+};
+
+const handleSubItemClickAbout = (submenu) => {
+  switch (submenu) {
+    case "Organizing Committee":
+      router.push({ name: "about-organizing-committee" });
+      break;
+    case "Volunteers":
+      router.push({ name: "about-volunteers" });
       break;
     default:
       break;

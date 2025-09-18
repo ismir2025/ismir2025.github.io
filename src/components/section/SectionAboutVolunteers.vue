@@ -290,12 +290,29 @@ export default {
   color: #555;
   font-size: 0.9rem;
   margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-height: 120px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+}
+
+/* 스크롤바 스타일링 */
+.volunteer-bio p::-webkit-scrollbar {
+  width: 4px;
+}
+
+.volunteer-bio p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.volunteer-bio p::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.volunteer-bio p::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 /* ===================== General Styles ===================== */
@@ -325,8 +342,7 @@ export default {
   
   .volunteer-bio p {
     font-size: 0.85rem;
-    -webkit-line-clamp: 5;
-    line-clamp: 5;
+    max-height: 100px;
   }
 }
 

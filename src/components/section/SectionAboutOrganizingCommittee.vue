@@ -731,11 +731,6 @@ const LocalOrganizationChairs = [
     affiliation: "KAIST, Korea",
     photo: DanbinaerinHan,
   },
-  {
-    name: "Kirak Kim",
-    affiliation: "KAIST, Korea",
-    photo: KirakKim,
-  },
 ];
 const SocialMediaChairs = [
   {
@@ -750,6 +745,11 @@ const VolunteerChairs = [
     name: "Minsuk Choi",
     affiliation: "KAIST",
     photo: MinseokChoi,
+  },
+  {
+    name: "Kirak Kim",
+    affiliation: "KAIST, Korea",
+    photo: KirakKim,
   },
 ];
 

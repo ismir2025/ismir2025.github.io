@@ -519,6 +519,12 @@ import JongminJung from "@/assets/Chairs/fhd/Jongmin_Jung.webp";
 import jiyunPark from "@/assets/Chairs/fhd/jiyunPark.webp";
 import EunjinChoi from "@/assets/Chairs/fhd/EunjinChoi.webp";
 import GeoffroyPeeters from "@/assets/Chairs/fhd/GeoffroyPeeters.webp";
+import SeinLee from "@/assets/Chairs/SeinLee.png";
+import JongsooKim from "@/assets/Chairs/JongsooKim.png";
+import HyunsooKim from "@/assets/Chairs/hyunsooKim.png";
+import HayeonBang from "@/assets/Chairs/HayeonBang.png";
+import DanbinaerinHan from "@/assets/Chairs/DanbinaerinHan.png";
+import KirakKim from "@/assets/Chairs/kirakKim.png";
 
 const GeneralChairs = [
   {
@@ -692,13 +698,43 @@ const WebChairDesignerChairs = [
 const LocalOrganizationChairs = [
   {
     name: "Jiyun Park",
-    affiliation: "KAIST",
+    affiliation: "KAIST, Korea",
     photo: jiyunPark,
   },
   {
     name: "Eunjin Choi",
-    affiliation: "KAIST",
+    affiliation: "KAIST, Korea",
     photo: EunjinChoi,
+  },
+  {
+    name: "Sein Lee",
+    affiliation: "KAIST, Korea",
+    photo: SeinLee,
+  },
+  {
+    name: "Jongsoo Kim",
+    affiliation: "KAIST, Korea",
+    photo: JongsooKim,
+  },
+  {
+    name: "Hounsu Kim",
+    affiliation: "KAIST, Korea",
+    photo: HyunsooKim,
+  },
+  {
+    name: "Hayeon Bang",
+    affiliation: "KAIST, Korea",
+    photo: HayeonBang,
+  },
+  {
+    name: "Danbinaerin Han",
+    affiliation: "KAIST, Korea",
+    photo: DanbinaerinHan,
+  },
+  {
+    name: "Kirak Kim",
+    affiliation: "KAIST, Korea",
+    photo: KirakKim,
   },
 ];
 const SocialMediaChairs = [

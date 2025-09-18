@@ -132,6 +132,9 @@ const titleList = ref([
   { path: "detailed-schedule", title: "Detailed Schedule", src: "k1.webp" },
   { path: "korean-traditional-music-concert", title: "Korean Traditional Music Concert", src: "k1.webp" },
   { path: "program-music", title: "Music", src: "k1.webp" },
+  { path: "program-kculture-night", title: "K-Culture Night", src: "k1.webp" },
+  { path: "program-special-session", title: "Special Session", src: "k1.webp" },
+  { path: "volunteers", title: "Volunteers", src: "k1.webp" },
 ]);
 
 onMounted(async () => {

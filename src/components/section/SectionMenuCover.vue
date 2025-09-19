@@ -54,39 +54,84 @@ const imagePath = img; // Use the imported image
 
 const titleList = ref([
   { path: "", title: "Home", src: "k1.webp" },
+  
+  // About
   {
-    path: "organizing-committee",
+    path: "about-organizing-committee",
     title: "Organizing Committee",
     src: "k1.webp",
   },
   {
-    path: "Registration",
-    title: "Registration",
+    path: "about-volunteers",
+    title: "Volunteers",
     src: "k1.webp",
   },
+  
+  // Program
+  { path: "program", title: "Program", src: "k1.webp" },
+  { path: "program-keynote", title: "Keynote", src: "k1.webp" },
+  { path: "program-accepted-papers", title: "Accepted Papers", src: "k1.webp" },
+  { path: "program-detailed-schedule", title: "Detailed Schedule", src: "k1.webp" },
+  { path: "program-tutorials", title: "Tutorials", src: "k1.webp" },
+  { path: "program-rencon", title: "RenCon", src: "k1.webp" },
+  { path: "program-music", title: "Music", src: "k1.webp" },
+  { path: "program-kculture-night", title: "K-Culture Night", src: "k1.webp" },
+  { path: "program-special-session", title: "Special Session", src: "k1.webp" },
+  { path: "program-baraji-concert", title: "Korean Traditional Music Concert", src: "k1.webp" },
+  
+  // Call For
+  { path: "call-for-papers", title: "Call For Papers", src: "k1.webp" },
+  {
+    path: "call-for-late-breaking-demo",
+    title: "Call For Late-Breaking Demo",
+    src: "k1.webp",
+  },
+  { path: "call-for-tutorials", title: "Call For Tutorials", src: "k1.webp" },
+  { path: "call-for-music", title: "Call For Music", src: "k1.webp" },
+  { path: "call-for-volunteers", title: "Call For Volunteers", src: "k1.webp" },
+  
+  // Guidelines
+  { path: "author-guidelines", title: "Author Guidelines", src: "k1.webp" },
   {
     path: "presenter-guidelines",
     title: "Presenter Guidelines",
     src: "k1.webp",
   },
-  { path: "program", title: "Program", src: "k1.webp" },
-  { path: "keynote", title: "Keynote", src: "k1.webp" },
-  { path: "program-at-glance", title: "Program at Glance", src: "k1.webp" },
+  
+  // Attend
   {
-    path: "keynote-presentations",
-    title: "Keynote Presentations",
+    path: "attend-registration",
+    title: "Registration",
     src: "k1.webp",
   },
-  { path: "accommodation", title: "Accommodation", src: "k1.webp" },
-  { path: "financial-support", title: "Financial Support", src: "k1.webp" },
-  { path: "HCMIR25Page", title: "HCMIR 2025", src: "k1.webp" },
-  { path: "DLfM12thPage", title: "12th DLfM", src: "k1.webp" },
-  { path: "LLM4MAPage", title: "LLM4MA", src: "k1.webp" },
-  { path: "accepted-papers", title: "Accepted Papers", src: "k1.webp" },
-  { path: "program-tutorials", title: "Tutorials", src: "k1.webp" },
-  { path: "rencon", title: "RenCon", src: "k1.webp" },
-  { path: "satelite-events", title: "Satelite Events", src: "k1.webp" },
-  { path: "code-of-conduct", title: "Code of Conduct", src: "k1.webp" },
+  { path: "attend-accommodation", title: "Accommodation", src: "k1.webp" },
+  { path: "attend-financial-support", title: "Financial Support", src: "k1.webp" },
+  { path: "attend-code-of-conduct", title: "Code of Conduct", src: "k1.webp" },
+  { path: "attend-visa-entry-guide", title: "Visa & Entry Guide", src: "k1.webp" },
+  { path: "attend-venue", title: "Venue", src: "k1.webp" },
+  { path: "attend-transportation", title: "Transportation", src: "k1.webp" },
+  { path: "attend-airport-to-daejeon", title: "Airport to/from Daejeon", src: "k1.webp" },
+  { path: "attend-local-transportation", title: "Local Transportation in Daejeon", src: "k1.webp" },
+  { path: "attend-campus-map", title: "Campus Map", src: "k1.webp" },
+  
+  // Satellite Events
+  { path: "satellite-hcmir25", title: "HCMIR 2025", src: "k1.webp" },
+  { path: "satellite-dlfm12th", title: "12th DLfM", src: "k1.webp" },
+  { path: "satellite-llm4ma", title: "LLM4MA", src: "k1.webp" },
+  
+  // Diversity
+  {
+    path: "diversity-mentoring",
+    title: "Mentoring",
+    src: "k1.webp",
+  },
+  {
+    path: "diversity-newcomer-squad",
+    title: "Newcomer Squad",
+    src: "k1.webp",
+  },
+  
+  // Sponsorship
   {
     path: "sponsorship-opportunities",
     title: "Sponsorship Opportunities",
@@ -97,45 +142,6 @@ const titleList = ref([
     title: "Meet the Sponsors",
     src: "k1.webp",
   },
-  { path: "cfp", title: "Call For Papers", src: "k1.webp" },
-  {
-    path: "call-for-lbd",
-    title: "Call For Late-Breaking Demo",
-    src: "k1.webp",
-  },
-  { path: "call-for-tutorials", title: "Call For Tutorials", src: "k1.webp" },
-  { path: "call-for-music", title: "Call For Music", src: "k1.webp" },
-  { path: "call-for-volunteers", title: "Call For Volunteers", src: "k1.webp" },
-  { path: "author-guidelines", title: "Author Guidelines", src: "k1.webp" },
-
-  { path: "venue-page", title: "Venue", src: "k1.webp" },
-  { path: "airport-to-daejeon", title: "Airport to/from Daejeon", src: "k1.webp" },
-  { path: "local-transportation", title: "Local Transportation in Daejeon", src: "k1.webp" },
-  { path: "visa-entry-guide", title: "Visa & Entry Guide", src: "k1.webp" },
-  {
-    path: "new-to-ismir-mentoring-program-2025",
-    title: "Mentoring",
-    src: "k1.webp",
-  },
-  {
-    path: "newcomer-squad",
-    title: "Newcomer Squad",
-    src: "k1.webp",
-  },
-  {
-    path: "manuscript-accessibility",
-    title: "Manuscript Accessibility",
-    src: "k1.webp",
-  },
-  { path: "contact", title: "Contact Us", src: "k1.webp" },
-  { path: "important-dates", title: "Important Dates", src: "k1.webp" },
-  { path: "campus-map", title: "Campus Map", src: "k1.webp" },
-  { path: "detailed-schedule", title: "Detailed Schedule", src: "k1.webp" },
-  { path: "korean-traditional-music-concert", title: "Korean Traditional Music Concert", src: "k1.webp" },
-  { path: "program-music", title: "Music", src: "k1.webp" },
-  { path: "program-kculture-night", title: "K-Culture Night", src: "k1.webp" },
-  { path: "program-special-session", title: "Special Session", src: "k1.webp" },
-  { path: "volunteers", title: "Volunteers", src: "k1.webp" },
 ]);
 
 onMounted(async () => {

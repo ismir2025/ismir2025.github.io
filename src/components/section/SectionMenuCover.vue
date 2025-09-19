@@ -109,7 +109,8 @@ const titleList = ref([
   { path: "author-guidelines", title: "Author Guidelines", src: "k1.webp" },
 
   { path: "venue-page", title: "Venue", src: "k1.webp" },
-  { path: "transportation-page", title: "Transportation", src: "k1.webp" },
+  { path: "airport-to-daejeon", title: "Airport to/from Daejeon", src: "k1.webp" },
+  { path: "local-transportation", title: "Local Transportation in Daejeon", src: "k1.webp" },
   { path: "visa-entry-guide", title: "Visa & Entry Guide", src: "k1.webp" },
   {
     path: "new-to-ismir-mentoring-program-2025",

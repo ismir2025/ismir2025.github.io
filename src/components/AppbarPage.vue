@@ -440,7 +440,8 @@ const attendSubItems = ref([
   "Visa & Entry Guide",
   "Code of Conduct",
   "Venue",
-  "Transportation",
+  "Airport to/from Daejeon",
+  "Local Transportation in Daejeon",
   "Campus Map",
 ]);
 
@@ -543,8 +544,11 @@ const handleSubItemClickAttend = (submenu) => {
     case "Venue":
       router.push({ name: "attend-venue" });
       break;
-    case "Transportation":
-      router.push({ name: "attend-transportation" });
+    case "Airport to/from Daejeon":
+      router.push({ name: "attend-airport-to-daejeon" });
+      break;
+    case "Local Transportation in Daejeon":
+      router.push({ name: "attend-local-transportation" });
       break;
     case "Campus Map":
       router.push({ name: "attend-campus-map" });

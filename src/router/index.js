@@ -32,6 +32,8 @@ import VisaEntryGuidePage from '../views/VisaEntryGuide.vue';
 import AttendVenuePage from '../views/AttendVenuePage.vue';
 
 import AttendTransportationPage from '../views/AttendTransportationPage.vue';
+import AirportToDaejeonPage from '../views/AirportToDaejeonPage.vue';
+import LocalTransportationPage from '../views/LocalTransportationPage.vue';
 import CampusMapPage from '../views/CampusMapPage.vue';
 
 import OrganizingCommitteePage from '../views/AboutOrganizingCommitteePage.vue';
@@ -47,12 +49,12 @@ const routes = [
     component: Home,
   },
   {
-    path: '/organizing-committee',
+    path: '/about-organizing-committee',
     name: 'about-organizing-committee',
     component: OrganizingCommitteePage,
   },
   {
-    path: '/volunteers',
+    path: '/about-volunteers',
     name: 'about-volunteers',
     component: AboutVolunteersPage,
   },
@@ -63,19 +65,19 @@ const routes = [
     component: ProgramTutorialsPage,
   },
   {
-    path: '/rencon',
+    path: '/program-rencon',
     name: 'program-rencon',
     component: RenconPage,
   },
   
   {
-    path: '/cfp',
+    path: '/call-for-papers',
     name: 'call-for-papers',
     component: CallForPapersPage,
   },
   
   {
-    path: '/call-for-lbd',
+    path: '/call-for-late-breaking-demo',
     name: 'call-for-late-breaking-demo',
     component: CallForLateBreakingDemoPage,
   },
@@ -91,17 +93,17 @@ const routes = [
     component: PresenterGuidelinesPage,
   },
   {
-    path: '/accommodation',
+    path: '/attend-accommodation',
     name: 'attend-accommodation',
     component: AccommodationPage,
   },
   {
-    path: '/Registration',
+    path: '/attend-registration',
     name: 'attend-registration',
     component: RegistrationPage,
   },
   {
-    path: '/financial-support',
+    path: '/attend-financial-support',
     name: 'attend-financial-support',
     component: GrantPage,
   },
@@ -117,27 +119,27 @@ const routes = [
   },
   
   {
-    path: '/HCMIR25Page',
+    path: '/satellite-hcmir25',
     name: 'satellite-hcmir',
     component: HCMIR25Page,
   },
   {
-    path: '/DLfM12thPage',
+    path: '/satellite-dlfm12th',
     name: 'satellite-dlfm',
     component: DLfM12thPage,
   },
   {
-    path: '/LLM4MAPage',
+    path: '/satellite-llm4ma',
     name: 'satellite-llm4ma',
     component: LLM4MAPage,
   },
   {
-    path: '/new-to-ismir-mentoring-program-2025',
+    path: '/diversity-mentoring',
     name: 'diversity-mentoring',
     component: MentoringPage,
   },
   {
-    path: '/newcomer-squad',
+    path: '/diversity-newcomer-squad',
     name: 'diversity-newcomer-squad',
     component: NewcomerSquadPage,
   },
@@ -157,7 +159,7 @@ const routes = [
     component: CallForMusicPage,
   },
   {
-    path: '/korean-traditional-music-concert',
+    path: '/program-baraji-concert',
     name: 'program-baraji-concert',
     component: KoreanTraditionalMusicConcertPage,
   },
@@ -183,43 +185,53 @@ const routes = [
     component: ProgramPage,
   },
   {
-    path: '/keynote',
+    path: '/program-keynote',
     name: 'program-keynote',
     component: KeynotePage,
   },
   {
-    path: '/accepted-papers',
+    path: '/program-accepted-papers',
     name: 'program-accepted-papers',
     component: ProgramAcceptedPapersPage,
   },
   {
-    path: '/detailed-schedule',
+    path: '/program-detailed-schedule',
     name: 'program-detailed-schedule',
     component: DetailedSchedulePage,
   },
   
   {
-    path: '/code-of-conduct',
+    path: '/attend-code-of-conduct',
     name: 'attend-code-of-conduct',
     component: CodeOfConductPage,
   },
   {
-    path: '/visa-entry-guide',
+    path: '/attend-visa-entry-guide',
     name: 'attend-visa-guide',
     component: VisaEntryGuidePage,
   },
   {
-    path: '/venue-page',
+    path: '/attend-venue',
     name: 'attend-venue',
     component: AttendVenuePage,
   },
   {
-    path: '/transportation-page',
+    path: '/attend-transportation',
     name: 'attend-transportation',
     component: AttendTransportationPage,
   },
   {
-    path: '/campus-map',
+    path: '/attend-airport-to-daejeon',
+    name: 'attend-airport-to-daejeon',
+    component: AirportToDaejeonPage,
+  },
+  {
+    path: '/attend-local-transportation',
+    name: 'attend-local-transportation',
+    component: LocalTransportationPage,
+  },
+  {
+    path: '/attend-campus-map',
     name: 'attend-campus-map',
     component: CampusMapPage,
   },

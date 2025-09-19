@@ -1,8 +1,148 @@
 <template>
   <v-row justify="center" id="local-transportation">
     <v-col cols="12" md="8">
-      <!-- Using Bus -->
+      <!-- Transportation Overview -->
       <v-card outlined elevation="0" class="pa-4 my-4">
+        <v-card-title class="text-h4 mb-3 font-weight-bold">
+          Local Transportation Guide
+        </v-card-title>
+        <v-card-text>
+          <!-- Quick Navigation -->
+          <v-card
+            outlined
+            elevation="2"
+            class="pa-6 my-4 transportation-overview-card"
+            style="
+              background: linear-gradient(
+                135deg,
+                #f8f9fa 0%,
+                #e9ecef 100%
+              );
+            "
+          >
+            <v-card-title
+              class="text-h5 mb-4 font-weight-bold text-center"
+            >
+              <v-icon left size="28" color="#004191"
+                >mdi-map-marker-path</v-icon
+              >
+              Quick Navigation
+            </v-card-title>
+
+            <v-container class="transportation-section">
+              <v-row>
+                <v-col cols="12" md="6">
+                  <!-- Using Bus -->
+                  <v-row
+                    class="table-row styled-row mb-2"
+                    style="cursor: pointer"
+                    @click="scrollToSection('using-bus')"
+                  >
+                    <v-col
+                      cols="3"
+                      class="text-center font-weight-bold d-flex align-center justify-center"
+                    >
+                      <v-chip small color="primary" text-color="white">
+                        <v-icon small left>mdi-bus</v-icon>
+                        Bus
+                      </v-chip>
+                    </v-col>
+                    <v-col
+                      cols="9"
+                      class="d-flex align-center"
+                      style="color: #000000; text-decoration: underline"
+                    >
+                      Using Bus & Free Transfer System
+                    </v-col>
+                  </v-row>
+
+                  <!-- K.ride Taxi -->
+                  <v-row
+                    class="table-row styled-row mb-2"
+                    style="cursor: pointer"
+                    @click="scrollToSection('kride-guide')"
+                  >
+                    <v-col
+                      cols="3"
+                      class="text-center font-weight-bold d-flex align-center justify-center"
+                    >
+                      <v-chip small color="success" text-color="white">
+                        <v-icon small left>mdi-taxi</v-icon>
+                        Taxi
+                      </v-chip>
+                    </v-col>
+                    <v-col
+                      cols="9"
+                      class="d-flex align-center"
+                      style="color: #000000; text-decoration: underline"
+                    >
+                      K.ride for Taxi use in Korea
+                    </v-col>
+                  </v-row>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <!-- T-Money Guide -->
+                  <v-row
+                    class="table-row styled-row mb-2"
+                    style="cursor: pointer"
+                    @click="scrollToSection('tmoney-guide')"
+                  >
+                    <v-col
+                      cols="3"
+                      class="text-center font-weight-bold d-flex align-center justify-center"
+                    >
+                      <v-chip small color="info" text-color="white">
+                        <v-icon small left>mdi-credit-card</v-icon>
+                        Card
+                      </v-chip>
+                    </v-col>
+                    <v-col
+                      cols="9"
+                      class="d-flex align-center"
+                      style="color: #000000; text-decoration: underline"
+                    >
+                      T-Money guide for bus and taxi
+                    </v-col>
+                  </v-row>
+
+                  <!-- Using Bicycle -->
+                  <v-row
+                    class="table-row styled-row mb-2"
+                    style="cursor: pointer"
+                    @click="scrollToSection('using-bicycle')"
+                  >
+                    <v-col
+                      cols="3"
+                      class="text-center font-weight-bold d-flex align-center justify-center"
+                    >
+                      <v-chip small color="orange" text-color="white">
+                        <v-icon small left>mdi-bicycle</v-icon>
+                        Bike
+                      </v-chip>
+                    </v-col>
+                    <v-col
+                      cols="9"
+                      class="d-flex align-center"
+                      style="color: #000000; text-decoration: underline"
+                    >
+                      Using Bicycle (Tashu Service)
+                    </v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-container>
+            <br />
+            <v-divider></v-divider>
+            <br />
+          </v-card>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
+      <!-- Using Bus -->
+      <v-card outlined elevation="0" class="pa-4 my-4" id="using-bus">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
           >Using Bus</v-card-title
         >
@@ -621,7 +761,7 @@
       </v-card>
 
       <!-- Using Bicycle -->
-      <v-card outlined elevation="0" class="pa-4 my-4">
+      <v-card outlined elevation="0" class="pa-4 my-4" id="using-bicycle">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
           >Using Bicycle</v-card-title
         >
@@ -1638,5 +1778,32 @@ a {
 
 .transfer-conditions li {
   margin-bottom: 8px;
+}
+
+/* Transportation overview styling */
+.transportation-overview-card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
+}
+
+.transportation-section {
+  padding: 0 8px;
+}
+
+/* Enhanced mobile navigation */
+@media (max-width: 768px) {
+  .transportation-overview-card .v-col {
+    padding: 4px 8px;
+  }
+  
+  .transportation-section .table-row .v-col:first-child {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  .transportation-section .table-row .v-col:last-child {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
 }
 </style>

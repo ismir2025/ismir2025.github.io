@@ -23,6 +23,238 @@
         <br />
       </v-card>
 
+      <!-- Routes Overview -->
+      <v-card outlined elevation="0" class="pa-4 my-4">
+        <v-card-title class="text-h4 mb-3 font-weight-bold">
+          Routes Overview
+        </v-card-title>
+        <v-card-text>
+          <!-- Routes Overview Navigation -->
+          <v-card
+            outlined
+            elevation="2"
+            class="pa-6 my-4 routes-overview-card"
+            style="
+              background: linear-gradient(
+                135deg,
+                #f8f9fa 0%,
+                #e9ecef 100%
+              );
+            "
+          >
+            <v-card-title
+              class="text-h5 mb-4 font-weight-bold text-center"
+            >
+              <v-icon left size="28" color="#004191"
+                >mdi-map-marker-path</v-icon
+              >
+              Quick Navigation
+            </v-card-title>
+
+            <!-- Arrival Routes Section -->
+            <v-container class="routes-section mb-5">
+              <v-row class="mb-3">
+                <v-col cols="12">
+                  <v-card-subtitle
+                    class="text-h6 mb-3 font-weight-bold d-flex align-center"
+                  >
+                    <v-icon left color="#28a745" size="20"
+                      >mdi-airplane-landing</v-icon
+                    >
+                    <span class="section-title"
+                      >Arrival Routes (Airport → KAIST)</span
+                    >
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
+
+              <!-- Route 1 -->
+              <v-row
+                class="table-row styled-row mb-2"
+                style="cursor: pointer"
+                @click="scrollToSection('route-1')"
+              >
+                <v-col
+                  cols="3"
+                  md="2"
+                  class="text-center font-weight-bold d-flex align-center justify-center"
+                >
+                  <v-chip small color="primary" text-color="white">
+                    <v-icon small left>mdi-star</v-icon>
+                    Route 1
+                  </v-chip>
+                </v-col>
+                <v-col
+                  cols="9"
+                  md="10"
+                  class="d-flex align-center"
+                  style="color: #000000; text-decoration: underline"
+                >
+                  <span class="route-text-desktop d-none d-md-inline">Incheon International Airport → Daejeon Government Complex → KAIST</span>
+                  <span class="route-text-mobile d-inline d-md-none">Incheon Airport → Daejeon Gov → KAIST</span>
+                </v-col>
+              </v-row>
+
+              <!-- Route 2 -->
+              <v-row
+                class="table-row styled-row mb-2"
+                style="cursor: pointer"
+                @click="scrollToSection('route-2')"
+              >
+                <v-col
+                  cols="3"
+                  md="2"
+                  class="text-center font-weight-bold d-flex align-center justify-center"
+                >
+                  <v-chip small outlined>Route 2</v-chip>
+                </v-col>
+                <v-col
+                  cols="9"
+                  md="10"
+                  class="d-flex align-center"
+                  style="color: #000000; text-decoration: underline"
+                >
+                  <span class="route-text-desktop d-none d-md-inline">Incheon International Airport → Seoul Station → Daejeon Station → KAIST</span>
+                  <span class="route-text-mobile d-inline d-md-none">Incheon Airport → Seoul → Daejeon → KAIST</span>
+                </v-col>
+              </v-row>
+
+              <!-- Route 3 -->
+              <v-row
+                class="table-row styled-row mb-2"
+                style="cursor: pointer"
+                @click="scrollToSection('route-3')"
+              >
+                <v-col
+                  cols="3"
+                  md="2"
+                  class="text-center font-weight-bold d-flex align-center justify-center"
+                >
+                  <v-chip small outlined>Route 3</v-chip>
+                </v-col>
+                <v-col
+                  cols="9"
+                  md="10"
+                  class="d-flex align-center"
+                  style="color: #000000; text-decoration: underline"
+                >
+                  <span class="route-text-desktop d-none d-md-inline">Gimpo International Airport → Seoul Station → Daejeon Station → KAIST</span>
+                  <span class="route-text-mobile d-inline d-md-none">Gimpo Airport → Seoul → Daejeon → KAIST</span>
+                </v-col>
+              </v-row>
+            </v-container>
+
+            <!-- Divider -->
+            <v-divider class="my-4"></v-divider>
+
+            <!-- Return Routes Section -->
+            <v-container class="routes-section">
+              <v-row class="mb-3">
+                <v-col cols="12">
+                  <v-card-subtitle
+                    class="text-h6 mb-3 font-weight-bold d-flex align-center"
+                  >
+                    <v-icon left color="#dc3545" size="20"
+                      >mdi-airplane-takeoff</v-icon
+                    >
+                    <span class="section-title"
+                      >Return Routes (KAIST → Airport)</span
+                    >
+                  </v-card-subtitle>
+                </v-col>
+              </v-row>
+
+              <!-- Route 1 Return -->
+              <v-row
+                class="table-row styled-row mb-2"
+                style="cursor: pointer"
+                @click="scrollToSection('route-1-return')"
+              >
+                <v-col
+                  cols="3"
+                  md="2"
+                  class="text-center font-weight-bold d-flex align-center justify-center"
+                >
+                  <v-chip small color="warning" text-color="white">
+                    <v-icon small left>mdi-alert</v-icon>
+                    Route 1
+                  </v-chip>
+                </v-col>
+                <v-col
+                  cols="9"
+                  md="10"
+                  class="d-flex align-center"
+                  style="color: #000000; text-decoration: underline"
+                >
+                  <span class="route-text-desktop d-none d-md-inline">KAIST → Daejeon Government Complex → Incheon International Airport</span>
+                  <span class="route-text-mobile d-inline d-md-none">KAIST → Daejeon Gov → Incheon Airport</span>
+                </v-col>
+              </v-row>
+
+              <!-- Route 2 Return -->
+              <v-row
+                class="table-row styled-row mb-2"
+                style="cursor: pointer"
+                @click="scrollToSection('route-2-return')"
+              >
+                <v-col
+                  cols="3"
+                  md="2"
+                  class="text-center font-weight-bold d-flex align-center justify-center"
+                >
+                  <v-chip small color="success" text-color="white">
+                    <v-icon small left>mdi-check</v-icon>
+                    Route 2
+                  </v-chip>
+                </v-col>
+                <v-col
+                  cols="9"
+                  md="10"
+                  class="d-flex align-center"
+                  style="color: #000000; text-decoration: underline"
+                >
+                  <span class="route-text-desktop d-none d-md-inline">KAIST → Daejeon Station → Seoul Station → Incheon International Airport</span>
+                  <span class="route-text-mobile d-inline d-md-none">KAIST → Daejeon → Seoul → Incheon Airport</span>
+                </v-col>
+              </v-row>
+
+              <!-- Route 3 Return -->
+              <v-row
+                class="table-row styled-row mb-2"
+                style="cursor: pointer"
+                @click="scrollToSection('route-2-return')"
+              >
+                <v-col
+                  cols="3"
+                  md="2"
+                  class="text-center font-weight-bold d-flex align-center justify-center"
+                >
+                  <v-chip small color="success" text-color="white">
+                    <v-icon small left>mdi-check</v-icon>
+                    Route 3
+                  </v-chip>
+                </v-col>
+                <v-col
+                  cols="9"
+                  md="10"
+                  class="d-flex align-center"
+                  style="color: #000000; text-decoration: underline"
+                >
+                  <span class="route-text-desktop d-none d-md-inline">KAIST → Daejeon Station → Seoul Station → Gimpo International Airport</span>
+                  <span class="route-text-mobile d-inline d-md-none">KAIST → Daejeon → Seoul → Gimpo Airport</span>
+                </v-col>
+              </v-row>
+            </v-container>
+            <br />
+            <v-divider></v-divider>
+            <br />
+          </v-card>
+        </v-card-text>
+        <br />
+        <v-divider></v-divider>
+        <br />
+      </v-card>
+
       <!-- Route from Airport to KAIST -->
       <v-card outlined elevation="0" class="pa-4 my-4">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
@@ -65,227 +297,6 @@
                       </v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
-
-                  <!-- Routes Overview - Table of Contents -->
-                  <v-card
-                    outlined
-                    elevation="2"
-                    class="pa-6 my-4 routes-overview-card"
-                    style="
-                      background: linear-gradient(
-                        135deg,
-                        #f8f9fa 0%,
-                        #e9ecef 100%
-                      );
-                    "
-                  >
-                    <v-card-title
-                      class="text-h4 mb-4 font-weight-bold text-center"
-                    >
-                      <v-icon left size="32" color="#004191"
-                        >mdi-map-marker-path</v-icon
-                      >
-                      Routes Overview
-                    </v-card-title>
-
-                    <!-- Arrival Routes Section -->
-                    <v-container class="routes-section mb-5">
-                      <v-row class="mb-3">
-                        <v-col cols="12">
-                          <v-card-subtitle
-                            class="text-h5 mb-3 font-weight-bold d-flex align-center"
-                          >
-                            <v-icon left color="#28a745" size="24"
-                              >mdi-airplane-landing</v-icon
-                            >
-                            <span class="section-title"
-                              >Arrival Routes (Airport → KAIST)</span
-                            >
-                          </v-card-subtitle>
-                        </v-col>
-                      </v-row>
-
-                      <!-- Route 1 -->
-                      <v-row
-                        class="table-row styled-row mb-2"
-                        style="cursor: pointer"
-                        @click="scrollToSection('route-1')"
-                      >
-                        <v-col
-                          cols="3"
-                          md="2"
-                          class="text-center font-weight-bold d-flex align-center justify-center"
-                        >
-                          <v-chip small color="primary" text-color="white">
-                            <v-icon small left>mdi-star</v-icon>
-                            Route 1
-                          </v-chip>
-                        </v-col>
-                        <v-col
-                          cols="9"
-                          md="10"
-                          class="d-flex align-center"
-                          style="color: #000000; text-decoration: underline"
-                        >
-                          Incheon International Airport → Daejeon Government
-                          Complex → KAIST
-                        </v-col>
-                      </v-row>
-
-                      <!-- Route 2 -->
-                      <v-row
-                        class="table-row styled-row mb-2"
-                        style="cursor: pointer"
-                        @click="scrollToSection('route-2')"
-                      >
-                        <v-col
-                          cols="3"
-                          md="2"
-                          class="text-center font-weight-bold d-flex align-center justify-center"
-                        >
-                          <v-chip small outlined>Route 2</v-chip>
-                        </v-col>
-                        <v-col
-                          cols="9"
-                          md="10"
-                          class="d-flex align-center"
-                          style="color: #000000; text-decoration: underline"
-                        >
-                          Incheon International Airport → Seoul Station →
-                          Daejeon Station → KAIST
-                        </v-col>
-                      </v-row>
-
-                      <!-- Route 3 -->
-                      <v-row
-                        class="table-row styled-row mb-2"
-                        style="cursor: pointer"
-                        @click="scrollToSection('route-3')"
-                      >
-                        <v-col
-                          cols="3"
-                          md="2"
-                          class="text-center font-weight-bold d-flex align-center justify-center"
-                        >
-                          <v-chip small outlined>Route 3</v-chip>
-                        </v-col>
-                        <v-col
-                          cols="9"
-                          md="10"
-                          class="d-flex align-center"
-                          style="color: #000000; text-decoration: underline"
-                        >
-                          Gimpo International Airport → Seoul Station → Daejeon
-                          Station → KAIST
-                        </v-col>
-                      </v-row>
-                    </v-container>
-
-                    <!-- Divider -->
-                    <v-divider class="my-4"></v-divider>
-
-                    <!-- Return Routes Section -->
-                    <v-container class="routes-section">
-                      <v-row class="mb-3">
-                        <v-col cols="12">
-                          <v-card-subtitle
-                            class="text-h5 mb-3 font-weight-bold d-flex align-center"
-                          >
-                            <v-icon left color="#dc3545" size="24"
-                              >mdi-airplane-takeoff</v-icon
-                            >
-                            <span class="section-title"
-                              >Return Routes (KAIST → Airport)</span
-                            >
-                          </v-card-subtitle>
-                        </v-col>
-                      </v-row>
-
-                      <!-- Route 1 Return -->
-                      <v-row
-                        class="table-row styled-row mb-2"
-                        style="cursor: pointer"
-                        @click="scrollToSection('route-1-return')"
-                      >
-                        <v-col
-                          cols="3"
-                          md="2"
-                          class="text-center font-weight-bold d-flex align-center justify-center"
-                        >
-                          <v-chip small color="warning" text-color="white">
-                            <v-icon small left>mdi-alert</v-icon>
-                            Route 1
-                          </v-chip>
-                        </v-col>
-                        <v-col
-                          cols="9"
-                          md="10"
-                          class="d-flex align-center"
-                          style="color: #000000; text-decoration: underline"
-                        >
-                          KAIST → Daejeon Government Complex → Incheon
-                          International Airport
-                        </v-col>
-                      </v-row>
-
-                      <!-- Route 2 Return -->
-                      <v-row
-                        class="table-row styled-row mb-2"
-                        style="cursor: pointer"
-                        @click="scrollToSection('route-2-return')"
-                      >
-                        <v-col
-                          cols="3"
-                          md="2"
-                          class="text-center font-weight-bold d-flex align-center justify-center"
-                        >
-                          <v-chip small color="success" text-color="white">
-                            <v-icon small left>mdi-check</v-icon>
-                            Route 2
-                          </v-chip>
-                        </v-col>
-                        <v-col
-                          cols="9"
-                          md="10"
-                          class="d-flex align-center"
-                          style="color: #000000; text-decoration: underline"
-                        >
-                          KAIST → Daejeon Station → Seoul Station → Incheon
-                          International Airport
-                        </v-col>
-                      </v-row>
-
-                      <!-- Route 3 Return -->
-                      <v-row
-                        class="table-row styled-row mb-2"
-                        style="cursor: pointer"
-                        @click="scrollToSection('route-2-return')"
-                      >
-                        <v-col
-                          cols="3"
-                          md="2"
-                          class="text-center font-weight-bold d-flex align-center justify-center"
-                        >
-                          <v-chip small color="success" text-color="white">
-                            <v-icon small left>mdi-check</v-icon>
-                            Route 3
-                          </v-chip>
-                        </v-col>
-                        <v-col
-                          cols="9"
-                          md="10"
-                          class="d-flex align-center"
-                          style="color: #000000; text-decoration: underline"
-                        >
-                          KAIST → Daejeon Station → Seoul Station → Gimpo
-                          International Airport
-                        </v-col>
-                      </v-row>
-                    </v-container>
-                    <br />
-                    <v-divider></v-divider>
-                    <br />
-                  </v-card>
 
                   <v-list-item>
                     <v-list-item-icon>
@@ -3004,5 +3015,48 @@ a {
 
 .transfer-conditions li {
   margin-bottom: 8px;
+}
+
+/* Route text responsive styling */
+.route-text-desktop,
+.route-text-mobile {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.route-text-mobile {
+  font-size: 0.9rem;
+}
+
+/* Transportation overview styling */
+.transportation-overview-card {
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
+}
+
+.transportation-section {
+  padding: 0 8px;
+}
+
+/* Enhanced mobile navigation */
+@media (max-width: 768px) {
+  .transportation-overview-card .v-col {
+    padding: 4px 8px;
+  }
+  
+  .route-text-mobile {
+    font-size: 0.85rem;
+  }
+  
+  .transportation-section .table-row .v-col:first-child {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  
+  .transportation-section .table-row .v-col:last-child {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
 }
 </style>

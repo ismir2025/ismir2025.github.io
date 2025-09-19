@@ -7,7 +7,7 @@
 
 <script>
 import SectionMenuCover from "@/components/section/SectionMenuCover.vue";
-import SectionLocalTransportation from "@/components/section/SectionLocalTransportation.vue";
+import SectionLocalTransportation from "@/components/section/SectionAttendLocalTransportation.vue";
 
 export default {
   name: "LocalTransportationPage",

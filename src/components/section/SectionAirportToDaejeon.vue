@@ -3,21 +3,42 @@
     <v-col cols="12" md="8">
       <!-- ISMIR 2025 Access Guide PDF -->
       <v-card outlined elevation="0" class="pa-4 my-4">
-        <v-card-title class="text-h4 mb-3 font-weight-bold"
-          >ISMIR 2025 Access Guide</v-card-title
+        <v-card-title
+          class="text-h4 mb-3 font-weight-bold highlight-text d-flex align-center"
         >
-        <v-card-text class="text-body">
-          <v-btn
-            color="primary"
-            href="/ISMIR2025_Acess Guide.pdf"
-            target="_blank"
-            large
-            class="mt-2"
+          <v-icon left size="32" color="#004191" class="mr-3"
+            >mdi-map-marker-path</v-icon
           >
-            <v-icon left>mdi-file-pdf-box</v-icon>
-            Download ISMIR 2025 Access Guide (PDF)
-          </v-btn>
+          ISMIR 2025 Access Guide
+        </v-card-title>
+
+        <v-card-text class="text-body pb-0">
+          <v-alert type="info" variant="tonal" density="compact" class="mb-4">
+            <div class="text-body-1 mb-2 font-weight-medium">
+              Complete transportation guide from airports to Daejeon with
+              detailed routes and practical tips.
+            </div>
+            <div class="text-body-2">
+              Essential information for international attendees traveling to
+              KAIST.
+            </div>
+          </v-alert>
+
+          <div class="d-flex justify-center justify-md-start">
+            <v-btn
+              style="background-color: #004191; color: white"
+              href="/ISMIR2025_Acess Guide.pdf"
+              target="_blank"
+              size="large"
+              elevation="2"
+              class="access-guide-btn"
+            >
+              <v-icon left>mdi-file-pdf-box</v-icon>
+              Download PDF Guide
+            </v-btn>
+          </div>
         </v-card-text>
+
         <br />
         <v-divider></v-divider>
         <br />
@@ -32,19 +53,11 @@
           <!-- Routes Overview Navigation -->
           <v-card
             outlined
-            elevation="2"
+            elevation="0"
             class="pa-6 my-4 routes-overview-card"
-            style="
-              background: linear-gradient(
-                135deg,
-                #f8f9fa 0%,
-                #e9ecef 100%
-              );
-            "
+            style="background-color: #f8f9fa; border: 2px solid #e9ecef"
           >
-            <v-card-title
-              class="text-h5 mb-4 font-weight-bold text-center"
-            >
+            <v-card-title class="text-h5 mb-4 font-weight-bold text-center">
               <v-icon left size="28" color="#004191"
                 >mdi-map-marker-path</v-icon
               >
@@ -79,8 +92,8 @@
                   md="2"
                   class="text-center font-weight-bold d-flex align-center justify-center"
                 >
-                  <v-chip small color="primary" text-color="white">
-                    <v-icon small left>mdi-star</v-icon>
+                  <v-chip small style="background-color: #5eed60; color: black">
+                    <v-icon small left color="black">mdi-star</v-icon>
                     Route 1
                   </v-chip>
                 </v-col>
@@ -90,8 +103,13 @@
                   class="d-flex align-center"
                   style="color: #000000; text-decoration: underline"
                 >
-                  <span class="route-text-desktop d-none d-md-inline">Incheon International Airport → Daejeon Government Complex → KAIST</span>
-                  <span class="route-text-mobile d-inline d-md-none">Incheon Airport → Daejeon Gov → KAIST</span>
+                  <span class="route-text-desktop d-none d-md-inline"
+                    >Incheon International Airport → Daejeon Government Complex
+                    → KAIST</span
+                  >
+                  <span class="route-text-mobile d-inline d-md-none"
+                    >Incheon Airport → Daejeon Gov → KAIST</span
+                  >
                 </v-col>
               </v-row>
 
@@ -106,7 +124,14 @@
                   md="2"
                   class="text-center font-weight-bold d-flex align-center justify-center"
                 >
-                  <v-chip small outlined>Route 2</v-chip>
+                  <v-chip
+                    small
+                    style="border-color: #5ebfed; color: black"
+                    outlined
+                  >
+                    <v-icon small left color="#5ebfed">mdi-train</v-icon>
+                    Route 2
+                  </v-chip>
                 </v-col>
                 <v-col
                   cols="9"
@@ -114,8 +139,13 @@
                   class="d-flex align-center"
                   style="color: #000000; text-decoration: underline"
                 >
-                  <span class="route-text-desktop d-none d-md-inline">Incheon International Airport → Seoul Station → Daejeon Station → KAIST</span>
-                  <span class="route-text-mobile d-inline d-md-none">Incheon Airport → Seoul → Daejeon → KAIST</span>
+                  <span class="route-text-desktop d-none d-md-inline"
+                    >Incheon International Airport → Seoul Station → Daejeon
+                    Station → KAIST</span
+                  >
+                  <span class="route-text-mobile d-inline d-md-none"
+                    >Incheon Airport → Seoul → Daejeon → KAIST</span
+                  >
                 </v-col>
               </v-row>
 
@@ -130,7 +160,14 @@
                   md="2"
                   class="text-center font-weight-bold d-flex align-center justify-center"
                 >
-                  <v-chip small outlined>Route 3</v-chip>
+                  <v-chip
+                    small
+                    style="border-color: #ed915e; color: black"
+                    outlined
+                  >
+                    <v-icon small left color="#ed915e">mdi-airplane</v-icon>
+                    Route 3
+                  </v-chip>
                 </v-col>
                 <v-col
                   cols="9"
@@ -138,8 +175,13 @@
                   class="d-flex align-center"
                   style="color: #000000; text-decoration: underline"
                 >
-                  <span class="route-text-desktop d-none d-md-inline">Gimpo International Airport → Seoul Station → Daejeon Station → KAIST</span>
-                  <span class="route-text-mobile d-inline d-md-none">Gimpo Airport → Seoul → Daejeon → KAIST</span>
+                  <span class="route-text-desktop d-none d-md-inline"
+                    >Gimpo International Airport → Seoul Station → Daejeon
+                    Station → KAIST</span
+                  >
+                  <span class="route-text-mobile d-inline d-md-none"
+                    >Gimpo Airport → Seoul → Daejeon → KAIST</span
+                  >
                 </v-col>
               </v-row>
             </v-container>
@@ -175,8 +217,8 @@
                   md="2"
                   class="text-center font-weight-bold d-flex align-center justify-center"
                 >
-                  <v-chip small color="warning" text-color="white">
-                    <v-icon small left>mdi-alert</v-icon>
+                  <v-chip small style="background-color: #edd35e; color: black">
+                    <v-icon small left color="black">mdi-alert</v-icon>
                     Route 1
                   </v-chip>
                 </v-col>
@@ -186,8 +228,13 @@
                   class="d-flex align-center"
                   style="color: #000000; text-decoration: underline"
                 >
-                  <span class="route-text-desktop d-none d-md-inline">KAIST → Daejeon Government Complex → Incheon International Airport</span>
-                  <span class="route-text-mobile d-inline d-md-none">KAIST → Daejeon Gov → Incheon Airport</span>
+                  <span class="route-text-desktop d-none d-md-inline"
+                    >KAIST → Daejeon Government Complex → Incheon International
+                    Airport</span
+                  >
+                  <span class="route-text-mobile d-inline d-md-none"
+                    >KAIST → Daejeon Gov → Incheon Airport</span
+                  >
                 </v-col>
               </v-row>
 
@@ -202,8 +249,8 @@
                   md="2"
                   class="text-center font-weight-bold d-flex align-center justify-center"
                 >
-                  <v-chip small color="success" text-color="white">
-                    <v-icon small left>mdi-check</v-icon>
+                  <v-chip small style="background-color: #5eed60; color: black">
+                    <v-icon small left color="black">mdi-check</v-icon>
                     Route 2
                   </v-chip>
                 </v-col>
@@ -213,8 +260,13 @@
                   class="d-flex align-center"
                   style="color: #000000; text-decoration: underline"
                 >
-                  <span class="route-text-desktop d-none d-md-inline">KAIST → Daejeon Station → Seoul Station → Incheon International Airport</span>
-                  <span class="route-text-mobile d-inline d-md-none">KAIST → Daejeon → Seoul → Incheon Airport</span>
+                  <span class="route-text-desktop d-none d-md-inline"
+                    >KAIST → Daejeon Station → Seoul Station → Incheon
+                    International Airport</span
+                  >
+                  <span class="route-text-mobile d-inline d-md-none"
+                    >KAIST → Daejeon → Seoul → Incheon Airport</span
+                  >
                 </v-col>
               </v-row>
 
@@ -229,8 +281,8 @@
                   md="2"
                   class="text-center font-weight-bold d-flex align-center justify-center"
                 >
-                  <v-chip small color="success" text-color="white">
-                    <v-icon small left>mdi-check</v-icon>
+                  <v-chip small style="background-color: #5eed60; color: black">
+                    <v-icon small left color="black">mdi-check</v-icon>
                     Route 3
                   </v-chip>
                 </v-col>
@@ -240,8 +292,13 @@
                   class="d-flex align-center"
                   style="color: #000000; text-decoration: underline"
                 >
-                  <span class="route-text-desktop d-none d-md-inline">KAIST → Daejeon Station → Seoul Station → Gimpo International Airport</span>
-                  <span class="route-text-mobile d-inline d-md-none">KAIST → Daejeon → Seoul → Gimpo Airport</span>
+                  <span class="route-text-desktop d-none d-md-inline"
+                    >KAIST → Daejeon Station → Seoul Station → Gimpo
+                    International Airport</span
+                  >
+                  <span class="route-text-mobile d-inline d-md-none"
+                    >KAIST → Daejeon → Seoul → Gimpo Airport</span
+                  >
                 </v-col>
               </v-row>
             </v-container>
@@ -262,7 +319,7 @@
         >
         <v-row class="my-4">
           <v-col cols="12">
-            <v-card class="tips-card pa-4" elevation="2">
+            <v-card class="tips-card pa-4" elevation="0" outlined>
               <v-card-title class="text-h6 highlight-text mb-3">
                 <v-icon left color="#004191">mdi-lightbulb-outline</v-icon>
                 Helpful Tips for International Visitors
@@ -410,19 +467,57 @@
         </v-card-title>
         <v-card-text class="text-body">
           You can view the locations of key conference venues and airport bus
-          stops on the map below.
+          stops on the maps linked below. For more details, please refer to the
+          "Venue" section.
           <br /><br />
 
-          <v-btn
-            color="primary"
-            href="https://maps.app.goo.gl/5RB8d6FcahjnnGgg9"
-            target="_blank"
-            large
-            class="mt-2"
+          <strong
+            >Note that Google Maps and Naver Maps use different building names
+            for KAIST, so check the list below to avoid confusion:</strong
           >
-            <v-icon left>mdi-map</v-icon>
-            View Key Locations on Google Maps
-          </v-btn>
+          <ul class="dot-list mt-3 mb-4">
+            <li>
+              KAIST Main Campus Changui Learning Center = Creative Learning
+              Building (E11)
+            </li>
+            <li>KAIST Main Campus Main Hall = KAIST Auditorium (E15)</li>
+          </ul>
+
+          <div class="text-body mb-3">
+            <em
+              >You should access Naver Map link via Naver Map App to view in
+              english.</em
+            >
+          </div>
+
+          <v-row class="mt-4">
+            <v-col cols="12" sm="6">
+              <v-btn
+                style="background-color: #5eed60; color: white"
+                href="https://naver.me/5UTBVCqX"
+                target="_blank"
+                large
+                block
+                class="mb-2"
+              >
+                <v-icon left>mdi-map-marker</v-icon>
+                View Key Locations on Naver Maps
+              </v-btn>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <v-btn
+                style="background-color: #004191; color: white"
+                href="https://maps.app.goo.gl/5RB8d6FcahjnnGgg9"
+                target="_blank"
+                large
+                block
+                class="mb-2"
+              >
+                <v-icon left>mdi-map</v-icon>
+                View Key Locations on Google Maps
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-card-text>
         <br />
         <v-divider></v-divider>
@@ -435,7 +530,12 @@
         >
         <v-card-text class="text-body">
           <v-container class="destination-info mb-4" fluid>
-            <v-card class="pa-4" color="#E6F2FD" elevation="1">
+            <v-card
+              class="pa-4"
+              style="background-color: #f8f9fa; border: 1px solid #e0e0e0"
+              elevation="0"
+              outlined
+            >
               <v-card-title class="text-h6 highlight-text mb-2">
                 <v-icon left color="#004191">mdi-map-marker</v-icon>
                 Destination
@@ -466,7 +566,7 @@
             <v-row>
               <v-col cols="12" class="pl-6">
                 <!-- Step 1 - Bus -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-bus</v-icon>
                     <span class="step-title-text">Step 1 - Bus to Daejeon</span>
@@ -480,8 +580,8 @@
                         <p>
                           Incheon Airport T2 (Terminal 2) → Incheon Airport
                           (Terminal 1) → North Daejeon IC → Daedeok Community
-                          Center → Daejeon Government Complex (Destination)
-                          → Daejeon
+                          Center → Daejeon Government Complex (Destination) →
+                          Daejeon
                         </p>
                         <v-list dense>
                           <v-list-item>
@@ -587,7 +687,7 @@
                             <v-btn
                               href="https://intercitybuse.tmoney.co.kr/"
                               target="_blank"
-                              color="primary"
+                              style="border-color: #004191; color: #004191"
                               outlined
                               small
                               class="ml-2"
@@ -603,12 +703,14 @@
                             <v-btn
                               href="https://www.airport.kr/ap_en/6636/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGYXBfZW4lMkY5MzclMkYxMzgyMzMlMkZhcnRjbFZpZXcuZG8lM0Y%3D"
                               target="_blank"
-                              color="secondary"
+                              style="border-color: #5ebfed; color: #5ebfed"
                               outlined
                               small
                               class="ml-2"
                             >
-                              <v-icon left small>mdi-information-outline</v-icon>
+                              <v-icon left small
+                                >mdi-information-outline</v-icon
+                              >
                               Incheon Airport Bus Information
                             </v-btn>
                           </div>
@@ -622,13 +724,21 @@
                         type="info"
                         outlined
                         class="mb-3"
-                        style="background-color: #2196f3; border-color: #2196f3;"
+                        style="
+                          background-color: #2196f3;
+                          border-color: #2196f3;
+                          color: white;
+                        "
                       >
-                        <div style="color: white; line-height: 1.5;">
-                          If paying with your foreign card is not possible on the online reservation website, you will need to purchase your bus ticket at the ticket booth or a kiosk at the airport instead. For more details, please refer to the on-site reservation guide webpage above.
+                        <div style="color: white; line-height: 1.5">
+                          If paying with your foreign card is not possible on
+                          the online reservation website, you will need to
+                          purchase your bus ticket at the ticket booth or a
+                          kiosk at the airport instead. For more details, please
+                          refer to the on-site reservation guide webpage above.
                         </div>
                       </v-alert>
-                      
+
                       <div class="text-center">
                         <v-img
                           src="@/assets/Transportation/BusTicket.png"
@@ -680,6 +790,28 @@
                                 contain
                                 class="mb-3"
                               ></v-img>
+                              <div class="mt-3">
+                                <v-card-subtitle class="text-h6 mb-2 pa-0"
+                                  >Daejeon Government Complex (Destination)
+                                  Information</v-card-subtitle
+                                >
+                                <p class="text-body">
+                                  Check the picture below to make sure you are
+                                  at the right place. There will be a taxi stand
+                                  right behind the drop-off area.
+                                </p>
+                                <div class="mt-3">
+                                  <v-img
+                                    :src="
+                                      require('@/assets/Transportation/Daejeon Government Complex.png')
+                                    "
+                                    alt="Daejeon Government Complex"
+                                    max-width="100%"
+                                    contain
+                                    class="mb-3"
+                                  ></v-img>
+                                </div>
+                              </div>
                             </div>
                           </v-list-item-content>
                         </v-list-item>
@@ -689,7 +821,7 @@
                 </v-card>
 
                 <!-- Step 2 - Taxi -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-taxi</v-icon>
                     Step 2 - Taxi: Daejeon Government Complex (Daejeon Cheongsa)
@@ -742,7 +874,7 @@
                 </v-card>
 
                 <!-- Step 2 - Intra City Bus -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-bus</v-icon>
                     Step 2 - Intra City Bus: Daejeon Government Complex → KAIST
@@ -752,7 +884,11 @@
                       <v-list-item>
                         <v-list-item-content>
                           <v-list-item-title
-                            >You can take the intra-city bus to come to KAIST (Route No. 604), after landing at Daejeon Government Complex. We recommend using the English version of Naver Map or Kakao Map to check the entire route, including walking directions.</v-list-item-title
+                            >You can take the intra-city bus to come to KAIST
+                            (Route No. 604), after landing at Daejeon Government
+                            Complex. We recommend using the English version of
+                            Naver Map or Kakao Map to check the entire route,
+                            including walking directions.</v-list-item-title
                           >
                         </v-list-item-content>
                       </v-list-item>
@@ -765,26 +901,33 @@
                         <v-list-item>
                           <v-list-item-content>
                             <v-list-item-title
-                              ><strong>Departure:</strong> Daejeon Government Building Intercity Bus Dunsan Bus Stop (Hacha)</v-list-item-title
+                              ><strong>Departure:</strong> Daejeon Government
+                              Building Intercity Bus Dunsan Bus Stop
+                              (Hacha)</v-list-item-title
                             >
                           </v-list-item-content>
                         </v-list-item>
                         <v-list-item>
                           <v-list-item-content>
                             <v-list-item-title
-                              ><strong>Destination:</strong> KAIST Main Campus</v-list-item-title
+                              ><strong>Destination:</strong> KAIST Main
+                              Campus</v-list-item-title
                             >
                           </v-list-item-content>
                         </v-list-item>
                       </v-list>
-                      
+
                       <!-- Bus Schedule Table -->
                       <v-container class="table-container mt-4" fluid>
                         <!-- 헤더 행 -->
                         <v-row class="table-row styled-row table-header">
                           <v-col cols="2" class="text-center">Duration</v-col>
-                          <v-col cols="2" class="text-center">First Departure</v-col>
-                          <v-col cols="3" class="text-center">Last Departure</v-col>
+                          <v-col cols="2" class="text-center"
+                            >First Departure</v-col
+                          >
+                          <v-col cols="3" class="text-center"
+                            >Last Departure</v-col
+                          >
                           <v-col cols="2" class="text-center">Interval</v-col>
                           <v-col cols="3" class="text-center">Fare (KRW)</v-col>
                         </v-row>
@@ -797,11 +940,13 @@
                           <v-col cols="3" class="text-center">1,500</v-col>
                         </v-row>
                       </v-container>
-                      
+
                       <!-- Intra City Bus Image -->
                       <v-container class="text-center mt-4" fluid>
                         <v-img
-                          :src="require('@/assets/Transportation/IntraCityBus.png')"
+                          :src="
+                            require('@/assets/Transportation/IntraCityBus.png')
+                          "
                           alt="Intra City Bus Route Map"
                           contain
                           max-width="80%"
@@ -835,7 +980,7 @@
             <v-row>
               <v-col cols="12" class="pl-6">
                 <!-- Step 1 - Train to Seoul -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-train</v-icon>
                     Step 1 - Train: Incheon International Airport → Seoul
@@ -1129,7 +1274,7 @@
                 </v-card>
 
                 <!-- Step 2 - KTX to Daejeon -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-train</v-icon>
                     Step 2 - Train: Seoul Railway Station → Daejeon Railway
@@ -1173,7 +1318,9 @@
                           <!-- KTX 행 -->
                           <v-row class="table-row styled-row">
                             <v-col cols="2" class="text-center">
-                              <v-chip small color="primary" text-color="white"
+                              <v-chip
+                                small
+                                style="background-color: #004191; color: white"
                                 >KTX</v-chip
                               >
                             </v-col>
@@ -1224,10 +1371,12 @@
                         <v-container class="d-block d-md-none" fluid>
                           <v-card
                             class="mobile-train-info-card pa-4"
-                            elevation="2"
+                            elevation="0"
+                            outlined
                           >
                             <v-card-title class="text-center pb-2">
-                              <v-chip color="primary" text-color="white"
+                              <v-chip
+                                style="background-color: #004191; color: white"
                                 >KTX</v-chip
                               >
                             </v-card-title>
@@ -1381,7 +1530,7 @@
                 </v-card>
 
                 <!-- Step 3 - Taxi to KAIST -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-taxi</v-icon>
                     Step 3 - Taxi: Daejeon Railway Station → KAIST
@@ -1455,7 +1604,7 @@
             <v-row>
               <v-col cols="12" class="pl-6">
                 <!-- Step 1 - Train from Gimpo -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-train</v-icon>
                     Step 1 - Train: Gimpo International Airport → Seoul Railway
@@ -1506,7 +1655,7 @@
                 </v-card>
 
                 <!-- Step 2 - KTX to Daejeon (same as Route 2) -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-train</v-icon>
                     Step 2 - Train: Seoul Railway Station → Daejeon Railway
@@ -1550,7 +1699,9 @@
                           <!-- KTX 행 -->
                           <v-row class="table-row styled-row">
                             <v-col cols="2" class="text-center">
-                              <v-chip small color="primary" text-color="white"
+                              <v-chip
+                                small
+                                style="background-color: #004191; color: white"
                                 >KTX</v-chip
                               >
                             </v-col>
@@ -1601,10 +1752,12 @@
                         <v-container class="d-block d-md-none" fluid>
                           <v-card
                             class="mobile-train-info-card pa-4"
-                            elevation="2"
+                            elevation="0"
+                            outlined
                           >
                             <v-card-title class="text-center pb-2">
-                              <v-chip color="primary" text-color="white"
+                              <v-chip
+                                style="background-color: #004191; color: white"
                                 >KTX</v-chip
                               >
                             </v-card-title>
@@ -1758,7 +1911,7 @@
                 </v-card>
 
                 <!-- Step 3 - Taxi to KAIST (same as Route 2) -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-taxi</v-icon>
                     Step 3 - Taxi: Daejeon Railway Station → KAIST
@@ -1827,7 +1980,6 @@
             <v-row>
               <v-col cols="12">
                 <v-alert type="info" class="mb-4">
-                  <v-icon left>mdi-information</v-icon>
                   <strong
                     >For routes 2 and 3, you can simply take the reverse
                     route.</strong
@@ -1862,7 +2014,7 @@
             <v-row>
               <v-col cols="12" class="pl-6">
                 <!-- Step 1 - Taxi to Bus Terminal -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-taxi</v-icon>
                     <span class="step-title-text"
@@ -1893,7 +2045,7 @@
                 </v-card>
 
                 <!-- Step 2 - Bus to Airport -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4" elevation="0" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-bus</v-icon>
                     <span class="step-title-text"
@@ -1919,9 +2071,9 @@
                           ></v-img>
                         </div>
                         <p>
-                          Daejeon → Daejeon Government Complex (Departure) → Daedeok
-                          Community Center → North Daejeon IC → Incheon Airport
-                          (Terminal 1) → Incheon Airport (Terminal 2)
+                          Daejeon → Daejeon Government Complex (Departure) →
+                          Daedeok Community Center → North Daejeon IC → Incheon
+                          Airport (Terminal 1) → Incheon Airport (Terminal 2)
                         </p>
                       </v-card-text>
                     </v-container>
@@ -1931,17 +2083,27 @@
                         >How to purchase a ticket:</v-card-subtitle
                       >
                       <div class="ml-4">
-                        <p>• <strong>Online Reservation Website:</strong> 
+                        <p>
+                          • <strong>Online Reservation Website:</strong>
                           <a
                             href="https://intercitybuse.tmoney.co.kr/"
                             target="_blank"
                             >https://intercitybuse.tmoney.co.kr/</a
                           >
                         </p>
-                        <p class="ml-4">- <strong>Departure:</strong> Daejeon Gov Complex (airport route)</p>
-                        <p class="ml-4">- <strong>Destination:</strong> Incheon Airport T1 or T2</p>
+                        <p class="ml-4">
+                          - <strong>Departure:</strong> Daejeon Gov Complex
+                          (airport route)
+                        </p>
+                        <p class="ml-4">
+                          - <strong>Destination:</strong> Incheon Airport T1 or
+                          T2
+                        </p>
                         <p>• <strong>Offline Reservation Kiosk</strong></p>
-                        <p class="ml-4">- You can reserve the ticket at the kiosk located inside the Bus Terminal as shown in the picture below.</p>
+                        <p class="ml-4">
+                          - You can reserve the ticket at the kiosk located
+                          inside the Bus Terminal as shown in the picture below.
+                        </p>
                         <div class="mt-3 ml-4">
                           <v-img
                             src="@/assets/Transportation/Kiosk.jpg"
@@ -1950,7 +2112,10 @@
                             class="mx-auto"
                           ></v-img>
                         </div>
-                        <p class="ml-4 mt-3">It is recommended to make a reservation a few days earlier.</p>
+                        <p class="ml-4 mt-3">
+                          It is recommended to make a reservation a few days
+                          earlier.
+                        </p>
                       </div>
                     </v-container>
                   </v-card-text>
@@ -2003,7 +2168,7 @@
         <v-card-text class="text-body">
           <v-row class="my-4">
             <v-col cols="12">
-              <v-card class="car-rental-card pa-4" elevation="2">
+              <v-card class="car-rental-card pa-4" elevation="0" outlined>
                 <v-card-title class="text-h6 highlight-text mb-3">
                   <v-icon left color="#004191">mdi-car</v-icon>
                   Car Rental at Incheon International Airport
@@ -2055,7 +2220,6 @@
         <br />
       </v-card>
 
-
       <br /><br /><br />
     </v-col>
   </v-row>
@@ -2085,6 +2249,12 @@ export default {
 </script>
 
 <style scoped>
+.dot-list {
+  list-style-type: disc; /* 글머리 기호 스타일 설정 */
+  font-size: 18px;
+  padding-left: 40px; /* 들여쓰기 값 조정 */
+  line-height: 1.8;
+}
 .text-body {
   font-size: 18px;
   line-height: 1.6;
@@ -2100,6 +2270,17 @@ export default {
 .highlight-text {
   color: #004191;
   font-weight: bold;
+}
+
+/* Access Guide Enhanced Styles - Removed for width consistency */
+
+.access-guide-btn {
+  transition: all 0.3s ease !important;
+}
+
+.access-guide-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 65, 145, 0.2) !important;
 }
 
 /* Transportation specific styles */
@@ -2121,15 +2302,18 @@ export default {
 }
 
 .route-step-card {
-  border-radius: 12px !important;
+  border-radius: 8px !important;
   margin-bottom: 16px;
+  border: 1px solid #e0e0e0 !important;
+  background-color: #ffffff !important;
 }
 
 .step-title {
-  background-color: #f8f9fa;
+  background-color: #f5f5f5;
   border-radius: 8px 8px 0 0;
   padding: 16px;
   margin: -16px -16px 16px -16px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .step-title-text {
@@ -2167,9 +2351,9 @@ export default {
 }
 
 .code-block {
-  background-color: #f5f5f5;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  background-color: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
   padding: 16px;
   font-family: "Noto Sans", sans-serif;
   font-size: 14px;
@@ -2200,12 +2384,13 @@ export default {
 .car-rental-card,
 .tips-card,
 .mobile-train-info-card {
-  border-radius: 12px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e0e0e0 !important;
 }
 
 .mobile-train-info-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border: 1px solid #e3f2fd;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0 !important;
 }
 
 .mobile-train-info-card .v-card-title {
@@ -2383,22 +2568,15 @@ export default {
 
 /* QR Card Styling */
 .qr-card {
-  border-radius: 16px !important;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  border: 2px solid #e3f2fd;
-  transition: all 0.3s ease;
-}
-
-.qr-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 65, 145, 0.15) !important;
-  border-color: #004191;
+  border-radius: 8px !important;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
 }
 
 .qr-card .v-card-title {
-  background: linear-gradient(135deg, #004191 0%, #1976d2 100%);
+  background-color: #004191;
   color: white !important;
-  border-radius: 14px 14px 0 0 !important;
+  border-radius: 8px 8px 0 0 !important;
   margin: -1px -1px 0 -1px;
 }
 
@@ -2408,17 +2586,12 @@ export default {
 
 .qr-card .v-card-text {
   background: white;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0 0 8px 8px;
 }
 
 .qr-card .v-img {
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.qr-card:hover .v-img {
-  transform: scale(1.05);
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
 }
 
 /* Text wrapping for long content */
@@ -2535,18 +2708,17 @@ export default {
 /* Adding Money Card - Completely Redesigned Styles */
 .adding-money-card-redesigned {
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   margin: 24px 0;
   overflow: visible;
   border: 2px solid #e0e0e0;
 }
 
 .adding-money-title {
-  background: linear-gradient(135deg, #004191 0%, #0066cc 100%);
+  background-color: #004191;
   color: white;
   padding: 20px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 8px 8px 0 0;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -2683,8 +2855,8 @@ export default {
   max-width: 500px;
   width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
 }
 
 .adding-money-warning {
@@ -2745,20 +2917,15 @@ export default {
 
 /* Simple QR code styling */
 .qr-simple {
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.qr-simple:hover {
-  transform: scale(1.05);
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
 }
 
 /* Legacy table styling for compatibility */
 .v-simple-table {
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .v-simple-table th {
@@ -2789,7 +2956,8 @@ a:hover {
 
 /* Alert customization */
 .v-alert {
-  border-radius: 8px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
 }
 
 .v-alert.v-alert--type-info {
@@ -2804,8 +2972,8 @@ a:hover {
 
 /* Routes Overview Card Styles */
 .routes-overview-card {
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
+  border-radius: 8px !important;
+  border: 2px solid #e0e0e0 !important;
 }
 
 .section-title {
@@ -2827,15 +2995,15 @@ a:hover {
 /* Map container styling */
 .map-container-large {
   position: relative;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   background-color: #f5f5f5;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .google-map-embed-large {
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
 }
 
 /* Global text wrapping for better mobile experience */
@@ -3031,8 +3199,8 @@ a {
 
 /* Transportation overview styling */
 .transportation-overview-card {
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
+  border-radius: 8px !important;
+  border: 2px solid #e0e0e0 !important;
 }
 
 .transportation-section {
@@ -3044,16 +3212,16 @@ a {
   .transportation-overview-card .v-col {
     padding: 4px 8px;
   }
-  
+
   .route-text-mobile {
     font-size: 0.85rem;
   }
-  
+
   .transportation-section .table-row .v-col:first-child {
     flex: 0 0 25%;
     max-width: 25%;
   }
-  
+
   .transportation-section .table-row .v-col:last-child {
     flex: 0 0 75%;
     max-width: 75%;

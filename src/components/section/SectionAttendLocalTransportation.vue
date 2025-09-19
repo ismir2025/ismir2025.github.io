@@ -2,7 +2,7 @@
   <v-row justify="center" id="local-transportation">
     <v-col cols="12" md="8">
       <!-- Transportation Overview -->
-      <v-card outlined elevation="0" class="pa-4 my-4">
+      <v-card outlined class="pa-4 my-4 clean-card">
         <v-card-title class="text-h4 mb-3 font-weight-bold">
           Local Transportation Guide
         </v-card-title>
@@ -10,19 +10,9 @@
           <!-- Quick Navigation -->
           <v-card
             outlined
-            elevation="2"
-            class="pa-6 my-4 transportation-overview-card"
-            style="
-              background: linear-gradient(
-                135deg,
-                #f8f9fa 0%,
-                #e9ecef 100%
-              );
-            "
+            class="pa-6 my-4 transportation-overview-card clean-card"
           >
-            <v-card-title
-              class="text-h5 mb-4 font-weight-bold text-center"
-            >
+            <v-card-title class="text-h5 mb-4 font-weight-bold text-center">
               <v-icon left size="28" color="#004191"
                 >mdi-map-marker-path</v-icon
               >
@@ -42,7 +32,10 @@
                       cols="3"
                       class="text-center font-weight-bold d-flex align-center justify-center"
                     >
-                      <v-chip small color="primary" text-color="white">
+                      <v-chip
+                        small
+                        style="background-color: #004191; color: white"
+                      >
                         <v-icon small left>mdi-bus</v-icon>
                         Bus
                       </v-chip>
@@ -66,7 +59,10 @@
                       cols="3"
                       class="text-center font-weight-bold d-flex align-center justify-center"
                     >
-                      <v-chip small color="success" text-color="white">
+                      <v-chip
+                        small
+                        style="background-color: #5eed60; color: white"
+                      >
                         <v-icon small left>mdi-taxi</v-icon>
                         Taxi
                       </v-chip>
@@ -91,7 +87,10 @@
                       cols="3"
                       class="text-center font-weight-bold d-flex align-center justify-center"
                     >
-                      <v-chip small color="info" text-color="white">
+                      <v-chip
+                        small
+                        style="background-color: #5ebfed; color: white"
+                      >
                         <v-icon small left>mdi-credit-card</v-icon>
                         Card
                       </v-chip>
@@ -115,7 +114,10 @@
                       cols="3"
                       class="text-center font-weight-bold d-flex align-center justify-center"
                     >
-                      <v-chip small color="orange" text-color="white">
+                      <v-chip
+                        small
+                        style="background-color: #ed915e; color: white"
+                      >
                         <v-icon small left>mdi-bicycle</v-icon>
                         Bike
                       </v-chip>
@@ -142,35 +144,42 @@
       </v-card>
 
       <!-- Using Bus -->
-      <v-card outlined elevation="0" class="pa-4 my-4" id="using-bus">
+      <v-card outlined class="pa-4 my-4 clean-card" id="using-bus">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
           >Using Bus</v-card-title
         >
         <v-card-text class="text-body">
           <v-row class="my-4">
             <v-col cols="12">
-              <v-card class="bus-info-card pa-4" elevation="2">
+              <v-card class="bus-info-card pa-4 clean-card" outlined>
                 <v-card-title class="text-h6 highlight-text mb-3">
                   <v-icon left color="#004191">mdi-bus</v-icon>
                   Boarding and Paying the Fare
                 </v-card-title>
                 <v-card-text>
                   <p class="mb-3">
-                    Buses in Daejeon are boarded through the front door and exited through the middle door.
+                    Buses in Daejeon are boarded through the front door and
+                    exited through the middle door.
                   </p>
                   <p class="mb-3">
-                    If you are using a travel card, tap it on the card reader when boarding and again when getting off.
+                    If you are using a travel card, tap it on the card reader
+                    when boarding and again when getting off.
                   </p>
                   <p class="mb-3">
-                    If you are paying with cash, pay the fare directly to the bus driver at the front door.
+                    If you are paying with cash, pay the fare directly to the
+                    bus driver at the front door.
                   </p>
                   <p class="mb-3">
-                    The city of Daejeon operates an intelligent transportation system (ITS), which displays the estimated arrival time of upcoming buses on electronic screens installed at bus stops.
+                    The city of Daejeon operates an intelligent transportation
+                    system (ITS), which displays the estimated arrival time of
+                    upcoming buses on electronic screens installed at bus stops.
                   </p>
                   <p class="mb-3">
-                    Use Kakao map or Naver map to search for bus routes. These apps support English (go to Settings and change the app language).
+                    Use Kakao map or Naver map to search for bus routes. These
+                    apps support English (go to Settings and change the app
+                    language).
                   </p>
-                  
+
                   <!-- Using Bus Image -->
                   <div class="text-center mt-4">
                     <v-img
@@ -181,7 +190,7 @@
                       class="mx-auto"
                     ></v-img>
                   </div>
-                  
+
                   <!-- Bus Fare Table -->
                   <v-container class="table-container mt-4" fluid>
                     <!-- 헤더 행 -->
@@ -189,32 +198,53 @@
                       <v-col cols="3" class="text-center">Type</v-col>
                       <v-col cols="3" class="text-center">Passengers</v-col>
                       <v-col cols="3" class="text-center">Fare (won)</v-col>
-                      <v-col cols="3" class="text-center">Travel Card (won)</v-col>
+                      <v-col cols="3" class="text-center"
+                        >Travel Card (won)</v-col
+                      >
                     </v-row>
 
                     <!-- City Bus 행들 -->
                     <v-row class="table-row styled-row">
-                      <v-col cols="3" class="text-center" style="border-right: 1px solid #d3d3d3;">City Bus</v-col>
-                      <v-col cols="3" class="text-center">Adults (aged 19 and over)</v-col>
+                      <v-col
+                        cols="3"
+                        class="text-center"
+                        style="border-right: 1px solid #d3d3d3"
+                        >City Bus</v-col
+                      >
+                      <v-col cols="3" class="text-center"
+                        >Adults (aged 19 and over)</v-col
+                      >
                       <v-col cols="3" class="text-center">1,400</v-col>
                       <v-col cols="3" class="text-center">1,250</v-col>
                     </v-row>
 
                     <v-row class="table-row styled-row">
-                      <v-col cols="3" class="text-center" style="border-right: 1px solid #d3d3d3;"></v-col>
-                      <v-col cols="3" class="text-center">Teenagers (aged 13-18)</v-col>
+                      <v-col
+                        cols="3"
+                        class="text-center"
+                        style="border-right: 1px solid #d3d3d3"
+                      ></v-col>
+                      <v-col cols="3" class="text-center"
+                        >Teenagers (aged 13-18)</v-col
+                      >
                       <v-col cols="3" class="text-center">900</v-col>
                       <v-col cols="3" class="text-center">750</v-col>
                     </v-row>
 
                     <v-row class="table-row styled-row">
-                      <v-col cols="3" class="text-center" style="border-right: 1px solid #d3d3d3;"></v-col>
-                      <v-col cols="3" class="text-center">Children (aged 6-12)</v-col>
+                      <v-col
+                        cols="3"
+                        class="text-center"
+                        style="border-right: 1px solid #d3d3d3"
+                      ></v-col>
+                      <v-col cols="3" class="text-center"
+                        >Children (aged 6-12)</v-col
+                      >
                       <v-col cols="3" class="text-center">400</v-col>
                       <v-col cols="3" class="text-center">350</v-col>
                     </v-row>
                   </v-container>
-                  
+
                   <!-- Free Transfer System -->
                   <div class="mt-5">
                     <v-card-subtitle class="text-h6 mb-2 pa-0 highlight-text">
@@ -222,26 +252,168 @@
                       Free (Discount) Transfer System
                     </v-card-subtitle>
                     <p class="mb-3">
-                      Daejeon operates a free transfer system that allows passengers to transfer up to three times between buses or other modes of public transportation (such as the urban railway) without paying an additional fare.
+                      Daejeon operates a free transfer system that allows
+                      passengers to transfer up to three times between buses or
+                      other modes of public transportation (such as the urban
+                      railway) without paying an additional fare.
                     </p>
                     <p class="mb-3">
-                      This enables passengers to use up to four consecutive modes of transportation (e.g., bus → bus → bus → subway) for a single base fare.
+                      This enables passengers to use up to four consecutive
+                      modes of transportation (e.g., bus → bus → bus → subway)
+                      for a single base fare.
                     </p>
-                    
+
                     <v-card-subtitle class="text-h6 mb-2 pa-0 mt-4">
                       Conditions for Free Transfers:
                     </v-card-subtitle>
                     <ul class="transfer-conditions mb-3">
                       <li class="mb-2">
-                        Transfers are allowed up to 3 times within 30 minutes (or 60 minutes on some routes) after getting off a vehicle.
+                        Transfers are allowed up to 3 times within 30 minutes
+                        (or 60 minutes on some routes) after getting off a
+                        vehicle.
                       </li>
                       <li class="mb-2">
                         Transfers are not allowed on the same bus route.
                       </li>
                       <li class="mb-2">
-                        You must scan your travel card when getting off each vehicle for the transfer discount to apply.
+                        You must scan your travel card when getting off each
+                        vehicle for the transfer discount to apply.
                       </li>
                     </ul>
+                  </div>
+
+                  <!-- Frequently Used Bus -->
+                  <div class="mt-5">
+                    <v-card-subtitle class="text-h6 mb-2 pa-0 highlight-text">
+                      <v-icon left color="#004191">mdi-bus-multiple</v-icon>
+                      Frequently Used Bus
+                    </v-card-subtitle>
+                    <p class="mb-3">There are two main bus stops at KAIST:</p>
+                    <ul class="mb-3">
+                      <li class="mb-2">
+                        <strong>Bus Stop 1:</strong> Korea Biotechnology
+                        Research Institute — located at the North-East Entrance
+                      </li>
+                      <li class="mb-2">
+                        <strong>Bus Stop 2:</strong> KAIST — located at the
+                        South (Main) Entrance
+                      </li>
+                    </ul>
+
+                    <!-- Bus Stop Image -->
+                    <div class="text-center mt-4 mb-4">
+                      <v-img
+                        :src="require('@/assets/Transportation/Bus Stop.jpg')"
+                        alt="KAIST Bus Stops Location Guide"
+                        contain
+                        max-width="100%"
+                        class="mx-auto"
+                      ></v-img>
+                    </div>
+
+                    <v-card-subtitle class="text-h6 mb-2 pa-0 mt-4">
+                      These are the buses that stop in Bus stop 1 and 2
+                    </v-card-subtitle>
+
+                    <!-- Bus Stop 1 -->
+                    <v-card class="pa-4 mb-4" outlined>
+                      <v-card-subtitle
+                        class="text-h6 mb-3 pa-0 font-weight-bold"
+                      >
+                        🚌 Buses stopping at Bus Stop 1
+                      </v-card-subtitle>
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title>
+                              <strong>특구1(Special Zone 1)</strong> |
+                              <a
+                                href="https://naver.me/xvtuX2b9"
+                                target="_blank"
+                                style="color: #004191"
+                              >
+                                View on Naver Map
+                              </a>
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title>
+                              <strong>104</strong> |
+                              <a
+                                href="https://naver.me/I5y8ASTG"
+                                target="_blank"
+                                style="color: #004191"
+                              >
+                                View on Naver Map
+                              </a>
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title>
+                              <strong>121</strong> |
+                              <a
+                                href="https://naver.me/5buYQxO0"
+                                target="_blank"
+                                style="color: #004191"
+                              >
+                                View on Naver Map
+                              </a>
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-card>
+
+                    <!-- Bus Stop 2 -->
+                    <v-card class="pa-4 mb-4" outlined>
+                      <v-card-subtitle
+                        class="text-h6 mb-3 pa-0 font-weight-bold"
+                      >
+                        🚌 Buses stopping at Bus Stop 2
+                      </v-card-subtitle>
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title>
+                              <strong>604</strong> |
+                              <a
+                                href="https://naver.me/GedPAUui"
+                                target="_blank"
+                                style="color: #004191"
+                              >
+                                View on Naver Map
+                              </a>
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-card>
+
+                    <p class="mb-3">
+                      Click the Naver Map links to check each bus's route,
+                      schedule, and live location.
+                    </p>
+                    <p class="mb-3">
+                      We've also included a Naver Map screenshot below so you
+                      can easily see the full routes and time intervals. (You
+                      can see from the map that Special Zone 1 passes through
+                      KAIST.)
+                    </p>
+
+                    <!-- Naver Map Screenshot -->
+                    <div class="text-center mt-4">
+                      <v-img
+                        :src="require('@/assets/Transportation/Naver Map.png')"
+                        alt="Naver Map showing bus routes and schedules for KAIST"
+                        contain
+                        max-width="100%"
+                        class="mx-auto"
+                      ></v-img>
+                    </div>
                   </div>
                 </v-card-text>
               </v-card>
@@ -254,50 +426,202 @@
       </v-card>
 
       <!-- K.ride Taxi Service -->
-      <v-card outlined elevation="0" class="pa-4 my-4" id="kride-guide">
+      <v-card outlined class="pa-4 my-4 clean-card" id="kride-guide">
         <v-card-title class="text-h4 mb-3 font-weight-bold">
           <v-icon left color="#004191">mdi-taxi</v-icon>
           K.ride for Taxi use in Korea
         </v-card-title>
         <v-card-text>
-          <v-container fluid>
-            <v-row>
-              <v-col cols="12">
-                <v-card class="pa-4 mb-4" color="#E6F2FD" elevation="1">
-                  <v-card-text class="text-body-1">
-                    K.ride is a taxi service designed for foreigners in Korea.
-                    You can easily register a payment method and use it much
-                    like Uber. Since Uber is not widely used in Korea, we
-                    recommend using K.ride instead.
-                  </v-card-text>
-                </v-card>
-
-                <!-- K.ride Image and QR Code -->
-                <div class="mb-4 d-flex justify-center">
+          <!-- Hero Section -->
+          <v-card class="kride-hero-card mb-6">
+            <v-row no-gutters>
+              <v-col cols="12" md="6" class="kride-hero-content">
+                <div class="pa-6">
+                  <div class="kride-hero-badge mb-3">
+                    <v-chip
+                      style="background-color: #5eed60; color: white"
+                      small
+                    >
+                      <v-icon left small>mdi-star</v-icon>
+                      Recommended for Foreigners
+                    </v-chip>
+                  </div>
+                  <h3 class="kride-hero-title mb-3">
+                    Your Reliable Taxi Solution in Korea
+                  </h3>
+                  <p class="kride-hero-description mb-4">
+                    K.ride is a taxi service specifically designed for
+                    foreigners in Korea. Experience seamless transportation with
+                    English support, easy payment, and reliable service
+                    throughout your stay.
+                  </p>
+                  <div class="kride-features mb-4">
+                    <div class="feature-item mb-2">
+                      <v-icon small color="success" class="mr-2"
+                        >mdi-check-circle</v-icon
+                      >
+                      <span>English language support</span>
+                    </div>
+                    <div class="feature-item mb-2">
+                      <v-icon small color="success" class="mr-2"
+                        >mdi-check-circle</v-icon
+                      >
+                      <span>International payment methods</span>
+                    </div>
+                    <div class="feature-item mb-2">
+                      <v-icon small color="success" class="mr-2"
+                        >mdi-check-circle</v-icon
+                      >
+                      <span>No Korean bank account required</span>
+                    </div>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="6" class="kride-hero-image">
+                <div
+                  class="pa-4 d-flex justify-center align-center"
+                  style="height: 100%; min-height: 300px"
+                >
                   <v-img
                     :src="require('@/assets/Transportation/kride.png')"
-                    alt="K.ride App Logo and QR Code"
-                    max-width="400px"
+                    alt="K.ride App Interface"
+                    max-width="320px"
                     contain
-                    class="mb-3"
+                    class="kride-app-image"
                   ></v-img>
                 </div>
+              </v-col>
+            </v-row>
+          </v-card>
 
-                <v-container class="mt-4" fluid>
+          <!-- Why K.ride Section -->
+          <v-card class="kride-why-card mb-6">
+            <v-card-title class="kride-section-title">
+              <v-icon left color="#004191">mdi-help-circle</v-icon>
+              Why Choose K.ride?
+            </v-card-title>
+            <v-card-text>
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="4"
+                  v-for="(reason, index) in krideReasons"
+                  :key="index"
+                >
+                  <v-card class="kride-reason-card h-100" outlined>
+                    <v-card-text class="text-center pa-4">
+                      <v-avatar size="60" :color="reason.color" class="mb-3">
+                        <v-icon size="30" color="white">{{
+                          reason.icon
+                        }}</v-icon>
+                      </v-avatar>
+                      <h4 class="kride-reason-title mb-2">
+                        {{ reason.title }}
+                      </h4>
+                      <p class="kride-reason-description">
+                        {{ reason.description }}
+                      </p>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+
+          <!-- How to Use Section -->
+          <v-card class="kride-howto-card mb-6">
+            <v-card-title class="kride-section-title">
+              <v-icon left color="#004191">mdi-cellphone-settings</v-icon>
+              How to Use K.ride
+            </v-card-title>
+            <v-card-text>
+              <!-- Step Cards Grid -->
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="6"
+                  v-for="(step, index) in krideSteps"
+                  :key="index"
+                >
+                  <v-card class="kride-step-card h-100" outlined>
+                    <v-card-text class="pa-4">
+                      <div class="d-flex align-center mb-3">
+                        <v-avatar size="50" :color="step.color" class="mr-3">
+                          <v-icon color="white" size="24">{{
+                            step.icon
+                          }}</v-icon>
+                        </v-avatar>
+                        <div>
+                          <div class="kride-step-number">
+                            Step {{ index + 1 }}
+                          </div>
+                          <h4 class="kride-step-title">{{ step.title }}</h4>
+                        </div>
+                      </div>
+                      <p class="kride-step-description mb-3">
+                        {{ step.description }}
+                      </p>
+                      <div v-if="step.details" class="kride-step-details">
+                        <ul class="kride-step-list">
+                          <li v-for="detail in step.details" :key="detail">
+                            {{ detail }}
+                          </li>
+                        </ul>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+
+          <!-- Download Section -->
+          <v-card class="kride-download-card">
+            <v-card-text class="pa-6">
+              <div class="text-center">
+                <v-icon size="48" color="primary" class="mb-3"
+                  >mdi-download</v-icon
+                >
+                <h3 class="kride-download-title mb-3">Ready to Get Started?</h3>
+                <p class="kride-download-description mb-4">
+                  Download K.ride now and enjoy convenient taxi services
+                  throughout Korea
+                </p>
+                <div class="kride-download-buttons">
                   <v-btn
-                    color="primary"
+                    style="background-color: #004191; color: white"
                     href="https://kride.kakaomobility.com/"
                     target="_blank"
                     large
-                    class="mt-2"
+                    class="mx-2 mb-2"
                   >
-                    <v-icon left>mdi-open-in-new</v-icon>
+                    <v-icon left>mdi-web</v-icon>
                     Visit K.ride Website
                   </v-btn>
-                </v-container>
-              </v-col>
-            </v-row>
-          </v-container>
+                  <v-btn
+                    style="background-color: #5eed60; color: white"
+                    href="https://play.google.com/store/apps/details?id=com.kakaomobility.kride"
+                    target="_blank"
+                    large
+                    class="mx-2 mb-2"
+                  >
+                    <v-icon left>mdi-google-play</v-icon>
+                    Google Play
+                  </v-btn>
+                  <v-btn
+                    style="background-color: #5ebfed; color: white"
+                    href="https://apps.apple.com/app/k-ride/id1234567890"
+                    target="_blank"
+                    large
+                    class="mx-2 mb-2"
+                  >
+                    <v-icon left>mdi-apple</v-icon>
+                    App Store
+                  </v-btn>
+                </div>
+              </div>
+            </v-card-text>
+          </v-card>
         </v-card-text>
         <br />
         <v-divider></v-divider>
@@ -305,7 +629,7 @@
       </v-card>
 
       <!-- T-Money Guide -->
-      <v-card outlined elevation="0" class="pa-4 my-4" id="tmoney-guide">
+      <v-card outlined class="pa-4 my-4 clean-card" id="tmoney-guide">
         <v-card-title class="text-h4 mb-3 font-weight-bold">
           <v-icon left color="#004191">mdi-credit-card-outline</v-icon>
           T-Money guide for bus and taxi (Phone use)
@@ -314,7 +638,7 @@
           <v-container fluid>
             <v-row>
               <v-col cols="12">
-                <v-card class="pa-4 mb-4" color="#E6F2FD" elevation="1">
+                <v-card class="pa-4 mb-4 clean-card" outlined>
                   <v-card-text class="text-body-1">
                     T-money is a rechargeable transportation card widely used in
                     South Korea for subways, buses, and some taxis. It also
@@ -336,7 +660,7 @@
                 </div>
 
                 <!-- Getting Started -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4 clean-card" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-play-circle</v-icon>
                     <span class="step-title-text">1. Getting Started</span>
@@ -344,7 +668,7 @@
                   <v-card-text>
                     <v-row>
                       <v-col cols="12" md="6">
-                        <v-card class="pa-3 mb-3" outlined>
+                        <v-card class="pa-3 mb-3 h-100" outlined>
                           <v-card-subtitle
                             class="text-h6 mb-2 pa-0 font-weight-bold"
                           >
@@ -388,7 +712,7 @@
                         </v-card>
                       </v-col>
                       <v-col cols="12" md="6">
-                        <v-card class="pa-3 mb-3" outlined>
+                        <v-card class="pa-3 mb-3 h-100" outlined>
                           <v-card-subtitle
                             class="text-h6 mb-2 pa-0 font-weight-bold"
                           >
@@ -415,7 +739,16 @@
                             <v-list-item>
                               <v-list-item-content>
                                 <v-list-item-title
-                                  >Add it to Samsung Pay.</v-list-item-title
+                                  >Add it to Samsung Pay for easy
+                                  access.</v-list-item-title
+                                >
+                              </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item>
+                              <v-list-item-content>
+                                <v-list-item-title
+                                  >Setup is complete and ready to
+                                  use.</v-list-item-title
                                 >
                               </v-list-item-content>
                             </v-list-item>
@@ -427,76 +760,94 @@
                 </v-card>
 
                 <!-- Adding Money (Top-Up) -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4 clean-card" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-credit-card-plus</v-icon>
-                    <span class="step-title-text">2. Adding Money (Top-Up)</span>
+                    <span class="step-title-text"
+                      >2. Adding Money (Top-Up)</span
+                    >
                   </v-card-title>
                   <v-card-text>
-
-                  <!-- Credit Card -->
-                  <!-- Payment Methods -->
-                  <div
-                    style="
-                      background: #f0f0f0;
-                      padding: 20px;
-                      margin: 20px;
-                      border: 1px solid #ccc;
-                    "
-                  >
-                    <div style="color: #333; font-size: 14px; line-height: 1.8">
-                      • <strong>Credit Card (Visa/MasterCard):</strong> Can be used inside the T-money app (sometimes limited for foreigners; success varies).<br /><br />
-                      
-                      • <strong>Cash at Subway Stations:</strong><br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;1. Put your phone in <strong>Service Mode</strong>:<br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■ iPhone → Settings → Wallet & Apple Pay → T-money → enable <em>Service Mode</em>.<br /><br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;2. At a top-up machine in a subway station, place your phone flat on the card reader area.<br /><br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;3. Insert cash, choose the amount, and wait for the machine to finish reloading.<br /><br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;4. Your balance will update automatically (sometimes with a short delay).
-                    </div>
-                  </div>
-
-                  <!-- Image -->
-                  <div style="text-align: center; padding: 20px">
-                    <img
-                      :src="require('@/assets/Transportation/Adding Money.png')"
-                      alt="T-money Top-up Machines at Subway Station"
+                    <!-- Credit Card -->
+                    <!-- Payment Methods -->
+                    <div
                       style="
-                        max-width: 500px;
-                        width: 100%;
-                        height: auto;
-                        border-radius: 8px;
+                        background: #f0f0f0;
+                        padding: 20px;
+                        margin: 20px;
+                        border: 1px solid #ccc;
                       "
-                    />
-                  </div>
-
-                  <!-- Warning -->
-                  <div
-                    style="
-                      background: #fff3cd;
-                      border: 1px solid #ffeaa7;
-                      padding: 15px;
-                      margin: 20px;
-                      border-radius: 8px;
-                      display: flex;
-                      align-items: flex-start;
-                      gap: 10px;
-                    "
-                  >
-                    <span style="font-size: 20px">⚠️</span>
-                    <span
-                      style="color: #856404; font-size: 14px; line-height: 1.6"
                     >
-                      Convenience stores (GS25, CU, 7-Eleven) may not yet
-                      support phone reloading smoothly—best to use subway
-                      stations.
-                    </span>
-                  </div>
+                      <div
+                        style="color: #333; font-size: 14px; line-height: 1.8"
+                      >
+                        • <strong>Credit Card (Visa/MasterCard):</strong> Can be
+                        used inside the T-money app (sometimes limited for
+                        foreigners; success varies).<br /><br />
+
+                        • <strong>Cash at Subway Stations:</strong><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;1. Put your phone in
+                        <strong>Service Mode</strong>:<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;■ iPhone
+                        → Settings → Wallet & Apple Pay → T-money → enable
+                        <em>Service Mode</em>.<br /><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;2. At a top-up machine in a
+                        subway station, place your phone flat on the card reader
+                        area.<br /><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;3. Insert cash, choose the
+                        amount, and wait for the machine to finish reloading.<br /><br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;4. Your balance will update
+                        automatically (sometimes with a short delay).
+                      </div>
+                    </div>
+
+                    <!-- Image -->
+                    <div style="text-align: center; padding: 20px">
+                      <img
+                        :src="
+                          require('@/assets/Transportation/Adding Money.png')
+                        "
+                        alt="T-money Top-up Machines at Subway Station"
+                        style="
+                          max-width: 500px;
+                          width: 100%;
+                          height: auto;
+                          border-radius: 8px;
+                        "
+                      />
+                    </div>
+
+                    <!-- Warning -->
+                    <div
+                      style="
+                        background: #fff3cd;
+                        border: 1px solid #ffeaa7;
+                        padding: 15px;
+                        margin: 20px;
+                        border-radius: 8px;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 10px;
+                      "
+                    >
+                      <span style="font-size: 20px">⚠️</span>
+                      <span
+                        style="
+                          color: #856404;
+                          font-size: 14px;
+                          line-height: 1.6;
+                        "
+                      >
+                        Convenience stores (GS25, CU, 7-Eleven) may not yet
+                        support phone reloading smoothly—best to use subway
+                        stations.
+                      </span>
+                    </div>
                   </v-card-text>
                 </v-card>
 
                 <!-- Using T-money -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4 clean-card" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191"
                       >mdi-contactless-payment</v-icon
@@ -632,7 +983,7 @@
                 </v-card>
 
                 <!-- Tips & Things to Know -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4 clean-card" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191">mdi-lightbulb</v-icon>
                     <span class="step-title-text"
@@ -643,7 +994,7 @@
                     <v-list dense>
                       <v-list-item>
                         <v-list-item-icon>
-                          <v-icon small color="primary">mdi-check</v-icon>
+                          <v-icon small color="#5EED60">mdi-check</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                           <v-list-item-title
@@ -655,7 +1006,7 @@
                       </v-list-item>
                       <v-list-item>
                         <v-list-item-icon>
-                          <v-icon small color="primary">mdi-check</v-icon>
+                          <v-icon small color="#5EED60">mdi-check</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                           <v-list-item-title
@@ -667,7 +1018,7 @@
                       </v-list-item>
                       <v-list-item>
                         <v-list-item-icon>
-                          <v-icon small color="primary">mdi-check</v-icon>
+                          <v-icon small color="#5EED60">mdi-check</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                           <v-list-item-title
@@ -679,7 +1030,7 @@
                       </v-list-item>
                       <v-list-item>
                         <v-list-item-icon>
-                          <v-icon small color="primary">mdi-check</v-icon>
+                          <v-icon small color="#5EED60">mdi-check</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                           <v-list-item-title
@@ -690,7 +1041,7 @@
                       </v-list-item>
                       <v-list-item>
                         <v-list-item-icon>
-                          <v-icon small color="primary">mdi-check</v-icon>
+                          <v-icon small color="#5EED60">mdi-check</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                           <v-list-item-title
@@ -707,7 +1058,7 @@
                         cards, but can be equally applied to mobile apps):
                       </v-card-subtitle>
                       <v-btn
-                        color="info"
+                        style="border-color: #5ebfed; color: #5ebfed"
                         href="https://blog.trazy.com/korea-subway-t-money-card-guide/"
                         target="_blank"
                         outlined
@@ -721,7 +1072,7 @@
                 </v-card>
 
                 <!-- Frequent FAQs -->
-                <v-card class="route-step-card mb-4" elevation="2">
+                <v-card class="route-step-card mb-4 clean-card" outlined>
                   <v-card-title class="text-h6 step-title">
                     <v-icon left color="#004191"
                       >mdi-frequently-asked-questions</v-icon
@@ -761,7 +1112,7 @@
       </v-card>
 
       <!-- Using Bicycle -->
-      <v-card outlined elevation="0" class="pa-4 my-4" id="using-bicycle">
+      <v-card outlined class="pa-4 my-4 clean-card" id="using-bicycle">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
           >Using Bicycle</v-card-title
         >
@@ -778,7 +1129,7 @@
           </div>
           <v-row class="my-4">
             <v-col cols="12">
-              <v-card class="bicycle-info-card pa-4" elevation="2">
+              <v-card class="bicycle-info-card pa-4 clean-card" outlined>
                 <v-card-title class="text-h6 highlight-text mb-3">
                   <v-icon left color="#004191">mdi-bicycle</v-icon>
                   Tashu - Public Bike Sharing Service
@@ -818,7 +1169,6 @@
         <br />
       </v-card>
 
-
       <br /><br /><br />
     </v-col>
   </v-row>
@@ -827,7 +1177,77 @@
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      krideReasons: [
+        {
+          icon: "mdi-translate",
+          color: "#004191",
+          title: "English Support",
+          description:
+            "Full English interface and customer support for international visitors",
+        },
+        {
+          icon: "mdi-credit-card-multiple",
+          color: "#5EED60",
+          title: "Easy Payment",
+          description:
+            "Accept international credit cards and digital payment methods",
+        },
+        {
+          icon: "mdi-shield-check",
+          color: "#5EBFED",
+          title: "Safe & Reliable",
+          description:
+            "Licensed drivers with GPS tracking and 24/7 customer support",
+        },
+      ],
+      krideSteps: [
+        {
+          icon: "mdi-download",
+          color: "#004191",
+          title: "Download the App",
+          description: "Get K.ride from Google Play Store or Apple App Store",
+          details: [
+            "Available for both Android and iOS devices",
+            "Free to download and install",
+            "Requires internet connection for registration",
+          ],
+        },
+        {
+          icon: "mdi-account-plus",
+          color: "#5EED60",
+          title: "Create Account",
+          description: "Sign up with your phone number or email address",
+          details: [
+            "Verify your phone number with SMS",
+            "Add your name and basic information",
+            "Set up your profile preferences",
+          ],
+        },
+        {
+          icon: "mdi-credit-card-plus",
+          color: "#EDD35E",
+          title: "Add Payment Method",
+          description: "Register your credit card or preferred payment method",
+          details: [
+            "International credit cards accepted",
+            "Secure payment processing",
+            "Multiple payment options available",
+          ],
+        },
+        {
+          icon: "mdi-taxi",
+          color: "#5EBFED",
+          title: "Book Your Ride",
+          description: "Set your destination and request a taxi",
+          details: [
+            "Real-time driver tracking",
+            "Estimated arrival time and fare",
+            "Rate your driver after the trip",
+          ],
+        },
+      ],
+    };
   },
   methods: {
     scrollToSection(sectionId) {
@@ -1230,6 +1650,7 @@ export default {
   overflow: visible !important;
   text-overflow: unset !important;
   -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
   -webkit-box-orient: unset !important;
   display: block !important;
   max-height: none !important;
@@ -1259,6 +1680,7 @@ export default {
   overflow: visible !important;
   text-overflow: unset !important;
   -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
   white-space: normal !important;
   max-width: none !important;
 }
@@ -1269,6 +1691,7 @@ export default {
   overflow: visible !important;
   text-overflow: unset !important;
   -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
   white-space: normal !important;
   max-width: none !important;
   max-height: none !important;
@@ -1282,6 +1705,7 @@ export default {
   text-overflow: unset !important;
   white-space: normal !important;
   -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
   display: block !important;
   max-height: none !important;
   height: auto !important;
@@ -1509,19 +1933,20 @@ export default {
 /* Simple QR code styling */
 .qr-simple {
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
   transition: transform 0.2s ease;
 }
 
 .qr-simple:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
+  border-color: #004191;
 }
 
 /* Legacy table styling for compatibility */
 .v-simple-table {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
 }
 
 .v-simple-table th {
@@ -1567,8 +1992,9 @@ a:hover {
 
 /* Routes Overview Card Styles */
 .routes-overview-card {
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
+  border-radius: 8px !important;
+  border: 1px solid #e0e0e0 !important;
+  background: #ffffff !important;
 }
 
 .section-title {
@@ -1780,11 +2206,7 @@ a {
   margin-bottom: 8px;
 }
 
-/* Transportation overview styling */
-.transportation-overview-card {
-  border-radius: 16px !important;
-  box-shadow: 0 8px 32px rgba(0, 65, 145, 0.1) !important;
-}
+/* Transportation overview styling - Updated above */
 
 .transportation-section {
   padding: 0 8px;
@@ -1795,15 +2217,359 @@ a {
   .transportation-overview-card .v-col {
     padding: 4px 8px;
   }
-  
+
   .transportation-section .table-row .v-col:first-child {
     flex: 0 0 25%;
     max-width: 25%;
   }
-  
+
   .transportation-section .table-row .v-col:last-child {
     flex: 0 0 75%;
     max-width: 75%;
+  }
+}
+
+/* Global Typography and Spacing Improvements */
+.text-h4 {
+  font-weight: 700 !important;
+  color: #333 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.text-h5 {
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin-bottom: 1rem !important;
+}
+
+.text-h6 {
+  font-weight: 600 !important;
+  color: #333 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.highlight-text {
+  color: #004191 !important;
+  font-weight: 600 !important;
+}
+
+/* Improved Card Spacing */
+.v-card-text {
+  padding: 1.5rem !important;
+}
+
+.v-card-title {
+  padding: 1.5rem 1.5rem 0.75rem 1.5rem !important;
+}
+
+/* Clean Card Styles - Applied to all cards */
+.clean-card {
+  border-radius: 8px !important;
+  border: 1px solid #e0e0e0 !important;
+  background: #ffffff !important;
+  transition: border-color 0.2s ease;
+}
+
+.clean-card:hover {
+  border-color: #004191;
+}
+
+/* Transportation Overview Card */
+.transportation-overview-card {
+  background: #f8f9fa !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.transportation-overview-card:hover {
+  border-color: #004191;
+}
+
+/* Bus Info Card */
+.bus-info-card {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* Route Step Cards */
+.route-step-card {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  transition: border-color 0.2s ease;
+}
+
+.route-step-card:hover {
+  border-color: #004191;
+}
+
+.route-step-card .step-title {
+  background: #f8f9fa !important;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Bicycle Info Card */
+.bicycle-info-card {
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+/* K.ride Section Styles */
+.kride-hero-card {
+  border-radius: 12px !important;
+  background: #004191;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.kride-hero-content {
+  background: #004191;
+  color: white;
+}
+
+.kride-hero-image {
+  background: #f8f9fa;
+}
+
+.kride-hero-badge .v-chip {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.kride-hero-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: white;
+}
+
+.kride-hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white;
+  opacity: 0.95;
+}
+
+.kride-features .feature-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: white;
+  opacity: 0.95;
+}
+
+.kride-app-image {
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.kride-app-image:hover {
+  transform: scale(1.02);
+}
+
+/* Why K.ride Section */
+.kride-why-card {
+  border-radius: 8px !important;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.kride-section-title {
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+  margin: -16px -16px 16px -16px;
+  padding: 20px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.kride-reason-card {
+  border-radius: 8px !important;
+  transition: border-color 0.2s ease;
+  height: 100%;
+  border: 2px solid #e0e0e0;
+}
+
+.kride-reason-card:hover {
+  border-color: #004191;
+}
+
+.kride-reason-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.kride-reason-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+/* How to Use Section */
+.kride-howto-card {
+  border-radius: 8px !important;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.kride-step-card {
+  border-radius: 8px !important;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.kride-step-card:hover {
+  border-color: #004191;
+  transform: translateY(-2px);
+}
+
+.kride-step-number {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.kride-step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.kride-step-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+.kride-step-details {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 4px solid #004191;
+}
+
+.kride-step-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.kride-step-list li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Step navigation removed - using grid layout now */
+
+/* Download Section */
+.kride-download-card {
+  border-radius: 8px !important;
+  background: #004191;
+  color: white;
+  border: 1px solid #004191;
+}
+
+.kride-download-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+}
+
+.kride-download-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: white;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.kride-download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.kride-download-buttons .v-btn {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.kride-download-buttons .v-btn:hover {
+  opacity: 0.9;
+}
+
+/* Mobile Responsive for K.ride Section */
+@media (max-width: 768px) {
+  .kride-hero-title {
+    font-size: 1.4rem;
+  }
+
+  .kride-hero-description {
+    font-size: 0.9rem;
+  }
+
+  .kride-features .feature-item {
+    font-size: 0.85rem;
+  }
+
+  .kride-section-title {
+    font-size: 1.2rem;
+    padding: 16px;
+  }
+
+  .kride-reason-title {
+    font-size: 1rem;
+  }
+
+  .kride-reason-description {
+    font-size: 0.85rem;
+  }
+
+  .kride-step-number {
+    font-size: 0.7rem;
+  }
+
+  .kride-step-title {
+    font-size: 1.1rem;
+  }
+
+  .kride-step-description {
+    font-size: 0.9rem;
+  }
+
+  .kride-step-card {
+    margin-bottom: 1rem;
+  }
+
+  .kride-download-title {
+    font-size: 1.4rem;
+  }
+
+  .kride-download-description {
+    font-size: 0.9rem;
+  }
+
+  .kride-download-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kride-download-buttons .v-btn {
+    width: 100%;
+    max-width: 280px;
   }
 }
 </style>

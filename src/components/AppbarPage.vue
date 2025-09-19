@@ -276,7 +276,12 @@
         </v-list-item>
       </v-list-group>
 
-      <v-list-item @click="navigateToVirtualPlatform(); drawer = false;">
+      <v-list-item
+        @click="
+          navigateToVirtualPlatform();
+          drawer = false;
+        "
+      >
         <v-list-item-title>Virtual Platform</v-list-item-title>
       </v-list-item>
 
@@ -460,11 +465,16 @@ const programSubItems = ref([
   "Special Session",
   "Music",
   "K-Culture Night",
+  "Banquet and Jam Session",
   "BARAJI Concert",
   "RenCon",
 ]);
 
-const aboutSubItems = ref(["Organizing Committee", "Volunteers"]);
+const aboutSubItems = ref([
+  "Organizing Committee",
+  "Volunteers",
+  "ISMIR 2025 Logo",
+]);
 
 // Track if Call menu is open
 const isCallMenuOpen = ref(false);
@@ -632,6 +642,9 @@ const handleSubItemClickProgram = (submenu) => {
     case "K-Culture Night":
       router.push({ name: "program-kculture-night" });
       break;
+    case "Banquet and Jam Session":
+      router.push({ name: "program-banquet-and-jam-session" });
+      break;
     case "Special Session":
       router.push({ name: "program-special-session" });
       break;
@@ -647,6 +660,9 @@ const handleSubItemClickAbout = (submenu) => {
       break;
     case "Volunteers":
       router.push({ name: "about-volunteers" });
+      break;
+    case "ISMIR 2025 Logo":
+      router.push({ name: "about-logo" });
       break;
     default:
       break;

@@ -24,7 +24,7 @@
 
           <v-breadcrumbs
             :items="items"
-            style="justify-content: center"
+            style="justify-content: center; color: #ffffff !important"
             class="text-shadow-soft"
           >
             <template #divider>
@@ -53,94 +53,235 @@ const currentTitle = ref({ path: "", title: "HOME", src: "k1.webp" });
 const imagePath = img; // Use the imported image
 
 const titleList = ref([
-  { path: "", title: "Home", src: "k1.webp" },
-  
+  { path: "", title: "Home", src: "k1.webp", parent: null },
+
   // About
   {
     path: "about-organizing-committee",
     title: "Organizing Committee",
     src: "k1.webp",
+    parent: "About",
   },
   {
     path: "about-volunteers",
     title: "Volunteers",
     src: "k1.webp",
+    parent: "About",
   },
-  
+  {
+    path: "about-logo",
+    title: "ISMIR 2025 Logo",
+    src: "k1.webp",
+    parent: "About",
+  },
+
   // Program
-  { path: "program", title: "Program", src: "k1.webp" },
-  { path: "program-keynote", title: "Keynote", src: "k1.webp" },
-  { path: "program-accepted-papers", title: "Accepted Papers", src: "k1.webp" },
-  { path: "program-detailed-schedule", title: "Detailed Schedule", src: "k1.webp" },
-  { path: "program-tutorials", title: "Tutorials", src: "k1.webp" },
-  { path: "program-rencon", title: "RenCon", src: "k1.webp" },
-  { path: "program-music", title: "Music", src: "k1.webp" },
-  { path: "program-kculture-night", title: "K-Culture Night", src: "k1.webp" },
-  { path: "program-special-session", title: "Special Session", src: "k1.webp" },
-  { path: "program-baraji-concert", title: "Korean Traditional Music Concert", src: "k1.webp" },
-  
+  { path: "program", title: "Program", src: "k1.webp", parent: "Program" },
+  {
+    path: "program-keynote",
+    title: "Keynote",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-accepted-papers",
+    title: "Accepted Papers",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-detailed-schedule",
+    title: "Detailed Schedule",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-tutorials",
+    title: "Tutorials",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-rencon",
+    title: "RenCon",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  { path: "program-music", title: "Music", src: "k1.webp", parent: "Program" },
+  {
+    path: "program-kculture-night",
+    title: "K-Culture Night",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-banquet-and-jam-session",
+    title: "Banquet and Jam Session",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-special-session",
+    title: "Special Session",
+    src: "k1.webp",
+    parent: "Program",
+  },
+  {
+    path: "program-baraji-concert",
+    title: "BARAJI Concert",
+    src: "k1.webp",
+    parent: "Program",
+  },
+
   // Call For
-  { path: "call-for-papers", title: "Call For Papers", src: "k1.webp" },
+  {
+    path: "call-for-papers",
+    title: "Call For Papers",
+    src: "k1.webp",
+    parent: "Calls",
+  },
   {
     path: "call-for-late-breaking-demo",
     title: "Call For Late-Breaking Demo",
     src: "k1.webp",
+    parent: "Calls",
   },
-  { path: "call-for-tutorials", title: "Call For Tutorials", src: "k1.webp" },
-  { path: "call-for-music", title: "Call For Music", src: "k1.webp" },
-  { path: "call-for-volunteers", title: "Call For Volunteers", src: "k1.webp" },
-  
+  {
+    path: "call-for-tutorials",
+    title: "Call For Tutorials",
+    src: "k1.webp",
+    parent: "Calls",
+  },
+  {
+    path: "call-for-music",
+    title: "Call For Music",
+    src: "k1.webp",
+    parent: "Calls",
+  },
+  {
+    path: "call-for-volunteers",
+    title: "Call For Volunteers",
+    src: "k1.webp",
+    parent: "Calls",
+  },
+
   // Guidelines
-  { path: "author-guidelines", title: "Author Guidelines", src: "k1.webp" },
+  {
+    path: "author-guidelines",
+    title: "Author Guidelines",
+    src: "k1.webp",
+    parent: "Author and Presenter Information",
+  },
   {
     path: "presenter-guidelines",
     title: "Presenter Guidelines",
     src: "k1.webp",
+    parent: "Author and Presenter Information",
   },
-  
+
   // Attend
   {
     path: "attend-registration",
     title: "Registration",
     src: "k1.webp",
+    parent: "Attend",
   },
-  { path: "attend-accommodation", title: "Accommodation", src: "k1.webp" },
-  { path: "attend-financial-support", title: "Financial Support", src: "k1.webp" },
-  { path: "attend-code-of-conduct", title: "Code of Conduct", src: "k1.webp" },
-  { path: "attend-visa-entry-guide", title: "Visa & Entry Guide", src: "k1.webp" },
-  { path: "attend-venue", title: "Venue", src: "k1.webp" },
-  { path: "attend-transportation", title: "Transportation", src: "k1.webp" },
-  { path: "attend-airport-to-daejeon", title: "Airport to/from Daejeon", src: "k1.webp" },
-  { path: "attend-local-transportation", title: "Local Transportation in Daejeon", src: "k1.webp" },
-  { path: "attend-campus-map", title: "Campus Map", src: "k1.webp" },
-  
+  {
+    path: "attend-accommodation",
+    title: "Accommodation",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  {
+    path: "attend-financial-support",
+    title: "Financial Support",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  {
+    path: "attend-code-of-conduct",
+    title: "Code of Conduct",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  {
+    path: "attend-visa-entry-guide",
+    title: "Visa & Entry Guide",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  { path: "attend-venue", title: "Venue", src: "k1.webp", parent: "Attend" },
+  {
+    path: "attend-transportation",
+    title: "Transportation",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  {
+    path: "attend-airport-to-daejeon",
+    title: "Airport to/from Daejeon",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  {
+    path: "attend-local-transportation",
+    title: "Local Transportation in Daejeon",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+  {
+    path: "attend-campus-map",
+    title: "Campus Map",
+    src: "k1.webp",
+    parent: "Attend",
+  },
+
   // Satellite Events
-  { path: "satellite-hcmir25", title: "HCMIR 2025", src: "k1.webp" },
-  { path: "satellite-dlfm12th", title: "12th DLfM", src: "k1.webp" },
-  { path: "satellite-llm4ma", title: "LLM4MA", src: "k1.webp" },
-  
+  {
+    path: "satellite-hcmir25",
+    title: "HCMIR",
+    src: "k1.webp",
+    parent: "Satellite Events",
+  },
+  {
+    path: "satellite-dlfm12th",
+    title: "DLfM",
+    src: "k1.webp",
+    parent: "Satellite Events",
+  },
+  {
+    path: "satellite-llm4ma",
+    title: "LLM4MA",
+    src: "k1.webp",
+    parent: "Satellite Events",
+  },
+
   // Diversity
   {
     path: "diversity-mentoring",
     title: "Mentoring",
     src: "k1.webp",
+    parent: "Diversity and Inclusion",
   },
   {
     path: "diversity-newcomer-squad",
     title: "Newcomer Squad",
     src: "k1.webp",
+    parent: "Diversity and Inclusion",
   },
-  
+
   // Sponsorship
   {
     path: "sponsorship-opportunities",
     title: "Sponsorship Opportunities",
     src: "k1.webp",
+    parent: "Sponsors",
   },
   {
     path: "meet-the-sponsors",
     title: "Meet the Sponsors",
     src: "k1.webp",
+    parent: "Sponsors",
   },
 ]);
 
@@ -156,25 +297,54 @@ onMounted(async () => {
 });
 
 const items = computed(() => {
-  return [
+  const breadcrumbItems = [
     {
-      title: "HOME",
+      title: "Home",
       disabled: false,
       href: "/",
     },
-    {
-      title: currentTitle.value?.title,
-      disabled: false,
-      href: "#",
-    },
   ];
+
+  // 상위 메뉴가 있는 경우 추가
+  if (currentTitle.value?.parent) {
+    breadcrumbItems.push({
+      title: currentTitle.value.parent,
+      disabled: true,
+      href: "#",
+    });
+  }
+
+  // 현재 페이지 추가
+  breadcrumbItems.push({
+    title: currentTitle.value?.title,
+    disabled: true,
+    href: "#",
+  });
+
+  return breadcrumbItems;
 });
 </script>
 
 <style lang="sass">
 #hero-alt {
-  .v-breadcrumbs__item {
-    color: #FFFFFF;
+  .v-breadcrumbs {
+    color: #FFFFFF !important;
+  }
+  .v-breadcrumbs .v-breadcrumbs__item {
+    color: #FFFFFF !important;
+  }
+  .v-breadcrumbs .v-breadcrumbs__item a {
+    color: #FFFFFF !important;
+    text-decoration: none;
+  }
+  .v-breadcrumbs .v-breadcrumbs__item--disabled {
+    color: #FFFFFF !important;
+  }
+  .v-breadcrumbs .v-breadcrumbs__item .v-breadcrumbs__item-text {
+    color: #FFFFFF !important;
+  }
+  .v-breadcrumbs * {
+    color: #FFFFFF !important;
   }
 }
 

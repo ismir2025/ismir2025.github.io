@@ -4,6 +4,7 @@ import CallForMusicPage from '../views/CallForMusicPage.vue';
 import KoreanTraditionalMusicConcertPage from '../views/KoreanTraditionalMusicConcertPage.vue';
 import ProgramMusic from '../views/ProgramMusic.vue';
 import ProgramKCultureNight from '../views/ProgramKCultureNight.vue';
+import ProgramBanquetAndJamSession from '../views/ProgramBanquetAndJamSession.vue';
 import ProgramSpecialSessionPage from '../views/ProgramSpecialSessionPage.vue';
 
 import ProgramTutorialsPage from '../views/ProgramTutorialsPage.vue';
@@ -38,6 +39,7 @@ import CampusMapPage from '../views/CampusMapPage.vue';
 
 import OrganizingCommitteePage from '../views/AboutOrganizingCommitteePage.vue';
 import AboutVolunteersPage from '../views/AboutVolunteersPage.vue';
+import AboutLogoPage from '../views/AboutLogoPage.vue';
 
 import MentoringPage from '../views/MentoringPage.vue';
 import NewcomerSquadPage from '../views/NewcomerSquadPage.vue';
@@ -57,6 +59,11 @@ const routes = [
     path: '/about-volunteers',
     name: 'about-volunteers',
     component: AboutVolunteersPage,
+  },
+  {
+    path: '/about-logo',
+    name: 'about-logo',
+    component: AboutLogoPage,
   },
   
   {
@@ -172,6 +179,11 @@ const routes = [
     path: '/program-kculture-night',
     name: 'program-kculture-night',
     component: ProgramKCultureNight,
+  },
+  {
+    path: '/program-banquet-and-jam-session',
+    name: 'program-banquet-and-jam-session',
+    component: ProgramBanquetAndJamSession,
   },
   {
     path: '/program-special-session',

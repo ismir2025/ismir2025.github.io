@@ -62,6 +62,56 @@
         </v-col>
       </v-row>
 
+      <!-- ===================== Local Volunteers Section ===================== -->
+      <v-card outlined elevation="0" class="pa-4 my-6">
+        <v-card-title
+          class="text-h4 mb-3 font-weight-bold text-center local-volunteer-title"
+        >
+          Local Volunteers
+        </v-card-title>
+        <v-card-text class="text-body text-center mb-4">
+          We also appreciate our local volunteers from Korean universities who
+          are supporting ISMIR 2025.
+        </v-card-text>
+      </v-card>
+
+      <!-- Local Volunteers Grid -->
+      <v-row>
+        <v-col
+          v-for="localVolunteer in localVolunteers"
+          :key="localVolunteer.name"
+          cols="3"
+        >
+          <v-card class="local-volunteer-card" elevation="1" height="100%">
+            <!-- Local Volunteer Info -->
+            <v-card-title
+              class="local-volunteer-name text-body-1 font-weight-bold"
+            >
+              {{ localVolunteer.name }}
+            </v-card-title>
+
+            <v-card-text class="local-volunteer-bio">
+              <p class="text-body-2">{{ localVolunteer.bio }}</p>
+            </v-card-text>
+
+            <!-- Personal URL Button -->
+            <v-card-actions v-if="localVolunteer.url" class="pa-3">
+              <v-btn
+                :href="localVolunteer.url"
+                target="_blank"
+                color="primary"
+                variant="outlined"
+                size="x-small"
+                block
+              >
+                <v-icon left size="small">mdi-web</v-icon>
+                Profile
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+
       <!-- ===================== Thank You Section ===================== -->
       <v-card
         outlined
@@ -219,6 +269,208 @@ export default {
           url: "https://zhaojw1998.github.io/",
         },
       ],
+      localVolunteers: [
+        {
+          name: "Joohye Son",
+          bio: "I'm Joohye Son. My research focuses on music source separation. I look forward to meeting you.",
+          url: null,
+        },
+        {
+          name: "Taehyeon Kim",
+          bio: "I am a Ph.D. student at Gwangju Institute of Science and Technology (GIST). My research interests include music transcription and generative models, with a focus on human–AI co-creativity.",
+          url: null,
+        },
+        {
+          name: "Minsoo Kang",
+          bio: "Hello, I am Minsoo, a graduate student in the integrated Master's–PhD program at GIST (Gwangju Institute of Science and Technology). My research focuses on Music Emotion Recognition and Generation.",
+          url: null,
+        },
+        {
+          name: "Hyunjae Kim",
+          bio: "I'm currently a Ph.D. candidate at KAIST, Music and Brain Lab. My research interests lie in computational neuroscience through AI modeling of sound and music.",
+          url: "https://www.mubl.kaist.ac.kr/khj-cv",
+        },
+        {
+          name: "Seokbeom Park",
+          bio: "Hello, my name is Seokbeom Park, a PhD candidate at KAIST studying the neuroscience of music. My research focuses on EEG-based neural tracking of musical information in naturalistic contexts. I am also a guitarist with a deep love for jazz, blues, and Fujii Kaze!",
+          url: null,
+        },
+        {
+          name: "Hyojin Kim",
+          bio: "Hi :) I've just started my journey as a Ph.D. student at KAIST. I'm focusing on music-related HCI, exploring new ways to make everyday music experience more engaging and enjoyable. Outside of research, I enjoy singing and playing various instruments as part of a band. Feel free to reach out!",
+          url: "https://www.linkedin.com/in/hyojinki99/",
+        },
+        {
+          name: "Taein Song",
+          bio: "I'm currently doing a Master's degree at KAIST. I'm particularly interested in the musical experiences of DHH populations, especially cochlear implant users.",
+          url: "https://www.mubl.kaist.ac.kr/복제-hjk-cv",
+        },
+        {
+          name: "Mirinae Lee",
+          bio: "I am a Master's student at KAIST in the Music and Brain Lab, with a background in classical composition. My research interests are in computational aesthetic assessment, music cognition, especially for the evaluation of AI-generated music. I aim to bridge human cognitive judgments of musical quality with computational models, capturing how structural and compositional factors shape aesthetic perception.",
+          url: "https://www.mubl.kaist.ac.kr/%EB%B3%B5%EC%A0%9C-sti-cv",
+        },
+        {
+          name: "Jaeran Choi",
+          bio: "Hello :) I'm Jaeran, a PhD student at the Music and Audio Computing Lab at KAIST. My research focuses on multimodal music interaction.",
+          url: "https://jaeranchoi.com",
+        },
+        {
+          name: "Hoyeol Sohn",
+          bio: "I am a Master's student at the Music and Audio Computing Lab and a Kaggle Competitions Master. My research focuses on multimodal integration in large language models, particularly across music, audio, and speech.",
+          url: "https://www.linkedin.com/in/hoyeol-sohn-127856227/",
+        },
+        {
+          name: "Minhee Lee",
+          bio: "Minhee Lee is a Master's student at the Music and Audio Computing Lab at KAIST. Her research focuses on AI-powered music agents, text-based music understanding, music retrieval systems, and the computational analysis of emotion in music. Combining her passion for music with her computer science and engineering background, she is working toward developing technologies that enrich people's lives through music.",
+          url: "https://www.minhee.io/",
+        },
+        {
+          name: "Sunjae Won",
+          bio: "I am a master's student at MACLAB, KAIST, and I am interested in enhancing music performances and assisting music creation.",
+          url: "mailto:sjcircle@kaist.ac.kr",
+        },
+        {
+          name: "Yoonjeong Park",
+          bio: "Hello, I am currently pursuing my Master's degree in Music AI research under Professor Juhan Nam at KAIST's Music and Audio Computing Lab. My research interest focuses on generative models, particularly Singing Voice Synthesis, Text-To-Speech, and Singing Voice Conversion. I am actively working on Lyric-based Singing Voice Editing task. I'm excited to contribute to ISMIR 2025 and connect with the community! Feel free to contact me:)",
+          url: "https://cottonlove.github.io/",
+        },
+        {
+          name: "Gyubin Lee",
+          bio: "I am a Master's student at the KAIST Music and Audio Computing Lab. My previous research focused on black-box neural effect modeling, and I am now interested in general audio generation.",
+          url: "https://sites.google.com/view/lgbin81/%ED%99%88",
+        },
+        {
+          name: "Carolina Carusi",
+          bio: "I am a PhD student in Culture Technology at KAIST's Music and Audio Computing Lab, where I also completed my Master's degree. With a background in Computer Engineering, my research focuses on applying AI methods to sound technologies. Currently, I am working on real-time beat and downbeat tracking, as well as the automatic generation of rhythm game beatmaps from audio using deep learning architectures.",
+          url: "https://www.linkedin.com/in/carolina-carusi-9796221b3",
+        },
+        {
+          name: "Junwon Lee",
+          bio: "Currently a PhD student in MAC Lab, KAIST, South Korea. Research interests cover Controllalble Audio Generation and Multimodal Learning (audio-visual-language).",
+          url: "https://jnwnlee.github.io",
+        },
+        {
+          name: "Kyung Taek Oh",
+          bio: "Kyung Taek Oh is a PhD candidate in Graduate School of Culture Technology at KAIST. His research focuses on integrating audio-visual archival methodologies for virtual reconstruction of cultural heritage sites and assets.",
+          url: "https://airislab.kaist.ac.kr",
+        },
+        {
+          name: "Jooeun Lim",
+          bio: "Hi, I'm June Lim, a master's student at KAIST. My current research interest is AI-based wave field synthesis.",
+          url: "https://www.linkedin.com/in/jooeunlim",
+        },
+        {
+          name: "Sangeun Cho",
+          bio: "I am a master's student in Cultural Technology at KAIST. I hold bachelor's degrees in Life Science(B.S.) and Classical Composition(B.M.). My research interests are auditory rehabilitation, and recording. I am also currently working as a composer and music director in play and musical.",
+          url: null,
+        },
+        {
+          name: "Hyerim Yun",
+          bio: "Hi, my name is Hyerim Yun. I majored in mathematics and did a joint major in cognitive science. I have an interest in 'Music and Audio AI' especially about how to visualize sound.",
+          url: "https://hyerim0809.notion.site/Arc-17f796e3ef2a4b23aa79a79a1c3a0bba",
+        },
+        {
+          name: "Hannah Park",
+          bio: "I am a Master's student at the MALer Lab, Sogang University, with a research interest in developing interactive web applications for showcasing and analyzing deep-learning models.",
+          url: "https://crescent.studio",
+        },
+        {
+          name: "Sihun Lee",
+          bio: "All things MIR! Currently a Master's student at MALer Lab, Sogang Univ.",
+          url: "https://www.linkedin.com/in/sihun-lee-44748b250",
+        },
+        {
+          name: "Dongmin Kim",
+          bio: "Hi! I'm currently teaching machines to read music. Master's student@MALer Lab, Sogang University",
+          url: "https://halsoo.github.io/",
+        },
+        {
+          name: "Seonguk Ju",
+          bio: "I'm a Master's student at the MALer Lab, Sogang University. I'm currently intrested in the application of AI to Korean traditional music.",
+          url: "https://www.linkedin.com/in/seonguk-ju-024502304/",
+        },
+        {
+          name: "Seola Cho",
+          bio: "I'm interested in music generation, currently an intern at MALerLab, Sogang University",
+          url: "https://github.com/jarammm",
+        },
+        {
+          name: "Sojeong An",
+          bio: "I am an undergraduate at Duksung Women's University, majoring in IT Media Engineering and Cultural Anthropology, and currently interning at the MALer Lab, Sogang University. With an interest in music AI, I would like to study it further in a master's program.",
+          url: null,
+        },
+        {
+          name: "Gary Jiwon Ri",
+          bio: "I'm a portfolio manager in asset management and a part-time PhD student at MALer Lab. A fan of Baroque keyboard music.",
+          url: "https://www.linkedin.com/in/gary-ri-82547316a",
+        },
+        {
+          name: "Minjun Kim",
+          bio: "Hi. I am deeply interested in music technology. Now an undergraduate student at Yonsei University, majoring Electrical & Electronic Engineering.",
+          url: null,
+        },
+        {
+          name: "Hyeonseok Choi",
+          bio: "PhD student in Music and Audio at Seoul National University. My research focuses on multimodal audio generation.",
+          url: null,
+        },
+        {
+          name: "Sungho Lee",
+          bio: "Ph.D student in Music and Audio Research Group, Seoul National University",
+          url: null,
+        },
+        {
+          name: "Kyungsu Kim",
+          bio: "PhD student in Music and Audio at Seoul National University. My research focuses on AI-driven tools for music production",
+          url: null,
+        },
+        {
+          name: "Saeyeon Hwang",
+          bio: "MS Student in Music Audio Research Group at Seoul National University. Research interest in Music Captioning.",
+          url: null,
+        },
+        {
+          name: "Eunsik Shin",
+          bio: "Ph.D candidate in Music and Audio Research Group, Seoul National University. My research focused on text-to-music retrieval and HCI in music domain.",
+          url: null,
+        },
+        {
+          name: "Dongyub Han",
+          bio: "MS student in Music and Audio at Seoul National University. My research focuses on Multi-Track Symbolic Music Generation and Music Structure Analysis",
+          url: null,
+        },
+        {
+          name: "Taeyeun Hwang",
+          bio: "MS student in Music and Audio at Seoul National University. My research focuses on music similarity and melody extraction.",
+          url: null,
+        },
+        {
+          name: "Jaeyoung Shin",
+          bio: "MS student in Music and Audio at Seoul National University, focusing on automatic quality assessment for synthesized audio",
+          url: null,
+        },
+        {
+          name: "Subeen Kim",
+          bio: "PhD student in Music and Audio at Seoul National University. My research focuses on music cognition and neuroscience, with applications in HCI and music production.",
+          url: "https://www.linkedin.com/in/maisie-been/",
+        },
+        {
+          name: "Yeeun Shin",
+          bio: "MS student in Music and Audio Research Group at Seoul National University, focusing on Music AI and Human-Computer Interaction (HCI).",
+          url: "https://ye-eun-shin.github.io/about/",
+        },
+        {
+          name: "Yideun (Eden) Park",
+          bio: "Glad to meet you all! I'm Eden from AIRIS Lab, KAIST. I've worked as a K-pop music producer for about 10 years and currently researching on the immersive sound of K-pop. Hope we could have great time during 2025 ISMIR, Korea!",
+          url: "https://www.linkedin.com/in/moreipeden?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+        },
+        {
+          name: "Minji Kim",
+          bio: "Hello, I'm Minji Kim, a postdoctoral researcher at the Future Lab, Sogang University. Trained as a gayageum performer, I hold a Ph.D. in Korean Traditional Music Theory. My research in Korean traditional music pedagogy focuses on identifying its enculturated performance patterns and integrating technology to design effective teaching methods.",
+          url: "https://www.youtube.com/channel/UC3wU2I7zKh7kUWDaLDmM8kA",
+        },
+      ],
     };
   },
 };
@@ -340,6 +592,15 @@ export default {
     font-size: 0.85rem;
     max-height: 100px;
   }
+
+  .local-volunteer-name {
+    font-size: 0.9rem !important;
+  }
+
+  .local-volunteer-bio p {
+    font-size: 0.8rem;
+    max-height: 80px;
+  }
 }
 
 /* ===================== Button Styles ===================== */
@@ -354,6 +615,69 @@ export default {
 
 .v-col {
   padding: 2px;
+}
+
+/* ===================== Local Volunteer Card Styles ===================== */
+.local-volunteer-card {
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #fafbfc;
+}
+
+.local-volunteer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.local-volunteer-name {
+  color: #666 !important;
+  font-size: 1rem !important;
+  line-height: 1.3;
+  padding: 12px 12px 6px 12px !important;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.local-volunteer-bio {
+  flex-grow: 1;
+  padding: 0 12px 12px 12px !important;
+}
+
+.local-volunteer-bio p {
+  line-height: 1.4;
+  color: #666;
+  font-size: 0.85rem;
+  margin: 0;
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+}
+
+/* Local Volunteer 스크롤바 스타일링 */
+.local-volunteer-bio p::-webkit-scrollbar {
+  width: 3px;
+}
+
+.local-volunteer-bio p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 1px;
+}
+
+.local-volunteer-bio p::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 1px;
+}
+
+.local-volunteer-bio p::-webkit-scrollbar-thumb:hover {
+  background: #b8b8b8;
+}
+
+.local-volunteer-title {
+  color: #666 !important;
 }
 
 /* ===================== Header Section ===================== */

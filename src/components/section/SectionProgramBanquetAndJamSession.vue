@@ -197,74 +197,24 @@
                 Please use the signup sheet to suggest songs and sign up for
                 playing in different bands!
               </div>
-              <div class="signup-item mb-3">
-                <strong>ISMIR 2025 Jam Signup Spreadsheet</strong>
+
+              <!-- Signup Button -->
+              <div class="signup-button-container text-center mt-4">
+                <v-btn
+                  href="https://docs.google.com/spreadsheets/d/1nFg-yNkH--ixXqp8iyaXA39_p5UNrEZduhC3j7crfLY/edit?usp=sharing"
+                  target="_blank"
+                  color="#004191"
+                  class="signup-button"
+                  x-large
+                  block
+                  elevation="6"
+                >
+                  <v-icon left class="mr-3" size="24">mdi-table-edit</v-icon>
+                  ISMIR 2025 Jam Signup Spreadsheet
+                </v-btn>
               </div>
-            </v-card-text>
-          </div>
 
-          <!-- Jam Session Signup Cards -->
-          <div class="signup-cards mb-4">
-            <v-card-title class="text-h6 mb-3 font-weight-bold">
-              Current Song List & Band Members
-            </v-card-title>
-
-            <div class="songs-grid">
-              <div
-                v-for="(song, index) in jamSignups"
-                :key="index"
-                class="song-card"
-              >
-                <div class="song-header">
-                  <h4 class="song-name">{{ song.songTitle }}</h4>
-                  <p class="artist-name" v-if="song.artist">
-                    {{ song.artist }}
-                  </p>
-                </div>
-
-                <div class="band-lineup">
-                  <div v-if="song.guitar1" class="member-badge guitar">
-                    <span class="instrument-emoji">🎸</span>
-                    <span class="member-name">{{ song.guitar1 }}</span>
-                  </div>
-                  <div v-if="song.guitar2" class="member-badge guitar">
-                    <span class="instrument-emoji">🎸</span>
-                    <span class="member-name">{{ song.guitar2 }}</span>
-                  </div>
-                  <div v-if="song.bass" class="member-badge bass">
-                    <span class="instrument-emoji">🎸</span>
-                    <span class="member-name">{{ song.bass }}</span>
-                  </div>
-                  <div v-if="song.drums" class="member-badge drums">
-                    <span class="instrument-emoji">🥁</span>
-                    <span class="member-name">{{ song.drums }}</span>
-                  </div>
-                  <div v-if="song.vocals" class="member-badge vocals">
-                    <span class="instrument-emoji">🎤</span>
-                    <span class="member-name">{{ song.vocals }}</span>
-                  </div>
-                  <div
-                    v-if="song.keyboard"
-                    class="member-badge keyboard"
-                    :class="{ needed: song.keyboard === 'needed!' }"
-                  >
-                    <span class="instrument-emoji">🎹</span>
-                    <span class="member-name">{{ song.keyboard }}</span>
-                  </div>
-                  <div v-if="song.piano" class="member-badge piano">
-                    <span class="instrument-emoji">🎹</span>
-                    <span class="member-name">{{ song.piano }}</span>
-                  </div>
-                  <div v-if="song.others" class="member-badge others">
-                    <span class="instrument-emoji">🎷</span>
-                    <span class="member-name">{{ song.others }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <v-card-text class="signup-footer mt-4">
-              <div class="signup-item mb-3">
+              <div class="signup-item mt-4 text-center">
                 <em>Make sure to not miss this titanic event!</em>
               </div>
             </v-card-text>
@@ -320,113 +270,6 @@ export default {
         ],
         chairs: ["Zachary Novack", "Sebastian Stober", "Keunwoo Choi"],
       },
-      jamHeaders: [
-        {
-          text: "Song & Artist",
-          value: "songTitle",
-          width: "40%",
-          sortable: false,
-          class: "song-header",
-        },
-        {
-          text: "Band Members",
-          value: "members",
-          width: "60%",
-          sortable: false,
-          class: "members-header",
-        },
-      ],
-      jamSignups: [
-        {
-          songTitle: "Piano Concerto No. 2 (excerpt; any mvt)",
-          artist: "Sergei Rachmoninoff",
-          keyboard: "needed!",
-          piano: "Tao-Tao He",
-          notes: "",
-        },
-        {
-          songTitle: "Seek and Destroy",
-          artist: "Metallica",
-          guitar1: "Marijn",
-          vocals: "Jose",
-          notes: "",
-        },
-        {
-          songTitle: "Chamleon",
-          artist: "Herbie Hancock",
-          bass: "Geoffroy Peeters",
-          drums: "Chih-Cheng Chang",
-          vocals: "Albin",
-          keyboard: "Michael Gancz / Christof Weiß",
-          notes: "",
-        },
-        {
-          songTitle: "Freedom",
-          artist: "Rage against the Machine",
-          drums: "Filip Korzeniowski",
-          vocals: "Albin",
-          notes: "",
-        },
-        {
-          songTitle: "Rock 'n' Roll Star",
-          artist: "Oasis",
-          guitar1: "Ju-Chiang Wang",
-          guitar2: "Geoffroy Peeters",
-          bass: "Cheng-i",
-          drums: "Sebastian Stober",
-          vocals: "Geoffroy ?",
-          notes: "",
-        },
-        {
-          songTitle: "Learn to Fly",
-          artist: "Foo Fighters",
-          guitar1: "Ju-Chiang Wang",
-          guitar2: "Marijn",
-          bass: "Cheng-i",
-          drums: "Sebastian Stober",
-          vocals: "Jose",
-          keyboard: "Michael Gancz",
-          notes: "",
-        },
-        {
-          songTitle: "Take The Power Back",
-          artist: "Rage against the Machine",
-          drums: "Filip Korzeniowski",
-          notes: "",
-        },
-        {
-          songTitle: "Ma mère l'Oye (Mother Goose), M.60",
-          artist: "M. Ravel",
-          piano: "Jiyun Park, Sein Lee (4 hands)",
-          notes: "",
-        },
-        {
-          songTitle: "Sir Duke",
-          artist: "Stevie Wonder",
-          others: "robot sax quartet ensemble (soprano, alto, tenor, baritone)",
-          notes: "",
-        },
-        {
-          songTitle: "April in Paris",
-          artist: "Count Basie",
-          others: "robot sax quartet ensemble (soprano, alto, tenor, baritone)",
-          notes: "",
-        },
-        {
-          songTitle: "Supercalifragilisticexpialidocious",
-          artist: "Robert Bernard Sherman",
-          others: "robot sax quartet ensemble (soprano, alto, tenor, baritone)",
-          notes: "",
-        },
-        {
-          songTitle: "Friday I'm in Love",
-          artist: "The Cure",
-          guitar1: "Ju-Chiang Wang",
-          bass: "Chih-Cheng Chang",
-          vocals: "Ju-Chiang Wang",
-          notes: "",
-        },
-      ],
     };
   },
   methods: {
@@ -519,13 +362,19 @@ export default {
 .transportation-info,
 .return-info,
 .equipment-info,
-.signup-info,
-.signup-cards,
 .chairs-info {
   background-color: #f8f9fa;
   border-radius: 8px;
   padding: 16px;
   margin: 16px 0;
+}
+
+.signup-info {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px 16px 24px 16px;
+  margin: 16px 0;
+  overflow: visible;
 }
 
 .event-item,
@@ -555,157 +404,31 @@ export default {
   margin-top: 12px;
 }
 
-/* Jam Session Cards Styles */
-.songs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
-  margin: 20px 0;
+/* Signup Button Styles */
+.signup-button-container {
+  margin: 24px 0 32px 0;
+  padding: 8px 0;
+  overflow: visible;
 }
 
-.song-card {
-  background: white;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 2px solid #e9ecef;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+.signup-button {
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  padding: 20px 40px !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 6px 16px rgba(0, 65, 145, 0.4) !important;
+  margin: 16px 0 !important;
+  min-height: 64px !important;
 }
 
-.song-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #004191, #ed5e60);
-}
-
-.song-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border-color: #004191;
-}
-
-.song-header {
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #e9ecef;
-}
-
-.song-name {
-  color: #004191;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  line-height: 1.3;
-}
-
-.artist-name {
-  color: #6c757d;
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 500;
-  margin: 0;
-}
-
-.band-lineup {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.member-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  border-radius: 24px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  border: 2px solid transparent;
-}
-
-.member-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.member-badge.guitar {
-  background-color: rgba(237, 94, 96, 0.1);
-  color: #ed5e60;
-  border-color: rgba(237, 94, 96, 0.2);
-}
-
-.member-badge.bass {
-  background-color: rgba(0, 65, 145, 0.1);
-  color: #004191;
-  border-color: rgba(0, 65, 145, 0.2);
-}
-
-.member-badge.drums {
-  background-color: rgba(255, 193, 7, 0.1);
-  color: #ff8f00;
-  border-color: rgba(255, 193, 7, 0.2);
-}
-
-.member-badge.vocals {
-  background-color: rgba(156, 39, 176, 0.1);
-  color: #8e24aa;
-  border-color: rgba(156, 39, 176, 0.2);
-}
-
-.member-badge.keyboard,
-.member-badge.piano {
-  background-color: rgba(76, 175, 80, 0.1);
-  color: #43a047;
-  border-color: rgba(76, 175, 80, 0.2);
-}
-
-.member-badge.others {
-  background-color: rgba(255, 87, 34, 0.1);
-  color: #f4511e;
-  border-color: rgba(255, 87, 34, 0.2);
-}
-
-.member-badge.needed {
-  background-color: rgba(255, 193, 7, 0.2);
-  color: #ff8f00;
-  border-color: rgba(255, 193, 7, 0.4);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
-  }
-}
-
-.instrument-emoji {
-  font-size: 18px;
-  margin-right: 4px;
-  display: inline-block;
-}
-
-.member-name {
-  font-weight: 600;
-}
-
-.signup-footer {
-  text-align: center;
-  border-top: 1px solid #e9ecef;
-  padding-top: 16px;
-  margin-top: 16px;
+.signup-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(0, 65, 145, 0.4) !important;
+  background-color: #003366 !important;
 }
 
 .text-body {
@@ -788,34 +511,16 @@ export default {
     font-size: 1.1rem !important;
   }
 
-  .songs-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+  .signup-button {
+    font-size: 18px !important;
+    padding: 16px 32px !important;
+    margin: 12px 0 !important;
+    min-height: 56px !important;
   }
 
-  .song-card {
-    padding: 20px;
-  }
-
-  .song-name {
-    font-size: 18px;
-  }
-
-  .artist-name {
-    font-size: 14px;
-  }
-
-  .band-lineup {
-    gap: 8px;
-  }
-
-  .member-badge {
-    font-size: 13px;
-    padding: 6px 10px;
-  }
-
-  .instrument-emoji {
-    font-size: 16px;
+  .signup-button-container {
+    margin: 20px 0 28px 0;
+    padding: 12px 0;
   }
 }
 

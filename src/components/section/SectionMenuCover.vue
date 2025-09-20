@@ -24,11 +24,11 @@
 
           <v-breadcrumbs
             :items="items"
-            style="justify-content: center; color: #ffffff !important"
-            class="text-shadow-soft"
+            style="justify-content: center"
+            class="text-shadow-soft breadcrumb-white"
           >
             <template #divider>
-              <v-icon icon="mdi-chevron-right" />
+              <v-icon icon="mdi-chevron-right" color="white" />
             </template>
           </v-breadcrumbs>
         </v-col>
@@ -327,24 +327,32 @@ const items = computed(() => {
 
 <style lang="sass">
 #hero-alt {
-  .v-breadcrumbs {
-    color: #FFFFFF !important;
-  }
-  .v-breadcrumbs .v-breadcrumbs__item {
-    color: #FFFFFF !important;
-  }
-  .v-breadcrumbs .v-breadcrumbs__item a {
-    color: #FFFFFF !important;
-    text-decoration: none;
-  }
-  .v-breadcrumbs .v-breadcrumbs__item--disabled {
-    color: #FFFFFF !important;
-  }
-  .v-breadcrumbs .v-breadcrumbs__item .v-breadcrumbs__item-text {
-    color: #FFFFFF !important;
-  }
-  .v-breadcrumbs * {
-    color: #FFFFFF !important;
+  .breadcrumb-white {
+    .v-breadcrumbs-item {
+      color: #FFFFFF !important;
+
+      .v-breadcrumbs-item__text {
+        color: #FFFFFF !important;
+      }
+
+      a {
+        color: #FFFFFF !important;
+        text-decoration: none;
+      }
+
+      &--disabled {
+        color: #FFFFFF !important;
+        opacity: 0.8;
+
+        .v-breadcrumbs-item__text {
+          color: #FFFFFF !important;
+        }
+      }
+    }
+
+    .v-breadcrumbs-divider {
+      color: #FFFFFF !important;
+    }
   }
 }
 

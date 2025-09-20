@@ -326,6 +326,31 @@
                         <v-list-item>
                           <v-list-item-content>
                             <v-list-item-title>
+                              <strong>604</strong> |
+                              <a
+                                href="https://naver.me/GedPAUui"
+                                target="_blank"
+                                style="color: #004191"
+                              >
+                                View on Naver Map
+                              </a>
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
+                    </v-card>
+
+                    <!-- Bus Stop 2 -->
+                    <v-card class="pa-4 mb-4" outlined>
+                      <v-card-subtitle
+                        class="text-h6 mb-3 pa-0 font-weight-bold"
+                      >
+                        🚌 Buses stopping at Bus Stop 2
+                      </v-card-subtitle>
+                      <v-list dense>
+                        <v-list-item>
+                          <v-list-item-content>
+                            <v-list-item-title>
                               <strong>특구1(Special Zone 1)</strong> |
                               <a
                                 href="https://naver.me/xvtuX2b9"
@@ -357,31 +382,6 @@
                               <strong>121</strong> |
                               <a
                                 href="https://naver.me/5buYQxO0"
-                                target="_blank"
-                                style="color: #004191"
-                              >
-                                View on Naver Map
-                              </a>
-                            </v-list-item-title>
-                          </v-list-item-content>
-                        </v-list-item>
-                      </v-list>
-                    </v-card>
-
-                    <!-- Bus Stop 2 -->
-                    <v-card class="pa-4 mb-4" outlined>
-                      <v-card-subtitle
-                        class="text-h6 mb-3 pa-0 font-weight-bold"
-                      >
-                        🚌 Buses stopping at Bus Stop 2
-                      </v-card-subtitle>
-                      <v-list dense>
-                        <v-list-item>
-                          <v-list-item-content>
-                            <v-list-item-title>
-                              <strong>604</strong> |
-                              <a
-                                href="https://naver.me/GedPAUui"
                                 target="_blank"
                                 style="color: #004191"
                               >

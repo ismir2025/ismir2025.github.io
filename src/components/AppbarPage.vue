@@ -68,7 +68,7 @@
         variant="text"
         @click="navigateToVirtualPlatform"
       >
-        Virtual Platform
+        Virtual<br />Platform
       </v-btn>
 
       <v-menu offset-y v-model="isIPMenuOpen" close-on-content-click>

@@ -93,13 +93,14 @@
 
           <div class="philosophy-content">
             <p class="text-body-1 leading-relaxed mb-4">
-              The ISMIR 2025 logo encapsulates the conference subject,
-              <strong>"The Harmony of Tradition and Modernity,"</strong> via a
-              visual narrative. The design integrates
+              The ISMIR 2025 logo encapsulates the conference theme,
+              <strong>"The Harmony of Tradition and Modernity,"</strong> through
+              a distinctly Korean visual narrative. The design integrates
               <strong>Daejeon's iconic architecture</strong>,
               <strong>traditional Korean art forms</strong>, and
               <strong>musical notation</strong>
-              into a cohesive composition.
+              into a cohesive composition that represents this universal theme
+              through Korean cultural lens.
             </p>
             <v-alert
               variant="tonal"
@@ -115,8 +116,8 @@
               <span class="font-weight-medium">
                 This design encapsulates the complex identity of music
                 information retrieval—connecting historical knowledge with
-                future innovation, art with science, and local with universal
-                elements.
+                future innovation, art with science, and local cultural
+                expression with universal academic discourse.
               </span>
             </v-alert>
           </div>
@@ -228,7 +229,8 @@
                     <em>"Gyeonwu-Jiknyeo Bridge,"</em> integrating it into
                     traditional folklore. This event illustrates that tradition
                     is not a mere artifact of history, but a dynamic culture
-                    perpetually redefined in modern existence.
+                    perpetually redefined in modern existence—a principle
+                    exemplified here through Korean cultural evolution.
                   </p>
                   <v-alert
                     variant="tonal"
@@ -429,7 +431,8 @@
                     <strong>Eum-Yang (음양, Yin-Yang)</strong>, where blue
                     represents the cool, contemplative yin and red symbolizes
                     the warm, dynamic yang, reflecting the balanced duality
-                    essential to scholarly pursuit.
+                    essential to scholarly pursuit—a principle that resonates
+                    universally across cultures.
                   </p>
                   <v-alert
                     variant="tonal"
@@ -443,11 +446,12 @@
                     </template>
                     <span class="font-weight-medium">
                       This scientific methodology in color design, rooted in
-                      both Western color theory and Eastern philosophical
+                      both Western color theory and Korean philosophical
                       principles of Eum-Yang, illustrates that harmony arises
                       not from randomness but from exact equilibrium,
                       articulating in chromatic terms the conference's quest for
-                      the coexistence of rigor and creativity.
+                      the coexistence of rigor and creativity through Korean
+                      cultural expression of this universal theme.
                     </span>
                   </v-alert>
                 </v-card-text>
@@ -512,11 +516,11 @@
                           <h4
                             class="text-h6 font-weight-bold mb-2 primary-text"
                           >
-                            Korean Culture
+                            Korean Cultural Expression
                           </h4>
                           <p class="text-body-2 text-grey-darken-1">
-                            A significant discourse between tradition and
-                            modernity
+                            A Korean interpretation of the universal discourse
+                            between tradition and modernity
                           </p>
                         </v-card-text>
                       </v-card>
@@ -544,8 +548,11 @@
                   </v-row>
                   <p class="text-body-1 leading-relaxed mb-4">
                     This interpretative depth embodies ISMIR's inclusive ethos,
-                    uniting scholars from varied backgrounds to generate new
-                    knowledge.
+                    where Korean cultural expression of the universal theme
+                    'Harmony of Tradition and Modernity' creates a meaningful
+                    bridge for international scholars from varied backgrounds to
+                    engage with both local cultural richness and global academic
+                    discourse.
                   </p>
                   <v-alert
                     variant="tonal"

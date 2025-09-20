@@ -10,7 +10,11 @@
           <!-- Extended Logo Banner -->
           <div class="banner-container">
             <v-img
-              :src="require('@/assets/background.png')"
+              :src="
+                $vuetify.display.mobile
+                  ? require('@/assets/ExtendedLogo.png')
+                  : require('@/assets/background.png')
+              "
               alt="ISMIR 2025 Extended Logo Banner"
               class="banner-image"
               aspect-ratio="16/12"

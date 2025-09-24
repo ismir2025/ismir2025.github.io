@@ -127,7 +127,7 @@
             Live Performance
           </v-card-title>
           <v-card-title class="performers mb-3">
-            <strong>Performers:</strong> Hyo Jee Kang, Jinok Jo, Joohun Lee
+            <strong>Performers:</strong> Hyo Jee Kang, Jinok Cho, Joohun Lee
           </v-card-title>
           
           

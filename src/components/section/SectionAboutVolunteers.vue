@@ -73,6 +73,17 @@
           We also appreciate our local volunteers from Korean universities who
           are supporting ISMIR 2025.
         </v-card-text>
+        
+        <!-- Local Volunteers Group Photo -->
+        <div class="text-center mb-4">
+          <v-img
+            src="@/assets/Volunteers/localVolunteer.jpg"
+            alt="Local Volunteers Group Photo"
+            class="local-volunteer-group-photo mx-auto"
+            max-width="800"
+            contain
+          ></v-img>
+        </div>
       </v-card>
 
       <!-- Local Volunteers Grid -->
@@ -678,6 +689,18 @@ export default {
 
 .local-volunteer-title {
   color: #666 !important;
+}
+
+/* ===================== Local Volunteer Group Photo Styles ===================== */
+.local-volunteer-group-photo {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.local-volunteer-group-photo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* ===================== Header Section ===================== */

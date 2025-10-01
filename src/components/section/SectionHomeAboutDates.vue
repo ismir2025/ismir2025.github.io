@@ -140,6 +140,210 @@
 
       <v-divider></v-divider>
       <br />
+      
+      <!-- Awards Section -->
+      <v-card outlined elevation="0" class="pa-4 my-4">
+        <v-card-title class="text-h4 mb-6 font-weight-bold"
+          >🏆 ISMIR 2025 Awards</v-card-title
+        >
+        
+        <!-- Test-of-Time Awards -->
+        <div class="award-category mb-8">
+          <v-card-title
+            class="text-h5 mb-4"
+            style="color: #d4af37; font-weight: 600"
+            >Test-of-Time Awards</v-card-title
+          >
+          
+          <v-row justify="center" class="mb-4">
+            <!-- 10-Year Test-of-Time Award -->
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card">
+                <div class="award-badge">10-Year Award</div>
+                <h3 class="award-title">An Efficient State-Space Method for Joint Tempo and Meter Tracking</h3>
+                <p class="award-authors">Florian Krebs, Sebastian Böck, and Gerhard Widmer</p>
+              </div>
+            </v-col>
+            
+            <!-- 10-Year Test-of-Time Runner-Up -->
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card">
+                <div class="award-badge runner-up">10-Year Runner-Up</div>
+                <h3 class="award-title">A Software Framework For Musical Data Augmentation</h3>
+                <p class="award-authors">Brian McFee, Eric J. Humphrey, and Juan P. Bello</p>
+              </div>
+            </v-col>
+          </v-row>
+          
+          <v-row justify="center">
+            <!-- Classical Test-of-Time Awards -->
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card">
+                <div class="award-badge classical">Classical Award</div>
+                <h3 class="award-title">Audio Matching via Chroma-Based Statistical Features</h3>
+                <p class="award-authors">Meinard Müller, Frank Kurth, Michael Clausen</p>
+              </div>
+            </v-col>
+            
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card">
+                <div class="award-badge classical">Classical Award</div>
+                <h3 class="award-title">AIST Annotation for the Music Database</h3>
+                <p class="award-authors">Masataka Goto</p>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
+
+        <!-- Best Paper Awards -->
+        <div class="award-category mb-8">
+          <v-card-title
+            class="text-h5 mb-4"
+            style="color: #ff6b35; font-weight: 600"
+            >Best Paper Awards</v-card-title
+          >
+          
+          <v-row justify="center">
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card best-paper">
+                <div class="award-badge best">Best Paper</div>
+                <h3 class="award-title">A Fourier Explanation of AI-music Artifacts</h3>
+                <p class="award-authors">Darius Afchar, Gabriel Meseguer Brocal, Kamil Akesbi, Romain Hennequin</p>
+              </div>
+            </v-col>
+            
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card best-paper">
+                <div class="award-badge best">Best Paper</div>
+                <h3 class="award-title">Are you really listening? Boosting Perceptual Awareness in Music-QA Benchmarks</h3>
+                <p class="award-authors">Yongyi Zang, Sean O'brien, Taylor Berg Kirkpatrick, Julian McAuley, Zachary Novack</p>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
+
+        <!-- Best Student Paper Awards -->
+        <div class="award-category mb-8">
+          <v-card-title
+            class="text-h5 mb-4"
+            style="color: #4caf50; font-weight: 600"
+            >Best Student Paper Awards</v-card-title
+          >
+          
+          <v-row justify="center">
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card student-paper">
+                <div class="award-badge student">Best Student</div>
+                <h3 class="award-title">Audio synthesizer inversion in symmetric parameter spaces with approximately equivariant flow matching</h3>
+                <p class="award-authors">Ben Hayes, Charalampos Saitis, György Fazekas</p>
+              </div>
+            </v-col>
+            
+            <v-col cols="12" md="6" class="pa-2">
+              <div class="modern-award-card student-paper">
+                <div class="award-badge student">Best Student</div>
+                <h3 class="award-title">GlobalMood: A cross-cultural benchmark for music emotion recognition</h3>
+                <p class="award-authors">Harin Lee, Elif Çöleri, Peter Harrison, Manuel Anglada Tort, Pol Van Rijn, Minou Park, Marc Schönwiesner, Nori Jacoby</p>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
+
+        <!-- Outstanding Reviewers -->
+        <div class="award-category">
+          <v-card-title
+            class="text-h5 mb-4"
+            style="color: #9c27b0; font-weight: 600"
+            >Outstanding Reviewers</v-card-title
+          >
+          
+          <div class="reviewers-grid">
+            <v-row>
+              <v-col cols="12" md="6">
+                <div class="reviewer-column">
+                  <div class="reviewer-card">
+                    <strong>Ilya Borovik</strong>
+                    <span>Skolkovo Institute of Science and Technology</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Andrea Poltronieri</strong>
+                    <span>MTG - Universitat Pompeu Fabra</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Yannis Vasilakis</strong>
+                    <span>Queen Mary University of London</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Martin Malandro</strong>
+                    <span>Sam Houston State University</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Nithya Shikarpur</strong>
+                    <span>Mila; University of Montreal</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Richa Namballa</strong>
+                    <span>New York University</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Francesco Foscarin</strong>
+                    <span>Music AI</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Benjamin Martin</strong>
+                    <span>Deezer</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Ondřej Cífka</strong>
+                    <span>AudioShake</span>
+                  </div>
+                </div>
+              </v-col>
+              <v-col cols="12" md="6">
+                <div class="reviewer-column">
+                  <div class="reviewer-card">
+                    <strong>Yiwei Ding</strong>
+                    <span>University of Würzburg</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Shih-Lun Wu</strong>
+                    <span>National Taiwan University</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Ben Hayes</strong>
+                    <span>Queen Mary University of London</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Katharina Hoedt</strong>
+                    <span>Johannes Kepler University Linz</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Yi Wu</strong>
+                    <span>NYU Music and Audio Research Laboratory</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Juan Carlos Martinez-Sevilla</strong>
+                    <span>University of Alicante</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Peter Meier</strong>
+                    <span>International Audio Laboratories Erlangen</span>
+                  </div>
+                  <div class="reviewer-card">
+                    <strong>Charilaos Papaioiannou</strong>
+                    <span>National Technical University of Athens</span>
+                  </div>
+                </div>
+              </v-col>
+            </v-row>
+          </div>
+        </div>
+        
+        <br />
+        <v-divider></v-divider>
+      </v-card>
+      <br />
+
       <v-card outlined elevation="0" class="pa-4 my-4">
         <v-card-title class="text-h4 mb-3 font-weight-bold"
           >Conference Sponsors and Exhibitors</v-card-title
@@ -622,5 +826,123 @@ import neutoneLogo from "@/assets/logo/neutone.png"; // In progress
 .styled-row {
   border-bottom: 1px solid #d3d3d3; /* ȸ�� �� */
   padding-bottom: 8px; /* �ٰ� ���� �� ���� */
+}
+
+/* Modern Awards Section Styles */
+.award-category {
+  margin-bottom: 3rem;
+}
+
+.modern-award-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.modern-award-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.award-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.award-badge.runner-up {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.award-badge.classical {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.award-badge.best {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.award-badge.student {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.award-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.award-authors {
+  font-size: 15px;
+  color: #6c757d;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Outstanding Reviewers Modern Styles */
+.reviewers-grid {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.reviewer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reviewer-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.2s ease;
+  border: 1px solid #e9ecef;
+}
+
+.reviewer-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.reviewer-card strong {
+  font-size: 16px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.reviewer-card span {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .modern-award-card {
+    margin-bottom: 16px;
+  }
+  
+  .reviewer-column {
+    margin-bottom: 20px;
+  }
 }
 </style>

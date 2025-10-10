@@ -188,7 +188,7 @@
             <v-col cols="12" md="6" class="pa-2">
               <div class="modern-award-card">
                 <div class="award-badge classical">Classical Award</div>
-                <h3 class="award-title">AIST Annotation for the Music Database</h3>
+                <h3 class="award-title">AIST Annotation for the RWC Music Database</h3>
                 <p class="award-authors">Masataka Goto</p>
               </div>
             </v-col>

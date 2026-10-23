@@ -19,3 +19,7 @@ pnpm-debug.log*
 *.sln
 *.sw?
 node_modules
+
+# Local environment
+.env.local
+.env.*.local
